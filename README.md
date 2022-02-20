@@ -1,4 +1,4 @@
-<img src="Logo-Dev4Me/logo-completo-degrade-dev4me.png" alt="Dev4me logo">
+<img src="Logo-Dev4Me/logo-completo-degrade-dev4me.png" alt="Dev4me logo" align="center">
 # Dev4me
 Grupo Criado para o projeto de PI 3ºsemestre
 
