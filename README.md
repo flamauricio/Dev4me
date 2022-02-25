@@ -1,12 +1,20 @@
-# Dev4me
-Grupo Criado para o projeto de PI 3ºsemestre
+![Alt text](Logo-Dev4Me/logo-completo-degrade-dev4me.png "Logo")
 
-Regras Git:
+# Sobre 
+Projeto referente ao 3º semestre do curso de Analise e Desenvolvimento de Sistemas
 
--> branch: Main *Exclusiva projeto finalizado*
+# Faculdade :school:
+SP Tech 
 
--> branch: sprint01 e demais sprints *Principal*
+# Grupo 
+Grupo 2 ADS B
 
--> branch: <nome da task e numero> *ramificação da sprint atual*
-  
-  <b> Subir para a branch sprint apos teste e funcional </b>
+# Linguaguens e Frameworks 
+
+# Desenvolvedores :man_technologist:
+- Gabriel Vieira 
+- Guilherme de Carvalho
+- Flavio Mauricio
+- Breno de Freitas
+- Pedro de Souza
+- Karoll Araujo
