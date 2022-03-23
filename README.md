@@ -9,8 +9,8 @@ SP Tech
 # Grupo 
 Grupo 2 ADS B
 
-# Linguaguens e Frameworks 
-https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+# Linguaguens e Frameworks 🚀
+<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
 
 # Desenvolvedores :man_technologist:
 - Gabriel Vieira 
