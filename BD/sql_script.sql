@@ -1,4 +1,5 @@
 -- MySQL Workbench Forward Engineering
+create database db_devme;
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
@@ -9,28 +10,28 @@ USE `db_devme` ;
 -- -----------------------------------------------------
 -- Table `mydb`.`Usuario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_devme`.`Usuario` (
-  `idUser` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `db_devme`.`usuario` (
+  `id_user` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `owner_email` VARCHAR(45) NOT NULL,
   `senha` CHAR(16) NOT NULL,
   `data_nasc` DATETIME NULL,
   `desc_user` VARCHAR(200) NULL,
-  `fkCandidatura` INT NOT NULL,
-  PRIMARY KEY (`idUser`))
+  `fk_candidatura` INT NULL,
+  PRIMARY KEY (`id_user`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `mydb`.`Empresa`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_devme`.`Empresa` (
-  `idEmpresa` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `db_devme`.`empresa` (
+  `id_empresa` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NULL,
   `login` VARCHAR(45) NULL,
   `senha` VARCHAR(45) NULL,
   `email` VARCHAR(45) NULL,
-  PRIMARY KEY (`idEmpresa`))
+  PRIMARY KEY (`id_empresa`))
 AUTO_INCREMENT = 100
 ENGINE = InnoDB;
 
