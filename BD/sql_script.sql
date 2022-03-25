@@ -22,6 +22,8 @@ CREATE TABLE IF NOT EXISTS `db_devme`.`usuario` (
 ENGINE = InnoDB;
 
 
+
+
 -- -----------------------------------------------------
 -- Table `mydb`.`Empresa`
 -- -----------------------------------------------------
@@ -39,16 +41,16 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Vagas`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_devme`.`Vagas` (
-  `idVagas` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `db_devme`.`vagas` (
+  `id_vagas` INT NOT NULL AUTO_INCREMENT,
   `descricao` VARCHAR(45) NULL,
-  `isDisponivel` TINYINT NULL,
-  `Empresa_idEmpresa` INT NOT NULL,
-  PRIMARY KEY (`idVagas`),
-  INDEX `fk_Vagas_Empresa1_idx` (`Empresa_idEmpresa` ASC) VISIBLE,
-  CONSTRAINT `fk_Vagas_Empresa1`
-    FOREIGN KEY (`Empresa_idEmpresa`)
-    REFERENCES `db_devme`.`Empresa` (`idEmpresa`)
+  `is_disponivel` TINYINT NULL,
+  `fk_empresa` INT NOT NULL,
+  PRIMARY KEY (`id_vagas`),
+  INDEX `fk_vagas_empresa1_idx` (`fk_empresa` ASC) VISIBLE,
+  CONSTRAINT `fk_vagas_empresa1`
+    FOREIGN KEY (`fk_empresa`)
+    REFERENCES `db_devme`.`empresa` (`id_empresa`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 AUTO_INCREMENT = 200
@@ -58,23 +60,23 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Tags`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_devme`.`Tags` (
-  `idTag` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `db_devme`.`tags` (
+  `id_tag` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NULL,
   `tipo` VARCHAR(45) NULL,
-  `fkTagUser` INT NOT NULL,
-  `fkTagVaga` INT NOT NULL,
-  PRIMARY KEY (`idTag`),
-  INDEX `fk_Tags_Usuario_idx` (`fkTagUser` ASC) VISIBLE,
-  INDEX `fk_Tags_Vagas1_idx` (`fkTagVaga` ASC) VISIBLE,
-  CONSTRAINT `fk_Tags_Usuario`
-    FOREIGN KEY (`fkTagUser`)
-    REFERENCES `db_devme`.`Usuario` (`idUser`)
+  `fk_tag_user` INT NOT NULL,
+  `fk_tag_vaga` INT NOT NULL,
+  PRIMARY KEY (`id_tag`),
+  INDEX `fk_tags_usuario_idx` (`fk_tag_user` ASC) VISIBLE,
+  INDEX `fk_tags_vagas1_idx` (`fk_tag_vaga` ASC) VISIBLE,
+  CONSTRAINT `fk_tags_usuario`
+    FOREIGN KEY (`fk_tag_user`)
+    REFERENCES `db_devme`.`usuario` (`id_user`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Tags_Vagas1`
-    FOREIGN KEY (`fkTagVaga`)
-    REFERENCES `db_devme`.`Vagas` (`idVagas`)
+  CONSTRAINT `fk_tags_vagas1`
+    FOREIGN KEY (`fk_tag_vaga`)
+    REFERENCES `db_devme`.`Vagas` (`id_vagas`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 AUTO_INCREMENT = 300
@@ -84,10 +86,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Feedback`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_devme`.`Feedback` (
-  `idFeedback` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `db_devme`.`feedback` (
+  `id_feedback` INT NOT NULL AUTO_INCREMENT,
   `comentario` VARCHAR(200) NULL,
-  PRIMARY KEY (`idFeedback`))
+  PRIMARY KEY (`id_feedback`))
 AUTO_INCREMENT = 400
 ENGINE = InnoDB;
 
@@ -95,19 +97,19 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Usuario_has_Feedback`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_devme`.`Usuario_has_Feedback` (
-  `fkUser` INT NOT NULL,
-  `fkFeedback` INT NOT NULL,
-  INDEX `fk_Usuario_has_Feedback_Feedback1_idx` (`fkFeedback` ASC) VISIBLE,
-  INDEX `fk_Usuario_has_Feedback_Usuario1_idx` (`fkUser` ASC) VISIBLE,
+CREATE TABLE IF NOT EXISTS `db_devme`.`usuario_has_feedback` (
+  `fk_user` INT NOT NULL,
+  `fk_feedback` INT NOT NULL,
+  INDEX `fk_usuario_has_feedback_feedback1_idx` (`fk_feedback` ASC) VISIBLE,
+  INDEX `fk_usuario_has_feedback_usuario1_idx` (`fk_user` ASC) VISIBLE,
   CONSTRAINT `fk_Usuario_has_Feedback_Usuario1`
-    FOREIGN KEY (`fkUser`)
-    REFERENCES `db_devme`.`Usuario` (`idUser`)
+    FOREIGN KEY (`fk_user`)
+    REFERENCES `db_devme`.`usuario` (`id_user`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Usuario_has_Feedback_Feedback1`
-    FOREIGN KEY (`fkFeedback`)
-    REFERENCES `db_devme`.`Feedback` (`idFeedback`)
+  CONSTRAINT `fk_usuario_has_feedback_feedback1`
+    FOREIGN KEY (`fk_feedback`)
+    REFERENCES `db_devme`.`feedback` (`id_feedback`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -116,19 +118,19 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Candidatura`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_devme`.`Candidatura` (
-  `fkUser` INT NOT NULL ,
-  `fkVagas` INT NOT NULL,
-  INDEX `fk_Usuario_has_Vagas_Vagas1_idx` (`fkVagas` ASC) VISIBLE,
-  INDEX `fk_Usuario_has_Vagas_Usuario1_idx` (`fkUser` ASC) VISIBLE,
-  CONSTRAINT `fk_Usuario_has_Vagas_Usuario1`
-    FOREIGN KEY (`fkUser`)
-    REFERENCES `db_devme`.`Usuario` (`idUser`)
+CREATE TABLE IF NOT EXISTS `db_devme`.`candidatura` (
+  `fk_user` INT NOT NULL ,
+  `fk_vagas` INT NOT NULL,
+  INDEX `fk_usuario_has_vagas_vagas1_idx` (`fk_vagas` ASC) VISIBLE,
+  INDEX `fk_usuario_has_vagas_usuario1_idx` (`fk_user` ASC) VISIBLE,
+  CONSTRAINT `fk_usuario_has_vagas_usuario1`
+    FOREIGN KEY (`fk_user`)
+    REFERENCES `db_devme`.`usuario` (`id_user`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Usuario_has_Vagas_Vagas1`
-    FOREIGN KEY (`fkVagas`)
-    REFERENCES `db_devme`.`Vagas` (`idVagas`)
+  CONSTRAINT `fk_usuario_has_vagas_vagas1`
+    FOREIGN KEY (`fk_vagas`)
+    REFERENCES `db_devme`.`vagas` (`id_vagas`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
