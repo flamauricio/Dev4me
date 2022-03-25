@@ -1,7 +1,10 @@
 package Dev4me.javaloginjpa.entity;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "usuario")
@@ -21,8 +24,9 @@ public class Usuario {
     @Column (name = "senha", length = 16)
     private String senha;
 
+    @CreationTimestamp
     @Column (name = "data_nasc")
-    private java.sql.Timestamp dataNasc;
+    private LocalDate dataNasc;
 
     @Column (name = "desc_user", length = 200)
     private String descUsuario;
@@ -67,11 +71,11 @@ public class Usuario {
         this.descUsuario = descUsuario;
     }
 
-    public Timestamp getDataNasc() {
+    public LocalDate getDataNasc() {
         return dataNasc;
     }
 
-    public void setDataNasc(Timestamp dataNasc) {
+    public void setDataNasc(LocalDate dataNasc) {
         this.dataNasc = dataNasc;
     }
 }
