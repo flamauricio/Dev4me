@@ -81,8 +81,20 @@ body{
 }
 
 .divButtons{
-    width: 500px;
+    width: 780px;
     display: flex;
     align-items: center;
     justify-content: right;
+}
+
+.imgIcon{
+    height: 45px;
+    margin: 0px;
+}
+
+.imgProfile{
+    height: 52px;
+    margin: 0px;
+    display: flex;
+    align-items: center;
 }
