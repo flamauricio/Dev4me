@@ -1,0 +1,81 @@
+
+@font-face {
+    font-family: 'Poppins-Regular';
+    src: url(../fonts/Poppins-Regular.ttf);
+    font-family: 'Poppins-Bold';
+    src: url(../fonts/Poppins-Bold.ttf);
+}
+.divHeader {
+    font-family: 'Poppins-Bold';
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 13vh;
+    width: 98vw;
+}
+.botao{
+    background-color: #1E9CD7;
+    border-radius: 8px;
+    margin-left: 30px;
+    width: 120px;
+}
+.botao:hover{
+    background-color: #9300FF;
+    height: 25px;
+    cursor: pointer;
+    transition: 1s;
+    transform: scale(1.2);
+}
+.li-comum {
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.container-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+
+    height: 10vh;
+    width: 85vw;
+}
+
+/*Imagem*/
+
+img {
+  
+    margin: 0;
+}
+
+.divImagem img {
+    cursor: pointer;
+    width: 10vw;
+}
+
+/*Lista*/
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+.divLista ul {
+    list-style: none;
+    margin: 0;
+
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+
+    width: 35vw;
+
+}
+

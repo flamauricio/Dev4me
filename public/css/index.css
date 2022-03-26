@@ -1,0 +1,76 @@
+body{
+    font-family: 'Poppins-Regular';
+    font-size: 1rem;
+    background-color: #272727;
+}
+@font-face {
+    font-family: 'Poppins-Regular';
+    src: url(./fonts/Poppins-Regular.ttf);
+    font-family: 'Poppins-Bold';
+    src: url(./fonts/Poppins-Bold.ttf);
+}
+
+/* banner */
+
+.divBanner{
+    font-family: 'Poppins-Bold';
+    margin: 0;
+    width: auto;
+    height: auto;
+    background-image: linear-gradient(to left,#9000FF 60%, #466CFF 80%, #00D1FF 100%);
+}
+.titulo1{
+float: right;
+margin-right: 10%;
+margin-top: 3%;
+font-size: 20px;
+}
+.imgBanner{
+width: 650px;
+height: 420px;
+right: 540px;
+top: 228px;
+filter: drop-shadow(50px 4px 10px rgba(0, 0, 0, 0.25));
+
+}
+.titulo2{
+    color: aliceblue;
+    float: right;
+    margin-right: 10%;
+    margin-top: -20%;
+    font-size: small;
+}
+.criarConta{
+color: #ffff;
+font-family: 'Poppins-Bold';
+width: 150px;
+height: 50px;
+background: #272727;
+border-radius: 40px 0px;
+filter: drop-shadow(30px 8px 15px rgba(0, 0, 0, 0.25));
+float: right;
+margin-top: -13%;
+margin-right: 30%;
+cursor: pointer;
+}
+
+.criarConta:hover{
+width: 155px;
+height: 55px;
+transition: 1s;
+transform: scale(1.2);
+}
+
+.titulo3{
+    color: aliceblue;
+    float: right;
+    margin-right: 6%;
+    margin-top: -6%;
+    font-size: smaller;
+}
+
+.cliqueAqui:hover{
+    cursor: pointer;
+    color: #272727;
+    transition: 1s;
+}
