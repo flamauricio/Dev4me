@@ -12,6 +12,7 @@
     --darkGrey: #171717;
     --mediumGrey: #383838;
     --lightGrey: #4E4E4E;
+    --lightBlue: #1E9CD7;
 
     /* Margin */
     --xxsMargin: 1%;
@@ -45,11 +46,43 @@ body{
     position: fixed;
     background-color: var(--darkGrey);
     align-items: center;
+    text-align: center;
+    z-index: 2;
+}
+
+.divHeaderContainer{
+    max-width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .divSideBar{
     width: 20%;
-    height: max-content;
+    height: 100%;
     position: fixed;
     background-color: var(--mediumGrey);
+    z-index: 1;
+}
+
+.buttonHeader{
+    height: 45px;
+    width: 200px;
+    background-color: var(--lightBlue);
+    border-radius: 10px;
+    border-style: none;
+    font-size: var(--subtitle);
+    font-family: var(--bold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divButtons{
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
 }
