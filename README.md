@@ -1,4 +1,4 @@
-![Alt text](Logo-Dev4Me/logo-completo-degrade-dev4me.png "Logo")
+![Alt text](public/Logo-Dev4Me/logo-completo-degrade-dev4me.png "Logo")
 
 # Sobre 
 Projeto referente ao 3º semestre do curso de Analise e Desenvolvimento de Sistemas
