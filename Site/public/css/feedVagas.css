@@ -26,17 +26,19 @@
     --xxlMargin: 50%;
 
     /* Font Size */
-    --bigTitle: 2,5rem;
+    --bigTitle: 2, 5rem;
     /* Use with font-family: var(--bold) */
     --regularTitle: 2rem;
     /* Use with font-family: var(--bold) */
-    --subtitle: 1,5rem;
+    --subtitle: 1, 5rem;
     /* Use with font-family: var(--bold) */
-    --smallSubtitle: 1,25rem;
+    --smallSubtitle: 1, 25rem;
     /* Use with font-family: var(--bold) */
-    --bigText: 1,5rem;
+    --bigText: 1, 5rem;
     /* Use with font-family: var(--regular) */
     --smallText: 1rem;
+    /* Use with font-family: var(--regular) */
+    --extraSmallText: 0.8rem;
     /* Use with font-family: var(--regular) */
 
     /* Font Family */
@@ -46,7 +48,7 @@
 
 /* Scrollbar Configuration */
 ::-webkit-scrollbar {
-    height: 1,25rem;
+    height: 1, 25rem;
     background-color: #ffffff05;
 }
 
@@ -101,7 +103,7 @@ body {
 }
 
 .divButtons {
-    width: 48,75rem;
+    width: 48, 75rem;
     display: flex;
     align-items: center;
     justify-content: right;
@@ -152,6 +154,14 @@ body {
 
 .divSpaceBetween2 {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.divSpaceBetween3 {
+    margin-top: 0.2rem;
+    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
@@ -293,7 +303,6 @@ body {
     width: 89%;
     margin-left: 1%;
     height: 28.125rem;
-    background-color: rgb(0, 255, 234);
 }
 
 .profilePicture {
@@ -327,8 +336,7 @@ body {
 
 .divTagsFormatter {
     width: 100%;
-    height: 3.75rem;
-    background-color: red;
+    height: 6rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -344,12 +352,14 @@ body {
 .exempleTag {
     height: 2.1875rem;
     width: 6rem;
-    background-color: var(--lightBlue);
-    border-radius: 10px;
-    border-style: none;
-    font-size: var(--smallText);
+    background-color: #ffffff00;
+    border-radius: 2px;
+    border-color: var(--lightBlue);
+    border-style: solid;
+    border-width: 0.14rem;
+    font-size: var(--extraSmallText);
     font-family: var(--bold);
-    color: var(--white);
+    color: var(--lightBlue);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -360,4 +370,37 @@ body {
 .exempleTag:hover {
     background-color: #58caff;
     cursor: pointer;
+}
+
+.alternativeButton {
+    height: 3rem;
+    width: 10rem;
+    background-color: var(--lightBlue);
+    border-radius: 2px;
+    border-style: none;
+    font-size: var(--subtitle);
+    font-family: var(--bold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+}
+
+.alternativeButton:hover {
+    background-color: var(--lightPurple);
+    cursor: pointer;
+}
+
+.divPayment {
+    height: 3rem;
+    width: 21.5rem;
+    background-color: var(--lightGrey);
+    font-family: var(--regular);
+    font-size: var(--smallText);
+    color: var(--white);
+    border-radius: 2px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: left;
 }
