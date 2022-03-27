@@ -32,6 +32,8 @@
     /* Use with font-family: var(--bold) */
     --subtitle: 24px;
     /* Use with font-family: var(--bold) */
+    --smallSubtitle: 20px;
+    /* Use with font-family: var(--bold) */
     --bigText: 24px;
     /* Use with font-family: var(--regular) */
     --smallText: 16px;
@@ -105,15 +107,6 @@ body {
     align-items: center;
 }
 
-/* Search Bar*/
-
-/* .searchBar{
-    height: 45px;
-    width: 200px;
-    background-color: var(--lightBlue);
-    border-radius: 10px;
-} */
-
 /* Side Bar */
 .divSideBar {
     width: 25%;
@@ -131,7 +124,6 @@ body {
     height: 70%;
     margin-left: 20%;
     margin-top: 20%;
-    background-color: rgba(0, 89, 255, 0.15);
 }
 
 .divSpaceBetween {
@@ -141,9 +133,21 @@ body {
     margin-top: -10%;
 }
 
+.divSpaceBetween2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .bigTitle {
     font-family: var(--bold);
     font-size: var(--regularTitle);
+    color: var(--white);
+}
+
+.subtitle {
+    font-family: var(--bold);
+    font-size: var(--subtitle);
     color: var(--white);
 }
 
@@ -158,4 +162,62 @@ body {
     margin: 0px;
     transform: rotate(90deg);
     cursor: pointer;
+}
+
+.divAlignLeft {
+    display: contents;
+    align-items: center;
+    text-align: left;
+    justify-content: space-between;
+    margin-top: -10%;
+}
+
+.marginBox {
+    height: var(--xsMargin);
+}
+
+.boxInline {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    justify-content: space-between;
+}
+
+.boxCheckbox {
+    display: contents;
+}
+
+.smallText {
+    font-family: var(--bold);
+    font-size: var(--smallSubtitle);
+    color: var(--white);
+}
+
+.checkbox {
+    background-color: var(--white);
+    border: none;
+}
+
+/* Search Bar*/
+.searchBar{
+    height: 45px;
+    width: 100%;
+    background-color: var(--lightGrey);
+    border-radius: 5px;
+    font-family: var(--bold);
+    font-size: var(--subtitle);
+    color: var(--white);
+    border: none;
+}
+
+.searchBarSmall {
+    height: 45px;
+    width: 60%;
+    background-color: var(--lightGrey);
+    border-radius: 5px;
+    font-family: var(--bold);
+    font-size: var(--subtitle);
+    color: var(--white);
+    border: none;
+    margin-right: var(--lMargin);
 }
