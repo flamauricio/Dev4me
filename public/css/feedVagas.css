@@ -14,6 +14,7 @@
     --lightGrey: #4E4E4E;
     --lightBlue: #1E9CD7;
     --lightPurple: #861ED7;
+    --white: #ffffff;
 
     /* Margin */
     --xxsMargin: 1%;
@@ -58,7 +59,7 @@ body {
 }
 
 .divHeaderContainer {
-    max-width: 80%;
+    max-width: 90%;
     height: 100%;
     margin: 0 auto;
     display: flex;
@@ -120,4 +121,41 @@ body {
     position: fixed;
     background-color: var(--mediumGrey);
     z-index: 1;
+    padding-right: 5%;
+    display: flex;
+    align-items: flex-start;
+}
+
+.divSideBarContainer {
+    width: 80%;
+    height: 70%;
+    margin-left: 20%;
+    margin-top: 20%;
+    background-color: rgba(0, 89, 255, 0.15);
+}
+
+.divSpaceBetween {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -10%;
+}
+
+.bigTitle {
+    font-family: var(--bold);
+    font-size: var(--regularTitle);
+    color: var(--white);
+}
+
+.imgIcon2 {
+    height: 32px;
+    margin: 0px;
+    transition: 0.5s;
+}
+
+.imgIcon2:hover {
+    height: 32px;
+    margin: 0px;
+    transform: rotate(90deg);
+    cursor: pointer;
 }
