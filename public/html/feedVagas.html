@@ -17,21 +17,35 @@
     <!--Header caso o usuário esteja vendo sem estar logado-->
     <div class="divHeaderFather">
         <div class="divHeaderContainer">
-            <a href="../index.html"><img src="../Logo-Dev4Me/logo-nome-simples-dev4me.png"></a>
+            <a href="../index.html"><img src="../Logo-Dev4Me/logo-nome-simples-dev4me.png" 
+                onmouseover="src='../Logo-Dev4Me/logo-nome-degrade-dev4me.png';" onmouseout="src='../Logo-Dev4Me/logo-nome-simples-dev4me.png';"></a>
 
             <div class="divButtons">
-            <button class="buttonHeader" style="margin-right: 3%"><a class="li-comum" href="./login.html">Entrar</a></button>
-            <button class="buttonHeader" style="margin-right: 7%"><a class="li-comum" href="./cadastro.html">Cadastre-se</a></button>
-            <a href="./feedVagas.html" style="margin-right: 7%;"><img class="imgProfile" src="../img/user-profile-white.png"></a>
-            <a href="./feedVagas.html"><img class="imgIcon" src="../img/home-button-white.png"></a>
+                <button class="buttonHeader" style="margin-right: 3%"><a class="li-comum"
+                        href="./login.html">Entrar</a></button>
+                <button class="buttonHeader" style="margin-right: 7%"><a class="li-comum"
+                        href="./cadastro.html">Cadastre-se</a></button>
+                <a href="./feedVagas.html" style="margin-right: 7%;"><img class="imgProfile"
+                        src="../img/user-profile-white.png" onmouseover="src='../img/user-profile-blue.png';" onmouseout="src='../img/user-profile-white.png';"></a>
+                <a href="./feedVagas.html"><img class="imgIcon" src="../img/home-button-white.png" onmouseover="src='../img/home-button-blue.png';" onmouseout="src='../img/home-button-white.png';"></a>
+
+                <!-- <input class="searchBar" type="search" placeholder="Search..."> -->
+
             </div>
         </div>
-    </div>
-    <div class="divSideBar">
+        <div class="divSideBar">
 
-    </div>
-    <!--Fim Header-->
+        </div>
+        <!--Fim Header-->
 
 </body>
 
 </html>
+
+<script>
+
+    function changeIconProfile() {
+
+    }
+
+</script>

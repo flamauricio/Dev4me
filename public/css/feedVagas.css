@@ -13,6 +13,7 @@
     --mediumGrey: #383838;
     --lightGrey: #4E4E4E;
     --lightBlue: #1E9CD7;
+    --lightPurple: #861ED7;
 
     /* Margin */
     --xxsMargin: 1%;
@@ -24,23 +25,29 @@
     --xxlMargin: 50%;
 
     /* Font Size */
-    --bigTitle: 40px; /* Use with font-family: var(--bold) */
-    --regularTitle: 32px; /* Use with font-family: var(--bold) */
-    --subtitle: 24px; /* Use with font-family: var(--bold) */
-    --bigText: 24px; /* Use with font-family: var(--regular) */
-    --smallText: 16px; /* Use with font-family: var(--regular) */
+    --bigTitle: 40px;
+    /* Use with font-family: var(--bold) */
+    --regularTitle: 32px;
+    /* Use with font-family: var(--bold) */
+    --subtitle: 24px;
+    /* Use with font-family: var(--bold) */
+    --bigText: 24px;
+    /* Use with font-family: var(--regular) */
+    --smallText: 16px;
+    /* Use with font-family: var(--regular) */
 
     /* Font Family */
     --bold: 'Poppins-Bold';
     --regular: 'Poppins-Regular';
-  }
+}
 
-body{
+body {
     margin: 0;
     background-color: var(--backGroundGrey);
 }
 
-.divHeaderFather{
+/* Header */
+.divHeaderFather {
     width: 100%;
     height: 100px;
     position: fixed;
@@ -50,7 +57,7 @@ body{
     z-index: 2;
 }
 
-.divHeaderContainer{
+.divHeaderContainer {
     max-width: 80%;
     height: 100%;
     margin: 0 auto;
@@ -59,15 +66,7 @@ body{
     justify-content: space-between;
 }
 
-.divSideBar{
-    width: 20%;
-    height: 100%;
-    position: fixed;
-    background-color: var(--mediumGrey);
-    z-index: 1;
-}
-
-.buttonHeader{
+.buttonHeader {
     height: 45px;
     width: 200px;
     background-color: var(--lightBlue);
@@ -78,23 +77,47 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 0.5s;
 }
 
-.divButtons{
+.buttonHeader:hover {
+    background-color: var(--lightPurple);
+    cursor: pointer;
+}
+
+.divButtons {
     width: 780px;
     display: flex;
     align-items: center;
     justify-content: right;
 }
 
-.imgIcon{
+.imgIcon {
     height: 45px;
     margin: 0px;
 }
 
-.imgProfile{
+.imgProfile {
     height: 52px;
     margin: 0px;
     display: flex;
     align-items: center;
+}
+
+/* Search Bar*/
+
+/* .searchBar{
+    height: 45px;
+    width: 200px;
+    background-color: var(--lightBlue);
+    border-radius: 10px;
+} */
+
+/* Side Bar */
+.divSideBar {
+    width: 25%;
+    height: 100%;
+    position: fixed;
+    background-color: var(--mediumGrey);
+    z-index: 1;
 }
