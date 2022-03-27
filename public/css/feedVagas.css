@@ -1,8 +1,8 @@
 @font-face {
-    font-family: 'Poppins-Regular';
-    src: url(../fonts/Poppins-Regular.ttf);
     font-family: 'Poppins-Bold';
     src: url(../fonts/Poppins-Bold.ttf);
+    font-family: 'Poppins-Medium';
+    src: url(../fonts/Poppins-Medium.ttf);
 }
 
 /* Variables */
@@ -41,7 +41,7 @@
 
     /* Font Family */
     --bold: 'Poppins-Bold';
-    --regular: 'Poppins-Regular';
+    --regular: 'Poppins-Medium';
 }
 
 /* Scrollbar Configuration */
@@ -64,7 +64,7 @@ body {
 /* Header */
 .divHeaderFather {
     width: 100%;
-    height: 100px;
+    height: 5rem;
     position: fixed;
     background-color: var(--darkGrey);
     align-items: center;
@@ -157,6 +157,14 @@ body {
     color: var(--white);
 }
 
+.bigTitle2 {
+    font-family: var(--bold);
+    font-size: var(--regularTitle);
+    color: var(--white);
+    margin: 0;
+    padding-bottom: 0.5%;
+}
+
 .subtitle {
     font-family: var(--bold);
     font-size: var(--subtitle);
@@ -238,6 +246,115 @@ body {
 .divFeedFormatter {
     margin-left: 35%;
     width: 60%;
-    height: 1000px;
-    background-color: #1E9CD7;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.divFeedMargin {
+    width: 100%;
+    height: 100px;
+}
+
+.divFeedMargin2 {
+    width: 200px;
+    height: 100px;
+}
+
+.divVaga {
+    width: 100%;
+    height: 500px;
+    padding: 1%;
+    border-radius: 5px;
+    background-color: var(--mediumGrey);
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    margin: 0;
+}
+
+.divRow {
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+}
+
+.divVagaCompany {
+    width: 10%;
+    height: 450px;
+}
+
+.divVagaContent {
+    width: 89%;
+    margin-left: 1%;
+    height: 450px;
+    background-color: rgb(0, 255, 234);
+}
+
+.profilePicture {
+    width: 100%;
+}
+
+.profileName {
+    padding-top: 5%;
+    font-family: var(--regular);
+    font-size: var(--smallSubtitle);
+    color: var(--white);
+}
+
+.divDescriptionFormatter {
+    width: 100%;
+    height: 300px;
+    font-family: var(--regular);
+    font-size: var(--smallText);
+    color: var(--white);
+    background-color: var(--lightGrey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divDescription {
+    width: 97%;
+    height: 90%;
+    overflow-y: auto;
+}
+
+.divTagsFormatter {
+    width: 100%;
+    height: 60px;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divTags {
+    width: 97%;
+    height: 35px;
+    display: flex;
+    flex-direction: row;
+}
+
+.exempleTag {
+    height: 35px;
+    width: 150px;
+    background-color: var(--lightBlue);
+    border-radius: 10px;
+    border-style: none;
+    font-size: var(--smallText);
+    font-family: var(--bold);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    margin-right: 35px;
+}
+
+.exempleTag:hover {
+    background-color: #58caff;
+    cursor: pointer;
 }
