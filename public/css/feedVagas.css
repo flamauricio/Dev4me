@@ -5,7 +5,7 @@
     src: url(../fonts/Poppins-Bold.ttf);
 }
 
-/* Variáveis */
+/* Variables */
 :root {
     /* Colors */
     --backGroundGrey: #272727;
@@ -44,6 +44,18 @@
     --regular: 'Poppins-Regular';
 }
 
+/* Scrollbar Configuration */
+::-webkit-scrollbar {
+    height: 20px;
+    background-color: var(--darkGrey);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ffffffaf;
+    border-radius: 10px;
+}
+
+/* Body */
 body {
     margin: 0;
     background-color: var(--backGroundGrey);
@@ -198,8 +210,8 @@ body {
     border: none;
 }
 
-/* Search Bar*/
-.searchBar{
+/* Search Bar */
+.searchBar {
     height: 45px;
     width: 100%;
     background-color: var(--lightGrey);
@@ -220,4 +232,12 @@ body {
     color: var(--white);
     border: none;
     margin-right: var(--lMargin);
+}
+
+/* Feed */
+.divFeedFormatter {
+    margin-left: 35%;
+    width: 60%;
+    height: 1000px;
+    background-color: #1E9CD7;
 }
