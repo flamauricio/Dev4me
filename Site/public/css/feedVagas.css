@@ -26,17 +26,17 @@
     --xxlMargin: 50%;
 
     /* Font Size */
-    --bigTitle: 40px;
+    --bigTitle: 2,5rem;
     /* Use with font-family: var(--bold) */
-    --regularTitle: 32px;
+    --regularTitle: 2rem;
     /* Use with font-family: var(--bold) */
-    --subtitle: 24px;
+    --subtitle: 1,5rem;
     /* Use with font-family: var(--bold) */
-    --smallSubtitle: 20px;
+    --smallSubtitle: 1,25rem;
     /* Use with font-family: var(--bold) */
-    --bigText: 24px;
+    --bigText: 1,5rem;
     /* Use with font-family: var(--regular) */
-    --smallText: 16px;
+    --smallText: 1rem;
     /* Use with font-family: var(--regular) */
 
     /* Font Family */
@@ -46,8 +46,8 @@
 
 /* Scrollbar Configuration */
 ::-webkit-scrollbar {
-    height: 20px;
-    background-color: var(--darkGrey);
+    height: 1,25rem;
+    background-color: #ffffff05;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -101,7 +101,7 @@ body {
 }
 
 .divButtons {
-    width: 780px;
+    width: 48,75rem;
     display: flex;
     align-items: center;
     justify-content: right;
@@ -109,12 +109,12 @@ body {
 
 .imgIcon {
     height: 2rem;
-    margin: 0px;
+    margin: 0;
 }
 
 .imgProfile {
     height: 2.2rem;
-    margin: 0px;
+    margin: 0;
     display: flex;
     align-items: center;
 }
@@ -177,14 +177,12 @@ body {
 }
 
 .imgIcon2 {
-    height: 32px;
-    margin: 0px;
+    height: 2rem;
+    margin: 0;
     transition: 0.5s;
 }
 
 .imgIcon2:hover {
-    height: 32px;
-    margin: 0px;
     transform: rotate(90deg);
     cursor: pointer;
 }
@@ -225,7 +223,7 @@ body {
 
 /* Search Bar */
 .searchBar {
-    height: 45px;
+    height: 3rem;
     width: 100%;
     background-color: var(--lightGrey);
     border-radius: 5px;
@@ -236,7 +234,7 @@ body {
 }
 
 .searchBarSmall {
-    height: 45px;
+    height: 3rem;
     width: 60%;
     background-color: var(--lightGrey);
     border-radius: 5px;
@@ -260,17 +258,17 @@ body {
 
 .divFeedMargin {
     width: 100%;
-    height: 100px;
+    height: 3.8rem;
 }
 
 .divFeedMargin2 {
-    width: 200px;
-    height: 100px;
+    width: 20rem;
+    height: 3.8rem;
 }
 
 .divVaga {
     width: 100%;
-    height: 500px;
+    height: 31.25rem;
     padding: 1%;
     border-radius: 5px;
     background-color: var(--mediumGrey);
@@ -288,13 +286,13 @@ body {
 
 .divVagaCompany {
     width: 10%;
-    height: 450px;
+    height: 28.125rem;
 }
 
 .divVagaContent {
     width: 89%;
     margin-left: 1%;
-    height: 450px;
+    height: 28.125rem;
     background-color: rgb(0, 255, 234);
 }
 
@@ -311,7 +309,7 @@ body {
 
 .divDescriptionFormatter {
     width: 100%;
-    height: 300px;
+    height: 18.75rem;
     font-family: var(--regular);
     font-size: var(--smallText);
     color: var(--white);
@@ -329,7 +327,7 @@ body {
 
 .divTagsFormatter {
     width: 100%;
-    height: 60px;
+    height: 3.75rem;
     background-color: red;
     display: flex;
     align-items: center;
@@ -338,14 +336,14 @@ body {
 
 .divTags {
     width: 97%;
-    height: 35px;
+    height: 2.1875rem;
     display: flex;
     flex-direction: row;
 }
 
 .exempleTag {
-    height: 35px;
-    width: 150px;
+    height: 2.1875rem;
+    width: 6rem;
     background-color: var(--lightBlue);
     border-radius: 10px;
     border-style: none;
@@ -356,7 +354,7 @@ body {
     align-items: center;
     justify-content: center;
     transition: 0.5s;
-    margin-right: 35px;
+    margin-right: 2%;
 }
 
 .exempleTag:hover {
