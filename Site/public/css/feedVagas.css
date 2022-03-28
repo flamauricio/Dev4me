@@ -26,19 +26,19 @@
     --xxlMargin: 50%;
 
     /* Font Size */
-    --bigTitle: 2, 5rem;
+    --bigTitle: 2.5rem;
     /* Use with font-family: var(--bold) */
     --regularTitle: 2rem;
     /* Use with font-family: var(--bold) */
-    --subtitle: 1, 5rem;
+    --subtitle: 1.2rem;
     /* Use with font-family: var(--bold) */
-    --smallSubtitle: 1, 25rem;
+    --smallSubtitle: 1rem;
     /* Use with font-family: var(--bold) */
-    --bigText: 1, 5rem;
+    --bigText: 1.5rem;
     /* Use with font-family: var(--regular) */
-    --smallText: 1rem;
+    --smallText: 0.8rem;
     /* Use with font-family: var(--regular) */
-    --extraSmallText: 0.8rem;
+    --extraSmallText: 0.7rem;
     /* Use with font-family: var(--regular) */
 
     /* Font Family */
@@ -184,6 +184,7 @@ body {
     font-family: var(--bold);
     font-size: var(--subtitle);
     color: var(--white);
+    margin-top: 1rem;
 }
 
 .imgIcon2 {
@@ -233,23 +234,23 @@ body {
 
 /* Search Bar */
 .searchBar {
-    height: 3rem;
+    height: 2.5rem;
     width: 100%;
     background-color: var(--lightGrey);
     border-radius: 5px;
     font-family: var(--bold);
-    font-size: var(--subtitle);
+    font-size: var(--smallSubtitle);
     color: var(--white);
     border: none;
 }
 
 .searchBarSmall {
-    height: 3rem;
+    height: 2.5rem;
     width: 60%;
     background-color: var(--lightGrey);
     border-radius: 5px;
     font-family: var(--bold);
-    font-size: var(--subtitle);
+    font-size: var(--smallSubtitle);
     color: var(--white);
     border: none;
     margin-right: var(--lMargin);
@@ -312,7 +313,7 @@ body {
 .profileName {
     padding-top: 5%;
     font-family: var(--regular);
-    font-size: var(--smallSubtitle);
+    font-size: var(--smallText);
     color: var(--white);
 }
 
