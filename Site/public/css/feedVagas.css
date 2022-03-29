@@ -16,6 +16,11 @@
     --lightPurple: #861ED7;
     --white: #ffffff;
 
+    --blueTag: #69E3E8;
+    --purpleTag: #7B69E8;
+    --yellowTag: #FFC700;
+    --redTag: #E86969;
+
     /* Margin */
     --xxsMargin: 1%;
     --xsMargin: 2%;
@@ -360,12 +365,12 @@ body {
     width: 6rem;
     background-color: #ffffff00;
     border-radius: 2px;
-    border-color: var(--lightBlue);
+    border-color: var(--blueTag);
     border-style: solid;
     border-width: 0.14rem;
     font-size: var(--extraSmallText);
     font-family: var(--bold);
-    color: var(--lightBlue);
+    color: var(--blueTag);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -374,7 +379,7 @@ body {
 }
 
 .exempleTag:hover {
-    background-color: #58caff;
+    background-color: var(--white);
     cursor: pointer;
 }
 
