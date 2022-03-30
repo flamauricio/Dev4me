@@ -1,0 +1,15 @@
+{
+  "name": "site",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.26.1",
+    "express": "^4.17.3",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "nodemon ./bin/server.js"
+  }
+}
