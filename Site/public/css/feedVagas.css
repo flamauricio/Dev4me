@@ -103,6 +103,20 @@ body {
     transition: 0.5s;
 }
 
+.buttonHeaderInvisible {
+    height: 2rem;
+    width: 10rem;
+    background-color: var(--darkGrey);
+    border-radius: 10px;
+    border-style: none;
+    font-size: var(--subtitle);
+    font-family: var(--bold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+}
+
 .buttonHeader:hover {
     background-color: var(--lightPurple);
     cursor: pointer;
@@ -414,4 +428,28 @@ body {
     display: flex;
     align-items: center;
     justify-content: left;
+}
+
+/* Vaga "ver mais" */
+
+.divVagaFather {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.divVagaBody {
+    padding: 1.5rem;
+    width: 70rem;
+    height: 100rem;
+    margin-top: 8rem;
+    margin-bottom: 4rem;
+    border-radius: 5px;
+    background-color: var(--mediumGrey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
