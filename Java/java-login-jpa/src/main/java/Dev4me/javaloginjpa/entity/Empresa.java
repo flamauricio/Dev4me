@@ -56,9 +56,7 @@ public class Empresa {
         this.login = login;
     }
 
-    public String getSenha() {
-        return senha;
-    }
+    //public String getSenha() {return senha;}
 
     public void setSenha(String senha) {
         this.senha = senha;

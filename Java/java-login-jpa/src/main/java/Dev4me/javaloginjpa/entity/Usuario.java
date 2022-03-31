@@ -1,6 +1,8 @@
 package Dev4me.javaloginjpa.entity;
 
+import Dev4me.javaloginjpa.repository.UsuarioRepository;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.http.ResponseEntity;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
