@@ -13,28 +13,29 @@
 
 <body>
 
-    <!--Início Header-->
+    <!--Header-->
+    <!--Header caso o usuário esteja vendo sem estar logado-->
+    <div class="divHeaderFather" style="position: inherit;">
+        <div class="divHeaderContainer">
+            <a href="./index.html"><img class="logo" src="./Logo-Dev4Me/logo-nome-simples-dev4me.png"
+                    onmouseover="src='./Logo-Dev4Me/logo-nome-degrade-dev4me.png';"
+                    onmouseout="src='./Logo-Dev4Me/logo-nome-simples-dev4me.png';"></a>
 
-    <div class="divHeader">
+            <div class="divButtons">
+                <button class="buttonHeader" style="margin-right: 3%"><a class="li-comum"
+                        href="./login.html">Entrar</a></button>
+                <button class="buttonHeader" style="margin-right: 7%"><a class="li-comum"
+                        href="./cadastro.html">Cadastre-se</a></button>
+                <a href="./feedVagas.html" style="margin-right: 7%;"><img class="imgProfile"
+                        src="./img/user-profile-white.png" onmouseover="src='./img/user-profile-blue.png';"
+                        onmouseout="src='./img/user-profile-white.png';"></a>
+                <a href="./feedVagas.html"><img class="imgIcon" src="./img/home-button-white.png"
+                        onmouseover="src='./img/home-button-blue.png';"
+                        onmouseout="src='./img/home-button-white.png';"></a>
 
-        <div class="container-header">
-
-            <div class="divImagem"><img src="./Logo-Dev4Me/logo-nome-degrade-dev4me.png"></div>
-
-            <div>
-                <nav class="divLista">
-
-                    <button class="botao"><a class="li-comum" href="login.html">Entrar</a></button>
-                    <button class="botao"><a class="li-comum" href="cadastro.html">Cadastre-se</a></button>
-
-
-                </nav>
             </div>
-
         </div>
-
     </div>
-    <!--Fim Header-->
 
     <!-- banner -->
     <div>
@@ -52,7 +53,7 @@
             </t3>
             <button class="criarConta" href="cadastro.html">Criar conta </button>
             <kakau class="titulo3">É uma empresa interessada em contratar novos profissionais de TI?<br>
-            <u class="cliqueAqui" href="cadastro.html">Clique aqui</u></kakau>
+                <u class="cliqueAqui" href="cadastro.html">Clique aqui</u></kakau>
         </div>
     </div>
     <!-- fim banner -->
