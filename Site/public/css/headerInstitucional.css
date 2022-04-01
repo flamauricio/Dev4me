@@ -104,27 +104,13 @@ body {
     transition: 0.5s;
 }
 
-.buttonHeaderInvisible {
-    height: 2rem;
-    width: 10rem;
-    background-color: var(--darkGrey);
-    border-radius: 10px;
-    border-style: none;
-    font-size: var(--subtitle);
-    font-family: var(--bold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.5s;
-}
-
 .buttonHeader:hover {
     background-color: var(--lightPurple);
     cursor: pointer;
 }
 
 .divButtons {
-    width: 48, 75rem;
+    width: 48.75rem;
     display: flex;
     align-items: center;
     justify-content: right;
@@ -153,6 +139,13 @@ body {
     font-size: 1rem;
     text-decoration: none;
     cursor: pointer;
+}
+
+.divHeaderIconsOrganizer {
+    width: 48.75rem;
+    display: flex;
+    justify-content: right;
+    align-items: center;
 }
 
 

@@ -51,24 +51,6 @@
     --regular: 'Poppins-Medium';
 }
 
-/* Scrollbar Configuration */
-::-webkit-scrollbar {
-    width: 0.5rem;
-    height: 1.25rem;
-    background-color: #ffffff05;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #ffffffaf;
-    border-radius: 10px;
-}
-
-/* Body */
-body {
-    margin: 0;
-    background-color: var(--backGroundGrey);
-}
-
 /* Header */
 .divHeaderFather {
     width: 100%;
@@ -364,7 +346,8 @@ body {
     height: 6rem;
     display: flex;
     align-items: center;
-    justify-content: center;
+    margin-left: 1%;
+    overflow-x: auto;
 }
 
 .divTags {
@@ -372,6 +355,7 @@ body {
     height: 2.1875rem;
     display: flex;
     flex-direction: row;
+    margin: 0;
 }
 
 .exempleTag {
@@ -428,6 +412,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: left;
+    margin-left: 1%;
 }
 
 /* Vaga "ver mais" */
