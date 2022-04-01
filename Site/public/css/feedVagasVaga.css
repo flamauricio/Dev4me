@@ -64,11 +64,23 @@
 
 .divVagaBody {
     width: 90%;
-    height: 100rem;
+    height: auto;
     margin-top: 8rem;
     margin-bottom: 4rem;
     border-radius: 5px;
     background-color: var(--mediumGrey);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding-top: 6.25rem;
+    padding-bottom: 6.25rem;
+}
+
+.divVagaContent {
+    width: 43.75rem;
+    height: 100rem;
+    background-color: red;
     display: flex;
     align-items: center;
     justify-content: center;
