@@ -22,25 +22,25 @@
     --redTag: #E86969;
 
     /* Margin */
-    --xxsMargin: 1%;
-    --xsMargin: 2%;
-    --sMargin: 5%;
-    --mMargin: 10%;
-    --lMargin: 20%;
-    --xlMargin: 30%;
-    --xxlMargin: 50%;
+    --xxsMargin: 1rem;
+    --xsMargin: 1.5rem;
+    --sMargin: 2rem;
+    --mMargin: 2.5rem;
+    --lMargin: 3rem;
+    --xlMargin: 4rem;
+    --xxlMargin: 4.5rem;
 
     /* Font Size */
     --bigTitle: 2.5rem;
     /* Use with font-family: var(--bold) */
     --regularTitle: 2rem;
     /* Use with font-family: var(--bold) */
+    --bigText: 1.5rem;
+    /* Use with font-family: var(--regular) */
     --subtitle: 1.2rem;
     /* Use with font-family: var(--bold) */
     --smallSubtitle: 1rem;
     /* Use with font-family: var(--bold) */
-    --bigText: 1.5rem;
-    /* Use with font-family: var(--regular) */
     --smallText: 0.8rem;
     /* Use with font-family: var(--regular) */
     --extraSmallText: 0.7rem;
@@ -80,8 +80,16 @@
 .divVagaContent {
     width: 43.75rem;
     height: 100rem;
-    background-color: red;
+    background-color: rgba(166, 0, 255, 0.322);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+}
+
+.pageTitle {
+    font-family: var(--bold);
+    font-size: var(--regularTitle);
+    color: var(--white);
+    margin: 0;
+    padding-bottom: var(--xxsMargin);
 }
