@@ -17,7 +17,7 @@
     --white: #ffffff;
 
     --blueTag: #69E3E8;
-    --purpleTag: #7B69E8;
+    --purpleTag: #4c2dfa;
     --yellowTag: #FFC700;
     --redTag: #E86969;
 
@@ -44,6 +44,10 @@
     --smallText: 0.8rem;
     /* Use with font-family: var(--regular) */
     --extraSmallText: 0.6rem;
+    /* Use with font-family: var(--regular) */
+    --miniText: 0.5rem;
+    /* Use with font-family: var(--regular) */
+    --microText: 0.42rem;
     /* Use with font-family: var(--regular) */
 
     /* Font Family */
@@ -79,7 +83,7 @@
 
 .divVagaContent {
     width: 80%;
-    height: 100rem;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -178,6 +182,144 @@
     justify-content: left;
 }
 
+/* ----------------------------------------------- */
+
+.divBigInputWrap {
+    width: 98.5%;
+    margin-top: 0.75%;
+    margin-bottom: 0.75%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: left;
+}
+
+.tagDev {
+    height: 2.1875rem;
+    width: 6rem;
+    background-color: #ffffff00;
+    border-radius: 2px;
+    border-color: var(--blueTag);
+    border-style: solid;
+    border-width: 0.14rem;
+    font-size: var(--extraSmallText);
+    font-family: var(--regular);
+    color: var(--blueTag);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.tagDev:hover {
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+.tagPlatform {
+    height: 2.1875rem;
+    width: 6rem;
+    background-color: #ffffff00;
+    border-radius: 2px;
+    border-color: var(--purpleTag);
+    border-style: solid;
+    border-width: 0.14rem;
+    font-size: var(--extraSmallText);
+    font-family: var(--regular);
+    color: var(--purpleTag);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.tagPlatform:hover {
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+.tagBusyness {
+    height: 2.1875rem;
+    width: 6rem;
+    background-color: #ffffff00;
+    border-radius: 2px;
+    border-color: var(--yellowTag);
+    border-style: solid;
+    border-width: 0.14rem;
+    font-size: var(--extraSmallText);
+    font-family: var(--regular);
+    color: var(--yellowTag);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.tagBusyness:hover {
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+.tagArea {
+    height: 2.1875rem;
+    width: 6rem;
+    background-color: #ffffff00;
+    border-radius: 2px;
+    border-color: var(--redTag);
+    border-style: solid;
+    border-width: 0.14rem;
+    font-size: var(--extraSmallText);
+    font-family: var(--regular);
+    color: var(--redTag);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.tagArea:hover {
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+/* ----------------------------------------------- */
+
+.divPageButton {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+}
+
+.bigButton {
+    height: 3rem;
+    width: 12rem;
+    background-color: var(--lightBlue);
+    border-radius: 2px;
+    border-style: none;
+    font-size: var(--subtitle);
+    font-family: var(--bold);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+}
+
+.bigButton:hover {
+    background-color: var(--lightPurple);
+    cursor: pointer;
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
 @media screen and (max-width: 1000px) {
 
     .divVagaBody {
@@ -192,7 +334,11 @@
     }
 }
 
-@media screen and (max-width: 750px) {
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 770px) {
 
     .divVagaBody {
         margin-top: 4.1rem;
@@ -221,7 +367,35 @@
         margin-top: 2.5%;
         margin-bottom: 2.5%;
     }
+
+    .tagDev {
+        width: 5rem;
+        font-size: var(--miniText);
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    }
+
+    .tagPlatform {
+        width: 5rem;
+        font-size: var(--miniText);
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    }
+
+    .tagBusyness {
+        width: 5rem;
+        font-size: var(--miniText);
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    }
+
+    .tagArea {
+        width: 5rem;
+        font-size: var(--miniText);
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    }
 }
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
 
 @media screen and (max-width: 450px) {
 
@@ -249,4 +423,80 @@
         margin-bottom: 24px;
     }
 
+    .bigButton {
+        height: 2rem;
+        width: 8rem;
+        font-size: var(--smallText);
+    }
+
 }
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 380px) {
+
+    .tagDev {
+        height: 1.8rem;
+        width: 4.5rem;
+        font-size: var(--miniText);
+    }
+
+    .tagPlatform {
+        height: 1.8rem;
+        width: 4.5rem;
+        font-size: var(--miniText);
+    }
+
+    .tagBusyness {
+        height: 1.8rem;
+        width: 4.5rem;
+        font-size: var(--miniText);
+    }
+
+    .tagArea {
+        height: 1.8rem;
+        width: 4.5rem;
+        font-size: var(--miniText);
+    }
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 325px) {
+
+    .tagDev {
+        width: 4rem;
+        font-size: var(--microText);
+        margin: 0.35rem 0.35rem 0.35rem 0.35rem;
+    }
+
+    .tagPlatform {
+        width: 4rem;
+        font-size: var(--microText);
+        margin: 0.35rem 0.35rem 0.35rem 0.35rem;
+    }
+
+    .tagBusyness {
+        width: 4rem;
+        font-size: var(--microText);
+        margin: 0.35rem 0.35rem 0.35rem 0.35rem;
+    }
+
+    .tagArea {
+        width: 4rem;
+        font-size: var(--microText);
+        margin: 0.35rem 0.35rem 0.35rem 0.35rem;
+    }
+
+    .bigButton {
+        height: 1.5rem;
+        width: 6rem;
+        font-size: var(--miniText);
+    }
+}
+
+/* ----------------------------------------------- */

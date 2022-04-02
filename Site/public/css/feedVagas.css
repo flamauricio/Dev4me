@@ -367,7 +367,7 @@
     border-style: solid;
     border-width: 0.14rem;
     font-size: var(--extraSmallText);
-    font-family: var(--bold);
+    font-family: var(--regular);
     color: var(--blueTag);
     display: flex;
     align-items: center;
