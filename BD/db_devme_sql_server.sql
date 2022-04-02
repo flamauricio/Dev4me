@@ -1,6 +1,6 @@
 create database db_devme;
 
-CREATE TABLE usuario(
+CREATE TABLE db_devme.dbo.usuario(
   id_user INT PRIMARY KEY NOT NULL IDENTITY,
   nome VARCHAR(45) NOT NULL,
   owner_email VARCHAR(45) NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE usuario(
   );
 
   CREATE TABLE vagas(
-  id_vagas INT NOT NULL ,
+  id_vagas INT NOT NULL PRIMARY KEY IDENTITY(200, 1),
   descricao VARCHAR(45) NULL,
   is_disponivel TINYINT NULL,
   fk_empresa INT NOT NULL,
