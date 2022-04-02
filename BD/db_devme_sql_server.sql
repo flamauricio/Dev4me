@@ -1,4 +1,3 @@
-create database db_devme;
 
 CREATE TABLE db_devme.dbo.usuario(
   id_user INT PRIMARY KEY NOT NULL IDENTITY,
