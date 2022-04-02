@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -23,7 +24,7 @@ public class EmpresaController {
     private EmpresaRepository repository;
 
     @PostMapping
-    public ResponseEntity postEmpresa (@RequestBody Empresa novaEmpresa) {
+    public ResponseEntity postEmpresa (@RequestBody @Valid Empresa novaEmpresa) {
         repository.save(novaEmpresa);
         return ResponseEntity.status(201).build();
     }
@@ -59,6 +60,7 @@ public class EmpresaController {
         return ResponseEntity.status(404).build();
     }
 
+    //Método pra deletar empresa por ID
     @DeleteMapping("/delete/{id}")
     public ResponseEntity deleteEmpresa(@PathVariable Integer id,
                                         @RequestBody EmpresaAutenticacaoResponse empresa)
@@ -77,6 +79,7 @@ public class EmpresaController {
         return ResponseEntity.status(404).build();
     }
 
+    //Endpoint para troca de senha
     @PatchMapping("/senha/{id}")
     public ResponseEntity patchEmpresaSenha(@PathVariable Integer id,
                                             @RequestBody EmpresaSenhaRequest empresa)

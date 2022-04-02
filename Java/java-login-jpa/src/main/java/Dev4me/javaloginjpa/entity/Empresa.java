@@ -2,6 +2,7 @@ package Dev4me.javaloginjpa.entity;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "empresa")
@@ -12,15 +13,19 @@ public class Empresa {
     @Column (name = "id_empresa")
     private Integer id;
 
+    @NotBlank
     @Column (name = "nome", length = 45)
     private String nome;
 
+    @NotBlank
     @Column (name = "email", length = 45)
     private String email;
 
+    @NotBlank
     @Column (name = "login", length = 45)
     private String login;
 
+    @NotBlank
     @Column (name = "senha", length = 45)
     private String senha;
 

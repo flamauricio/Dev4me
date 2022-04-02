@@ -1,5 +1,7 @@
 package Dev4me.javaloginjpa.response;
 
+import javax.validation.constraints.NotBlank;
+
 public class UsuarioAutenticacaoResponse
 {
     // Atributos
@@ -10,6 +12,7 @@ public class UsuarioAutenticacaoResponse
     // Construtor
     public UsuarioAutenticacaoResponse(Integer id, String email, String senha)
     {
+
         this.id = id;
         this.email = email;
         this.senha = senha;
