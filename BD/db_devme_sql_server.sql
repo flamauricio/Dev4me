@@ -1,5 +1,5 @@
 
-CREATE TABLE db_devme.dbo.usuario(
+CREATE TABLE usuario(
   id_user INT PRIMARY KEY NOT NULL IDENTITY,
   nome VARCHAR(45) NOT NULL,
   owner_email VARCHAR(45) NOT NULL,
