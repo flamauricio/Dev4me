@@ -1,4 +1,3 @@
-
 @font-face {
     font-family: 'Poppins-Medium';
     src: url(../fonts/Poppins-Medium.ttf);
@@ -148,4 +147,78 @@ body {
     align-items: center;
 }
 
+@media screen and (max-width: 1000px) {
 
+    .divHeaderFather {
+        height: calc(4rem * 0.695);
+    }
+    
+    .buttonHeader {
+        height: calc(2rem * 0.695);
+        width: calc(10rem * 0.695);
+        border-radius: calc(10px * 0.695);
+    }
+    
+    .divButtons {
+        width: calc(48.75rem * 0.695);
+    }
+    
+    .imgIcon {
+        height: calc(2rem * 0.695);
+    }
+    
+    .imgProfile {
+        height: calc(2.2rem * 0.695);
+    }
+    
+    .logo {
+        height: calc(2.2rem * 0.695);
+    }
+    
+    
+    .li-comum {
+        font-size: calc( 1rem * 0.695);
+    }
+    
+    .divHeaderIconsOrganizer {
+        width: calc(48.75rem * 0.695);
+    }
+}
+
+@media screen and (max-width: 750px) {
+
+    .divHeaderFather {
+        height: calc(4rem * 0.5125);
+    }
+    
+    .buttonHeader {
+        height: calc(2rem * 0.5125);
+        width: calc(10rem * 0.5125);
+        border-radius: calc(10px * 0.5125);
+    }
+    
+    .divButtons {
+        width: calc(48.75rem * 0.5125);
+    }
+    
+    .imgIcon {
+        height: calc(2rem * 0.5125);
+    }
+    
+    .imgProfile {
+        height: calc(2.2rem * 0.5125);
+    }
+    
+    .logo {
+        height: calc(2.2rem * 0.5125);
+    }
+    
+    
+    .li-comum {
+        font-size: calc( 1rem * 0.5125);
+    }
+    
+    .divHeaderIconsOrganizer {
+        width: calc(48.75rem * 0.5125);
+    }
+}
