@@ -636,6 +636,7 @@ body {
     .alternativeButton {
         height: 2rem;
         width: 7.2rem;
+        font-size: var(--smallSubtitle);
     }
 
     .divPayment {
@@ -708,6 +709,7 @@ body {
     .alternativeButton {
         height: 2rem;
         width: 6rem;
+        font-size: var(--smallText);
     }
 
     .divPayment {
@@ -849,6 +851,7 @@ body {
     .alternativeButton {
         height: 1.8rem;
         width: 5rem;
+        font-size: var(--extraSmallText);
     }
 
     .divPayment {
@@ -902,7 +905,8 @@ body {
 
         .alternativeButton {
             height: 1.5rem;
-            width: 5rem;
+            width: 4rem;
+            font-size: var(--miniText);
         }
 
         .divPayment {
