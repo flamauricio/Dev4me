@@ -388,6 +388,7 @@ body {
     border-style: none;
     font-size: var(--subtitle);
     font-family: var(--bold);
+    color: var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
