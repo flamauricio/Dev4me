@@ -222,3 +222,41 @@ body {
         width: calc(48.75rem * 0.5125);
     }
 }
+
+@media screen and (max-width: 400px) {
+
+    .divHeaderFather {
+        height: calc(4rem * 0.4);
+    }
+    
+    .buttonHeader {
+        height: calc(2rem * 0.4);
+        width: calc(10rem * 0.4);
+        border-radius: calc(10px * 0.4);
+    }
+    
+    .divButtons {
+        width: calc(48.75rem * 0.4);
+    }
+    
+    .imgIcon {
+        height: calc(2rem * 0.4);
+    }
+    
+    .imgProfile {
+        height: calc(2.2rem * 0.4);
+    }
+    
+    .logo {
+        height: calc(2.2rem * 0.4);
+    }
+    
+    
+    .li-comum {
+        font-size: calc( 1rem * 0.4);
+    }
+    
+    .divHeaderIconsOrganizer {
+        width: calc(48.75rem * 0.4);
+    }
+}
