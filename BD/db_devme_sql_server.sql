@@ -5,8 +5,7 @@ CREATE TABLE usuario(
   owner_email VARCHAR(45) NOT NULL,
   senha CHAR(16) NOT NULL,
   data_nasc DATETIME NULL,
-  desc_user VARCHAR(200) NULL,
-  fk_candidatura INT NULL,
+  desc_user VARCHAR(200) NULL
   );
 
   CREATE TABLE empresa(
@@ -14,7 +13,7 @@ CREATE TABLE usuario(
   nome VARCHAR(45) NULL,
   login VARCHAR(45) NULL,
   senha VARCHAR(45) NULL,
-  email VARCHAR(45) NULL,
+  email VARCHAR(45) NULL
   );
 
   CREATE TABLE vagas(
