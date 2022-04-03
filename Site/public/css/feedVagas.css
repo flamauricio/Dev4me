@@ -5,6 +5,10 @@
     src: url(../fonts/Poppins-Medium.ttf);
 }
 
+body {
+    margin: 0;
+}
+
 /* Variables */
 :root {
     /* Colors */
@@ -56,6 +60,11 @@
 }
 
 /* Side Bar */
+
+.divSideBarMobile {
+    display: none;
+}
+
 .divSideBar {
     width: 25%;
     height: 100%;
@@ -488,7 +497,7 @@
     .searchBar {
         font-size: var(--smallText);
     }
-    
+
     .searchBarSmall {
         font-size: var(--smallText);
     }
@@ -499,212 +508,420 @@
 /* ----------------------------------------------- */
 
 @media screen and (max-width: 1025px) {
-        /* Side Bar */
-        .bigTitle {
-            margin: 0;
-            font-family: var(--bold);
-            font-size: var(--subtitle);
-            color: var(--white);
+
+    /* Side Bar */
+    .bigTitle {
+        margin: 0;
+        font-family: var(--bold);
+        font-size: var(--subtitle);
+        color: var(--white);
+    }
+
+    .bigTitle2 {
+        font-family: var(--bold);
+        font-size: var(--subtitle);
+        color: var(--white);
+        margin: 0;
+        padding-bottom: 1%;
+    }
+
+    .subtitle {
+        font-family: var(--bold);
+        font-size: var(--smallText);
+        color: var(--white);
+        margin-top: 1rem;
+    }
+
+    .imgIcon2 {
+        height: 1.2rem;
+        margin: 0;
+        transition: 0.5s;
+    }
+
+    .searchBar {
+        height: 2rem;
+        width: 100%;
+        font-size: var(--smallText);
+    }
+
+    .searchBarSmall {
+        height: 2rem;
+        width: 60%;
+        font-size: var(--smallText);
+    }
+
+    /* Feed */
+    .divFeedMargin2 {
+        height: 2.2rem;
+    }
+
+    .divVaga {
+        width: 100%;
+        height: 25rem;
+        padding: 1.5% 2% 2% 2%;
+        margin: 0;
+    }
+
+    .divVagaContent {
+        width: 88%;
+        margin-left: 2%;
+        justify-content: flex-start;
+    }
+
+    .divDescriptionFormatter {
+        width: 100%;
+        height: 14rem;
+        font-family: var(--regular);
+        font-size: var(--extraSmallText);
+        color: var(--white);
+        background-color: var(--lightGrey);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        float: right;
+    }
+
+    .divDescription {
+        width: 97%;
+        height: 100%;
+        overflow-y: auto;
+    }
+
+    .divTagsFormatter {
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        margin: 0;
+    }
+
+    .divTags {
+        width: 97%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 0.5rem 0.15rem 0.5rem 0rem;
+    }
+
+    .tagDev {
+        height: 1.5rem;
+        width: 5rem;
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+        font-size: var(--miniText);
+    }
+
+    .tagPlatform {
+        height: 1.5rem;
+        width: 5rem;
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+        font-size: var(--miniText);
+    }
+
+    .tagBusyness {
+        height: 1.5rem;
+        width: 5rem;
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+        font-size: var(--miniText);
+    }
+
+    .tagArea {
+        height: 1.5rem;
+        width: 5rem;
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+        font-size: var(--miniText);
+    }
+
+    .alternativeButton {
+        height: 2rem;
+        width: 7.2rem;
+    }
+
+    .divPayment {
+        height: 2rem;
+        width: 15rem;
+        font-size: var(--extraSmallText);
+    }
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 832px) {
+
+    /* Side Bar */
+    .bigTitle {
+        font-size: var(--subtitle);
+    }
+
+    .subtitle {
+        font-family: var(--bold);
+        font-size: var(--extraSmallText);
+        color: var(--white);
+        margin-top: 1rem;
+    }
+
+    .imgIcon2 {
+        height: 1.2rem;
+    }
+
+    .marginBox {
+        height: var(--xxxsMargin);
+    }
+
+    .smallText {
+        font-size: var(--extraSmallText);
+    }
+
+    .searchBar {
+        height: 1.8rem;
+        font-size: var(--extraSmallText);
+    }
+
+    .searchBarSmall {
+        height: 1.8rem;
+        font-size: var(--extraSmallText);
+    }
+
+    .divFeedMargin2 {
+        height: 1.2rem;
+    }
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 770px) {
+
+    .divVaga {
+        width: 100%;
+        padding: 1.5% 2% 2% 2%;
+    }
+
+    .bigTitle2 {
+        font-size: var(--smallSubtitle);
+    }
+
+    .alternativeButton {
+        height: 2rem;
+        width: 6rem;
+    }
+
+    .divPayment {
+        height: 2rem;
+        width: 15rem;
+        font-size: var(--extraSmallText);
+    }
+
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 752px) {
+
+    .divVaga {
+        height: 24rem;
+    }
+
+    .divFeedMargin {
+        width: 100%;
+        height: 2rem;
+    }
+
+    .divSideBar {
+        display: none;
+    }
+
+    .divFeedFormatter {
+        margin-left: 5%;
+        width: 90%;
+    }
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 520px) {
+
+    .divVaga {
+        height: 19.8rem;
+    }
+
+    .divDescriptionFormatter {
+        width: 100%;
+        height: 10rem;
+        font-size: var(--miniText);
+        color: var(--white);
+    }
+
+    .tagDev {
+        height: 1.5rem;
+        width: 4rem;
+        margin: 0.35rem 0.35rem 0.35rem 0.35rem;
+        font-size: var(--microText);
+        border-width: 0.10rem;
+    }
+
+    .tagPlatform {
+        height: 1.5rem;
+        width: 4rem;
+        margin: 0.35rem 0.35rem 0.35rem 0.35rem;
+        font-size: var(--microText);
+        border-width: 0.10rem;
+    }
+
+    .tagBusyness {
+        height: 1.5rem;
+        width: 4rem;
+        margin: 0.35rem 0.35rem 0.35rem 0.35rem;
+        font-size: var(--microText);
+        border-width: 0.10rem;
+    }
+
+    .tagArea {
+        height: 1.5rem;
+        width: 4rem;
+        margin: 0.35rem 0.35rem 0.35rem 0.35rem;
+        font-size: var(--microText);
+        border-width: 0.10rem;
+    }
+
+    .alternativeButton {
+        height: 2rem;
+        width: 6rem;
+    }
+
+    .divPayment {
+        height: 2rem;
+        width: 12rem;
+        font-size: var(--miniText);
+    }
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 400px) {
+
+    .divVaga {
+        height: 19rem;
+    }
+
+    .tagDev {
+        height: 1.5rem;
+        width: 4rem;
+        margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+        font-size: var(--microText);
+        font-family: var(--regular);
+    }
+
+    .tagPlatform {
+        height: 1.5rem;
+        width: 4rem;
+        margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+        font-size: var(--microText);
+        font-family: var(--regular);
+    }
+
+    .tagBusyness {
+        height: 1.5rem;
+        width: 4rem;
+        margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+        font-size: var(--microText);
+        font-family: var(--regular);
+    }
+
+    .tagArea {
+        height: 1.5rem;
+        width: 4rem;
+        margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+        font-size: var(--microText);
+        font-family: var(--regular);
+    }
+
+    .alternativeButton {
+        height: 1.8rem;
+        width: 5rem;
+    }
+
+    .divPayment {
+        height: 1.8rem;
+        width: 10rem;
+        font-size: var(--miniText);
+    }
+
+    /* ----------------------------------------------- */
+    /* ----------------------------------------------- */
+    /* ----------------------------------------------- */
+
+    @media screen and (max-width: 370px) {
+
+        .divVaga {
+            height: 17.2rem;
         }
-    
+
         .bigTitle2 {
-            font-family: var(--bold);
-            font-size: var(--subtitle);
-            color: var(--white);
-            margin: 0;
-            padding-bottom: 1%;
-        }
-    
-        .subtitle {
-            font-family: var(--bold);
             font-size: var(--smallText);
-            color: var(--white);
-            margin-top: 1rem;
-        }
-    
-        .imgIcon2 {
-            height: 1.2rem;
-            margin: 0;
-            transition: 0.5s;
-        }
-
-        .searchBar {
-            height: 2rem;
-            width: 100%;
-            font-size: var(--smallText);
-        }
-        
-        .searchBarSmall {
-            height: 2rem;
-            width: 60%;
-            font-size: var(--smallText);
-        }
-
-        /* Feed */
-        .divVagaContent {
-            width: 88%;
-            margin-left: 2%;
         }
 
         .divDescriptionFormatter {
-            width: 100%;
-            height: 18.75rem;
-            font-family: var(--regular);
-            font-size: var(--smallText);
-            color: var(--white);
-            background-color: var(--lightGrey);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            float: right;
+            height: 10rem;
+            font-size: var(--microText);
         }
-        
-        .divDescription {
-            width: 97%;
-            height: 100%;
-            overflow-y: auto;
-        }
-        
-        .divTagsFormatter {
-            width: 100%;
-            height: auto;
-            display: flex;
-            align-items: center;
-            margin: 0;
-        }
-        
-        .divTags {
-            width: 97%;
-            height: auto;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            margin: 0.5rem 0.15rem 0.5rem 0rem;
-        }
-        
+
         .tagDev {
-            height: 2.1875rem;
-            width: 6rem;
-            background-color: #ffffff00;
-            border-radius: 2px;
-            border-color: var(--blueTag);
-            border-style: solid;
-            border-width: 0.14rem;
-            font-size: var(--extraSmallText);
-            font-family: var(--regular);
-            color: var(--blueTag);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.5s;
-            margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+            height: 1.2rem;
+            width: 4rem;
+            margin: 0.15rem 0.15rem 0.15rem 0.15rem;
         }
-        
-        .tagDev:hover {
-            background-color: var(--white);
-            cursor: pointer;
-        }
-        
+
         .tagPlatform {
-            height: 2.1875rem;
-            width: 6rem;
-            background-color: #ffffff00;
-            border-radius: 2px;
-            border-color: var(--purpleTag);
-            border-style: solid;
-            border-width: 0.14rem;
-            font-size: var(--extraSmallText);
-            font-family: var(--regular);
-            color: var(--purpleTag);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.5s;
-            margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+            height: 1.2rem;
+            width: 4rem;
+            margin: 0.15rem 0.15rem 0.15rem 0.15rem;
         }
-        
-        .tagPlatform:hover {
-            background-color: var(--white);
-            cursor: pointer;
-        }
-        
+
         .tagBusyness {
-            height: 2.1875rem;
-            width: 6rem;
-            background-color: #ffffff00;
-            border-radius: 2px;
-            border-color: var(--yellowTag);
-            border-style: solid;
-            border-width: 0.14rem;
-            font-size: var(--extraSmallText);
-            font-family: var(--regular);
-            color: var(--yellowTag);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.5s;
-            margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+            height: 1.2rem;
+            width: 4rem;
+            margin: 0.15rem 0.15rem 0.15rem 0.15rem;
         }
-        
-        .tagBusyness:hover {
-            background-color: var(--white);
-            cursor: pointer;
-        }
-        
+
         .tagArea {
-            height: 2.1875rem;
-            width: 6rem;
-            background-color: #ffffff00;
-            border-radius: 2px;
-            border-color: var(--redTag);
-            border-style: solid;
-            border-width: 0.14rem;
-            font-size: var(--extraSmallText);
-            font-family: var(--regular);
-            color: var(--redTag);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.5s;
-            margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+            height: 1.2rem;
+            width: 4rem;
+            margin: 0.15rem 0.15rem 0.15rem 0.15rem;
         }
-        
-        .tagArea:hover {
-            background-color: var(--white);
-            cursor: pointer;
-        }
-        
+
         .alternativeButton {
-            height: 3rem;
-            width: 10rem;
-            background-color: var(--lightBlue);
-            border-radius: 2px;
-            border-style: none;
-            font-size: var(--subtitle);
-            font-family: var(--bold);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.5s;
-            padding: 0;
+            height: 1.5rem;
+            width: 5rem;
         }
-        
-        .alternativeButton:hover {
-            background-color: var(--lightPurple);
-            cursor: pointer;
-        }
-        
+
         .divPayment {
-            height: 3rem;
-            width: 21.5rem;
-            background-color: var(--lightGrey);
+            height: 1.5rem;
+            width: 10rem;
+            font-size: var(--miniText);
             font-family: var(--regular);
-            font-size: var(--smallText);
-            color: var(--white);
-            border-radius: 2px;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: left;
         }
+    }
+
+    /* ----------------------------------------------- */
+    /* ----------------------------------------------- */
+    /* ----------------------------------------------- */
+
+    @media screen and (max-width: 360px) {
+
+        .divDescriptionFormatter {
+            height: 8rem;
+            font-size: var(--microText);
+        }
+
+    }
 }
