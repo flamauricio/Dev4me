@@ -37,14 +37,17 @@
         </div>
 
         <!--Sidebar Mobile-->
-        <div class="divSideBarMobile"></div>
+        <div class="divSideBarIcon" id="divSideBarIcon" onclick="bringSidebar()">
+            <img class="imgSearch" src="../img/search-white.png">
+        </div>
 
         <!--Sidebar-->
-        <div class="divSideBar">
+        <div class="divSideBar" id="divSideBar">
             <div class="divSideBarContainer">
                 <div class="divSpaceBetween">
                     <p class="bigTitle">Filtrar Busca</p>
                     <img class="imgIcon2" src="../img/reload.png">
+                    <img class="imgIcon3" id="buttonClose" onclick="hideSidebar()" src="../img/close.png">
                 </div>
 
                 <div class="divAlignLeft">
@@ -191,3 +194,18 @@
 </body>
 
 </html>
+
+<script>
+
+    function bringSidebar() {
+        divSideBar.style.display = "block";
+        buttonClose.style.display = "block";
+        divSideBarIcon.style.display = "none";
+    }
+
+    function hideSidebar() {
+        divSideBar.style.display = "none";
+        buttonClose.style.display = "none";
+        divSideBarIcon.style.display = "block";
+    }
+</script>

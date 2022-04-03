@@ -195,6 +195,29 @@ body {
     margin-right: var(--lMargin);
 }
 
+.divSideBarIcon {
+    display: none;
+}
+
+.imgSearch {
+    height: 2rem;
+    margin: 0;
+    display: none;
+}
+
+.imgIcon3 {
+    height: 2rem;
+    margin: 0;
+    display: none;
+    transition: 0.5s;
+    margin-top: -20%;
+    margin-right: -20%;
+}
+
+.imgIcon3:hover {
+    cursor: pointer;
+}
+
 /* Feed */
 .divFeedFormatter {
     margin-left: 35%;
@@ -718,6 +741,10 @@ body {
         font-size: var(--extraSmallText);
     }
 
+    .divSideBarIcon {
+        display: none;
+    }
+
 }
 
 /* ----------------------------------------------- */
@@ -726,6 +753,88 @@ body {
 
 @media screen and (max-width: 752px) {
 
+    /* Side Bar */
+    .divSideBar {
+        width: 40%;
+        height: 100%;
+        display: none;
+    }
+
+    .imgIcon3 {
+        display: block;
+    }
+
+    .divSideBarContainer {
+        width: 80%;
+        margin-left: 15%;
+    }
+
+    .bigTitle {
+        font-size: var(--smallSubtitle);
+    }
+
+    .subtitle {
+        font-family: var(--bold);
+        font-size: var(--extraSmallText);
+        color: var(--white);
+        margin-top: 1rem;
+    }
+
+    .imgIcon2 {
+        height: 1.2rem;
+    }
+
+    .marginBox {
+        height: var(--xxxsMargin);
+    }
+
+    .smallText {
+        font-size: var(--extraSmallText);
+    }
+
+    .searchBar {
+        height: 1.8rem;
+        font-size: var(--extraSmallText);
+    }
+
+    .searchBarSmall {
+        height: 1.8rem;
+        font-size: var(--extraSmallText);
+    }
+
+    .divFeedMargin2 {
+        height: 1.2rem;
+    }
+
+    .divFeedMargin2 {
+        height: 2.5rem;
+    }
+
+    .divSideBarIcon {
+        display: block;
+        margin-left: 5%;
+        width: 87.34px;
+        height: 1.5rem;
+        background-color: var(--lightGrey);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0px 0px 5px 5px;
+    }
+
+    .divSideBarIcon:hover {
+        margin-left: 5%;
+        width: 87.34px;
+        height: 1.5rem;
+        border-radius: 0px 0px 5px 5px;
+        padding: 0px 0px 10px 10px;
+    }
+
+    .imgSearch {
+        height: calc(2rem * 0.5125);
+        display: block;
+    }
+
     .divVaga {
         height: 24rem;
     }
@@ -733,10 +842,6 @@ body {
     .divFeedMargin {
         width: 100%;
         height: 2rem;
-    }
-
-    .divSideBar {
-        display: none;
     }
 
     .divFeedFormatter {
@@ -750,6 +855,16 @@ body {
 /* ----------------------------------------------- */
 
 @media screen and (max-width: 520px) {
+
+    .divSideBar {
+        width: 50%;
+        height: 100%;
+    }
+
+    .divSideBarContainer {
+        width: 80%;
+        margin-left: 15%;
+    }
 
     .divVaga {
         height: 19.8rem;
@@ -865,6 +980,16 @@ body {
     /* ----------------------------------------------- */
 
     @media screen and (max-width: 370px) {
+
+        .divSideBar {
+            width: 60%;
+            height: 100%;
+        }
+    
+        .divSideBarContainer {
+            width: 80%;
+            margin-left: 15%;
+        }
 
         .divVaga {
             height: 17.2rem;
