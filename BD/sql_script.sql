@@ -14,12 +14,13 @@ CREATE TABLE IF NOT EXISTS `db_devme`.`usuario` (
   `id_user` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `telefone` VARCHAR(14) NOT NULL,
-  `cpf` VARCHAR(11) NOT NULL,
+  `cpf` VARCHAR(14) NOT NULL,
+  `cep` VARCHAR(8) NOT NULL,
+  `endereco` VARCHAR(45) NOT NULL,
   `owner_email` VARCHAR(45) NOT NULL,
   `senha` CHAR(16) NOT NULL,
   `data_nasc` DATETIME NULL,
   `desc_user` VARCHAR(200) NULL,
-  `fk_candidatura` INT NULL,
   PRIMARY KEY (`id_user`))
 ENGINE = InnoDB;
 
