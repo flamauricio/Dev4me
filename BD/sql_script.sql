@@ -13,6 +13,7 @@ USE `db_devme` ;
 CREATE TABLE IF NOT EXISTS `db_devme`.`usuario` (
   `id_user` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
+  `cpf` VARCHAR(45) NOT NULL,
   `owner_email` VARCHAR(45) NOT NULL,
   `senha` CHAR(16) NOT NULL,
   `data_nasc` DATETIME NULL,
@@ -29,9 +30,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_devme`.`empresa` (
   `id_empresa` INT NOT NULL AUTO_INCREMENT,
+  `cnpj` VARCHAR(45) NOT NULL,
   `nome` VARCHAR(45) NULL,
   `login` VARCHAR(45) NULL,
-  `senha` VARCHAR(45) NULL,
+  `senha` VARCHAR(16) NULL,
   `email` VARCHAR(45) NULL,
   PRIMARY KEY (`id_empresa`))
 AUTO_INCREMENT = 100
