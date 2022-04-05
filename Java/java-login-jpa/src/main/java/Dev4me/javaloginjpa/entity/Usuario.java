@@ -2,10 +2,14 @@ package Dev4me.javaloginjpa.entity;
 
 import Dev4me.javaloginjpa.repository.UsuarioRepository;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.http.ResponseEntity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 
@@ -19,25 +23,79 @@ public class Usuario {
     private Integer id;
 
     @NotBlank
+    @Size(max = 45)
     @Column (name = "nome", length = 45)
     private String nome;
 
     @NotBlank
+    @Email
     @Column (name = "owner_email", length = 45)
     private String email;
 
     @NotBlank
+    @Size(max = 16)
     @Column (name = "senha", length = 16)
     private String senha;
 
-    @NotBlank
     @CreationTimestamp
     @Column (name = "data_nasc")
     private LocalDate dataNasc;
 
     @NotBlank
+    @Size(max = 200)
     @Column (name = "desc_user", length = 200)
     private String descUsuario;
+
+    @CPF
+    @Size(max = 14)
+    @Column (name = "cpf", length = 14)
+    private  String cpf;
+
+    @Pattern(regexp = "(\\(?\\d{2}\\)?\\s)?(\\d{4,5}\\-\\d{4})" , message = "Informe um telefone válido com ou sem DDD")
+    @Column (name = "telefone", length = 14)
+    private String telefone;
+
+    @NotBlank
+    @Size(max = 8)
+    @Column (name = "cep", length = 8)
+    private String cep;
+
+    @NotBlank
+    @Size(max = 45)
+    @Column (name = "endereco", length = 45)
+    private String endereco;
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
 
     public Integer getId() {
         return id;

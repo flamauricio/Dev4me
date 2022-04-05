@@ -2,7 +2,9 @@ package Dev4me.javaloginjpa.entity;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "empresa")
@@ -14,20 +16,41 @@ public class Empresa {
     private Integer id;
 
     @NotBlank
+    @Size(max = 45)
     @Column (name = "nome", length = 45)
     private String nome;
 
     @NotBlank
+    @Email
     @Column (name = "email", length = 45)
     private String email;
 
     @NotBlank
+    @Size(max = 45)
     @Column (name = "login", length = 45)
     private String login;
 
     @NotBlank
+    @Size(max = 16)
     @Column (name = "senha", length = 45)
     private String senha;
+
+    @NotBlank
+    @Size(max = 16)
+    @Column (name = "cnpj", length = 16)
+    private String cnpj;
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
 
     public Integer getId() {
         return id;
