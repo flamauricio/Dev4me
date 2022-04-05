@@ -2,6 +2,10 @@
 CREATE TABLE usuario(
   id_user INT PRIMARY KEY NOT NULL IDENTITY,
   nome VARCHAR(45) NOT NULL,
+  telefone VARCHAR(14) NOT NULL,
+  cpf VARCHAR(14) NOT NULL,
+  cep VARCHAR(8) NOT NULL,
+  endereco  VARCHAR(45) NOT NULL,
   owner_email VARCHAR(45) NOT NULL,
   senha CHAR(16) NOT NULL,
   data_nasc DATETIME NULL,
@@ -11,6 +15,7 @@ CREATE TABLE usuario(
   CREATE TABLE empresa(
   id_empresa INT NOT NULL PRIMARY KEY IDENTITY(100, 1),
   nome VARCHAR(45) NULL,
+  cnpj VARCHAR(14) NOT NULL,
   login VARCHAR(45) NULL,
   senha VARCHAR(45) NULL,
   email VARCHAR(45) NULL
