@@ -1,8 +1,11 @@
-const express = require("express");
-const app = express();
+import React from "react";
 
-//Rotas
-const index = require("./routes/index");
-app.use("/", index);
 
-module.exports = app;
+function App() {
+  return (
+    <>
+    </>
+  );
+}
+
+export default App;
