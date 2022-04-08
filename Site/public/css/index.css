@@ -90,7 +90,7 @@ body{
     display: flex;
     flex-direction: column;
     margin-left: 55%;
-    margin-top: -25%;
+    margin-top: -27%;
 }
 .titulo1{
     font-family: var(--bold);
@@ -100,6 +100,7 @@ body{
      float: left;
      margin-right: 50%;
      filter: drop-shadow(50px 4px 10px rgba(0, 0, 0, 0.25));
+     
 
 }
 .titulo2{
@@ -187,13 +188,13 @@ body{
 
 .beneficiosContent2{
     font-family: 'Poppins-Regular';
-    width: 50%;
+    width: 42%;
     height: auto;
     display: flex;
     flex-direction: column;
     margin-left: 50%;
     float: right;
-    margin-top: -28%;
+    margin-top: -30%;
 
 }
 
@@ -215,7 +216,6 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-bottom: 6.25rem;
     background-image: linear-gradient(to right,#9204fe 30%, #3e62f4 80%, #0eb5db 100%);
 }
 .imgEmpresa{
