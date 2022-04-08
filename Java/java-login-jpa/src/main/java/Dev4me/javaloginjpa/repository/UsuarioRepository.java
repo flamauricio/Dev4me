@@ -1,8 +1,10 @@
 package Dev4me.javaloginjpa.repository;
 
+import Dev4me.javaloginjpa.csv.ListaObj;
 import Dev4me.javaloginjpa.entity.Usuario;
 import Dev4me.javaloginjpa.response.UsuarioAutenticacaoResponse;
 import Dev4me.javaloginjpa.response.UsuarioSimplesResponse;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -22,4 +24,5 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     @Modifying
     @Query("update Usuario u set u.senha = ?2 where u.id = ?1")
     void patchUsuarioSenha(Integer id, String novaSenha);
+
 }
