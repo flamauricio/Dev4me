@@ -7,6 +7,9 @@ import Dev4me.javaloginjpa.repository.UsuarioRepository;
 import Dev4me.javaloginjpa.request.UsuarioSenhaRequest;
 import Dev4me.javaloginjpa.response.UsuarioAutenticacaoResponse;
 import Dev4me.javaloginjpa.response.UsuarioSimplesResponse;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +25,7 @@ import java.util.*;
 @RequestMapping("/usuarios")
 public class UsuarioController {
 
-    // Codigo CSV
+    // Começo do codigo CSV
     public static void gravaArquivoCsv(ListaObj<UsuarioCsv> lista, String nomeArq) {
         FileWriter arq = null;
         Formatter saida = null;
@@ -33,8 +36,7 @@ public class UsuarioController {
         try {
             arq = new FileWriter(nomeArq);
             saida = new Formatter(arq);
-        }
-        catch (IOException erro) {
+        } catch (IOException erro) {
             System.out.println("Erro ao abrir o arquivo");
             System.exit(1);
         }
@@ -46,19 +48,16 @@ public class UsuarioController {
 
                 saida.format("%d;%s;%s;%s;%s;%s;%s;%s;%s;%s\n",
                         user.getId(), user.getNome(), user.getTelefone(), user.getCpf(), user.getCep(), user.getEndereco(),
-                        user.getEmail(), user.getSenha(), user.getDataNasc(),user.getDescUsuario());
+                        user.getEmail(), user.getSenha(), user.getDataNasc(), user.getDescUsuario());
             }
-        }
-        catch (FormatterClosedException erro) {
+        } catch (FormatterClosedException erro) {
             System.out.println("Erro ao gravar o arquivo!");
             deuRuim = true;
-        }
-        finally {
+        } finally {
             saida.close();
             try {
                 arq.close();
-            }
-            catch (IOException erro) {
+            } catch (IOException erro) {
                 System.out.println("Erro ao fechar o arquivo!");
                 deuRuim = true;
             }
@@ -68,7 +67,7 @@ public class UsuarioController {
         }
     }
 
-    public static void leExibeArquivoCsv (String nomeArq){
+    public static void leExibeArquivoCsv(String nomeArq) {
         FileReader arq = null;
         Scanner entrada = null;
         nomeArq += ".csv";
@@ -78,15 +77,14 @@ public class UsuarioController {
         try {
             arq = new FileReader(nomeArq);
             entrada = new Scanner(arq).useDelimiter(";|\\n");
-        }
-        catch (FileNotFoundException erro) {
+        } catch (FileNotFoundException erro) {
             System.out.println("Arquivo não encontrado");
             System.exit(1);
         }
 
         try {
             System.out.printf("%6s %14s %14s %14s %8s %20s %20s %16s %10s %30s\n",
-                    "ID","NOME","EMAIL","SENHA","DATANASC","DESCRICAO","CPF","TELEFONE","CEP","ENDERECO");
+                    "ID", "NOME", "EMAIL", "SENHA", "DATANASC", "DESCRICAO", "CPF", "TELEFONE", "CEP", "ENDERECO");
             while (entrada.hasNext()) {
                 Integer id = entrada.nextInt();
                 String nome = entrada.next();
@@ -99,23 +97,19 @@ public class UsuarioController {
                 String cep = entrada.next();
                 String endereco = entrada.next();
                 System.out.printf("%6s %14s %14s %14s %8s %20s %20s %16s %10s %30s\n",
-                        id,nome,email,senha,dataNasc,descUsuario,cpf,telefone,cep,endereco);
+                        id, nome, email, senha, dataNasc, descUsuario, cpf, telefone, cep, endereco);
             }
-        }
-        catch (NoSuchElementException erro) {
+        } catch (NoSuchElementException erro) {
             System.out.println("Arquivo com problemas");
             deuRuim = true;
-        }
-        catch (IllegalStateException erro) {
+        } catch (IllegalStateException erro) {
             System.out.println("Erro na leitura do arquivo");
             deuRuim = true;
-        }
-        finally {
+        } finally {
             entrada.close();
             try {
                 arq.close();
-            }
-            catch (IOException erro) {
+            } catch (IOException erro) {
                 System.out.println("Erro ao fechar o arquivo!");
                 deuRuim = true;
             }
@@ -124,42 +118,49 @@ public class UsuarioController {
             }
         }
     }
+    // Fim do codigo do CSV
 
     @Autowired
     private UsuarioRepository repository;
 
     //Método pra cadastro do Usuário;
+    @ApiResponses({@ApiResponse(responseCode = "200", content = @Content(mediaType = "application/json"))})
     @PostMapping
-    public ResponseEntity postUsuario (@RequestBody @Valid Usuario novoUsuario) {
+    public ResponseEntity postUsuario(@RequestBody @Valid Usuario novoUsuario) {
         repository.save(novoUsuario);
         return ResponseEntity.status(201).build();
     }
 
+    //GET da chamada do csv
     @GetMapping("/csv")
     public ResponseEntity getUsuarios() {
         ListaObj<UsuarioCsv> lista = new ListaObj<>(5);
-        lista.adiciona(new UsuarioCsv(1,"flavio","fla@gmail.com","123","2022-01-01","desc","51074289838","11944429010","03214020","Rua"));
-        lista.adiciona(new UsuarioCsv(2,"flavio","fla@gmail.com","123","2022-01-01","desc","51074289838","11944429010","03214020","Rua"));
-        lista.adiciona(new UsuarioCsv(3,"flavio","fla@gmail.com","123","2022-01-01","desc","51074289838","11944429010","03214020","Rua"));
+        lista.adiciona(new UsuarioCsv(1, "flavio", "fla@gmail.com", "123", "2022-01-01", "desc", "51074289838", "11944429010", "03214020", "Rua"));
+        lista.adiciona(new UsuarioCsv(2, "flavio", "fla@gmail.com", "123", "2022-01-01", "desc", "51074289838", "11944429010", "03214020", "Rua"));
+        lista.adiciona(new UsuarioCsv(3, "flavio", "fla@gmail.com", "123", "2022-01-01", "desc", "51074289838", "11944429010", "03214020", "Rua"));
+        lista.adiciona(new UsuarioCsv(4, "flavio", "fla@gmail.com", "123", "2022-01-01", "desc", "51074289838", "11944429010", "03214020", "Rua"));
+        lista.adiciona(new UsuarioCsv(5, "flavio", "fla@gmail.com", "123", "2022-01-01", "desc", "51074289838", "11944429010", "03214020", "Rua"));
+        lista.adiciona(new UsuarioCsv(6, "flavio", "fla@gmail.com", "123", "2022-01-01", "desc", "51074289838", "11944429010", "03214020", "Rua"));
+        lista.adiciona(new UsuarioCsv(7, "flavio", "fla@gmail.com", "123", "2022-01-01", "desc", "51074289838", "11944429010", "03214020", "Rua"));
+        lista.adiciona(new UsuarioCsv(8, "flavio", "fla@gmail.com", "123", "2022-01-01", "desc", "51074289838", "11944429010", "03214020", "Rua"));
+        lista.adiciona(new UsuarioCsv(9, "flavio", "fla@gmail.com", "123", "2022-01-01", "desc", "51074289838", "11944429010", "03214020", "Rua"));
+        lista.adiciona(new UsuarioCsv(10, "flavio", "fla@gmail.com", "123", "2022-01-01", "desc", "51074289838", "11944429010", "03214020", "Rua"));
 
         gravaArquivoCsv(lista, "usuarios");
         leExibeArquivoCsv("usuarios");
         return ResponseEntity.status(200).body(lista);
     }
 
+    // GET de usuarios sem senha
     @GetMapping
-    public ResponseEntity getUsuariosSimples() {
-        List<UsuarioSimplesResponse> usuarios = repository.getUsuariosSimples();
-        if (usuarios.isEmpty()) {
-            return ResponseEntity.status(204).build();
-        }
-        return ResponseEntity.status(200).body(usuarios);
+    public ResponseEntity<List<UsuarioSimplesResponse>> getUsuariosSimples() {
+        return ResponseEntity.status(200).body(repository.getUsuariosSimples());
     }
 
-
+    //POST de autenticar usuario
+    @ApiResponses({@ApiResponse (responseCode = "200", content = @Content(mediaType = "application/json"))})
     @PostMapping("/login")
-    public ResponseEntity autenticar(@RequestBody UsuarioAutenticacaoResponse usuario)
-    {
+    public ResponseEntity autenticar(@RequestBody UsuarioAutenticacaoResponse usuario) {
         List<UsuarioAutenticacaoResponse> usuarios = repository.getUsuariosAutenticacao();
         if (usuarios.isEmpty()) {
             return ResponseEntity.status(204).build();
@@ -172,10 +173,10 @@ public class UsuarioController {
         return ResponseEntity.status(404).build();
     }
 
+    //DELETE desloga usuario
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity deleteUsuario(@PathVariable Integer id,
-                                        @RequestBody UsuarioAutenticacaoResponse usuario)
-    {
+    public ResponseEntity<Void> deleteUsuario(@PathVariable Integer id,
+                                        @RequestBody UsuarioAutenticacaoResponse usuario) {
         if (repository.existsById(id)) {
             List<UsuarioAutenticacaoResponse> usuarios = repository.getUsuariosAutenticacao();
 
@@ -190,10 +191,11 @@ public class UsuarioController {
         return ResponseEntity.status(404).build();
     }
 
+    // PATCH trocar senha
+    @ApiResponses({@ApiResponse (responseCode = "200", content = @Content(mediaType = "application/json"))})
     @PatchMapping("/senha/{id}")
-    public ResponseEntity patchUsuarioSenha(@PathVariable Integer id,
-                                            @RequestBody UsuarioSenhaRequest usuario)
-    {
+    public ResponseEntity<List<UsuarioAutenticacaoResponse>> patchUsuarioSenha(@PathVariable Integer id,
+                                            @RequestBody UsuarioSenhaRequest usuario) {
         if (repository.existsById(id)) {
             List<UsuarioAutenticacaoResponse> usuarios = repository.getUsuariosAutenticacao();
 
