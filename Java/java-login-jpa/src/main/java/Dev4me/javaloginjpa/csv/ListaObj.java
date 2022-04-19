@@ -1,16 +1,16 @@
 package Dev4me.javaloginjpa.csv;
 
-public class ListaObj <UsuarioCsv> {
+public class ListaObj <Usuario> {
 
-    private UsuarioCsv[] vetor;
+    private Usuario[] vetor;
     private int nroElem;
 
     public ListaObj(int tamanho) {
-        vetor = (UsuarioCsv[]) new Object[tamanho];
+        vetor = (Usuario[]) new Object[tamanho];
         nroElem = 0;
     }
 
-    public void adiciona(UsuarioCsv elemento) {
+    public void adiciona(Usuario elemento) {
         if (nroElem >= vetor.length) {
             System.out.println("Lista está cheia");
         } else {
@@ -30,7 +30,7 @@ public class ListaObj <UsuarioCsv> {
         }
     }
 
-    public int busca(UsuarioCsv elementoBuscado) {
+    public int busca(Usuario elementoBuscado) {
         for (int i = 0; i < nroElem; i++) {
             if (vetor[i].equals(elementoBuscado)) {
                 return i;
@@ -52,7 +52,7 @@ public class ListaObj <UsuarioCsv> {
         return true;
     }
 
-    public boolean removeElemento(UsuarioCsv elementoARemover) {
+    public boolean removeElemento(Usuario elementoARemover) {
 
         return removePeloIndice(busca(elementoARemover));
     }
@@ -62,7 +62,7 @@ public class ListaObj <UsuarioCsv> {
         return nroElem;
     }
 
-    public UsuarioCsv getElemento(int indice) {
+    public Usuario getElemento(int indice) {
         if (indice < 0 || indice >= nroElem) {
 
             return null;
