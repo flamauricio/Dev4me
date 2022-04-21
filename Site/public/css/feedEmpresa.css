@@ -75,7 +75,34 @@ body {
 .cardBody {
     width: 15rem;
     height: 15rem;
-    padding: 1.5rem;
+    padding: 1rem;
     background-color: var(--mediumGrey);
     margin: 1rem 1rem 1rem 1rem;
+}
+
+.imagePerson {
+    width: 4rem;
+}
+
+.divTextOrganizer{
+    height: 4rem;
+    width: auto;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.namePerson {
+    font-family: var(--bold);
+    font-size: var(--smallText);
+    color: var(--white);
+    margin: 0;
+}
+
+.textInfo {
+    font-family: var(--regular);
+    font-size: var(--smallText);
+    color: var(--white);
+    margin: 0;
 }

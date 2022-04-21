@@ -37,27 +37,12 @@
             </div>
         </div>
 
-        <!--Sidebar Mobile-->
-        <div class="divSideBarIcon" id="divSideBarIcon" onclick="bringSidebar()">
-            <img class="imgSearch" src="../img/search-white.png">
-        </div>
-
-        <!--Sidebar-->
-        <div class="divSideBar" id="divSideBar">
-            <div class="divSideBarContainer">
+        <!--Search bar mobile-->
+        <div class="divMobile">
+            <div class="divMobileOrganizer">
                 <div class="divSpaceBetween">
                     <p class="bigTitle">Filtrar Busca</p>
                     <img class="imgIcon2" src="../img/reload.png">
-                    <img class="imgIcon3" id="buttonClose" onclick="hideSidebar()" src="../img/close.png">
-                </div>
-
-                <div class="divAlignLeft">
-                    <p class="subtitle">Buscar por Tags</p>
-                    <input class="searchBar" type="search" placeholder="Digite uma tag">
-                </div>
-
-                <div class="marginBox">
-
                 </div>
 
                 <div class="divAlignLeft">
@@ -81,6 +66,13 @@
                         <input class="checkbox" type="checkbox" checked>
                     </div>
                 </div>
+            </div>
+
+            <div class="divMobileOrganizer">
+                <div class="divAlignLeft">
+                    <p class="subtitle">Buscar por Tags</p>
+                    <input class="searchBar" type="search" placeholder="Digite uma tag">
+                </div>
 
                 <div class="divAlignLeft">
                     <p class="subtitle">Buscar por Faixa Salarial</p>
@@ -95,12 +87,74 @@
                 </div>
             </div>
         </div>
-    </div>
+
+               <!--Sidebar-->
+               <div class="divSideBar" id="divSideBar">
+                <div class="divSideBarContainer">
+                    <div class="divSpaceBetween">
+                        <p class="bigTitle">Filtrar Busca</p>
+                        <img class="imgIcon2" src="../img/reload.png">
+                    </div>
+    
+                    <div class="divAlignLeft">
+                        <p class="subtitle">Buscar por Tags</p>
+                        <input class="searchBar" type="search" placeholder="Digite uma tag">
+                    </div>
+    
+                    <div class="marginBox">
+    
+                    </div>
+    
+                    <div class="divAlignLeft">
+                        <p class="subtitle">Buscar por Localização</p>
+                        <input class="searchBar" type="search" placeholder="Digite uma localização">
+                    </div>
+    
+                    <div class="boxInline">
+                        <div class="boxCheckbox">
+                            <p class="smallText">remoto</p>
+                            <input class="checkbox" type="checkbox" checked>
+                        </div>
+    
+                        <div class="boxCheckbox">
+                            <p class="smallText">híbrido</p>
+                            <input class="checkbox" type="checkbox" checked>
+                        </div>
+    
+                        <div class="boxCheckbox">
+                            <p class="smallText">presencial</p>
+                            <input class="checkbox" type="checkbox" checked>
+                        </div>
+                    </div>
+    
+                    <div class="divAlignLeft">
+                        <p class="subtitle">Buscar por Faixa Salarial</p>
+                        <div class="divSpaceBetween2">
+                            <p class="subtitle">de:</p>
+                            <input class="searchBarSmall" type="search" placeholder="R$ 4000,00">
+                        </div>
+                        <div class="divSpaceBetween2">
+                            <p class="subtitle">até:</p>
+                            <input class="searchBarSmall" type="search" placeholder="R$ 6500,00">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <div class="divFeedMargin"></div>
 
     <div class="divCardsFormatter">
-        <div class="cardBody"></div>
+        <div class="cardBody">
+            <div class="divSpaceBetween2">
+                <img class="imagePerson" src="../img/eu.jpg"/>
+                <div class="divTextOrganizer">
+                    <p class="namePerson">Guilherme de Carvalho</p>
+                    <p class="textInfo">Santo André, SP</p>
+                    <p class="textInfo">Desenvolvedor</p>
+                </div>
+            </div>
+        </div>
         <div class="cardBody"></div>
         <div class="cardBody"></div>
         <div class="cardBody"></div>
@@ -109,18 +163,3 @@
 </body>
 
 </html>
-
-<script>
-
-    function bringSidebar() {
-        divSideBar.style.display = "block";
-        buttonClose.style.display = "block";
-        divSideBarIcon.style.display = "none";
-    }
-
-    function hideSidebar() {
-        divSideBar.style.display = "none";
-        buttonClose.style.display = "none";
-        divSideBarIcon.style.display = "block";
-    }
-</script>
