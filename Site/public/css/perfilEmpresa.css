@@ -1,0 +1,200 @@
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url(../fonts/Poppins-Bold.ttf);
+    font-family: 'Poppins-Medium';
+    src: url(../fonts/Poppins-Medium.ttf);
+}
+
+body {
+    margin: 0;
+}
+
+/* Variables */
+:root {
+    /* Colors */
+    --backGroundGrey: #272727;
+    --darkGrey: #171717;
+    --mediumGrey: #383838;
+    --lightGrey: #4E4E4E;
+    --lightBlue: #1E9CD7;
+    --lightPurple: #861ED7;
+    --white: #ffffff;
+
+    --blueTag: #69E3E8;
+    --purpleTag: #4c2dfa;
+    --yellowTag: #FFC700;
+    --redTag: #E86969;
+
+    /* Margin */
+    --xxsMargin: 16px;
+    --xsMargin: 24px;
+    --sMargin: 32px;
+    --mMargin: 40px;
+    --lMargin: 48px;
+    --xlMargin: 56px;
+    --xxlMargin: 64px;
+
+    /* Font Size */
+    --bigTitle: 2.5rem;
+    /* Use with font-family: var(--bold) */
+    --regularTitle: 2rem;
+    /* Use with font-family: var(--bold) */
+    --bigText: 1.5rem;
+    /* Use with font-family: var(--regular) */
+    --subtitle: 1.2rem;
+    /* Use with font-family: var(--bold) */
+    --smallSubtitle: 1rem;
+    /* Use with font-family: var(--bold) */
+    --smallText: 0.8rem;
+    /* Use with font-family: var(--regular) */
+    --extraSmallText: 0.6rem;
+    /* Use with font-family: var(--regular) */
+    --miniText: 0.5rem;
+    /* Use with font-family: var(--regular) */
+    --microText: 0.42rem;
+    /* Use with font-family: var(--regular) */
+
+    /* Font Family */
+    --bold: 'Poppins-Bold';
+    --regular: 'Poppins-Medium';
+}
+.imgPlus{
+    height: 2.2rem;
+    margin: 0;
+   padding-bottom: 6%;
+}
+.divSideBar {
+    width: 25%;
+    height: 100%;
+    position: fixed;
+    background-color: var(--mediumGrey);
+    z-index: 1;
+    padding-right: 5%;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 6%;
+}
+
+.divSideBarContainer {
+    width: 80%;
+    height: 70%;
+    margin-left: 20%;
+    margin-top: 20%;
+}
+
+.divSpaceBetween {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -10%;
+}
+
+.divSpaceBetween2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.divSpaceBetween3 {
+    margin-top: 0.2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bigTitle {
+    margin: 0;
+    font-family: var(--bold);
+    font-size: var(--regularTitle);
+    color: var(--white);
+}
+
+.bigTitle2 {
+    font-family: var(--bold);
+    font-size: var(--regularTitle);
+    color: var(--white);
+    margin: 0;
+    padding-bottom: 1%;
+}
+
+.subtitle {
+    font-family: var(--bold);
+    font-size: var(--subtitle);
+    color: var(--white);
+    margin: 0.5rem 0rem 0.5rem 0rem;
+}
+
+.imgIcon2 {
+    height: 4rem;
+    margin: 0;
+    transition: 0.5s;
+    align-items: center;
+    margin-left: 32%;
+}
+
+.imgIcon2:hover {
+   height: 4.4rem ;
+    cursor: pointer;
+}
+
+.divAlignLeft {
+    display: contents;
+    align-items: center;
+    text-align: left;
+    justify-content: space-between;
+    margin-top: -10%;
+}
+
+.marginBox {
+    height: var(--xsMargin);
+}
+
+.boxInline {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    justify-content: space-between;
+}
+
+.boxCheckbox {
+    display: contents;
+}
+
+.smallText {
+    font-family: var(--bold);
+    font-size: var(--smallSubtitle);
+    color: var(--white);
+}
+
+.checkbox {
+    background-color: var(--white);
+    border: none;
+}
+
+.searchBarButton {
+    height: 2.5rem;
+    width: 100%;
+    background-color: var(--lightBlue);
+    border-radius: 5px;
+    border-style: none;
+    font-size: var(--smallSubtitle);
+    font-family: var(--bold);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    padding: 0;
+}
+
+.searchBarButton:hover {
+    background-color: var(--lightPurple);
+    cursor: pointer;
+}
+
+.info{
+    font-family: var(--bold);
+    background-color: var(--lightGrey);
+    color: var(--white);
+}
