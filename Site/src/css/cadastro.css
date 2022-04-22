@@ -1,6 +1,9 @@
 @font-face {
     font-family: 'Poppins-Bold';
     src: url(./fonts/Poppins-Bold.ttf);
+}
+
+@font-face {
     font-family: 'Poppins-Medium';
     src: url(./fonts/Poppins-Medium.ttf);
 }
@@ -132,7 +135,7 @@ body
 #checkboxes span
 {
     color: var(--white);
-    font-family: var(--bold);
+    font-family: var(--regular);
     font-size: var(--smallSubtitle);
 }
 
