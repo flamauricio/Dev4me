@@ -123,7 +123,7 @@ body {
     font-family: var(--bold);
     font-size: var(--subtitle);
     color: var(--white);
-    margin: 0.5rem 0rem 0.5rem 0rem;
+    margin-top: 1rem;
 }
 
 .imgIcon2 {
@@ -329,6 +329,19 @@ body {
     float: right;
 }
 
+.divDescriptionFormatterAlt {
+    width: 100%;
+    height: 10rem;
+    font-family: var(--regular);
+    font-size: var(--smallText);
+    color: var(--white);
+    background-color: var(--lightGrey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+}
+
 .divDescription {
     width: 97%;
     height: 100%;
@@ -501,6 +514,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 1700px) {
+
+    /* Side Bar */
+    .subtitle {
+        margin: 0.5rem 0rem 0.5rem 0rem;
+    }
+
 }
 
 /* ----------------------------------------------- */
@@ -809,7 +835,15 @@ body {
 
 @media screen and (max-width: 752px) {
 
+    .divCardsFormatter {
+        margin-left: 20%;
+    }
+
     /* Side Bar Mobile*/
+    .divSpaceBetween {
+        margin-top: 0;
+    }
+
     .divMobile {
         display: flex;
     }
@@ -819,15 +853,6 @@ body {
         width: 40%;
         height: 100%;
         display: none;
-    }
-
-    .imgIcon3 {
-        display: block;
-    }
-
-    .divSideBarContainer {
-        width: 80%;
-        margin-left: 15%;
     }
 
     .bigTitle {
@@ -843,6 +868,7 @@ body {
 
     .imgIcon2 {
         height: 1.2rem;
+        margin-right: 20%;
     }
 
     .marginBox {
@@ -918,6 +944,14 @@ body {
 @media screen and (max-width: 520px) {
 
     /* Side Bar */
+    .bigTitle {
+        font-size: var(--smallText);
+    }
+
+    .imgIcon2 {
+        height: 0.8rem;
+    }
+
     .subtitle {
         font-family: var(--bold);
         font-size: var(--miniText);
@@ -1083,7 +1117,15 @@ body {
 
     @media screen and (max-width: 370px) {
 
-            /* Side Bar */
+    /* Side Bar */
+    .bigTitle {
+        font-size: var(--miniText);
+    }
+
+    .imgIcon2 {
+        height: 0.6rem;
+    }
+
     .subtitle {
         font-family: var(--bold);
         font-size: var(--microText);
@@ -1096,12 +1138,12 @@ body {
     }
 
     .searchBarMobile {
-        height: 1.5rem;
+        height: 1.2rem;
         font-size: var(--microText);
     }
 
     .searchBarSmall {
-        height: 1.5rem;
+        height: 1.2rem;
         font-size: var(--microText);
     }
 

@@ -37,56 +37,36 @@
             </div>
         </div>
 
-        <!--Search bar mobile-->
-        <div class="divMobile">
-            <div class="divMobileOrganizer">
-                <div class="divSpaceBetween">
-                    <p class="bigTitle">Filtrar Busca</p>
-                    <img class="imgIcon2" src="../img/reload.png">
-                </div>
-
-                <div class="divAlignLeft">
-                    <p class="subtitle">Buscar por Localização</p>
-                    <input class="searchBar" type="search" placeholder="Digite uma localização">
-                </div>
-
-                <div class="boxInline">
-                    <div class="boxCheckbox">
-                        <p class="smallText">remoto</p>
-                        <input class="checkbox" type="checkbox" checked>
-                    </div>
-
-                    <div class="boxCheckbox">
-                        <p class="smallText">híbrido</p>
-                        <input class="checkbox" type="checkbox" checked>
-                    </div>
-
-                    <div class="boxCheckbox">
-                        <p class="smallText">presencial</p>
-                        <input class="checkbox" type="checkbox" checked>
-                    </div>
-                </div>
-            </div>
-
-            <div class="divMobileOrganizer">
-                <div class="divAlignLeft">
-                    <p class="subtitle">Buscar por Tags</p>
-                    <input class="searchBar" type="search" placeholder="Digite uma tag">
-                </div>
-
-                <div class="divAlignLeft">
-                    <p class="subtitle">Buscar por Faixa Salarial</p>
-                    <div class="divSpaceBetween2">
-                        <p class="subtitle">de:</p>
-                        <input class="searchBarSmall" type="search" placeholder="R$ 4000,00">
-                    </div>
-                    <div class="divSpaceBetween2">
-                        <p class="subtitle">até:</p>
-                        <input class="searchBarSmall" type="search" placeholder="R$ 6500,00">
-                    </div>
-                </div>
-            </div>
+ <!--Search bar mobile-->
+ <div class="divMobile">
+    <div class="divMobileOrganizer" style="margin-left: 5%;">
+        <div class="divSpaceBetween">
+            <p class="bigTitle">Filtrar Busca</p>
+            <img class="imgIcon2" src="../img/reload.png">
         </div>
+
+        <div class="divAlignLeft">
+            <p class="subtitle">Buscar por Localização</p>
+            <input class="searchBarMobile" type="search" placeholder="Digite uma localização">
+        </div>
+        <div class="divAlignLeft">
+            <p class="subtitle">Buscar por Tags</p>
+            <input class="searchBarMobile" type="search" placeholder="Digite uma tag">
+        </div>
+    </div>
+
+    <div class="divMobileOrganizer" style="margin-right: 5%;">
+        <div class="divSpaceBetween">
+            <p class="bigTitle" style="color: #383838;">Filtrar Busca</p>
+        </div>
+        <div class="divAlignLeft">
+            <p class="subtitle">Criar nova vaga</p>
+            <a class="li-comum" href="../html/cadastroVaga.html" target="_blank">
+                <button class="alternativeButton">Criar vaga</button>
+            </a>
+        </div>
+    </div>
+</div>
 
                <!--Sidebar-->
                <div class="divSideBar" id="divSideBar">
@@ -109,35 +89,14 @@
                         <p class="subtitle">Buscar por Localização</p>
                         <input class="searchBar" type="search" placeholder="Digite uma localização">
                     </div>
-    
-                    <div class="boxInline">
-                        <div class="boxCheckbox">
-                            <p class="smallText">remoto</p>
-                            <input class="checkbox" type="checkbox" checked>
-                        </div>
-    
-                        <div class="boxCheckbox">
-                            <p class="smallText">híbrido</p>
-                            <input class="checkbox" type="checkbox" checked>
-                        </div>
-    
-                        <div class="boxCheckbox">
-                            <p class="smallText">presencial</p>
-                            <input class="checkbox" type="checkbox" checked>
-                        </div>
-                    </div>
-    
+
                     <div class="divAlignLeft">
-                        <p class="subtitle">Buscar por Faixa Salarial</p>
-                        <div class="divSpaceBetween2">
-                            <p class="subtitle">de:</p>
-                            <input class="searchBarSmall" type="search" placeholder="R$ 4000,00">
-                        </div>
-                        <div class="divSpaceBetween2">
-                            <p class="subtitle">até:</p>
-                            <input class="searchBarSmall" type="search" placeholder="R$ 6500,00">
-                        </div>
+                        <p class="subtitle">Criar nova vaga</p>
+                        <a class="li-comum" href="../html/cadastroVaga.html" target="_blank">
+                            <button class="alternativeButton">Criar vaga</button>
+                        </a>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -146,7 +105,7 @@
 
     <div class="divCardsFormatter">
         <div class="cardBody">
-            <div class="divSpaceBetween2">
+            <div class="divAlignLeft2">
                 <img class="imagePerson" src="../img/eu.jpg"/>
                 <div class="divTextOrganizer">
                     <p class="namePerson">Guilherme de Carvalho</p>
@@ -154,10 +113,152 @@
                     <p class="textInfo">Desenvolvedor</p>
                 </div>
             </div>
+
+            <div class="divTagsFormatter">
+                <div class="divTags">
+                    <button class="tagArea">Desenvolvedor</button>
+                    <button class="tagDev">JavaScript</button>
+                    <button class="tagDev">React</button>
+                    <button class="tagDev">NodeJS</button>
+                    <button class="tagPlatform">AWS</button>
+                    <button class="tagPlatform">Azure</button>
+                    <button class="tagBusyness">Agile</button>
+                    <button class="tagBusyness">Scrum</button>
+                </div>
+            </div>
+
+            <div class="divDescriptionFormatterAlt">
+                <div class="divDescription">
+                    <p class="contentText">
+                        “ Trabalhei 2 anos com back-end em JavaScript na Accenture, 
+                        tenho conhecimento de arquitetura Cloud (iniciante), 
+                        utilizei React Native por 6 meses, 
+                        desenvolvi projetos na metodologia Agile na maior parte do tempo.
+                        Me interesso por programação Web e Mobile.”
+                    </p>
+                </div>
+            </div>
+
+            <a class="li-comum" href="./feedVagasVaga.html" target="_blank">
+                <button class="alternativeButton" style="float: right;">Ver mais</button></a>
         </div>
-        <div class="cardBody"></div>
-        <div class="cardBody"></div>
-        <div class="cardBody"></div>
+
+        <div class="cardBody">
+            <div class="divAlignLeft2">
+                <img class="imagePerson" src="../img/eu.jpg"/>
+                <div class="divTextOrganizer">
+                    <p class="namePerson">Guilherme de Carvalho</p>
+                    <p class="textInfo">Santo André, SP</p>
+                    <p class="textInfo">Desenvolvedor</p>
+                </div>
+            </div>
+
+            <div class="divTagsFormatter">
+                <div class="divTags">
+                    <button class="tagArea">Desenvolvedor</button>
+                    <button class="tagDev">JavaScript</button>
+                    <button class="tagDev">React</button>
+                    <button class="tagDev">NodeJS</button>
+                    <button class="tagPlatform">AWS</button>
+                    <button class="tagPlatform">Azure</button>
+                    <button class="tagBusyness">Agile</button>
+                    <button class="tagBusyness">Scrum</button>
+                </div>
+            </div>
+
+            <div class="divDescriptionFormatterAlt">
+                <div class="divDescription">
+                    <p class="contentText">
+                        “ Trabalhei 2 anos com back-end em JavaScript na Accenture, 
+                        tenho conhecimento de arquitetura Cloud (iniciante), 
+                        utilizei React Native por 6 meses, 
+                        desenvolvi projetos na metodologia Agile na maior parte do tempo.
+                        Me interesso por programação Web e Mobile.”
+                    </p>
+                </div>
+            </div>
+
+            <a class="li-comum" href="./feedVagasVaga.html" target="_blank">
+                <button class="alternativeButton" style="float: right;">Ver mais</button></a>
+        </div>
+
+        <div class="cardBody">
+            <div class="divAlignLeft2">
+                <img class="imagePerson" src="../img/eu.jpg"/>
+                <div class="divTextOrganizer">
+                    <p class="namePerson">Guilherme de Carvalho</p>
+                    <p class="textInfo">Santo André, SP</p>
+                    <p class="textInfo">Desenvolvedor</p>
+                </div>
+            </div>
+
+            <div class="divTagsFormatter">
+                <div class="divTags">
+                    <button class="tagArea">Desenvolvedor</button>
+                    <button class="tagDev">JavaScript</button>
+                    <button class="tagDev">React</button>
+                    <button class="tagDev">NodeJS</button>
+                    <button class="tagPlatform">AWS</button>
+                    <button class="tagPlatform">Azure</button>
+                    <button class="tagBusyness">Agile</button>
+                    <button class="tagBusyness">Scrum</button>
+                </div>
+            </div>
+
+            <div class="divDescriptionFormatterAlt">
+                <div class="divDescription">
+                    <p class="contentText">
+                        “ Trabalhei 2 anos com back-end em JavaScript na Accenture, 
+                        tenho conhecimento de arquitetura Cloud (iniciante), 
+                        utilizei React Native por 6 meses, 
+                        desenvolvi projetos na metodologia Agile na maior parte do tempo.
+                        Me interesso por programação Web e Mobile.”
+                    </p>
+                </div>
+            </div>
+
+            <a class="li-comum" href="./feedVagasVaga.html" target="_blank">
+                <button class="alternativeButton" style="float: right;">Ver mais</button></a>
+        </div>
+
+        <div class="cardBody">
+            <div class="divAlignLeft2">
+                <img class="imagePerson" src="../img/eu.jpg"/>
+                <div class="divTextOrganizer">
+                    <p class="namePerson">Guilherme de Carvalho</p>
+                    <p class="textInfo">Santo André, SP</p>
+                    <p class="textInfo">Desenvolvedor</p>
+                </div>
+            </div>
+
+            <div class="divTagsFormatter">
+                <div class="divTags">
+                    <button class="tagArea">Desenvolvedor</button>
+                    <button class="tagDev">JavaScript</button>
+                    <button class="tagDev">React</button>
+                    <button class="tagDev">NodeJS</button>
+                    <button class="tagPlatform">AWS</button>
+                    <button class="tagPlatform">Azure</button>
+                    <button class="tagBusyness">Agile</button>
+                    <button class="tagBusyness">Scrum</button>
+                </div>
+            </div>
+
+            <div class="divDescriptionFormatterAlt">
+                <div class="divDescription">
+                    <p class="contentText">
+                        “ Trabalhei 2 anos com back-end em JavaScript na Accenture, 
+                        tenho conhecimento de arquitetura Cloud (iniciante), 
+                        utilizei React Native por 6 meses, 
+                        desenvolvi projetos na metodologia Agile na maior parte do tempo.
+                        Me interesso por programação Web e Mobile.”
+                    </p>
+                </div>
+            </div>
+
+            <a class="li-comum" href="./feedVagasVaga.html" target="_blank">
+                <button class="alternativeButton" style="float: right;">Ver mais</button></a>
+        </div>
     </div>
 
 </body>

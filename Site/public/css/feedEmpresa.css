@@ -73,19 +73,29 @@ body {
 }
 
 .cardBody {
-    width: 15rem;
-    height: 15rem;
+    width: 30rem;
+    height: 30rem;
     padding: 1rem;
     background-color: var(--mediumGrey);
     margin: 1rem 1rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.divAlignLeft2 {
+    display: flex;
+    align-items: center;
+    justify-content: left;
 }
 
 .imagePerson {
-    width: 4rem;
+    width: 6rem;
+    margin-right: 1rem;
 }
 
 .divTextOrganizer{
-    height: 4rem;
+    height: 6rem;
     width: auto;
     margin: 0;
     display: flex;
@@ -95,14 +105,14 @@ body {
 
 .namePerson {
     font-family: var(--bold);
-    font-size: var(--smallText);
+    font-size: var(--subtitle);
     color: var(--white);
     margin: 0;
 }
 
 .textInfo {
     font-family: var(--regular);
-    font-size: var(--smallText);
+    font-size: var(--subtitle);
     color: var(--white);
     margin: 0;
 }
