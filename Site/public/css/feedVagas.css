@@ -195,15 +195,27 @@ body {
 /* Search Bar Mobile*/
 .divMobile {
     width: 100%;
-    height: 18rem;
+    height: 14rem;
     display: none;
     justify-content: space-between;
     background-color: var(--mediumGrey);
+    position: static;
 }
 
 .divMobileOrganizer {
     width: 40%;
-    margin-left: 5%;
+}
+
+.searchBarMobile {
+    height: 2.5rem;
+    width: 80%;
+    margin-right: 20%;
+    background-color: var(--lightGrey);
+    border-radius: 5px;
+    font-family: var(--bold);
+    font-size: var(--smallSubtitle);
+    color: var(--white);
+    border: none;
 }
 
 /* Search Bar */
@@ -846,6 +858,11 @@ body {
         font-size: var(--extraSmallText);
     }
 
+    .searchBarMobile {
+        height: 1.8rem;
+        font-size: var(--extraSmallText);
+    }
+
     .searchBarSmall {
         height: 1.8rem;
         font-size: var(--extraSmallText);
@@ -885,7 +902,7 @@ body {
 
     .divFeedMargin {
         width: 100%;
-        height: 2rem;
+        height: 16rem;
     }
 
     .divFeedFormatter {
@@ -900,14 +917,55 @@ body {
 
 @media screen and (max-width: 520px) {
 
-    .divSideBar {
-        width: 50%;
-        height: 100%;
+    /* Side Bar */
+    .subtitle {
+        font-family: var(--bold);
+        font-size: var(--miniText);
+        color: var(--white);
+        margin-top: 1rem;
     }
 
-    .divSideBarContainer {
-        width: 80%;
-        margin-left: 15%;
+    .smallText {
+        font-size: var(--miniText);
+    }
+
+    .searchBarMobile {
+        height: 1.5rem;
+        font-size: var(--miniText);
+    }
+
+    .searchBarSmall {
+        height: 1.5rem;
+        font-size: var(--miniText);
+    }
+
+    .divMobile {
+        height: 12rem;
+    }
+
+    .divFeedMargin {
+        height: 14rem;
+    }
+
+    /* Feed */
+    .divFeedMargin2 {
+        height: 1.2rem;
+    }
+
+    .divFeedMargin2 {
+        height: 2.5rem;
+    }
+
+    .divSideBarIcon {
+        display: block;
+        margin-left: 5%;
+        width: 87.34px;
+        height: 1.5rem;
+        background-color: var(--lightGrey);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0px 0px 5px 5px;
     }
 
     .divVaga {
@@ -1025,15 +1083,35 @@ body {
 
     @media screen and (max-width: 370px) {
 
-        .divSideBar {
-            width: 60%;
-            height: 100%;
-        }
-    
-        .divSideBarContainer {
-            width: 80%;
-            margin-left: 15%;
-        }
+            /* Side Bar */
+    .subtitle {
+        font-family: var(--bold);
+        font-size: var(--microText);
+        color: var(--white);
+        margin-top: 1rem;
+    }
+
+    .smallText {
+        font-size: var(--microText);
+    }
+
+    .searchBarMobile {
+        height: 1.5rem;
+        font-size: var(--microText);
+    }
+
+    .searchBarSmall {
+        height: 1.5rem;
+        font-size: var(--microText);
+    }
+
+    .divMobile {
+        height: 10.5rem;
+    }
+
+    .divFeedMargin {
+        height: 12rem;
+    }
 
         .divVaga {
             height: 17.2rem;
