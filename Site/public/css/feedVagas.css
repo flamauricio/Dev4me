@@ -329,19 +329,6 @@ body {
     float: right;
 }
 
-.divDescriptionFormatterAlt {
-    width: 100%;
-    height: 10rem;
-    font-family: var(--regular);
-    font-size: var(--smallText);
-    color: var(--white);
-    background-color: var(--lightGrey);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    float: right;
-}
-
 .divDescription {
     width: 97%;
     height: 100%;
@@ -834,10 +821,6 @@ body {
 /* ----------------------------------------------- */
 
 @media screen and (max-width: 752px) {
-
-    .divCardsFormatter {
-        margin-left: 20%;
-    }
 
     /* Side Bar Mobile*/
     .divSpaceBetween {
