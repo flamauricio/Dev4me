@@ -10,9 +10,7 @@ import SmallText from "../components/SmallText";
 function Cadastro() {
     return (
         <>
-        <Header></Header>
-            <Container>
-            </Container> 
+            <Container/>
         </>
     )
 }

@@ -1,4 +1,9 @@
 import React from "react";
+import BotaoCadastroLogin from "./BotaoCadastroLogin";
+import DivCheckboxes from "./DivCheckboxes";
+import InputTexto from "./InputTexto";
+import SmallText from "./SmallText";
+import Title from "./Title";
 
 function Container() {
     return (
