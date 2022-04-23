@@ -1,17 +1,22 @@
 package Dev4me.javaloginjpa.controller;
 
 import Dev4me.javaloginjpa.csv.ListaObj;
+import Dev4me.javaloginjpa.entity.Email;
 import Dev4me.javaloginjpa.entity.Usuario;
 import Dev4me.javaloginjpa.repository.UsuarioRepository;
 import Dev4me.javaloginjpa.request.UsuarioSenhaRequest;
 import Dev4me.javaloginjpa.response.UsuarioAutenticacaoResponse;
 import Dev4me.javaloginjpa.response.UsuarioSimplesResponse;
+import Dev4me.javaloginjpa.service.EmailService;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import javax.validation.Valid;
 import java.io.FileNotFoundException;
@@ -25,14 +30,30 @@ import java.util.*;
 public class UsuarioController {
 
     @Autowired
+    EmailService emailService;
+
+    @Autowired
     private UsuarioRepository repository;
+
+    final String uri = "http://localhost:8080/usuarios/sending-email";
 
     //Método pra cadastro do Usuário;
     @ApiResponses({@ApiResponse(responseCode = "200", content = @Content(mediaType = "application/json"))})
     @PostMapping
     public ResponseEntity postUsuario(@RequestBody @Valid Usuario novoUsuario) {
         repository.save(novoUsuario);
-        return ResponseEntity.status(201).build();
+        RestTemplate restTemplate = new RestTemplate();
+        String response = restTemplate.postForObject(uri, novoUsuario, String.class);
+        return  ResponseEntity.status(201).build();
+    }
+
+    // Enviar email
+    @PostMapping("/sending-email")
+    public ResponseEntity<Email> sendingEmail(@RequestBody @Valid Email emailDto) {
+        Email emailModel = new Email();
+        BeanUtils.copyProperties(emailDto, emailModel);
+        emailService.sendEmail(emailModel);
+        return new ResponseEntity<>(emailModel, HttpStatus.CREATED);
     }
 
     //GET chamada do .csv
@@ -64,6 +85,12 @@ public class UsuarioController {
     @GetMapping
     public ResponseEntity<List<UsuarioSimplesResponse>> getUsuariosSimples() {
         return ResponseEntity.status(200).body(repository.getUsuariosSimples());
+    }
+
+    // GET de usuarios sem senha
+    @GetMapping("/{id}")
+    public ResponseEntity<Usuario> getUsuario(@PathVariable String id) {
+        return ResponseEntity.status(200).build();
     }
 
     //POST de autenticar usuario
