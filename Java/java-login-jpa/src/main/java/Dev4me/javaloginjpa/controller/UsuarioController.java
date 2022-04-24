@@ -58,6 +58,7 @@ public class UsuarioController {
     }
 
     // Enviar email
+    @ApiResponses({@ApiResponse(responseCode = "200", content = @Content(mediaType = "application/json"))})
     @PostMapping("/sending-email/{email}")
     public ResponseEntity<Email> sendingEmail(@RequestBody @Valid Email emailDto, @PathVariable String email) {
         Email emailModel = new Email();
@@ -81,6 +82,7 @@ public class UsuarioController {
     }
 
     //GET chamada do .csv
+    @ApiResponses({@ApiResponse(responseCode = "200", content = @Content(mediaType = "text/csv"))})
     @GetMapping("/relatorio")
     public ResponseEntity getRelatorio() {
         List<Usuario> lista = repository.findAll();
@@ -111,9 +113,9 @@ public class UsuarioController {
         return ResponseEntity.status(200).body(repository.getUsuariosSimples());
     }
 
-    // GET de usuarios sem senha
+    // GET de usuarios com senha
     @GetMapping("/{id}")
-    public ResponseEntity<Usuario> getUsuario(@PathVariable String id) {
+    public ResponseEntity<List<Usuario>> getUsuario(@PathVariable String id) {
         return ResponseEntity.status(200).build();
     }
 

@@ -34,6 +34,7 @@ public class EmpresaController {
         return ResponseEntity.status(201).build();
     }
 
+    // GET da empresa sem senha
     @GetMapping
     public ResponseEntity <List<EmpresaSimplesResponse>> getEmpresasSimples() {
         List<EmpresaSimplesResponse> empresas = repository.getEmpresasSimples();
@@ -43,6 +44,7 @@ public class EmpresaController {
         return ResponseEntity.status(200).body(empresas);
     }
 
+    // POST de autenticar usuario da empresa
     @ApiResponses({@ApiResponse (responseCode = "200", content = @Content(mediaType = "application/json"))})
     @PostMapping("/login")
     public ResponseEntity autenticar(@RequestBody EmpresaAutenticacaoResponse empresa) {
@@ -58,7 +60,7 @@ public class EmpresaController {
         return ResponseEntity.status(404).build();
     }
 
-    //Método pra deletar empresa por ID
+    //DELETE para deletar empresa por ID
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteEmpresa(@PathVariable Integer id,
                                         @RequestBody EmpresaAutenticacaoResponse empresa) {
@@ -76,7 +78,7 @@ public class EmpresaController {
         return ResponseEntity.status(404).build();
     }
 
-    //Endpoint para troca de senha
+    //PATCH para troca de senha
     @ApiResponses({@ApiResponse (responseCode = "200", content = @Content(mediaType = "application/json"))})
     @PatchMapping("/senha/{id}")
     public ResponseEntity patchEmpresaSenha(@PathVariable Integer id,
