@@ -20,6 +20,8 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     @Query("select new Dev4me.javaloginjpa.response.UsuarioAutenticacaoResponse(u.id, u.email, u.senha) from Usuario u")
     List<UsuarioAutenticacaoResponse> getUsuariosAutenticacao();
 
+
+
     List<Usuario> findByNome(String nome);
 
     @Transactional

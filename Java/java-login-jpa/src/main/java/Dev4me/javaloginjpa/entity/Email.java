@@ -30,7 +30,7 @@ public class Email implements Serializable {
     private String emailFrom = "devfourme@gmail.com";
 
     @Column(name = "email_to")
-    private String emailTo = getEmailTo();
+    private String emailTo;
 
     @Column(name = "subject")
     private String subject = "Cadastro realizado com sucesso!";
@@ -43,9 +43,5 @@ public class Email implements Serializable {
 
     @Column(name = "status_email")
     private StatusEmail statusEmail;
-
-    public String getEmailTo(Usuario usuario) {
-        return usuario.getEmail();
-    }
 
 }
