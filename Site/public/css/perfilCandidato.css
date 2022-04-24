@@ -58,6 +58,122 @@ body {
     --bold: 'Poppins-Bold';
     --regular: 'Poppins-Medium';
 }
+
+.divDescription {
+    width: 97%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.divTagsFormatter {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.divTags {
+    width: 97%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0.5rem 0.15rem 0.5rem 0rem;
+}
+
+.tagDev {
+    height: 2.1875rem;
+    width: 6rem;
+    background-color: #ffffff00;
+    border-radius: 2px;
+    border-color: var(--blueTag);
+    border-style: solid;
+    border-width: 0.14rem;
+    font-size: var(--extraSmallText);
+    font-family: var(--regular);
+    color: var(--blueTag);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.tagDev:hover {
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+.tagPlatform {
+    height: 2.1875rem;
+    width: 6rem;
+    background-color: #ffffff00;
+    border-radius: 2px;
+    border-color: var(--purpleTag);
+    border-style: solid;
+    border-width: 0.14rem;
+    font-size: var(--extraSmallText);
+    font-family: var(--regular);
+    color: var(--purpleTag);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.tagPlatform:hover {
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+.tagBusyness {
+    height: 2.1875rem;
+    width: 6rem;
+    background-color: #ffffff00;
+    border-radius: 2px;
+    border-color: var(--yellowTag);
+    border-style: solid;
+    border-width: 0.14rem;
+    font-size: var(--extraSmallText);
+    font-family: var(--regular);
+    color: var(--yellowTag);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.tagBusyness:hover {
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+.tagArea {
+    height: 2.1875rem;
+    width: 6rem;
+    background-color: #ffffff00;
+    border-radius: 2px;
+    border-color: var(--redTag);
+    border-style: solid;
+    border-width: 0.14rem;
+    font-size: var(--extraSmallText);
+    font-family: var(--regular);
+    color: var(--redTag);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.tagArea:hover {
+    background-color: var(--white);
+    cursor: pointer;
+}
+
 @media screen and (max-width: 1025px) {
 
     /* Side Bar */
@@ -257,7 +373,7 @@ body {
 /* ----------------------------------------------- */
 
 .divSideBar {
-    width:25%;
+    width: 25%;
     height: 100%;
     position: fixed;
     background-color: var(--mediumGrey);
@@ -271,21 +387,21 @@ body {
 .divSideBarContainer {
     width: 80%;
     height: 70%;
-    margin-left: 20%; 
-   
+    margin-left: 20%;
+
 }
 
 .divSpaceBetween {
     display: flex;
     flex-direction: row;
-   
+
 }
 
 .divSpaceBetween2 {
     display: flex;
     align-items: center;
     margin-top: -4rem;
-   
+
 }
 
 .divSpaceBetween3 {
@@ -374,7 +490,7 @@ body {
     cursor: pointer;
 }
 
-.infos{
+.infos {
     font-family: var(--bold);
     background-color: var(--lightGrey);
     color: var(--white);
@@ -384,7 +500,8 @@ body {
     margin-top: 16rem;
 
 }
-.infos2{
+
+.infos2 {
     font-family: var(--bold);
     color: var(--white);
     margin-top: 18.9rem;
@@ -392,7 +509,8 @@ body {
     /* margin-left: 10.1%; */
     cursor: pointer;
 }
-.infos3{
+
+.infos3 {
     font-family: var(--bold);
     color: var(--white);
     margin-top: 21.5rem;
@@ -401,11 +519,13 @@ body {
     cursor: pointer;
     opacity: 0%;
 }
-.imgPlus{
+
+.imgPlus {
     height: 2.2rem;
     margin: 0;
-   padding-bottom: 6%;
+    padding-bottom: 6%;
 }
+
 .imgIcon2 {
     height: 8rem;
     margin-top: 4.1rem;
@@ -413,19 +533,21 @@ body {
     align-items: center;
     margin-left: 15%;
     position: absolute;
-    
+
 }
 
-.sair{
+.sair {
     font-family: var(--bold);
     color: var(--white);
     margin-top: 28.9rem;
     margin-left: -8rem;
     cursor: pointer;
 }
-a{
+
+a {
     text-decoration: none;
 }
+
 .alternativeButton {
     height: 3rem;
     width: 10rem;
@@ -445,48 +567,52 @@ a{
     /* margin-left: -75%; */
 
 }
+
 .alternativeButton:hover {
     background-color: var(--lightPurple);
     cursor: pointer;
 }
+
 .divCardsFormatter {
-   flex-direction: column;
+    flex-direction: column;
     margin-left: 37.3rem;
-    
+
     height: auto;
     display: flex;
 
     width: auto;
-   
-   
+
+
 }
 
 .cardBody {
-    
+
     width: 40rem;
     height: 3.3rem;
     background-color: var(--mediumGrey);
-   font-family: var(--bold);
+    font-family: var(--bold);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     color: var(--white);
-  
+
 
 }
+
 .nomeTitle {
     color: var(--white);
     font-family: var(--bold);
     font-size: var(--bigText);
-    margin-top: 6.4rem;
+    margin: 6.4rem 0rem 0.5rem 0rem;
     float: left;
 }
 
-.idadeTitle {
+.nomeTitle2 {
     color: var(--white);
     font-family: var(--bold);
     font-size: var(--bigText);
-    margin-top: 1.8rem;
+    margin: 2rem 0rem 0.5rem 0rem;
+
     float: left;
 }
 
@@ -498,67 +624,53 @@ a{
 }
 
 .cardBody2 {
-    
     width: 40rem;
     height: 10rem;
     background-color: var(--mediumGrey);
-   font-family: var(--bold);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: var(--white);
-  
-
-}
-
-.nomeTitle2 {
-    color: var(--white);
     font-family: var(--bold);
-    font-size: var(--bigText);
-
-float: left;
-}
-.cardBody3 {
-    
-    width: 40rem;
-    height: 10rem;
-    background-color: var(--mediumGrey);
-   font-family: var(--bold);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     color: var(--white);
-  
-
 }
+
+.cardBody3 {
+    width: 40rem;
+    height: 10rem;
+    background-color: var(--mediumGrey);
+    font-family: var(--bold);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--white);
+}
+
 .nomeTitle3 {
     color: var(--white);
     font-family: var(--bold);
     font-size: var(--bigText);
 
-float: left;
+    float: left;
 }
 
 .cardBody4 {
-    
     width: 40rem;
-    height: 7rem;
+    min-height: 7rem;
     background-color: var(--mediumGrey);
-   font-family: var(--bold);
+    font-family: var(--bold);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     color: var(--white);
-    margin-bottom: 4rem;
-  
-
+    margin-bottom: 2rem;
 }
+
 .nomeTitle4 {
     color: var(--white);
     font-family: var(--bold);
     font-size: var(--bigText);
 
-float: left;
+    float: left;
 }
 
 .tagsTitle4 {
@@ -568,5 +680,3 @@ float: left;
     float: left;
     margin-top: -2rem;
 }
-
-
