@@ -5,7 +5,7 @@ import InputTexto from "./InputTexto";
 import SmallText from "./SmallText";
 import Title from "./Title";
 
-function Container() {
+function ContainerCadastro() {
     return (
         <>
             <div id="container">
@@ -29,4 +29,4 @@ function Container() {
     )
 }
 
-export default Container;
+export default ContainerCadastro;

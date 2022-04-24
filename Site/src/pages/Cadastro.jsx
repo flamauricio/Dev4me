@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "../components/Container";
+import ContainerCadastro from "../components/ContainerCadastro";
 import Header from "../components/Header";
 import InputTexto from "../components/InputTexto";
 import Title from "../components/Title";
@@ -11,8 +11,8 @@ import Footer from "../components/Footer";
 function Cadastro() {
     return (
         <>
-            <Header/>
-            <Container/>
+            <Header nomeBotao = "Entrar" encaminharTo="http://localhost:3000/login"/>
+            <ContainerCadastro/>
             <Footer/>
         </>
     )
