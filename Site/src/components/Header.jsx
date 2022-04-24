@@ -1,6 +1,6 @@
 import React from "react";
 
-function Header() {
+function Header(props) {
     return (
         <>
             <div className="divHeaderFather">
@@ -11,7 +11,7 @@ function Header() {
 
                     <div className="divButtons">
                         <button className="buttonHeader"><a className="li-comum"
-                            href="./login.html">Entrar</a></button>
+                            href={props.encaminharTo}>{props.nomeBotao}</a></button>
                         <a href="./feedVagas.html">
                             <img className="imgIcon" src="../img/home-button-white.png" onMouseOver="src='../img/home-button-blue.png';" onMouseOut="src='../img/home-button-white.png';" alt="" />
                         </a>
