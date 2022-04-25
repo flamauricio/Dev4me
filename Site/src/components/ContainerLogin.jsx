@@ -4,8 +4,15 @@ import DivCheckboxes from "./DivCheckboxes";
 import InputTexto from "./InputTexto";
 import SmallText from "./SmallText";
 import Title from "./Title";
+import {apiUser, apiEmp} from "../api";
 
 function ContainerLogin() {
+
+    function enviaDadosDoInput() {
+        // let email = inputEmailLogin.value;
+        // let senha = inputSenhaLogin.value;
+    }
+
     return(
     <>
         <div id="container">
@@ -13,12 +20,12 @@ function ContainerLogin() {
                 <div id="content">
                     <Title conteudo="Login"></Title>
 
-                    <InputTexto placeholder="Email"></InputTexto>
-                    <InputTexto placeholder="Senha"></InputTexto>
+                    <InputTexto id="inputEmailLogin" placeholder="Email"></InputTexto>
+                    <InputTexto id="inputSenhaLogin" placeholder="Senha"></InputTexto>
 
                     <DivCheckboxes></DivCheckboxes>
 
-                    <BotaoCadastroLogin conteudo="Entrar"></BotaoCadastroLogin>
+                    <BotaoCadastroLogin onClick={enviaDadosDoInput()} conteudo="Entrar"></BotaoCadastroLogin>
 
                     <SmallText conteudo="Esqueci minha senha."></SmallText>
                 </div>
