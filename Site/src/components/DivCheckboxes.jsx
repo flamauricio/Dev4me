@@ -3,14 +3,14 @@ import React from "react";
 function DivCheckboxes() {
     return (
         <>
-            <div id="checkboxes">
+            <form id="checkboxes">
                 <div>
-                    <input type="checkbox" name="" id=""/><span>Sou contratante</span>
+                    <input type="radio" name="radioInput" id="inputEmpresa"/><span>Sou empresa</span>
                 </div>
                 <div>
-                    <input type="checkbox" name="" id=""/><span>Sou candidato</span>
+                    <input type="radio" name="radioInput" id="inputUsuario"/><span>Sou candidato</span>
                 </div>
-            </div>
+            </form>
         </>
     )
 }
