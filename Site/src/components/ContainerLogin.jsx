@@ -17,12 +17,12 @@ function enviaDadosDoInput(event) {
 
     if (document.getElementById('inputUsuario').checked) {
     // apiUser
-    api.post("/autenticar", inputEmail, inputSenha).then((response) => {
+    api.post("/login", inputEmail, inputSenha).then((response) => {
         console.log(response);
         });
     } else {
     // apiEmp
-    api.post("/autenticar", inputEmail, inputSenha).then((response) => {
+    api.post("/login", inputEmail, inputSenha).then((response) => {
         console.log(response);
         });
     }
