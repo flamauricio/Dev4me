@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import BotaoCadastroLogin from "./BotaoCadastroLogin";
 import DivCheckboxes from "./DivCheckboxes";
 import InputTexto from "./InputTexto";
@@ -8,41 +8,51 @@ import api, {apiUser, apiEmp} from "../api";
 
 function ContainerLogin() {
 
-    function enviaDadosDoInput() {
-        let email = document.getElementById('inputEmailLogin').value;
-        let senha = document.getElementById('inputSenhaLogin').value;
+    const inputEmail = useState('');
+    const inputSenha = useState('');
 
-        // if (document.getElementById('inputUsuario').checked) {
-        //     apiUser;
-        // } else {
-        //     apiEmp;
-        // }
+function enviaDadosDoInput(event) {
 
-        api.post(email, senha).then((response) => {
-            console.log(response);
+    event.preventDefault();
+
+    if (document.getElementById('inputUsuario').checked) {
+    // apiUser
+    apiUser.post("/autenticar", inputEmail, inputSenha).then((response) => {
+        console.log(response);
+        });
+    } else {
+    // apiEmp
+    apiEmp.post("/autenticar", inputEmail, inputSenha).then((response) => {
+        console.log(response);
         });
     }
+}
 
-    return(
-    <>
-        <div id="container">
-            <div class="box">
-                <div id="content">
-                    <Title conteudo="Login"></Title>
+return(
+<>
+    <div id="container">
+        <div className="box">
+            <div id="content">
+                <Title conteudo="Login"></Title>
 
-                    <InputTexto id="inputEmailLogin" placeholder="Email"></InputTexto>
-                    <InputTexto id="inputSenhaLogin" placeholder="Senha"></InputTexto>
+                <form onSubmit={enviaDadosDoInput}>
+
+                    <InputTexto onInput={(event) => {inputEmail(event.target.value)}} placeholder="Email"></InputTexto>
+
+                    <InputTexto onInput={(event) => {inputSenha(event.target.value)}} placeholder="Senha"></InputTexto>
 
                     <DivCheckboxes></DivCheckboxes>
 
-                    <BotaoCadastroLogin onClick={enviaDadosDoInput()} conteudo="Entrar"></BotaoCadastroLogin>
+                    <BotaoCadastroLogin conteudo="Entrar"></BotaoCadastroLogin>
 
-                    <SmallText conteudo="Esqueci minha senha."></SmallText>
-                </div>
+                </form>
+
+                <SmallText conteudo="Esqueci minha senha."></SmallText>
             </div>
         </div>
-    </>
-    );
+    </div>
+</>
+);
 }
 
 export default ContainerLogin;
