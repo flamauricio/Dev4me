@@ -48,6 +48,9 @@
                         <div class="smallTitle">Tipo de Contrato</div>
                         <select name="" id="">
                             <option value="">Selecione o tipo de contrato</option>
+                            <option value="">Remoto</option>
+                            <option value="">Híbrido</option>
+                            <option value="">Presencial</option>
                         </select>
                     </div>
                     <div>
@@ -67,6 +70,10 @@
                         <div class="smallTitle">Tags da vaga</div>
                         <select name="" id="">
                             <option value="">Procure por uma tag</option>
+                            <option value="">Java</option>
+                            <option value="">Html</option>
+                            <option value="">CSS</option>
+                            <option value="">React</option>
                         </select>
                     </div>
                     <div id="inputSalario">
@@ -96,7 +103,7 @@
                         <textarea style="height: 70px;" name="" id="" cols="30" rows="10" placeholder="Descreva os requisitos para a vaga"></textarea>
                     </div>
                     <div style="text-align: center;">
-                        <button style="margin-top: 20px; background-color: #1E9CD7;" class="grayButton" style="">Publicar</button>
+                        <button style="margin-top: 20px; background-color: #1E9CD7;" onclick="publicar()" class="grayButton" style="">Publicar</button>
                     </div>
                 </div>
             </div>
@@ -108,6 +115,11 @@
 </html>
 
 <script>
+    function publicar()
+    {
+        window.location = "http://localhost:3000/html/feedVagas.html";
+    }
+
     function avancar1()
     {
         phaseOne.style.display = 'none';
