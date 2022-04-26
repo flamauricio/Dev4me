@@ -3,7 +3,7 @@ import React from "react";
 function BotaoCadastroLogin(props)
 {
     return (
-        <button>{props.conteudo}</button>
+        <button type="submit">{props.conteudo}</button>
     );
 }
 

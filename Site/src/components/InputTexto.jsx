@@ -4,7 +4,7 @@ function InputTexto(props)
 {
     return (
         <>
-        <input type="text" className="input" placeholder={props.placeholder}></input>
+        <input type="text" className="input" name={props.name} placeholder={props.placeholder}></input>
         </>
     )
 }

@@ -1,15 +1,10 @@
 import axios from 'axios';
 
-const apiUser = axios.create({
-    baseURL: 'http://localhost:8080/usuarios'
+const api = axios.create({
+    baseURL: 'http://localhost:8080'
 });
 
-
-const apiEmp = axios.create({
-    baseURL: 'http://localhost:8080/empresas'
-});
-
-export default {apiUser, apiEmp};
+export default api;
 
 
 /* Rotas para usar no react com then e catch fundional

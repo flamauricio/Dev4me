@@ -4,24 +4,42 @@ import DivCheckboxes from "./DivCheckboxes";
 import InputTexto from "./InputTexto";
 import SmallText from "./SmallText";
 import Title from "./Title";
+import api from "../api";
 
 function ContainerCadastro() {
+    function cadastrar()
+    {
+        if (document.getElementById("inputUsuario").checked) {
+            api.post("/usuarios").
+            then((response) => {
+                console.log(response);
+            })
+        } else {
+            
+            api.post("/empresas").
+            then((response) => {
+                console.log(response);
+            })
+        }
+    }
+
     return (
         <>
             <div id="container">
                 <div class="box">
                     <div id="content">
                         <Title conteudo="Cadastro"></Title>
+                        <form onSubmit={cadastrar} method="post">
+                            <InputTexto name="nome" placeholder="Nome Completo"></InputTexto>
+                            <InputTexto name="email" placeholder="Email"></InputTexto>
+                            <InputTexto name="senha" placeholder="Senha"></InputTexto>
 
-                        <InputTexto placeholder="Nome"></InputTexto>
-                        <InputTexto placeholder="Email"></InputTexto>
-                        <InputTexto placeholder="Senha"></InputTexto>
+                            <DivCheckboxes></DivCheckboxes>
 
-                        <DivCheckboxes></DivCheckboxes>
+                            <BotaoCadastroLogin conteudo="Cadastrar"></BotaoCadastroLogin>
 
-                        <BotaoCadastroLogin conteudo="Cadastrar"></BotaoCadastroLogin>
-
-                        <SmallText conteudo="Já possui cadastro? Clique aqui."></SmallText>
+                            <SmallText conteudo="Já possui cadastro? Clique aqui."></SmallText>
+                        </form>
                     </div>
                 </div>
             </div>

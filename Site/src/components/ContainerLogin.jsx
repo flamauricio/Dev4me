@@ -4,7 +4,7 @@ import DivCheckboxes from "./DivCheckboxes";
 import InputTexto from "./InputTexto";
 import SmallText from "./SmallText";
 import Title from "./Title";
-import api, {apiUser, apiEmp} from "../api";
+import api from "../api";
 
 function ContainerLogin() {
 
@@ -17,12 +17,12 @@ function enviaDadosDoInput(event) {
 
     if (document.getElementById('inputUsuario').checked) {
     // apiUser
-    apiUser.post("/autenticar", inputEmail, inputSenha).then((response) => {
+    api.post("/autenticar", inputEmail, inputSenha).then((response) => {
         console.log(response);
         });
     } else {
     // apiEmp
-    apiEmp.post("/autenticar", inputEmail, inputSenha).then((response) => {
+    api.post("/autenticar", inputEmail, inputSenha).then((response) => {
         console.log(response);
         });
     }
