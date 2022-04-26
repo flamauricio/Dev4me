@@ -16,15 +16,15 @@ function enviaDadosDoInput(event) {
     event.preventDefault();
 
     if (document.getElementById('inputUsuario').checked) {
-    // apiUser
-    api.post("/login", inputEmail, inputSenha).then((response) => {
-        console.log(response);
-        });
+    // api.post("usuarios/login", inputEmail, inputSenha).then((response) => {
+    //     console.log(response);
+    //     });
+    window.location = "http://localhost:3000/html/feedVagas.html";
     } else {
-    // apiEmp
-    api.post("/login", inputEmail, inputSenha).then((response) => {
-        console.log(response);
-        });
+    // api.post("empresas/login", inputEmail, inputSenha).then((response) => {
+    //     console.log(response);
+    //     });
+    window.location = "http://localhost:3000/html/feedEmpresa.html";
     }
 }
 

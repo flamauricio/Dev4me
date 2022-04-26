@@ -7,20 +7,23 @@ import Title from "./Title";
 import api from "../api";
 
 function ContainerCadastro() {
-    function cadastrar()
-    {
-        if (document.getElementById("inputUsuario").checked) {
-            api.post("/usuarios").
-            then((response) => {
-                console.log(response);
-            })
-        } else {
+    function cadastrar(event) {
+
+        event.preventDefault();
+        
+        window.location = "http://localhost:3000/login";
+        // if (document.getElementById("inputUsuario").checked) {
+        //     api.post("/usuarios").
+        //     then((response) => {
+        //         console.log(response);
+        //     })
+        // } else {
             
-            api.post("/empresas").
-            then((response) => {
-                console.log(response);
-            })
-        }
+        //     api.post("/empresas").
+        //     then((response) => {
+        //         console.log(response);
+        //     })
+        // }
     }
 
     return (
