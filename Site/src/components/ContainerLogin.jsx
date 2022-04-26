@@ -4,13 +4,23 @@ import DivCheckboxes from "./DivCheckboxes";
 import InputTexto from "./InputTexto";
 import SmallText from "./SmallText";
 import Title from "./Title";
-import {apiUser, apiEmp} from "../api";
+import api, {apiUser, apiEmp} from "../api";
 
 function ContainerLogin() {
 
     function enviaDadosDoInput() {
-        // let email = inputEmailLogin.value;
-        // let senha = inputSenhaLogin.value;
+        let email = document.getElementById('inputEmailLogin').value;
+        let senha = document.getElementById('inputSenhaLogin').value;
+
+        // if (document.getElementById('inputUsuario').checked) {
+        //     apiUser;
+        // } else {
+        //     apiEmp;
+        // }
+
+        api.post(email, senha).then((response) => {
+            console.log(response);
+        });
     }
 
     return(
