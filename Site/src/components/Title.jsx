@@ -2,7 +2,7 @@ import React from "react";
 
 function Title(props) {
     return (
-        <div class="title">
+        <div className="title">
             <span>{props.conteudo}</span>
         </div>
     );

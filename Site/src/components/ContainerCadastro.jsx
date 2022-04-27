@@ -29,7 +29,7 @@ function ContainerCadastro() {
     return (
         <>
             <div id="container">
-                <div class="box">
+                <div className="box">
                     <div id="content">
                         <Title conteudo="Cadastro"></Title>
                         <form onSubmit={cadastrar} method="post">
