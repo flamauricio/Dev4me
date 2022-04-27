@@ -5,11 +5,7 @@
 
 @font-face {
     font-family: 'Poppins-Medium';
-    src: url(../fonts/Poppins-Medium.ttf);
-}
-
-body {
-    margin: 0;
+    src: url(./fonts/Poppins-Medium.ttf);
 }
 
 /* Variables */
@@ -60,6 +56,11 @@ body {
     /* Font Family */
     --bold: 'Poppins-Bold';
     --regular: 'Poppins-Medium';
+}
+
+body {
+    margin: 0;
+    background-color: var(--backGroundGrey);
 }
 
 /* Feed */

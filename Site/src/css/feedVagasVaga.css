@@ -1,8 +1,11 @@
 @font-face {
     font-family: 'Poppins-Bold';
-    src: url(../fonts/Poppins-Bold.ttf);
+    src: url(./fonts/Poppins-Bold.ttf);
+}
+
+@font-face {
     font-family: 'Poppins-Medium';
-    src: url(../fonts/Poppins-Medium.ttf);
+    src: url(./fonts/Poppins-Medium.ttf);
 }
 
 /* Variables */

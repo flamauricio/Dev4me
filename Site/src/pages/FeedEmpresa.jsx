@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
 import imgReload from "../img/reload.png";
-import imgReload from "../img/reload.png";
 import imgUserDefault from "../img/user-default.png";
 
 function FeedEmpresa() {
@@ -11,7 +10,7 @@ function FeedEmpresa() {
 
             <div className="divMobile">
                 <div className="divMobileOrganizer2" >
-                    <div className="divSpaceBetween">
+                    <div className="divSpaceBetweenEmpresa">
                         <p className="bigTitle">Filtrar Busca</p>
                         <img className="imgIcon2" src={imgReload} />
                         </div>
@@ -27,8 +26,8 @@ function FeedEmpresa() {
                 </div>
 
                 <div className="divMobileOrganizer2">
-                    <div className="divSpaceBetween">
-                        <p className="bigTitle" style="color: #383838;">Filtrar Busca</p>
+                    <div className="divSpaceBetweenEmpresa">
+                        <p className="bigTitleInvisible">Filtrar Busca</p>
                     </div>
                     <div className="divAlignLeft">
                         <p className="subtitle">Criar nova vaga</p>
@@ -60,6 +59,8 @@ function FeedEmpresa() {
                         <input className="searchBar" type="search" placeholder="Digite uma localização" />
                         </div>
 
+                        <div className="marginBox"></div>
+
                     <div className="divAlignLeft">
                         <p className="subtitle"></p>
                         <a className="li-comum" href="../html/cadastroVaga.html" target="_blank">
@@ -69,7 +70,8 @@ function FeedEmpresa() {
 
                 </div>
             </div>
-        <div className="divFeedMargin"></div><div className="divCardsFormatter">
+        <div className="divFeedMargin"></div>
+        <div className="divCardsFormatter">
                 <div className="cardBody">
                     <div className="divAlignLeft2">
                         <img className="imagePerson" src={imgUserDefault}/>
@@ -106,7 +108,7 @@ function FeedEmpresa() {
                     </div>
 
                     <a className="li-comum" href="./feedVagasVaga.html" target="_blank">
-                        <button className="alternativeButton" style="float: right;">Ver mais</button></a>
+                        <button className="alternativeButtonRight">Ver mais</button></a>
                 </div>
 
                 <div className="cardBody">
@@ -145,7 +147,7 @@ function FeedEmpresa() {
                     </div>
 
                     <a className="li-comum" href="./feedVagasVaga.html" target="_blank">
-                        <button className="alternativeButton" style="float: right;">Ver mais</button></a>
+                        <button className="alternativeButtonRight" >Ver mais</button></a>
                 </div>
 
                 <div className="cardBody">
@@ -184,7 +186,7 @@ function FeedEmpresa() {
                     </div>
 
                     <a className="li-comum" href="./feedVagasVaga.html" target="_blank">
-                        <button className="alternativeButton" style="float: right;">Ver mais</button></a>
+                        <button className="alternativeButtonRight">Ver mais</button></a>
                 </div>
 
                 <div className="cardBody">
@@ -223,7 +225,7 @@ function FeedEmpresa() {
                     </div>
 
                     <a className="li-comum" href="./feedVagasVaga.html" target="_blank">
-                        <button className="alternativeButton" style="float: right;">Ver mais</button></a>
+                        <button className="alternativeButtonRight">Ver mais</button></a>
                 </div>
             </div></>
     )

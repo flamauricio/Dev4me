@@ -1,8 +1,11 @@
 @font-face {
     font-family: 'Poppins-Bold';
-    src: url(../fonts/Poppins-Bold.ttf);
+    src: url(./fonts/Poppins-Bold.ttf);
+}
+
+@font-face {
     font-family: 'Poppins-Medium';
-    src: url(../fonts/Poppins-Medium.ttf);
+    src: url(./fonts/Poppins-Medium.ttf);
 }
 
 body {
@@ -87,7 +90,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: -10%;
+    margin-top: 10%;
 }
 
 .divSpaceBetween2 {
@@ -102,6 +105,13 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+}
+
+.divSpaceBetweenEmpresa {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 18%;
 }
 
 .bigTitle {
@@ -449,6 +459,13 @@ body {
     cursor: pointer;
 }
 
+.bigTitleInvisible {
+    margin: 0;
+    font-family: var(--bold);
+    font-size: var(--regularTitle);
+    color: #383838;
+}
+
 .alternativeButton {
     height: 3rem;
     width: 10rem;
@@ -465,7 +482,29 @@ body {
     padding: 0;
 }
 
+.alternativeButtonRight {
+    height: 3rem;
+    width: 10rem;
+    background-color: var(--lightBlue);
+    border-radius: 2px;
+    border-style: none;
+    font-size: var(--subtitle);
+    font-family: var(--bold);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    padding: 0;
+    float: right;
+}
+
 .alternativeButton:hover {
+    background-color: var(--lightPurple);
+    cursor: pointer;
+}
+
+.alternativeButtonRight:hover {
     background-color: var(--lightPurple);
     cursor: pointer;
 }
@@ -533,6 +572,13 @@ body {
         font-family: var(--bold);
         font-size: var(--bigText);
         color: var(--white);
+    }
+
+    .bigTitleInvisible {
+        margin: 0;
+        font-family: var(--bold);
+        font-size: var(--bigText);
+        color: #383838;
     }
 
     .bigTitle2 {
@@ -603,6 +649,13 @@ body {
         font-family: var(--bold);
         font-size: var(--subtitle);
         color: var(--white);
+    }
+
+    .bigTitleInvisible {
+        margin: 0;
+        font-family: var(--bold);
+        font-size: var(--subtitle);
+        color: #383838;
     }
 
     .bigTitle2 {
@@ -731,6 +784,12 @@ body {
         font-size: var(--smallSubtitle);
     }
 
+    .alternativeButtonRight {
+        height: 2rem;
+        width: 7.2rem;
+        font-size: var(--smallSubtitle);
+    }
+
     .divPayment {
         height: 2rem;
         width: 15rem;
@@ -747,6 +806,11 @@ body {
     /* Side Bar */
     .bigTitle {
         font-size: var(--subtitle);
+    }
+
+    .bigTitleInvisible {
+        font-size: var(--subtitle);
+        color: #383838;
     }
 
     .subtitle {
@@ -809,6 +873,12 @@ body {
         font-size: var(--smallText);
     }
 
+    .alternativeButtonRight {
+        height: 2rem;
+        width: 6rem;
+        font-size: var(--smallText);
+    }
+
     .divPayment {
         height: 2rem;
         width: 15rem;
@@ -844,6 +914,10 @@ body {
     }
 
     .bigTitle {
+        font-size: var(--smallSubtitle);
+    }
+
+    .bigTitleInvisible {
         font-size: var(--smallSubtitle);
     }
 
@@ -916,7 +990,7 @@ body {
 
     .divFeedMargin {
         width: 100%;
-        height: 16rem;
+        height: 1.6rem;
     }
 
     .divFeedFormatter {
@@ -933,6 +1007,10 @@ body {
 
     /* Side Bar */
     .bigTitle {
+        font-size: var(--smallText);
+    }
+
+    .bigTitleInvisible {
         font-size: var(--smallText);
     }
 
@@ -966,7 +1044,7 @@ body {
     }
 
     .divFeedMargin {
-        height: 14rem;
+        height: 1.4rem;
     }
 
     /* Feed */
@@ -1038,6 +1116,11 @@ body {
         width: 6rem;
     }
 
+    .alternativeButtonRight {
+        height: 2rem;
+        width: 6rem;
+    }
+
     .divPayment {
         height: 2rem;
         width: 12rem;
@@ -1050,6 +1133,13 @@ body {
 /* ----------------------------------------------- */
 
 @media screen and (max-width: 400px) {
+
+    .divSpaceBetweenEmpresa {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 22%;
+    }
 
     .divVaga {
         height: 19rem;
@@ -1093,6 +1183,13 @@ body {
         font-size: var(--extraSmallText);
     }
 
+    .alternativeButtonRight {
+        height: 1.8rem;
+        width: 5rem;
+        font-size: var(--extraSmallText);
+    }
+
+
     .divPayment {
         height: 1.8rem;
         width: 10rem;
@@ -1107,6 +1204,10 @@ body {
 
     /* Side Bar */
     .bigTitle {
+        font-size: var(--miniText);
+    }
+
+    .bigTitleInvisible {
         font-size: var(--miniText);
     }
 
@@ -1140,7 +1241,7 @@ body {
     }
 
     .divFeedMargin {
-        height: 12rem;
+        height: 1.2rem;
     }
 
         .divVaga {
@@ -1181,6 +1282,12 @@ body {
         }
 
         .alternativeButton {
+            height: 1.5rem;
+            width: 4rem;
+            font-size: var(--miniText);
+        }
+
+        .alternativeButtonRight {
             height: 1.5rem;
             width: 4rem;
             font-size: var(--miniText);
