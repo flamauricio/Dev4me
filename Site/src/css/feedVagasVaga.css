@@ -1,0 +1,502 @@
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url(../fonts/Poppins-Bold.ttf);
+    font-family: 'Poppins-Medium';
+    src: url(../fonts/Poppins-Medium.ttf);
+}
+
+/* Variables */
+:root {
+    /* Colors */
+    --backGroundGrey: #272727;
+    --darkGrey: #171717;
+    --mediumGrey: #383838;
+    --lightGrey: #4E4E4E;
+    --lightBlue: #1E9CD7;
+    --lightPurple: #861ED7;
+    --white: #ffffff;
+
+    --blueTag: #69E3E8;
+    --purpleTag: #4c2dfa;
+    --yellowTag: #FFC700;
+    --redTag: #E86969;
+
+    /* Margin */
+    --xxsMargin: 16px;
+    --xsMargin: 24px;
+    --sMargin: 32px;
+    --mMargin: 40px;
+    --lMargin: 48px;
+    --xlMargin: 56px;
+    --xxlMargin: 64px;
+
+    /* Font Size */
+    --bigTitle: 2.5rem;
+    /* Use with font-family: var(--bold) */
+    --regularTitle: 2rem;
+    /* Use with font-family: var(--bold) */
+    --bigText: 1.5rem;
+    /* Use with font-family: var(--regular) */
+    --subtitle: 1.2rem;
+    /* Use with font-family: var(--bold) */
+    --smallSubtitle: 1rem;
+    /* Use with font-family: var(--bold) */
+    --smallText: 0.8rem;
+    /* Use with font-family: var(--regular) */
+    --extraSmallText: 0.6rem;
+    /* Use with font-family: var(--regular) */
+    --miniText: 0.5rem;
+    /* Use with font-family: var(--regular) */
+    --microText: 0.42rem;
+    /* Use with font-family: var(--regular) */
+
+    /* Font Family */
+    --bold: 'Poppins-Bold';
+    --regular: 'Poppins-Medium';
+}
+
+/* ----------------------------------------------- */
+
+.divVagaFather {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.divVagaBody {
+    width: 90%;
+    height: auto;
+    margin-top: 8rem;
+    margin-bottom: 4rem;
+    border-radius: 5px;
+    background-color: var(--mediumGrey);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding-top: 6.25rem;
+    padding-bottom: 6.25rem;
+}
+
+.divVagaContent {
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.divPageTitle {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 48px;
+}
+
+.pageTitle {
+    font-family: var(--bold);
+    font-size: var(--regularTitle);
+    color: var(--white);
+    margin: 0;
+}
+
+/* ----------------------------------------------- */
+
+.divSpaceBetween {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.divSmallBox {
+    height: auto;
+    width: 30%;
+    margin: 0;
+}
+
+.divTitle {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin: 0;
+}
+
+.subtitle {
+    font-family: var(--bold);
+    font-size: var(--subtitle);
+    color: var(--white);
+    margin: 0;
+}
+
+.divTitle img {
+    height: 1.2rem;
+    margin-left: var(--xsMargin);
+}
+
+.divInputFormatter {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: var(--lightGrey);
+    margin-top: 32px;
+    margin-bottom: 48px;
+    border-radius: 4px;
+}
+
+.divInput {
+    width: 95%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.smallText {
+    font-family: var(--regular);
+    font-size: var(--smallText);
+    color: var(--white);
+    margin: 0;
+}
+
+/* ----------------------------------------------- */
+
+.divBigBox {
+    height: auto;
+    width: 100%;
+    margin: 0;
+}
+
+.divBigInput {
+    width: 98.5%;
+    margin-top: 0.75%;
+    margin-bottom: 0.75%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+/* ----------------------------------------------- */
+
+.divBigInputWrap {
+    width: 98.5%;
+    margin-top: 0.75%;
+    margin-bottom: 0.75%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: left;
+}
+
+.tagDev {
+    height: 2.1875rem;
+    width: 6rem;
+    background-color: #ffffff00;
+    border-radius: 2px;
+    border-color: var(--blueTag);
+    border-style: solid;
+    border-width: 0.14rem;
+    font-size: var(--extraSmallText);
+    font-family: var(--regular);
+    color: var(--blueTag);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.tagDev:hover {
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+.tagPlatform {
+    height: 2.1875rem;
+    width: 6rem;
+    background-color: #ffffff00;
+    border-radius: 2px;
+    border-color: var(--purpleTag);
+    border-style: solid;
+    border-width: 0.14rem;
+    font-size: var(--extraSmallText);
+    font-family: var(--regular);
+    color: var(--purpleTag);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.tagPlatform:hover {
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+.tagBusyness {
+    height: 2.1875rem;
+    width: 6rem;
+    background-color: #ffffff00;
+    border-radius: 2px;
+    border-color: var(--yellowTag);
+    border-style: solid;
+    border-width: 0.14rem;
+    font-size: var(--extraSmallText);
+    font-family: var(--regular);
+    color: var(--yellowTag);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.tagBusyness:hover {
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+.tagArea {
+    height: 2.1875rem;
+    width: 6rem;
+    background-color: #ffffff00;
+    border-radius: 2px;
+    border-color: var(--redTag);
+    border-style: solid;
+    border-width: 0.14rem;
+    font-size: var(--extraSmallText);
+    font-family: var(--regular);
+    color: var(--redTag);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.tagArea:hover {
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+/* ----------------------------------------------- */
+
+.divPageButton {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+}
+
+.bigButton {
+    height: 3rem;
+    width: 12rem;
+    background-color: var(--lightBlue);
+    border-radius: 2px;
+    border-style: none;
+    font-size: var(--subtitle);
+    font-family: var(--bold);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+}
+
+.bigButton:hover {
+    background-color: var(--lightPurple);
+    cursor: pointer;
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 1000px) {
+
+    .divVagaBody {
+        margin-top: 5.56rem;
+        margin-bottom: 2.78rem;
+        padding-top: 4.34rem;
+        padding-bottom: 4.34rem;
+    }
+
+    .smallText {
+        font-size: var(--extraSmallText);
+    }
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 770px) {
+
+    .divVagaBody {
+        margin-top: 4.1rem;
+        margin-bottom: 2.05rem;
+        padding-top: 3.2rem;
+        padding-bottom: 3.2rem;
+    }
+
+    .pageTitle {
+        font-size: var(--bigText);
+    }
+
+    .divSpaceBetween {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .divSmallBox {
+        width: 100%;
+    }
+
+    .divBigInput {
+        width: 95%;
+        margin-top: 2.5%;
+        margin-bottom: 2.5%;
+    }
+
+    .tagDev {
+        width: 5rem;
+        font-size: var(--miniText);
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    }
+
+    .tagPlatform {
+        width: 5rem;
+        font-size: var(--miniText);
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    }
+
+    .tagBusyness {
+        width: 5rem;
+        font-size: var(--miniText);
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    }
+
+    .tagArea {
+        width: 5rem;
+        font-size: var(--miniText);
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    }
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 450px) {
+
+    .divVagaBody {
+        margin-top: 2.56rem;
+        margin-bottom: 1.28rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .divPageTitle {
+        padding-bottom: 24px;
+    }
+
+    .pageTitle {
+        font-size: var(--subtitle);
+    }
+
+    .subtitle {
+        font-size: var(--smallSubtitle);
+    }
+
+    .divInputFormatter {
+        margin-top: 16px;
+        margin-bottom: 24px;
+    }
+
+    .bigButton {
+        height: 2rem;
+        width: 8rem;
+        font-size: var(--smallText);
+    }
+
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 380px) {
+
+    .tagDev {
+        height: 1.8rem;
+        width: 4.5rem;
+        font-size: var(--miniText);
+    }
+
+    .tagPlatform {
+        height: 1.8rem;
+        width: 4.5rem;
+        font-size: var(--miniText);
+    }
+
+    .tagBusyness {
+        height: 1.8rem;
+        width: 4.5rem;
+        font-size: var(--miniText);
+    }
+
+    .tagArea {
+        height: 1.8rem;
+        width: 4.5rem;
+        font-size: var(--miniText);
+    }
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 325px) {
+
+    .tagDev {
+        width: 4rem;
+        font-size: var(--microText);
+        margin: 0.35rem 0.35rem 0.35rem 0.35rem;
+    }
+
+    .tagPlatform {
+        width: 4rem;
+        font-size: var(--microText);
+        margin: 0.35rem 0.35rem 0.35rem 0.35rem;
+    }
+
+    .tagBusyness {
+        width: 4rem;
+        font-size: var(--microText);
+        margin: 0.35rem 0.35rem 0.35rem 0.35rem;
+    }
+
+    .tagArea {
+        width: 4rem;
+        font-size: var(--microText);
+        margin: 0.35rem 0.35rem 0.35rem 0.35rem;
+    }
+
+    .bigButton {
+        height: 1.5rem;
+        width: 6rem;
+        font-size: var(--miniText);
+    }
+}
+
+/* ----------------------------------------------- */
