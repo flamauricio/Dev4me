@@ -2,12 +2,12 @@
 CREATE TABLE usuario(
   id_user INT PRIMARY KEY NOT NULL IDENTITY,
   nome VARCHAR(45) NOT NULL,
-  telefone VARCHAR(14) NOT NULL,
-  cpf VARCHAR(14) NOT NULL,
-  cep VARCHAR(8) NOT NULL,
-  endereco  VARCHAR(45) NOT NULL,
   owner_email VARCHAR(45) NOT NULL,
   senha VARCHAR(16) NOT NULL,
+  telefone VARCHAR(14) NULL,
+  cpf VARCHAR(14) NULL,
+  cep VARCHAR(8) NULL,
+  endereco  VARCHAR(45) NULL,
   data_nasc DATETIME NULL,
   desc_user VARCHAR(200) NULL
   );
