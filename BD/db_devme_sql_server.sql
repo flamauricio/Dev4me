@@ -7,7 +7,7 @@ CREATE TABLE usuario(
   cep VARCHAR(8) NOT NULL,
   endereco  VARCHAR(45) NOT NULL,
   owner_email VARCHAR(45) NOT NULL,
-  senha CHAR(16) NOT NULL,
+  senha VARCHAR(16) NOT NULL,
   data_nasc DATETIME NULL,
   desc_user VARCHAR(200) NULL
   );
