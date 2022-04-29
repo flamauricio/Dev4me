@@ -44,8 +44,8 @@ public class Vaga {
 
     @NotBlank
     @Size(max = 200)
-    @Column (name = "ativadades", length = 200)
-    private String ativadades;
+    @Column (name = "atividades", length = 200)
+    private String atividades;
 
     @NotBlank
     @Size(max = 200)
@@ -117,11 +117,11 @@ public class Vaga {
     }
 
     public String getAtivadades() {
-        return ativadades;
+        return atividades;
     }
 
-    public void setAtivadades(String ativadades) {
-        this.ativadades = ativadades;
+    public void setAtivadades(String atividades) {
+        this.atividades = atividades;
     }
 
     public String getRequisitos() {
@@ -146,22 +146,5 @@ public class Vaga {
 
     public void setFkEmpresa(Integer fkEmpresa) {
         this.fkEmpresa = fkEmpresa;
-    }
-
-    @Override
-    public String toString() {
-        return "Vaga{" +
-                "id=" + id +
-                ", titulo='" + titulo + '\'' +
-                ", contrato='" + contrato + '\'' +
-                ", localizacao='" + localizacao + '\'' +
-                ", faixaSalarialMin=" + faixaSalarialMin +
-                ", faixaSalarialMax=" + faixaSalarialMax +
-                ", descricao='" + descricao + '\'' +
-                ", ativadades='" + ativadades + '\'' +
-                ", requisitos='" + requisitos + '\'' +
-                ", disponivel=" + disponivel +
-                ", fkEmpresa=" + fkEmpresa +
-                '}';
     }
 }
