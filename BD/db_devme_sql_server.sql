@@ -34,8 +34,15 @@ CREATE TABLE usuario(
 
   CREATE TABLE vagas(
   id_vagas INT NOT NULL PRIMARY KEY IDENTITY(200, 1),
-  descricao VARCHAR(45) NULL,
-  is_disponivel TINYINT NULL,
+  titulo VARCHAR(45) NOT NULL,
+  contrato VARCHAR(10) NOT NULL,
+  localizacao VARCHAR(50) NULL,
+  faixa_salarial_min DECIMAL NULL,
+  faixa_salarial_max DECIMAL NULL,
+  descricao VARCHAR(100) NOT NULL,
+  atividades VARCHAR(200) NOT NULL,
+  requisitos VARCHAR(200) NOT NULL,
+  is_disponivel BIT NOT NULL,
   fk_empresa INT NOT NULL,
   FOREIGN KEY(fk_empresa) REFERENCES empresa(id_empresa)
   );
