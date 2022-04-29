@@ -59,4 +59,109 @@ public class Vaga {
     @NotNull
     @Column (name = "fk_empresa")
     private Integer fkEmpresa;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getContrato() {
+        return contrato;
+    }
+
+    public void setContrato(String contrato) {
+        this.contrato = contrato;
+    }
+
+    public String getLocalizacao() {
+        return localizacao;
+    }
+
+    public void setLocalizacao(String localizacao) {
+        this.localizacao = localizacao;
+    }
+
+    public Double getFaixaSalarialMin() {
+        return faixaSalarialMin;
+    }
+
+    public void setFaixaSalarialMin(Double faixaSalarialMin) {
+        this.faixaSalarialMin = faixaSalarialMin;
+    }
+
+    public Double getFaixaSalarialMax() {
+        return faixaSalarialMax;
+    }
+
+    public void setFaixaSalarialMax(Double faixaSalarialMax) {
+        this.faixaSalarialMax = faixaSalarialMax;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getAtivadades() {
+        return ativadades;
+    }
+
+    public void setAtivadades(String ativadades) {
+        this.ativadades = ativadades;
+    }
+
+    public String getRequisitos() {
+        return requisitos;
+    }
+
+    public void setRequisitos(String requisitos) {
+        this.requisitos = requisitos;
+    }
+
+    public Boolean getDisponivel() {
+        return disponivel;
+    }
+
+    public void setDisponivel(Boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+
+    public Integer getFkEmpresa() {
+        return fkEmpresa;
+    }
+
+    public void setFkEmpresa(Integer fkEmpresa) {
+        this.fkEmpresa = fkEmpresa;
+    }
+
+    @Override
+    public String toString() {
+        return "Vaga{" +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
+                ", contrato='" + contrato + '\'' +
+                ", localizacao='" + localizacao + '\'' +
+                ", faixaSalarialMin=" + faixaSalarialMin +
+                ", faixaSalarialMax=" + faixaSalarialMax +
+                ", descricao='" + descricao + '\'' +
+                ", ativadades='" + ativadades + '\'' +
+                ", requisitos='" + requisitos + '\'' +
+                ", disponivel=" + disponivel +
+                ", fkEmpresa=" + fkEmpresa +
+                '}';
+    }
 }
