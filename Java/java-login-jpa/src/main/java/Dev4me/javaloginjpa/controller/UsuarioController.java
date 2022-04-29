@@ -24,11 +24,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.validation.Valid;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.sql.Date;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @RestController
@@ -44,6 +45,157 @@ public class UsuarioController {
     @Autowired
     private JavaMailSender emailSender;
 
+    public static void gravaRegistro(String registro, String nomeArq) {
+        BufferedWriter saida = null;
+
+        try {
+            saida = new BufferedWriter(new FileWriter(nomeArq, true));
+        } catch (IOException erro) {
+            System.out.println("Erronaaberturadoarquivo:" + erro);
+        }
+
+        try {
+            saida.append(registro + "\n");
+            saida.close();
+        } catch (IOException erro) {
+            System.out.println("Erronagravaçãodoarquivo:" + erro);
+        }
+    }
+
+    public static void gravaArquivoTxt(List<Usuario> lista, String nomeArq) {
+        int contaRegistroCorpo = 0;
+
+//Montaoregistrodeheader
+        String header = "00USUARIO";
+        header += LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyyHH:mm:ss"));
+        header += "01";
+//Gravaoregistrodeheader
+        gravaRegistro(header, nomeArq);
+
+//Montaegravaosregistrosdecorpo(oudedetalhe)
+        String corpo;
+        for (Usuario u : lista) {
+            corpo = "02";
+            corpo += String.format("%06d", u.getId());
+            corpo += String.format("%-45.45s", u.getNome());
+            corpo += String.format("%-14.14s", u.getTelefone());
+            corpo += String.format("%-14.14s", u.getCpf());
+            corpo += String.format("%-8.8s", u.getCep());
+            corpo += String.format("%-45.45s", u.getEndereco());
+            corpo += String.format("%-45.45s", u.getEmail());
+            corpo += String.format("%-16.16s", u.getSenha());
+            corpo += String.format("%-19.19s", u.getDataNasc());
+            corpo += String.format("%-200.200s", u.getDescUsuario());
+            gravaRegistro(corpo, nomeArq);
+            contaRegistroCorpo++;
+        }
+
+//Montaegravaoregistrodetrailer
+        String trailer = "01";
+        trailer += String.format("%013d", contaRegistroCorpo);
+        gravaRegistro(trailer, nomeArq);
+    }
+
+    public static void leArquivoTxt(String nomeArq) {
+        BufferedReader entrada = null;
+        String registro, tipoRegistro;
+        String nome, email, senha, descUsuario, cpf, telefone, cep, endereco;
+
+        LocalDate dataNasc = LocalDate.now();
+        Date date = Date.valueOf(dataNasc);
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        String dataFormatada = format.format(date);
+
+        Integer id;
+        int contaRegDadoLido = 0;
+        int qtdRegDadoGravado;
+
+        List<Usuario> listaLida = new ArrayList<>();
+
+//Abreoarquivoparaleitura
+        try {
+            entrada = new BufferedReader(new FileReader(nomeArq));
+        } catch (IOException erro) {
+            System.out.println("Erronaaberturadoarquivo:" + erro);
+        }
+
+//Leituradoarquivo
+        try {
+//Leoprimeiroregistrodoarquivo
+            registro = entrada.readLine();
+
+            while (registro != null) {//enquantonãoforofinaldoarquivo
+//obtemos2primeiroscaracteresdoregistro
+//012
+//00NOTA20221
+//Métodosubstringrecebeoíndiceondecomeçaocampoeoíndicefinal+1
+//Começaacontardozero
+                tipoRegistro = registro.substring(0, 2);
+//Verificaseéumregistrodeheader("00")
+//ouseéumregistrodetrailer("01")
+//ouseéumregistrodecorpo("02")
+                if (tipoRegistro.equals("00")) {
+                    System.out.println("Éumregistrodeheader");
+//Exibeasinformaçõesdoregistrodeheader
+                    System.out.println("Tipodoarquivo:" +
+                            registro.substring(2, 11));
+                    System.out.println("Dataehoradegravação:" +
+                            registro.substring(11, 30));
+                    System.out.println("Versãododocumentodelayout:" +
+                            registro.substring(30, 32));
+                } else if (tipoRegistro.equals("01")) {
+                    System.out.println("Éumregistrodetrailer");
+                    qtdRegDadoGravado = Integer.parseInt(registro.substring(2, 15));
+                    if (contaRegDadoLido == qtdRegDadoGravado) {
+                        System.out.println("Quantidadederegistroslidoscompatível" +
+                                "comaquantidadederegistrosgravados");
+                    } else {
+                        System.out.println("Quantidadederegistroslidosincompatível" +
+                                "comaquantidadederegistrosgravados");
+                    }
+
+                } else if (tipoRegistro.equals("02")) {
+                    System.out.println("Éumregistrodecorpo");
+//trim()eliminaosbrancosàdireitadaString
+                    id = Integer.valueOf(registro.substring(2, 8).trim());
+                    nome = registro.substring(8, 53).trim();
+                    telefone = registro.substring(53, 67).trim();
+                    cpf = registro.substring(67, 81).trim();
+                    cep = registro.substring(81, 89).trim();
+                    endereco = registro.substring(89, 134);
+                    email = registro.substring(134, 179).trim();
+                    senha = registro.substring(179, 195).trim();
+                    dataFormatada = registro.substring(195, 214).trim();
+                    descUsuario = registro.substring(214, 414).trim();
+                    contaRegDadoLido++;
+
+//seforimportaressasinformaçõesnoBcodeDados
+//pode-secriarumobjUsuariocomessesdados
+//efazerrepository.save(obj)
+
+//Nonossocaso,vamoscriarumobjetoAluno
+//eadicionaresseobjparaalistaLida
+                    //repository.save();
+                } else {
+                    System.out.println("Tipoderegistroinválido");
+                }
+//Leoproximoregistro
+                registro = entrada.readLine();
+            }
+            entrada.close();
+        } catch (IOException erro) {
+            System.out.println("Erroaolerarquivo:" + erro);
+        }
+
+//Aquitbseriapossívelfazerrepository.saveAll(listaLida);
+//parasalvaroconteúdodalistanobanco
+        System.out.println("\nListalidadoarquivo:");
+        for (Usuario u : listaLida) {
+            System.out.println(u);
+        }
+    }
+
+
     //Método pra cadastro do Usuário;
     @ApiResponses({@ApiResponse(responseCode = "200", content = @Content(mediaType = "application/json"))})
     @PostMapping
@@ -51,10 +203,10 @@ public class UsuarioController {
     public ResponseEntity postUsuario(@RequestBody @Valid Usuario novoUsuario) {
         repository.save(novoUsuario);
         String email = novoUsuario.getEmail();
-        String uri = "http://localhost:8080/usuarios/sending-email/"+email;
+        String uri = "http://localhost:8080/usuarios/sending-email/" + email;
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.postForObject(uri, novoUsuario, String.class);
-        return  ResponseEntity.status(201).build();
+        return ResponseEntity.status(201).build();
     }
 
     // Enviar email
@@ -87,13 +239,13 @@ public class UsuarioController {
     public ResponseEntity getRelatorio() {
         List<Usuario> lista = repository.findAll();
 
-        String relatorio = "ID"+";"+"NOME"+";"+"EMAIL"+";"+"CPF"+";"+"SENHA"+";"+"DATANASC"+";"+"TEL"+";"+"CEP"+";"+"ENDEC"+";"+"DESC"+"\n";
+        String relatorio = "ID" + ";" + "NOME" + ";" + "EMAIL" + ";" + "CPF" + ";" + "SENHA" + ";" + "DATANASC" + ";" + "TEL" + ";" + "CEP" + ";" + "ENDEC" + ";" + "DESC" + "\n";
         for (Usuario usuario : lista) {
             relatorio += usuario.getId() + ";" + usuario.getNome() + ";"
                     + usuario.getEmail() + ";" + usuario.getCpf() + ";"
                     + usuario.getSenha() + ";" + usuario.getDataNasc() + ";"
                     + usuario.getTelefone() + ";" + usuario.getCep() + ";"
-                    + usuario.getEndereco() + ";" + usuario.getDescUsuario() +"\n";
+                    + usuario.getEndereco() + ";" + usuario.getDescUsuario() + "\n";
         }
         return ResponseEntity.status(200)
                 .header("content-type", "text/csv")
