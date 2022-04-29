@@ -38,7 +38,6 @@ public class UsuarioController {
     @Autowired
     EmailRepository emailRepository;
 
-
     @Autowired
     private UsuarioRepository repository;
 
@@ -88,19 +87,13 @@ public class UsuarioController {
     public ResponseEntity getRelatorio() {
         List<Usuario> lista = repository.findAll();
 
-        ListaObj<Usuario> listaobj = new ListaObj<>(lista.size());
-
-        for (Usuario u : lista) {
-            listaobj.adiciona(u);
-        }
-
         String relatorio = "ID"+";"+"NOME"+";"+"EMAIL"+";"+"CPF"+";"+"SENHA"+";"+"DATANASC"+";"+"TEL"+";"+"CEP"+";"+"ENDEC"+";"+"DESC"+"\n";
-        for (int i = 0; listaobj.getTamanho() > i; i++) {
-            relatorio += listaobj.getElemento(i).getId() + ";" + listaobj.getElemento(i).getNome() + ";"
-                    + listaobj.getElemento(i).getEmail() + ";" + listaobj.getElemento(i).getCpf() + ";"
-                    + listaobj.getElemento(i).getSenha() + ";" + listaobj.getElemento(i).getDataNasc() + ";"
-                    + listaobj.getElemento(i).getTelefone() + ";" + listaobj.getElemento(i).getCep() + ";"
-                    + listaobj.getElemento(i).getEndereco() + ";" + listaobj.getElemento(i).getDescUsuario() +"\n";
+        for (Usuario usuario : lista) {
+            relatorio += usuario.getId() + ";" + usuario.getNome() + ";"
+                    + usuario.getEmail() + ";" + usuario.getCpf() + ";"
+                    + usuario.getSenha() + ";" + usuario.getDataNasc() + ";"
+                    + usuario.getTelefone() + ";" + usuario.getCep() + ";"
+                    + usuario.getEndereco() + ";" + usuario.getDescUsuario() +"\n";
         }
         return ResponseEntity.status(200)
                 .header("content-type", "text/csv")
