@@ -48,6 +48,7 @@ public class UsuarioController {
     //Método pra cadastro do Usuário;
     @ApiResponses({@ApiResponse(responseCode = "200", content = @Content(mediaType = "application/json"))})
     @PostMapping
+    @CrossOrigin
     public ResponseEntity postUsuario(@RequestBody @Valid Usuario novoUsuario) {
         repository.save(novoUsuario);
         String email = novoUsuario.getEmail();
@@ -109,12 +110,14 @@ public class UsuarioController {
 
     // GET de usuarios sem senha
     @GetMapping
+    @CrossOrigin
     public ResponseEntity<List<UsuarioSimplesResponse>> getUsuariosSimples() {
         return ResponseEntity.status(200).body(repository.getUsuariosSimples());
     }
 
     // GET de usuarios com senha
     @GetMapping("/{id}")
+    @CrossOrigin
     public ResponseEntity<List<Usuario>> getUsuario(@PathVariable String id) {
         return ResponseEntity.status(200).build();
     }
@@ -122,6 +125,7 @@ public class UsuarioController {
     //POST de autenticar usuario
     @ApiResponses({@ApiResponse(responseCode = "200", content = @Content(mediaType = "application/json"))})
     @PostMapping("/login")
+    @CrossOrigin
     public ResponseEntity autenticar(@RequestBody UsuarioAutenticacaoResponse usuario) {
         List<UsuarioAutenticacaoResponse> usuarios = repository.getUsuariosAutenticacao();
         if (usuarios.isEmpty()) {
@@ -137,6 +141,7 @@ public class UsuarioController {
 
     //DELETE desloga usuario
     @DeleteMapping("/delete/{id}")
+    @CrossOrigin
     public ResponseEntity<Void> deleteUsuario(@PathVariable Integer id,
                                               @RequestBody UsuarioAutenticacaoResponse usuario) {
         if (repository.existsById(id)) {
@@ -156,6 +161,7 @@ public class UsuarioController {
     // PATCH trocar senha
     @ApiResponses({@ApiResponse(responseCode = "200", content = @Content(mediaType = "application/json"))})
     @PatchMapping("/senha/{id}")
+    @CrossOrigin
     public ResponseEntity<List<UsuarioAutenticacaoResponse>> patchUsuarioSenha(@PathVariable Integer id,
                                                                                @RequestBody UsuarioSenhaRequest usuario) {
         if (repository.existsById(id)) {

@@ -38,7 +38,6 @@ public class Usuario {
     @Column (name = "data_nasc")
     private LocalDate dataNasc;
 
-    @NotBlank
     @Size(max = 200)
     @Column (name = "desc_user", length = 200)
     private String descUsuario;
@@ -52,12 +51,10 @@ public class Usuario {
     @Column (name = "telefone", length = 14)
     private String telefone;
 
-    @NotBlank
     @Size(max = 8)
     @Column (name = "cep", length = 8)
     private String cep;
 
-    @NotBlank
     @Size(max = 45)
     @Column (name = "endereco", length = 45)
     private String endereco;
