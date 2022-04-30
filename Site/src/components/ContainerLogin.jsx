@@ -6,53 +6,95 @@ import SmallText from "./SmallText";
 import Title from "./Title";
 import api from "../api";
 
-function ContainerLogin() {
+function ContainerLogin(props) {
 
-    const inputEmail = useState('');
-    const inputSenha = useState('');
+    const [inputEmail, setEmail] = useState("");
+    const [inputSenha, setSenha] = useState("");
 
-function enviaDadosDoInput(event) {
-
-    event.preventDefault();
-
-    if (document.getElementById('inputUsuario').checked) {
-    // api.post("usuarios/login", inputEmail, inputSenha).then((response) => {
-    //     console.log(response);
-    //     });
-    window.location = "http://localhost:3000/html/feedVagas.html";
-    } else {
-    // api.post("empresas/login", inputEmail, inputSenha).then((response) => {
-    //     console.log(response);
-    //     });
-    window.location = "http://localhost:3000/html/feedEmpresa.html";
+    function setarEmail(e) {
+        setEmail(e.target.value);
     }
-}
 
-return(
-<>
-    <div id="container">
-        <div className="box">
-            <div id="content">
-                <Title conteudo="Login"></Title>
+    function setarSenha(e) {
+        setSenha(e.target.value);
+    }
 
-                <form onSubmit={enviaDadosDoInput}>
+    function entrar(e) {
+        e.preventDefault();
 
-                    <InputTexto onInput={(event) => {inputEmail(event.target.value)}} placeholder="Email"></InputTexto>
+        // setEmail(sessionStorage.getItem("email"));
+        // setSenha(sessionStorage.getItem("senha"));
 
-                    <InputTexto onInput={(event) => {inputSenha(event.target.value)}} placeholder="Senha"></InputTexto>
+        let usuario = {
+            email: inputEmail,
+            senha: inputSenha
+        }
 
-                    <DivCheckboxes></DivCheckboxes>
+        if (document.getElementById("inputEmpresa").checked) {
 
-                    <BotaoCadastroLogin conteudo="Entrar"></BotaoCadastroLogin>
+            api.post("/empresas/login", usuario)
 
-                </form>
+                .then((response) => {
+                    if (response.status === 200) {
+                        window.location = "http://localhost:3000/html/feedEmpresa.html";
+                    } else {
+                        alert("Erro não especificado.")
+                        console.log("Código do erro: ", response.status);
+                    }
+                })
 
-                <SmallText conteudo="Esqueci minha senha."></SmallText>
+                .catch((error) => {
+                    console.log(error);
+                    alert("Email ou senha incorretos!")
+                })
+
+        }
+        else if (document.getElementById('inputUsuario').checked) {
+
+            api.post("/usuarios/login", usuario)
+
+                .then((response) => {
+                    if (response.status === 200) {
+                        window.location = "http://localhost:3000/html/feedVagas.html";
+                    } else {
+                        alert("Erro não especificado.")
+                        console.log("Código do erro: ", response.status);
+                    }
+                })
+
+                .catch((error) => {
+                    console.log(error);
+                    alert("Email ou senha incorretos!");
+                })
+        } 
+        else {
+            alert("Favor selecionar uma opção.");
+        }
+
+    }
+
+    return (
+        <>
+            <div id="container">
+                <div className="box">
+                    <div id="content">
+                        <Title conteudo="Login"></Title>
+
+                        <form action="" method="post" onSubmit={entrar}>
+                            <InputTexto setter={setarEmail} type="text" name="email" placeholder="email"></InputTexto>
+
+                            <InputTexto setter={setarSenha} type="password" name="senha" placeholder="senha"></InputTexto>
+
+                            <DivCheckboxes></DivCheckboxes>
+
+                            <BotaoCadastroLogin conteudo="Entrar"></BotaoCadastroLogin>
+                        </form>
+                        <SmallText conteudo="Esqueci minha senha."></SmallText>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</>
-);
+        </>
+    );
 }
 
 export default ContainerLogin;

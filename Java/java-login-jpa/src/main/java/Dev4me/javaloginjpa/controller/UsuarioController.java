@@ -212,6 +212,7 @@ public class UsuarioController {
     // Enviar email
     @ApiResponses({@ApiResponse(responseCode = "200", content = @Content(mediaType = "application/json"))})
     @PostMapping("/sending-email/{email}")
+    @CrossOrigin
     public ResponseEntity<Email> sendingEmail(@RequestBody @Valid Email emailDto, @PathVariable String email) {
         Email emailModel = new Email();
         emailModel.setSendDateEmail(LocalDateTime.now());
@@ -236,6 +237,7 @@ public class UsuarioController {
     //GET chamada do .csv
     @ApiResponses({@ApiResponse(responseCode = "200", content = @Content(mediaType = "text/csv"))})
     @GetMapping("/relatorio")
+    @CrossOrigin
     public ResponseEntity getRelatorio() {
         List<Usuario> lista = repository.findAll();
 

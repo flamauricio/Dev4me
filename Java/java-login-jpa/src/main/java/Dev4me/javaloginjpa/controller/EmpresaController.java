@@ -29,6 +29,7 @@ public class EmpresaController {
     //Método pra cadastro de Empresa;
     @ApiResponses({@ApiResponse(responseCode = "200", content = @Content(mediaType = "application/json"))})
     @PostMapping
+    @CrossOrigin
     public ResponseEntity postEmpresa(@RequestBody @Valid Empresa novaEmpresa) {
         repository.save(novaEmpresa);
         return ResponseEntity.status(201).build();
@@ -36,6 +37,7 @@ public class EmpresaController {
 
     // GET da empresa sem senha
     @GetMapping
+    @CrossOrigin
     public ResponseEntity <List<EmpresaSimplesResponse>> getEmpresasSimples() {
         List<EmpresaSimplesResponse> empresas = repository.getEmpresasSimples();
         if (empresas.isEmpty()) {
@@ -47,6 +49,7 @@ public class EmpresaController {
     // POST de autenticar usuario da empresa
     @ApiResponses({@ApiResponse (responseCode = "200", content = @Content(mediaType = "application/json"))})
     @PostMapping("/login")
+    @CrossOrigin
     public ResponseEntity autenticar(@RequestBody EmpresaAutenticacaoResponse empresa) {
         List<EmpresaAutenticacaoResponse> empresas = repository.getEmpresasAutenticacao();
         if (empresas.isEmpty()) {
@@ -62,6 +65,7 @@ public class EmpresaController {
 
     //DELETE para deletar empresa por ID
     @DeleteMapping("/delete/{id}")
+    @CrossOrigin
     public ResponseEntity<Void> deleteEmpresa(@PathVariable Integer id,
                                         @RequestBody EmpresaAutenticacaoResponse empresa) {
         if (repository.existsById(id)) {
@@ -81,6 +85,7 @@ public class EmpresaController {
     //PATCH para troca de senha
     @ApiResponses({@ApiResponse (responseCode = "200", content = @Content(mediaType = "application/json"))})
     @PatchMapping("/senha/{id}")
+    @CrossOrigin
     public ResponseEntity patchEmpresaSenha(@PathVariable Integer id,
                                             @RequestBody EmpresaSenhaRequest empresa) {
         if (repository.existsById(id)) {

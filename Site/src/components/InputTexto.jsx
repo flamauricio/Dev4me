@@ -4,7 +4,13 @@ function InputTexto(props)
 {
     return (
         <>
-        <input type="text" className="input" name={props.name} placeholder={props.placeholder}></input>
+            <input 
+                type={props.type}
+                className="input" 
+                name={props.name} 
+                placeholder={props.placeholder}
+                onInput={props.setter}>    
+            </input>
         </>
     )
 }
