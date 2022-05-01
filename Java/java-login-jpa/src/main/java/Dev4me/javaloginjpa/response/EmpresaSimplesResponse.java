@@ -6,14 +6,12 @@ public class EmpresaSimplesResponse
 {
     // Atributos
     private String nome;
-    private String login;
     private String email;
 
     // Construtor
-    public EmpresaSimplesResponse(String nome, String login, String email)
+    public EmpresaSimplesResponse(String nome, String email)
     {
         this.nome = nome;
-        this.login = login;
         this.email = email;
     }
 
@@ -28,7 +26,4 @@ public class EmpresaSimplesResponse
         return email;
     }
 
-    public String getLogin() {
-        return login;
-    }
 }

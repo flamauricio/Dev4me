@@ -12,7 +12,7 @@ import java.util.List;
 
 public interface EmpresaRepository extends JpaRepository<Empresa, Integer> {
     // Métodos
-    @Query("select new Dev4me.javaloginjpa.response.EmpresaSimplesResponse(e.nome, e.login, e.email) from Empresa e")
+    @Query("select new Dev4me.javaloginjpa.response.EmpresaSimplesResponse(e.nome, e.email) from Empresa e")
     List<EmpresaSimplesResponse> getEmpresasSimples();
 
     @Query("select new Dev4me.javaloginjpa.response.EmpresaAutenticacaoResponse(e.id, e.email, e.senha) from Empresa e")

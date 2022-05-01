@@ -26,16 +26,10 @@ public class Empresa {
     private String email;
 
     @NotBlank
-    @Size(max = 45)
-    @Column (name = "login", length = 45)
-    private String login;
-
-    @NotBlank
     @Size(max = 16)
     @Column (name = "senha", length = 45)
     private String senha;
 
-    @NotBlank
     @Size(max = 16)
     @Column (name = "cnpj", length = 16)
     private String cnpj;
@@ -74,14 +68,6 @@ public class Empresa {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
     }
 
     //public String getSenha() {return senha;}

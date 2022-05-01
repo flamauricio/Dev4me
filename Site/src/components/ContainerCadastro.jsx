@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import BotaoCadastroLogin from "./BotaoCadastroLogin";
 import DivCheckboxes from "./DivCheckboxes";
 import InputTexto from "./InputTexto";
@@ -7,23 +7,79 @@ import Title from "./Title";
 import api from "../api";
 
 function ContainerCadastro() {
-    function cadastrar(event) {
 
-        event.preventDefault();
-        
+    const [inputNome, setNome] = useState("");
+    const [inputEmail, setEmail] = useState("");
+    const [inputSenha, setSenha] = useState("");
+
+    function setarNome(e) {
+        setNome(e.target.value);
+    }
+
+    function setarEmail(e) {
+        setEmail(e.target.value);
+    }
+
+    function setarSenha(e) {
+        setSenha(e.target.value);
+    }
+
+    function cadastrar(e) {
+
+        e.preventDefault();
+
+        let usuario = {
+            nome: inputNome,
+            email: inputEmail,
+            senha: inputSenha
+        }
+
+        if (document.getElementById("inputEmpresa").checked) {
+
+            api.post("/empresas", usuario)
+            .then((response) => {
+                    if (response.status === 200 || response.status === 201) {
+                        alert('Cadastro realizado com sucesso');
+                        window.location = "http://localhost:3000/login";
+                    } else {
+                        alert("Erro não especificado.")
+                        console.log("Código do erro: ", response.status);
+                    }
+                })
+
+                .catch((error) => {
+                    console.log(error);
+                    alert("Cadastro inválido!")
+                })
+
+        }
+        else if (document.getElementById('inputUsuario').checked) {
+
+            api.post("/usuarios", usuario)
+
+                .then((response) => {
+                    if (response.status === 200 || response.status === 201) {
+                        alert('Cadastro realizado com sucesso');
+                        window.location = "http://localhost:3000/login";
+                    } else {
+                        alert("Erro não especificado.")
+                        console.log("Código do erro: ", response.status);
+                    }
+                })
+
+                .catch((error) => {
+                    console.log(error);
+                    alert("Cadastro inválido!");
+                })
+        } 
+        else {
+            alert("Favor selecionar uma opção.");
+        }
+
+    }
+
+    function levarParaLogin() {
         window.location = "http://localhost:3000/login";
-        // if (document.getElementById("inputUsuario").checked) {
-        //     api.post("/usuarios").
-        //     then((response) => {
-        //         console.log(response);
-        //     })
-        // } else {
-            
-        //     api.post("/empresas").
-        //     then((response) => {
-        //         console.log(response);
-        //     })
-        // }
     }
 
     return (
@@ -33,15 +89,17 @@ function ContainerCadastro() {
                     <div id="content">
                         <Title conteudo="Cadastro"></Title>
                         <form onSubmit={cadastrar} method="post">
-                            <InputTexto name="nome" placeholder="Nome Completo"></InputTexto>
-                            <InputTexto name="email" placeholder="Email"></InputTexto>
-                            <InputTexto name="senha" placeholder="Senha"></InputTexto>
+                           <InputTexto setter={setarNome} type="text" name="nome" placeholder="nome"></InputTexto>
+
+                            <InputTexto setter={setarEmail} type="text" name="email" placeholder="email"></InputTexto>
+
+                            <InputTexto setter={setarSenha} type="text" name="senha" placeholder="senha"></InputTexto>
 
                             <DivCheckboxes></DivCheckboxes>
 
                             <BotaoCadastroLogin conteudo="Cadastrar"></BotaoCadastroLogin>
 
-                            <SmallText conteudo="Já possui cadastro? Clique aqui."></SmallText>
+                            <SmallText onClick={levarParaLogin} conteudo="Já possui cadastro? Clique aqui."></SmallText>
                         </form>
                     </div>
                 </div>
