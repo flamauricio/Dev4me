@@ -49,12 +49,9 @@ CREATE TABLE usuario(
 
   CREATE TABLE tags(
   id_tag INT NOT NULL PRIMARY KEY IDENTITY(300, 1),
-  nome VARCHAR(45) NULL,
-  tipo VARCHAR(45) NULL,
-  fk_tag_user INT NOT NULL,
-  fk_tag_vaga INT NOT NULL,
-  FOREIGN KEY(fk_tag_user) REFERENCES empresa(id_empresa),
-  FOREIGN KEY(fk_tag_user) REFERENCES vagas(id_vagas)
+  nome VARCHAR(45) NOT NULL,
+  tipo VARCHAR(45) NOT NULL,
+  url VARCHAR(200) NOT NULL
   );
 
 CREATE TABLE feedback (
