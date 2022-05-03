@@ -201,11 +201,21 @@ public class UsuarioController {
     @PostMapping
     @CrossOrigin
     public ResponseEntity postUsuario(@RequestBody @Valid Usuario novoUsuario) {
-        repository.save(novoUsuario);
-        String email = novoUsuario.getEmail();
-        String uri = "http://localhost:8080/usuarios/sending-email/" + email;
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.postForObject(uri, novoUsuario, String.class);
+        List<UsuarioAutenticacaoResponse> usuarios = repository.getUsuariosAutenticacao();
+        boolean validador = false;
+        for(UsuarioAutenticacaoResponse u : usuarios){
+            if(u.getEmail().equals(novoUsuario.getEmail())){
+                validador = true;
+            }
+        }if(validador){
+            return ResponseEntity.status(203).build();
+        }else{
+            repository.save(novoUsuario);
+            String email = novoUsuario.getEmail();
+            String uri = "http://localhost:8080/usuarios/sending-email/" + email;
+            RestTemplate restTemplate = new RestTemplate();
+            restTemplate.postForObject(uri, novoUsuario, String.class);
+        }
         return ResponseEntity.status(201).build();
     }
 
