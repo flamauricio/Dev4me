@@ -53,8 +53,22 @@ CREATE TABLE usuario(
   tipo VARCHAR(45) NOT NULL,
   url VARCHAR(200) NOT NULL
   );
+  
+  CREATE TABLE tags_usuarios (
+  id_user INT NOT NULL,
+  id_tag INT NOT NULL,
+  FOREIGN KEY (id_user) REFERENCES [dbo].[usuario](id_user),
+  FOREIGN KEY (id_tag) REFERENCES [dbo].[tags](id_tag)
+  );
+  
+  CREATE TABLE tags_vagas (
+  id_vagas INT NOT NULL,
+  id_tag INT NOT NULL,
+  FOREIGN KEY (id_vagas) REFERENCES [dbo].[vagas](id_vagas),
+  FOREIGN KEY (id_tag) REFERENCES [dbo].[tags](id_tag)
+  );
 
-CREATE TABLE feedback (
+  CREATE TABLE feedback (
   id_feedback INT NOT NULL PRIMARY KEY IDENTITY(400, 1),
   comentario VARCHAR(200) NULL
   );
