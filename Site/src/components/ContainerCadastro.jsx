@@ -5,6 +5,9 @@ import InputTexto from "./InputTexto";
 import SmallText from "./SmallText";
 import Title from "./Title";
 import api from "../api";
+import cadastrocss from "../css/cadastro.css";
+
+
 
 function ContainerCadastro() {
 

@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import CardPessoa from "../components/CardPessoa";
 import imgReload from "../img/reload.png";
 
+
 function FeedEmpresa() {
     return (
         <>

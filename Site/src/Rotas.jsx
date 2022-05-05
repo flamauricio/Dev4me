@@ -4,6 +4,7 @@ import Cadastro from "./pages/Cadastro";
 import Login from "./pages/Login";
 import FeedEmpresa from "./pages/FeedEmpresa";
 import FeedVagasVaga from "./pages/FeedVagasVaga";
+import CadastroVaga from "./pages/CadastroVaga";
 
 function Rotas()
 {
@@ -15,6 +16,7 @@ function Rotas()
                     <Route path="/login" element={<Login/>}/>
                     <Route path="/feed-empresa" element={<FeedEmpresa/>}/>
                     <Route path="/vaga" element={<FeedVagasVaga/>}/>
+                    <Route path="/post-vaga" element={<CadastroVaga/>}/>
                 </Routes>
             </BrowserRouter>
         </>
