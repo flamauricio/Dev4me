@@ -36,8 +36,8 @@ function ContainerLogin(props) {
 
                 .then((response) => {
                     if (response.status === 200) {
+                        sessionStorage.setItem("idEmpresa", response.data)
                         window.location = "http://localhost:3000/feed-empresa";
-                        sessionStorage.setItem('email', inputEmail);
                     } else {
                         alert("Erro não especificado.")
                         console.log("Código do erro: ", response.status);
@@ -56,6 +56,7 @@ function ContainerLogin(props) {
 
                 .then((response) => {
                     if (response.status === 200) {
+                        sessionStorage.setItem("idUsuario", response.data);
                         window.location = "http://localhost:3000/html/feedVagas.html";
                     } else {
                         alert("Erro não especificado.")
