@@ -8,7 +8,7 @@ CREATE TABLE usuario(
   cpf VARCHAR(14) NULL,
   cep VARCHAR(8) NULL,
   endereco  VARCHAR(45) NULL,
-  data_nasc DATETIME NULL,
+  data_nasc DATE,
   desc_user VARCHAR(200) NULL
   );
 
