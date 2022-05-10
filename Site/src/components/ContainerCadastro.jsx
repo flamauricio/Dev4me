@@ -6,8 +6,8 @@ import SmallText from "./SmallText";
 import Title from "./Title";
 import api from "../api";
 import cadastrocss from "../css/cadastro.css";
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 function ContainerCadastro() {
 
@@ -34,9 +34,9 @@ function ContainerCadastro() {
                             title: <strong>Cadastro realizado com sucesso</strong>,
                             icon: 'success'
                         }).then(() => {
+
                             window.location = "http://localhost:3000/login";
                         
-                            startLoadingGif();
                         })
     }
 
@@ -87,7 +87,7 @@ function ContainerCadastro() {
 
                 .catch((error) => {
                     console.log(error);
-                    alert("Cadastro inválido!")
+                    errorMessage();
                 })
 
         }
@@ -111,7 +111,7 @@ function ContainerCadastro() {
 
                 .catch((error) => {
                     console.log(error);
-                    alert("Cadastro inválido!");
+                    errorMessage();
                 })
         } 
         else {

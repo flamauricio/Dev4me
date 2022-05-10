@@ -5,6 +5,8 @@ import InputTexto from "./InputTexto";
 import SmallText from "./SmallText";
 import Title from "./Title";
 import api from "../api";
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 function ContainerLogin(props) {
 
@@ -17,6 +19,38 @@ function ContainerLogin(props) {
 
     function setarSenha(e) {
         setSenha(e.target.value);
+    }
+
+    // function successMessage() {
+    //     const MySwal = withReactContent(Swal)
+
+    //                     MySwal.fire({
+    //                         title: <strong>Cadastro realizado com sucesso</strong>,
+    //                         icon: 'success'
+    //                     }).then(() => {
+                            
+    //                         window.location = "http://localhost:3000/feed-empresa";
+                        
+    //                         startLoadingGif();
+    //                     })
+    // }
+
+    function errorMessage() {
+        const MySwal = withReactContent(Swal)
+
+                        MySwal.fire({
+                            title: <strong>Não foi possível realizar o login</strong>,
+                            icon: 'error'
+                        })
+    }
+
+    function errorMessageLogin() {
+        const MySwal = withReactContent(Swal)
+
+                        MySwal.fire({
+                            title: <strong>Email e/ou senha incorretos!</strong>,
+                            icon: 'error'
+                        })
     }
 
     function entrar(e) {
@@ -36,17 +70,24 @@ function ContainerLogin(props) {
 
                 .then((response) => {
                     if (response.status === 200) {
+
+                        startLoadingGif();
+
                         sessionStorage.setItem("idEmpresa", response.data)
+
                         window.location = "http://localhost:3000/feed-empresa";
+                        
                     } else {
-                        alert("Erro não especificado.")
+                        errorMessage();
                         console.log("Código do erro: ", response.status);
                     }
                 })
 
                 .catch((error) => {
+
                     console.log(error);
-                    alert("Email ou senha incorretos!")
+
+                    errorMessageLogin();
                 })
 
         }
@@ -56,22 +97,33 @@ function ContainerLogin(props) {
 
                 .then((response) => {
                     if (response.status === 200) {
-                        sessionStorage.setItem("idUsuario", response.data);
+
+                        startLoadingGif();
+
+                        sessionStorage.setItem("idUsuario", response.data)
+
                         window.location = "http://localhost:3000/html/feedVagas.html";
+                        
                     } else {
-                        alert("Erro não especificado.")
+                        errorMessage();
                         console.log("Código do erro: ", response.status);
                     }
                 })
 
                 .catch((error) => {
+
                     console.log(error);
-                    alert("Email ou senha incorretos!");
+
+                    errorMessageLogin();
                 })
         } 
         else {
             alert("Favor selecionar uma opção.");
         }
+
+    }
+
+    function startLoadingGif() {
 
     }
 
