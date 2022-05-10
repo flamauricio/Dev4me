@@ -1,13 +1,13 @@
 import React from "react";
-import Header from "../components/Header";
+import HeaderLogadoDois from "../components/HeaderLogadoDois";
 import CardPessoa from "../components/CardPessoa";
 import imgReload from "../img/reload.png";
 
-
 function FeedEmpresa() {
+    
     return (
         <>
-        <Header nomeBotao = "Cadastrar" encaminharTo="http://localhost:3000/cadastro"/>
+        <HeaderLogadoDois />
 
             <div className="divMobile">
                 <div className="divMobileOrganizer2" >

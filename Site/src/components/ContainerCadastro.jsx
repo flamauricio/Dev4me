@@ -44,6 +44,7 @@ function ContainerCadastro() {
                     if (response.status === 200 || response.status === 201) {
                         alert('Cadastro realizado com sucesso');
                         window.location = "http://localhost:3000/login";
+                        startLoadingGif();
                     } else {
                         alert("Erro não especificado.")
                         console.log("Código do erro: ", response.status);
@@ -64,6 +65,7 @@ function ContainerCadastro() {
                     if (response.status === 200 || response.status === 201) {
                         alert('Cadastro realizado com sucesso');
                         window.location = "http://localhost:3000/login";
+                        startLoadingGif();
                     } else {
                         alert("Erro não especificado.")
                         console.log("Código do erro: ", response.status);
@@ -83,6 +85,10 @@ function ContainerCadastro() {
 
     function levarParaLogin() {
         window.location = "http://localhost:3000/login";
+    }
+
+    function startLoadingGif() {
+        
     }
 
     return (
