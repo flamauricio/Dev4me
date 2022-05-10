@@ -56,31 +56,6 @@ public class EmpresaController {
         return ResponseEntity.status(201).build();
     }
 
-    // Enviar email
-    @ApiResponses({@ApiResponse(responseCode = "200", content = @Content(mediaType = "application/json"))})
-    @PostMapping("/sending-email/{email}")
-    @CrossOrigin
-    public ResponseEntity<Email> sendingEmail(@RequestBody @Valid Email emailDto, @PathVariable String email) {
-        Email emailModel = new Email();
-        emailModel.setSendDateEmail(LocalDateTime.now());
-        emailModel.setEmailTo(email);
-        try {
-            SimpleMailMessage message = new SimpleMailMessage();
-            message.setFrom(emailModel.getEmailFrom());
-            message.setTo(emailModel.getEmailTo());
-            message.setSubject(emailModel.getSubject());
-            message.setText(emailModel.getText());
-            emailSender.send(message);
-            emailModel.setStatusEmail(StatusEmail.SENT);
-        } catch (MailException e) {
-            emailModel.setStatusEmail(StatusEmail.ERROR);
-        } finally {
-            emailRepository.save(emailModel);
-        }
-        BeanUtils.copyProperties(emailDto, emailModel);
-        return new ResponseEntity<>(emailModel, HttpStatus.CREATED);
-    }
-
     // GET da empresa sem senha
     @GetMapping
     @CrossOrigin
