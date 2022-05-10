@@ -8,7 +8,7 @@ import imgPayment from "../img/payment.png";
 function FeedVagasVaga() {
     return (
         <>
-                <HeaderLogado nomeBotao="Cadastrar" encaminharTo="http://localhost:3000/cadastro" />
+                <HeaderLogado />
                 <div className="divVagaFather">
                     <div className="divVagaBody">
                         <div className="divVagaContent">

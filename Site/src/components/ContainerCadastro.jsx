@@ -6,8 +6,8 @@ import SmallText from "./SmallText";
 import Title from "./Title";
 import api from "../api";
 import cadastrocss from "../css/cadastro.css";
-
-
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 function ContainerCadastro() {
 
@@ -27,6 +27,37 @@ function ContainerCadastro() {
         setSenha(e.target.value);
     }
 
+    function successMessage() {
+        const MySwal = withReactContent(Swal)
+
+                        MySwal.fire({
+                            title: <strong>Cadastro realizado com sucesso</strong>,
+                            icon: 'success'
+                        }).then(() => {
+                            window.location = "http://localhost:3000/login";
+                        
+                            startLoadingGif();
+                        })
+    }
+
+    function errorMessage() {
+        const MySwal = withReactContent(Swal)
+
+                        MySwal.fire({
+                            title: <strong>Não foi possível realizar o cadastro</strong>,
+                            icon: 'error'
+                        })
+    }
+
+    function errorMessageEmailAlreadyExists() {
+        const MySwal = withReactContent(Swal)
+
+                        MySwal.fire({
+                            title: <strong>O email informado já está em uso</strong>,
+                            icon: 'error'
+                        })
+    }
+
     function cadastrar(e) {
 
         e.preventDefault();
@@ -42,11 +73,14 @@ function ContainerCadastro() {
             api.post("/empresas", usuario)
             .then((response) => {
                     if (response.status === 200 || response.status === 201) {
-                        alert('Cadastro realizado com sucesso');
-                        window.location = "http://localhost:3000/login";
-                        startLoadingGif();
-                    } else {
-                        alert("Erro não especificado.")
+
+                        successMessage();
+                    } 
+                    else if (response.status === 203) {
+                        errorMessageEmailAlreadyExists();
+                    }
+                    else {
+                        errorMessage();
                         console.log("Código do erro: ", response.status);
                     }
                 })
@@ -63,11 +97,14 @@ function ContainerCadastro() {
 
                 .then((response) => {
                     if (response.status === 200 || response.status === 201) {
-                        alert('Cadastro realizado com sucesso');
-                        window.location = "http://localhost:3000/login";
-                        startLoadingGif();
-                    } else {
-                        alert("Erro não especificado.")
+
+                        successMessage();
+                    } 
+                    else if (response.status === 203) {
+                        errorMessageEmailAlreadyExists();
+                    }
+                    else {
+                        errorMessage();
                         console.log("Código do erro: ", response.status);
                     }
                 })
@@ -88,7 +125,7 @@ function ContainerCadastro() {
     }
 
     function startLoadingGif() {
-        
+
     }
 
     return (

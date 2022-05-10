@@ -6,7 +6,7 @@ import headerCss from "../css/headerInstitucional.css"
 
 function HeaderLogado() {
     const divHeaderStyle = {
-        position : 'fixed'
+        position : 'unset'
     }
 
     const aStyle = {
