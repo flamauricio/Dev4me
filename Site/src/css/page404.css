@@ -17,7 +17,7 @@ body {
 .pageTitle {
     margin: 0;
     font-family: var(--bold);
-    font-size: 8vh;
+    font-size: 4vw;
     background: linear-gradient(102.57deg, #9300FF 13.75%, #00C2FF 93.53%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
