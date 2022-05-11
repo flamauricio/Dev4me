@@ -7,108 +7,108 @@ return (
     <>
     <Header nomeBotao="Cadastrar" encaminharTo="http://localhost:3000/cadastro" />
 
-                <div class="divMobile">
-                    <div class="divMobileOrganizer" style="margin-left: 5%;">
-                        <div class="divSpaceBetween">
-                            <p class="bigTitle">Filtrar Busca</p>
-                            <img class="imgIcon2" src="../img/reload.png" />
+                <div className="divMobile">
+                    <div className="divMobileOrganizer" style="margin-left: 5%;">
+                        <div className="divSpaceBetween">
+                            <p className="bigTitle">Filtrar Busca</p>
+                            <img className="imgIcon2" src={imgReload} />
                         </div>
         
-                        <div class="divAlignLeft">
-                            <p class="subtitle">Buscar por Localização</p>
-                            <input class="searchBarMobile" type="search" placeholder="Digite uma localização" />
+                        <div className="divAlignLeft">
+                            <p className="subtitle">Buscar por Localização</p>
+                            <input className="searchBarMobile" type="search" placeholder="Digite uma localização" />
                         </div>
         
-                        <div class="boxInline">
-                            <div class="boxCheckbox">
-                                <p class="smallText">remoto</p>
-                                <input class="checkbox" type="checkbox" checked />
+                        <div className="boxInline">
+                            <div className="boxCheckbox">
+                                <p className="smallText">remoto</p>
+                                <input className="checkbox" type="checkbox" checked />
                             </div>
         
-                            <div class="boxCheckbox">
-                                <p class="smallText">híbrido</p>
-                                <input class="checkbox" type="checkbox" checked />
+                            <div className="boxCheckbox">
+                                <p className="smallText">híbrido</p>
+                                <input className="checkbox" type="checkbox" checked />
                             </div>
         
-                            <div class="boxCheckbox">
-                                <p class="smallText">presencial</p>
-                                <input class="checkbox" type="checkbox" checked />
-                            </div>
-                        </div>
-                    </div>
-        
-                    <div class="divMobileOrganizer" style="margin-right: 5%;">
-                        <div class="divSpaceBetween">
-                            <p class="bigTitle" style="color: #383838;">Filtrar Busca</p>
-                        </div>
-                        <div class="divAlignLeft">
-                            <p class="subtitle">Buscar por Tags</p>
-                            <input class="searchBarMobile" type="search" placeholder="Digite uma tag" />
-                        </div>
-        
-                        <div class="divAlignLeft">
-                            <p class="subtitle">Buscar por Faixa Salarial</p>
-                            <div class="divSpaceBetween2">
-                                <p class="subtitle">de:</p>
-                                <input class="searchBarSmall" type="search" placeholder="R$ 4000,00" />
-                            </div>
-                            <div class="divSpaceBetween2">
-                                <p class="subtitle">até:</p>
-                                <input class="searchBarSmall" type="search" placeholder="R$ 6500,00" />
+                            <div className="boxCheckbox">
+                                <p className="smallText">presencial</p>
+                                <input className="checkbox" type="checkbox" checked />
                             </div>
                         </div>
                     </div>
-                </div>
-
-
-
-        <div class="divSideBar" id="divSideBar">
-            <div class="divSideBarContainer">
-                <div class="divSpaceBetween">
-                    <p class="bigTitle">Filtrar Busca</p>
-                    <img class="imgIcon2" src="../img/reload.png" />
-                </div>
-
-                <div class="divAlignLeft">
-                    <p class="subtitle">Buscar por Tags</p>
-                    <input class="searchBar" type="search" placeholder="Digite uma tag" />
-                </div>
-
-                <div class="marginBox">
-
-                </div>
-
-                <div class="divAlignLeft">
-                    <p class="subtitle">Buscar por Localização</p>
-                    <input class="searchBar" type="search" placeholder="Digite uma localização" />
-                </div>
-
-                <div class="boxInline">
-                    <div class="boxCheckbox">
-                        <p class="smallText">remoto</p>
-                        <input class="checkbox" type="checkbox" checked />
-                    </div>
-
-                    <div class="boxCheckbox">
-                        <p class="smallText">híbrido</p>
-                        <input class="checkbox" type="checkbox" checked />
-                    </div>
-
-                    <div class="boxCheckbox">
-                        <p class="smallText">presencial</p>
-                        <input class="checkbox" type="checkbox" checked />
+        
+                    <div className="divMobileOrganizer" style="margin-right: 5%;">
+                        <div className="divSpaceBetween">
+                            <p className="bigTitle" style="color: #383838;">Filtrar Busca</p>
+                        </div>
+                        <div className="divAlignLeft">
+                            <p className="subtitle">Buscar por Tags</p>
+                            <input className="searchBarMobile" type="search" placeholder="Digite uma tag" />
+                        </div>
+        
+                        <div className="divAlignLeft">
+                            <p className="subtitle">Buscar por Faixa Salarial</p>
+                            <div className="divSpaceBetween2">
+                                <p className="subtitle">de:</p>
+                                <input className="searchBarSmall" type="search" placeholder="R$ 4000,00" />
+                            </div>
+                            <div className="divSpaceBetween2">
+                                <p className="subtitle">até:</p>
+                                <input className="searchBarSmall" type="search" placeholder="R$ 6500,00" />
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="divAlignLeft">
-                    <p class="subtitle">Buscar por Faixa Salarial</p>
-                    <div class="divSpaceBetween2">
-                        <p class="subtitle">de:</p>
-                        <input class="searchBarSmall" type="search" placeholder="R$ 4000,00" />
+
+
+        <div className="divSideBar" id="divSideBar">
+            <div className="divSideBarContainer">
+                <div className="divSpaceBetween">
+                    <p className="bigTitle">Filtrar Busca</p>
+                    <img className="imgIcon2" src="../img/reload.png" />
+                </div>
+
+                <div className="divAlignLeft">
+                    <p className="subtitle">Buscar por Tags</p>
+                    <input className="searchBar" type="search" placeholder="Digite uma tag" />
+                </div>
+
+                <div className="marginBox">
+
+                </div>
+
+                <div className="divAlignLeft">
+                    <p className="subtitle">Buscar por Localização</p>
+                    <input className="searchBar" type="search" placeholder="Digite uma localização" />
+                </div>
+
+                <div className="boxInline">
+                    <div className="boxCheckbox">
+                        <p className="smallText">remoto</p>
+                        <input className="checkbox" type="checkbox" checked />
                     </div>
-                    <div class="divSpaceBetween2">
-                        <p class="subtitle">até:</p>
-                        <input class="searchBarSmall" type="search" placeholder="R$ 6500,00" />
+
+                    <div className="boxCheckbox">
+                        <p className="smallText">híbrido</p>
+                        <input className="checkbox" type="checkbox" checked />
+                    </div>
+
+                    <div className="boxCheckbox">
+                        <p className="smallText">presencial</p>
+                        <input className="checkbox" type="checkbox" checked />
+                    </div>
+                </div>
+
+                <div className="divAlignLeft">
+                    <p className="subtitle">Buscar por Faixa Salarial</p>
+                    <div className="divSpaceBetween2">
+                        <p className="subtitle">de:</p>
+                        <input className="searchBarSmall" type="search" placeholder="R$ 4000,00" />
+                    </div>
+                    <div className="divSpaceBetween2">
+                        <p className="subtitle">até:</p>
+                        <input className="searchBarSmall" type="search" placeholder="R$ 6500,00" />
                     </div>
                 </div>
             </div>
