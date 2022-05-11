@@ -1,8 +1,47 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import VagasCss from "../css/cadastroVaga.css"
 
 
 function ContainerCadastoVaga() {
+    const [tags, setTags] = useState([]);
+    const [quantidadeElementos, setQuantidadeElementos] = useState(0);
+    const [tagDaVez, setTagDaVez] = useState("");
+
+    useEffect(() => {
+        plotarTags();
+      }, [quantidadeElementos]);
+
+    function adicionaNoVetor(vetorTag)
+    {
+        let vetor = vetorTag;
+        vetor[quantidadeElementos] = tagDaVez;
+        setQuantidadeElementos(quantidadeElementos + 1);
+        setTags(vetor);
+    }
+
+    function plotarTags()
+    {
+        let contador = 0;
+        return (
+            <>
+            {tags}
+            </>
+        )
+    }
+
+    function adicionarTag()
+    {
+        for (let index = 0; index < tags.length; index++) {
+            if (tags[index] === tagDaVez) {
+                alert("Tag já inserida!");
+                return;
+            } 
+        }
+        adicionaNoVetor(tags);
+        console.log(quantidadeElementos);
+        console.log(tags);
+    }
+
     function publicar() {
         if (atividades === "" || requisitos === "") {
             alert("Favor completar todos os dados.");
@@ -27,6 +66,15 @@ function ContainerCadastoVaga() {
         }
         setPhaseTwoStyle({display: 'none'});
         setPhaseThreeStyle({display: 'block'});
+    }
+
+    function avancar3() {
+        // if (minimo === "" || maximo === "" || descricao === "") {
+        //     alert("Favor completar todos os dados.");
+        //     return;
+        // }
+        setPhaseThreeStyle({display: 'none'});
+        setPhaseFourStyle({display: 'block'});
     }
 
     const [phaseOneStyle, setPhaseOneStyle] = useState({
@@ -61,6 +109,11 @@ function ContainerCadastoVaga() {
         display : 'none'
     })
 
+    const [phaseFourStyle, setPhaseFourStyle] = useState({
+        display : 'none'
+    })
+
+
     const publicarButtonStyle = {
         margin: '20px 0 0 0',
         backgroundColor: '#1E9CD7'
@@ -87,6 +140,49 @@ function ContainerCadastoVaga() {
                         {/* FASE 1  */}
                         <div id="phaseOne-vg" className="subContent-vg" style={phaseOneStyle}>
                             <div>
+                                <div className="smallTitle-vg">Tags da vaga</div>
+                                    <select onChange={(event) => {setTagDaVez(event.target.value)}} name="" id="combo-tags">
+                                        <option value="">Procure por uma tag</option>
+                                        <option value="Java">Java</option>
+                                        <option value="Html">Html</option>
+                                        <option value="CSS">CSS</option>
+                                        <option value="React">React</option>
+                                    </select>
+                                <div/>
+
+                                <div className="divButtonsTag-cv">
+                                    <button className="buttonTag-vg">Desfazer</button>
+                                    <button onClick={adicionarTag} className="buttonTag-vg">Adicionar</button>
+                                </div>
+
+                                <div id="tags-vg">
+                                    {plotarTags()}
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        {/* FASE 2 */}
+                        <div id="phaseTwo-vg" style={phaseTwoStyle} className="subContent-vg">
+                            <div id="inputSalario-vg">
+                                <div className="smallTitle-vg">Faixa salarial</div>
+                                <input type="text" onInput={(event) => {setMinimo(event.target.value)}} className="inputPequeno-vg" placeholder="Valor mínimo" />
+                                <input type="text" onInput={(event) => {setMaximo(event.target.value)}} className="inputPequeno-vg" placeholder="Valor máximo" />
+                            </div>
+                            <div id="text-vg">caso não deseje informar, não insira valores (opcional)</div>
+
+                            <div>
+                                <div style={descricaoStyle} className="smallTitle-vg">Breve descrição</div>
+                                <textarea style={textAreaStyle} onInput={(event) => {setDescricao(event.target.value)}} name="" id="" cols="30" rows="10" placeholder="Descreva a vaga de forma resumida."></textarea>
+                            </div>
+                            <div style={divButtonStyle}>
+                                <button style={buttonAvancarDoisStyle} onClick={avancar2} className="grayButton-vg">Avançar</button>
+                            </div>
+                        </div>
+
+                        {/* FASE 3 */}
+                        <div id="phaseThree-vg" style={phaseThreeStyle} className="subContent-vg">
+                        <div>
                                 <div className="smallTitle-vg">Título da vaga</div>
                                 <input onInput={(event) => {setTitulo(event.target.value)}} type="text" placeholder="Digite um título para a vaga" />
                             </div>
@@ -109,37 +205,9 @@ function ContainerCadastoVaga() {
                                 <button className="grayButton-vg" onClick={avancar1}>Avançar</button>
                             </div>
                         </div>
-
-                        {/* FASE 2 */}
-                        <div id="phaseTwo-vg" style={phaseTwoStyle} className="subContent-vg">
-                            <div>
-                                <div className="smallTitle-vg">Tags da vaga</div>
-                                <select name="" id="">
-                                    <option value="">Procure por uma tag</option>
-                                    <option value="">Java</option>
-                                    <option value="">Html</option>
-                                    <option value="">CSS</option>
-                                    <option value="">React</option>
-                                </select>
-                            </div>
-                            <div id="inputSalario-vg">
-                                <div className="smallTitle-vg">Faixa salarial</div>
-                                <input type="text" onInput={(event) => {setMinimo(event.target.value)}} className="inputPequeno-vg" placeholder="Valor mínimo" />
-                                <input type="text" onInput={(event) => {setMaximo(event.target.value)}} className="inputPequeno-vg" placeholder="Valor máximo" />
-                            </div>
-                            <div id="text-vg">caso não deseje informar, não insira valores (opcional)</div>
-
-                            <div>
-                                <div style={descricaoStyle} className="smallTitle-vg">Breve descrição</div>
-                                <textarea style={textAreaStyle} onInput={(event) => {setDescricao(event.target.value)}} name="" id="" cols="30" rows="10" placeholder="Descreva a vaga de forma resumida."></textarea>
-                            </div>
-                            <div style={divButtonStyle}>
-                                <button style={buttonAvancarDoisStyle} onClick={avancar2} className="grayButton-vg">Avançar</button>
-                            </div>
-                        </div>
-
-                        {/* FASE 3 */}
-                        <div id="phaseThree-vg" style={phaseThreeStyle} className="subContent-vg">
+                        
+                        {/* FASE 4 */}
+                        <div id="phaseFour-vg" style={phaseFourStyle} className="subContent-vg">
                             <div>
                                 <div className="smallTitle-vg">Atividades</div>
                                 <textarea onInput={(event) => setAtividades(event.target.value)} style={textAreaStyle} name="" id="" cols="30" rows="10" placeholder="Descreva as principais atividades que serão exercídas na vaga, exemplo: “criar páginas web”"></textarea>
@@ -152,7 +220,6 @@ function ContainerCadastoVaga() {
                                 <button style={publicarButtonStyle} onClick={publicar} className="grayButton-vg">Publicar</button>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
