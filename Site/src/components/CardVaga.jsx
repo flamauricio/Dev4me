@@ -1,29 +1,63 @@
 import React from "react";
+import imgCompanyDefault from "../img/company-profile.png";
 
-function CardVaga {
+function CardVaga(props) {
+
+    let salaryTextDefault = "Salário não informado";
+
+    let localizationTextDefault = "remota";
+
+    fraseSalario();
+
+    fraseLocalizacao();
+
+    function fraseSalario() {
+
+        if (props.salarioMin != null) {
+
+            salaryTextDefault = `Salário: R$ ${props.salarioMin}`;
+
+            if (props.salarioMax != null) {
+
+                salaryTextDefault = `Salário: R$ ${props.salarioMin} até R$ ${props.salarioMax}`;
+            }
+        }
+
+        else if(props.salarioMax != null) {
+
+            salaryTextDefault = `Salário: R$ ${props.salarioMax}`;
+        }
+    }
+
+    function fraseLocalizacao() {
+
+        if (props.localizacao != null) {
+            localizationTextDefault = `${props.localizacao}`;
+        }
+    }
+
+    const textSalary = {
+        marginLeft: "3%"
+    }
+
     return (
         <>
-        <div className="divFeedMargin"></div>
-
-        <div className="divFeedFormatter">
             <div className="divFeedMargin2"></div>
             <div className="divVaga">
-                <p className="bigTitle2">Desenvolvedor Front-end Júnior</p>
+                <p className="bigTitle2">{props.titulo}</p>
                 <div className="divRow">
                     <div className="divVagaCompany">
                         <img className="profilePicture"
-                            src="https://7waves.me/wp-content/uploads/2021/08/Accenture-Logo-768x768-1.jpg" />
+                            src={imgCompanyDefault} />
                     </div>
                     <div className="divVagaContent">
                         <div className="divDescriptionFormatter">
                             <div className="divDescription">
                                 <p className="contentText">
-                                    Empresa🏢: Accenture. <br /> <br />
-                                    Localização📍: São Paulo, SP. <br /> <br />
-                                    Contrato📑: Híbrido. <br /> <br />
-                                    Desenvolvimento de aplicações front-end com React; <br />
-                                    Participar ativamente em soluções para os aplicativos desenvolvidos; <br />
-                                    Utilizará boas práticas e código limpo;
+                                    Empresa🏢: {props.nome} <br /> <br />
+                                    Localização📍: {localizationTextDefault}. <br /> <br />
+                                    Contrato📑: {props.contrato}. <br /> <br />
+                                    {props.descricao}
                                 </p>
                             </div>
                         </div>
@@ -42,14 +76,15 @@ function CardVaga {
                         </div>
 
                         <div className="divSpaceBetween3">
-                            <div className="divPayment" type="search">&nbsp&nbspSalário: R$ 4000,00 até R$ 6500,00</div>
+                            <div className="divPayment" type="search">
+                                <span style={textSalary}>{salaryTextDefault}</span></div>
                             <a className="li-comum" href="./feedVagasVaga.html" target="_blank"><button
                                     className="alternativeButton">Ver mais</button></a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+
         </>
     )
 }
