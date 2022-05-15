@@ -105,6 +105,7 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
 }
 
 .divSpaceBetweenEmpresa {
@@ -304,7 +305,6 @@ body {
     display: flex;
     flex-direction: column;
     align-content: stretch;
-    margin: 0;
 }
 
 .divRow {
@@ -620,6 +620,7 @@ body {
     .boxCheckbox {
         display: flex;
         align-items: center;
+        padding: 0.5rem 0rem 0.5rem 0rem;
     }
 
     .smallText {
@@ -1047,6 +1048,10 @@ body {
         height: 1.4rem;
     }
 
+    .boxCheckbox {
+        padding: 0.3rem 0rem 0.3rem 0rem;
+    }
+
     /* Feed */
     .divFeedMargin2 {
         height: 1.2rem;
@@ -1126,6 +1131,19 @@ body {
         width: 12rem;
         font-size: var(--miniText);
     }
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 434px) {
+
+    .boxCheckbox {
+        height: 1.3rem;
+        padding: 0.25rem 0rem 0.25rem 0rem;
+    }
+
 }
 
 /* ----------------------------------------------- */

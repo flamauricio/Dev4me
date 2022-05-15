@@ -1,7 +1,10 @@
 package Dev4me.javaloginjpa.controller;
 
+import Dev4me.javaloginjpa.entity.Tag;
 import Dev4me.javaloginjpa.entity.Vaga;
+import Dev4me.javaloginjpa.repository.TagRepository;
 import Dev4me.javaloginjpa.repository.VagaRepository;
+import Dev4me.javaloginjpa.response.VagaLocalizacaoResponse;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -18,6 +21,9 @@ public class VagaController {
     @Autowired
     private VagaRepository repository;
 
+    @Autowired
+    private TagRepository tagRepository;
+
     //Método pra cadastro do Usuário;
     @ApiResponses({@ApiResponse(responseCode = "200", content = @Content(mediaType = "application/json"))})
     @PostMapping
@@ -33,4 +39,23 @@ public class VagaController {
 
         return ResponseEntity.status(200).body(repository.findAll());
     }
+
+    @GetMapping("/{localizacao}")
+    @CrossOrigin
+    public ResponseEntity<List<Vaga>> getVagaLocalizacao(@PathVariable String localizacao){
+        return ResponseEntity.status(200).body(repository.findByLocalizacao(localizacao));
+    }
+
+    @GetMapping("/tipo-de-contrato/{contrato}")
+    @CrossOrigin
+    public ResponseEntity<List<Vaga>> getVagaContrato(@PathVariable String contrato){
+        return ResponseEntity.status(200).body(repository.findByContrato(contrato));
+    }
+
+    @GetMapping("/tags")
+    @CrossOrigin
+    public ResponseEntity<List<Tag>> getVagaTag(){
+        return ResponseEntity.status(200).body(tagRepository.findAll());
+    }
+
 }
