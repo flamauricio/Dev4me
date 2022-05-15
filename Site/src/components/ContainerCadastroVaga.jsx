@@ -152,7 +152,56 @@ function ContainerCadastoVaga() {
             alert("Favor completar todos os dados.");
             return;
         }
-        window.location = "http://localhost:3000/html/feedVagas.html";
+        const vaga = {
+            "titulo": titulo,
+            "contrato": tipo,
+            "localizacao": localizacao,
+            "faixaSalarialMin": minimo,
+            "faixaSalarialMax": maximo,
+            "descricao": descricao,
+            "atividades": atividades,
+            "requisitos": requisitos,
+            "disponivel": true,
+            "fkEmpresa": {
+                "idEmpresa": sessionStorage.getItem('idEmpresa')
+            }
+        }
+
+        api.post("/vagas", vaga)
+
+            .then((resposta) => {
+                if (resposta.status === 201) {
+                    console.log("Vaga cadastrada com sucesso!");
+                    
+                    const tagVaga = {
+                        'tags': tags,
+                        'vaga': resposta.data
+                    }
+
+                    api.post("/post-tag-vaga", tagVaga)
+
+                        .then((resposta) => {
+                            if (resposta.status === 201) {
+                                alert("Vaga cadastrada com sucesso!");
+                                window.location = "http://localhost:3000/feed-empresa";
+                            }
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                            alert("Erro ao cadastrar as tags");
+                        })
+
+                
+                } else {
+                    alert("Erro ao criar vaga.");
+                    console.log(resposta);
+                }
+
+            }).catch((error) => {
+                console.log(error);
+                alert("Erro ao criar vaga");
+            })
+
     }
 
     function avancar1() {
@@ -165,8 +214,8 @@ function ContainerCadastoVaga() {
     }
 
     function avancar2() {
-        if (minimo === "" || maximo === "" || descricao === "") {
-            alert("Favor completar todos os dados.");
+        if (descricao === "") {
+            alert("Favor inserir uma descrição!.");
             return;
         }
         setPhaseTwoStyle({display: 'none'});
@@ -174,10 +223,10 @@ function ContainerCadastoVaga() {
     }
 
     function avancar3() {
-        // if (minimo === "" || maximo === "" || descricao === "") {
-        //     alert("Favor completar todos os dados.");
-        //     return;
-        // }
+        if (tags.length === 0) {
+            alert("Favor inserir pelo menos uma tag!");
+            return;
+        }
         setPhaseThreeStyle({display: 'none'});
         setPhaseFourStyle({display: 'block'});
     }

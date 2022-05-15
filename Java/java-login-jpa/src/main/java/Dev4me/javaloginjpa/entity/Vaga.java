@@ -1,10 +1,8 @@
 package Dev4me.javaloginjpa.entity;
 
-import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -16,13 +14,11 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "vagas")
 public class Vaga {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_vagas")
-    private Integer id;
+    private Integer idVaga;
 
     @NotBlank
     @Size(max = 45)
@@ -66,14 +62,14 @@ public class Vaga {
     private Boolean disponivel;
 
     @ManyToOne
-    private Empresa fk_empresa;
+    private Empresa fkEmpresa;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdVaga() {
+        return idVaga;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdVaga(Integer idVaga) {
+        this.idVaga = idVaga;
     }
 
     public String getTitulo() {
@@ -148,12 +144,12 @@ public class Vaga {
         this.atividades = atividades;
     }
 
-    public Empresa getFk_empresa() {
-        return fk_empresa;
+    public Empresa getFkEmpresa() {
+        return fkEmpresa;
     }
 
-    public void setFk_empresa(Empresa fk_empresa) {
-        this.fk_empresa = fk_empresa;
+    public void setFkEmpresa(Empresa fkEmpresa) {
+        this.fkEmpresa = fkEmpresa;
     }
 
 }

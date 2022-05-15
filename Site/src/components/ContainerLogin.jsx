@@ -72,7 +72,7 @@ function ContainerLogin(props) {
                     if (response.status === 200) {
 
                         startLoadingGif();
-
+                        
                         sessionStorage.setItem("idEmpresa", response.data)
 
                         window.location = "http://localhost:3000/feed-empresa";

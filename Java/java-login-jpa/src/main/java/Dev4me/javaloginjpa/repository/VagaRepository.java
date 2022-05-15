@@ -13,6 +13,8 @@ public interface VagaRepository extends JpaRepository<Vaga, Integer> {
     List<Vaga> findByLocalizacao(String localizacao);
 
     List<Vaga> findByContrato(String contrato);
+
+    Vaga findByFkEmpresaIdEmpresaAndTitulo(int id, String titulo);
 //
 //    @Query("select new Dev4me.javaloginjpa.entity.Tag(u.id, u.email, u.senha) from Usuario u")
 

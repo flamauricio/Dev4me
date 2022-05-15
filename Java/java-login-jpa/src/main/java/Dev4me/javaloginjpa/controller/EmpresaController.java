@@ -78,7 +78,7 @@ public class EmpresaController {
         }
         for (EmpresaAutenticacaoResponse u : empresas) {
             if (u.getEmail().equals(u.getEmail()) && u.getSenha().equals(empresa.getSenha())) {
-                return ResponseEntity.status(200).build();
+                return ResponseEntity.status(200).body(u.getId());
             }
         }
         return ResponseEntity.status(404).build();

@@ -10,18 +10,20 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "tags_vagas")
+@Table(name = "tag_vaga")
 public class TagVaga {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_tag_vaga")
-    private Integer id_tag_vaga;
+    private Integer idTagVaga;
 
     @ManyToOne
-    private Vaga fk_vaga;
+    private Vaga fkVaga;
 
     @ManyToOne
-    private Tag fk_tag;
+    private Tag fkTag;
 
+    public TagVaga(Vaga fk_vaga, Tag fk_tag) {
+        this.fkVaga = fk_vaga;
+        this.fkTag = fk_tag;
+    }
 }

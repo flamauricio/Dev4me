@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.*;
 
+import static org.springframework.http.ResponseEntity.*;
+
 @RestController
 @RequestMapping("/vagas")
 public class VagaController {
@@ -35,37 +37,40 @@ public class VagaController {
     @CrossOrigin
     public ResponseEntity postVaga(@RequestBody @Valid Vaga novaVaga) {
         repository.save(novaVaga);
-        return ResponseEntity.status(201).build();
+        Vaga vaga = repository.findByFkEmpresaIdEmpresaAndTitulo(
+                novaVaga.getFkEmpresa().getIdEmpresa(),
+                novaVaga.getTitulo());
+        return status(201).body(vaga);
     }
 
     @GetMapping
     @CrossOrigin
-    public ResponseEntity<List<Vaga>> getVagas() {
+    public ResponseEntity getVagas() {
 
-        return ResponseEntity.status(200).body(repository.findAll());
+        return status(200).body(repository.findAll());
     }
 
     @GetMapping("/{localizacao}")
     @CrossOrigin
     public ResponseEntity<List<Vaga>> getVagaLocalizacao(@PathVariable String localizacao){
-        return ResponseEntity.status(200).body(repository.findByLocalizacao(localizacao));
+        return status(200).body(repository.findByLocalizacao(localizacao));
     }
 
     @GetMapping("/tipo-de-contrato/{contrato}")
     @CrossOrigin
     public ResponseEntity<List<Vaga>> getVagaContrato(@PathVariable String contrato){
-        return ResponseEntity.status(200).body(repository.findByContrato(contrato));
+        return status(200).body(repository.findByContrato(contrato));
     }
 
     @GetMapping("/tags")
     @CrossOrigin
     public ResponseEntity<List<Tag>> getVagaTag(){
-        return ResponseEntity.status(200).body(tagRepository.findAll());
+        return status(200).body(tagRepository.findAll());
     }
 
     @GetMapping("/tags/selecao")
     @CrossOrigin
     public ResponseEntity<List<TagVaga>> getTagVaga(){
-        return ResponseEntity.status(200).body(tagVagaRepository.findAll());
+        return status(200).body(tagVagaRepository.findAll());
     }
 }

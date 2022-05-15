@@ -12,8 +12,7 @@ public class Empresa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "id_empresa")
-    private Integer id;
+    private Integer idEmpresa;
 
     @NotBlank
     @Size(max = 45)
@@ -47,12 +46,12 @@ public class Empresa {
         this.cnpj = cnpj;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getIdEmpresa() {
+        return idEmpresa;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdEmpresa(Integer idEmpresa) {
+        this.idEmpresa = idEmpresa;
     }
 
     public String getNome() {

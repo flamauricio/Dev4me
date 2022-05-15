@@ -290,7 +290,7 @@ public class UsuarioController {
         }
         for (UsuarioAutenticacaoResponse u : usuarios) {
             if (u.getEmail().equals(usuario.getEmail()) && u.getSenha().equals(usuario.getSenha())) {
-                return ResponseEntity.status(200).build();
+                return ResponseEntity.status(200).body(u.getId());
             }
         }
         return ResponseEntity.status(404).build();
