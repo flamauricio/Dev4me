@@ -34,6 +34,7 @@ public class Empresa {
     @Column (name = "cnpj", length = 16)
     private String cnpj;
 
+
     public String getSenha() {
         return senha;
     }

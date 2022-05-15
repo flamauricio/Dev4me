@@ -1,8 +1,10 @@
 package Dev4me.javaloginjpa.controller;
 
 import Dev4me.javaloginjpa.entity.Tag;
+import Dev4me.javaloginjpa.entity.TagVaga;
 import Dev4me.javaloginjpa.entity.Vaga;
 import Dev4me.javaloginjpa.repository.TagRepository;
+import Dev4me.javaloginjpa.repository.TagVagaRepository;
 import Dev4me.javaloginjpa.repository.VagaRepository;
 import Dev4me.javaloginjpa.response.VagaLocalizacaoResponse;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -23,6 +25,9 @@ public class VagaController {
 
     @Autowired
     private TagRepository tagRepository;
+
+    @Autowired
+    private TagVagaRepository tagVagaRepository;
 
     //Método pra cadastro do Usuário;
     @ApiResponses({@ApiResponse(responseCode = "200", content = @Content(mediaType = "application/json"))})
@@ -58,4 +63,9 @@ public class VagaController {
         return ResponseEntity.status(200).body(tagRepository.findAll());
     }
 
+    @GetMapping("/tags/selecao")
+    @CrossOrigin
+    public ResponseEntity<List<TagVaga>> getTagVaga(){
+        return ResponseEntity.status(200).body(tagVagaRepository.findAll());
+    }
 }
