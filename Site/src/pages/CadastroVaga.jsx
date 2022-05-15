@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import HeaderLogadoDois from "../components/HeaderLogadoDois";
+import HeaderLogado from "../components/HeaderLogado";
 import ContainerCadastoVaga from "../components/ContainerCadastroVaga";
 
 function CadastroVaga() {
     return (
         <>
-            <HeaderLogadoDois />
+            <HeaderLogado />
             <ContainerCadastoVaga/>
         </>
     );

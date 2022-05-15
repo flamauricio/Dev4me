@@ -1,8 +1,36 @@
 import React, { useEffect, useState } from "react";
 import VagasCss from "../css/cadastroVaga.css"
-
+import feedVagasCss from "../css/feedVagas.css"
+import api from "../api"
 
 function ContainerCadastoVaga() {
+    const [tagsRequisicao, setTagsRequisicao] = useState([]);
+
+    useEffect(() => {
+        api.get("/tags")
+
+        .then((response) => {
+            if (response.status === 204) {
+                alert("Tags não estão cadastradas no banco de dados!")
+            } else if(response.status === 200) {
+                console.log(response.data);
+                setTagsRequisicao(response.data);
+            } else {
+                alert("Erro não especificado ao fazer requisição das tags.");
+            }
+        })
+
+        .catch((error) => {
+            console.log(error);
+        })
+    }, []);
+
+    function plotarOptions()
+    {
+        return tagsRequisicao.map((tag) => <option value={tag.nome}>{tag.nome}</option>);
+    }
+
+    
     const [tags, setTags] = useState([]);
     const [quantidadeElementos, setQuantidadeElementos] = useState(0);
     const [tagDaVez, setTagDaVez] = useState("");
@@ -14,6 +42,15 @@ function ContainerCadastoVaga() {
     function adicionaNoVetor(vetorTag)
     {
         let vetor = vetorTag;
+
+        if (tagDaVez === "") {
+            return alert("Por favor, escolha uma tag!");
+        }
+
+        if (quantidadeElementos >= 8) {
+            return alert("Desculpe, permitimos apenas 8 tags por vaga!")
+        }
+
         vetor[quantidadeElementos] = tagDaVez;
         setQuantidadeElementos(quantidadeElementos + 1);
         setTags(vetor);
@@ -21,12 +58,61 @@ function ContainerCadastoVaga() {
 
     function plotarTags()
     {
-        let contador = 0;
-        return (
-            <>
-            {tags}
-            </>
-        )
+        return tags.map((item) => {
+
+            if (item === "javascript" ||
+            item === "node.js" ||
+            item === "react" ||
+            item === "react native" ||
+            item === "angular" ||
+            item === "vue.js" ||
+            item === "java" ||
+            item === "spring boot" ||
+            item === "kotlin" ||
+            item === "html" ||
+            item === "css" ||
+            item === "python" ||
+            item === "typescript" ||
+            item === "c" ||
+            item === "c++" ||
+            item === "c#" ||
+            item === "php"
+            ) {
+                return <button className="tagDev">{item}</button>
+            } 
+
+            else if (item === "azure" ||
+            item === "aws" ||
+            item === "google cloud" ||
+            item === "oracle" ||
+            item === "mysql" ||
+            item === "mongoDB" 
+            ) {
+                return <button className="tagPlatform">{item}</button>
+            }
+
+            else if (item === "desenvolvedor" ||
+            item === "analista de sistemas" ||
+            item === "gestor" ||
+            item === "arquiteto de TI" ||
+            item === "arquiteto de cloud" ||
+            item === "dba" ||
+            item === "engenheiro de software" ||
+            item === "cientista de dados" ||
+            item === "analista de redes" ||
+            item === "front-end" ||
+            item === "back-end") {
+                return <button className="tagArea">{item}</button>
+            }
+
+            else if (item === "agile" ||
+            item === "scrum" ||
+            item === "cascata"
+            ) {
+                return <button className="tagBusyness">{item}</button>
+            }
+
+        })
     }
 
     function adicionarTag()
@@ -40,6 +126,25 @@ function ContainerCadastoVaga() {
         adicionaNoVetor(tags);
         console.log(quantidadeElementos);
         console.log(tags);
+    }
+
+    function desfazer()
+    {
+        if (quantidadeElementos === 0) {
+            return alert("Você precisa adicionar uma tag primeiro!");
+        }
+
+        retiraNoVetor(tags);
+        console.log(quantidadeElementos);
+        console.log(tags);
+    }
+
+    function retiraNoVetor(vetor)
+    {
+        let vetorTag = vetor;
+        vetor[quantidadeElementos - 1] = null;
+        setQuantidadeElementos(quantidadeElementos - 1);
+        setTags(vetorTag);
     }
 
     function publicar() {
@@ -139,27 +244,28 @@ function ContainerCadastoVaga() {
 
                         {/* FASE 1  */}
                         <div id="phaseOne-vg" className="subContent-vg" style={phaseOneStyle}>
-                            <div>
-                                <div className="smallTitle-vg">Tags da vaga</div>
-                                    <select onChange={(event) => {setTagDaVez(event.target.value)}} name="" id="combo-tags">
-                                        <option value="">Procure por uma tag</option>
-                                        <option value="Java">Java</option>
-                                        <option value="Html">Html</option>
-                                        <option value="CSS">CSS</option>
-                                        <option value="React">React</option>
-                                    </select>
-                                <div/>
-
-                                <div className="divButtonsTag-cv">
-                                    <button className="buttonTag-vg">Desfazer</button>
-                                    <button onClick={adicionarTag} className="buttonTag-vg">Adicionar</button>
-                                </div>
-
-                                <div id="tags-vg">
-                                    {plotarTags()}
-                                </div>
+                        <div>
+                                <div className="smallTitle-vg">Título da vaga</div>
+                                <input onInput={(event) => {setTitulo(event.target.value)}} type="text" placeholder="Digite um título para a vaga" />
                             </div>
-                            
+                            <div>
+                                <div className="smallTitle-vg">Tipo de Contrato</div>
+                                <select onChange={(event) => {setTipo(event.target.value)}} name="" id="">
+                                    <option value="none">Selecione o tipo de contrato</option>
+                                    <option value="remoto">Remoto</option>
+                                    <option value="hibrido">Híbrido</option>
+                                    <option value="presencial">Presencial</option>
+                                </select>
+                            </div>
+                            <div>
+                                <div className="smallTitle-vg">Localização</div>
+                                <input onInput={(event) => {setLocalizacao(event.target.value)}} type="text" placeholder="Digite a localização" />
+                            </div>
+                            <div id="text-vg">caso seja uma vaga remota, a localização ficará como “remota”</div>
+                            <br />
+                            <div style={grayButtonDivStyle}>
+                                <button className="grayButton-vg" onClick={avancar1}>Avançar</button>
+                            </div>
                         </div>
 
                         {/* FASE 2 */}
@@ -182,27 +288,26 @@ function ContainerCadastoVaga() {
 
                         {/* FASE 3 */}
                         <div id="phaseThree-vg" style={phaseThreeStyle} className="subContent-vg">
-                        <div>
-                                <div className="smallTitle-vg">Título da vaga</div>
-                                <input onInput={(event) => {setTitulo(event.target.value)}} type="text" placeholder="Digite um título para a vaga" />
-                            </div>
                             <div>
-                                <div className="smallTitle-vg">Tipo de Contrato</div>
-                                <select onChange={(event) => {setTipo(event.target.value)}} name="" id="">
-                                    <option value="none">Selecione o tipo de contrato</option>
-                                    <option value="remoto">Remoto</option>
-                                    <option value="hibrido">Híbrido</option>
-                                    <option value="presencial">Presencial</option>
-                                </select>
-                            </div>
-                            <div>
-                                <div className="smallTitle-vg">Localização</div>
-                                <input onInput={(event) => {setLocalizacao(event.target.value)}} type="text" placeholder="Digite a localização" />
-                            </div>
-                            <div id="text-vg">caso seja uma vaga remota, a localização ficará como “remota”</div>
-                            <br />
-                            <div style={grayButtonDivStyle}>
-                                <button className="grayButton-vg" onClick={avancar1}>Avançar</button>
+                                <div className="smallTitle-vg">Tags da vaga</div>
+                                    <select onChange={(event) => {setTagDaVez(event.target.value)}} name="" id="combo-tags">
+                                        <option value="">Procure por uma tag</option>
+                                        {plotarOptions()}
+                                    </select>
+                                <div/>
+
+                                <div className="divButtonsTag-cv">
+                                    <button onClick={desfazer} className="buttonTag-vg">Desfazer</button>
+                                    <button onClick={adicionarTag} className="buttonTag-vg">Adicionar</button>
+                                </div>
+
+                                <div id="tags-vg">
+                                    {plotarTags()}
+                                </div>
+
+                                <div style={grayButtonDivStyle}>
+                                <button className="grayButton-vg" onClick={avancar3}>Avançar</button>
+                                </div>
                             </div>
                         </div>
                         
