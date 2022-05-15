@@ -32,8 +32,8 @@ CREATE TABLE usuario(
   status_email CHAR(1) NOT NULL
   );
 
-  CREATE TABLE vagas(
-  id_vagas INT NOT NULL PRIMARY KEY IDENTITY(200, 1),
+  CREATE TABLE vaga(
+  id_vaga INT NOT NULL PRIMARY KEY IDENTITY(200, 1),
   titulo VARCHAR(45) NOT NULL,
   contrato VARCHAR(10) NOT NULL,
   localizacao VARCHAR(50) NULL,
@@ -47,21 +47,21 @@ CREATE TABLE usuario(
   FOREIGN KEY(fk_empresa) REFERENCES empresa(id_empresa)
   );
 
-  CREATE TABLE tags(
+  CREATE TABLE tag(
   id_tag INT NOT NULL PRIMARY KEY IDENTITY(300, 1),
   nome VARCHAR(45) NOT NULL,
   tipo VARCHAR(45) NOT NULL,
   url VARCHAR(200) NOT NULL
   );
   
-  CREATE TABLE tags_usuarios (
+  CREATE TABLE tag_usuario (
   id_user INT NOT NULL,
   id_tag INT NOT NULL,
   FOREIGN KEY (id_user) REFERENCES [dbo].[usuario](id_user),
   FOREIGN KEY (id_tag) REFERENCES [dbo].[tags](id_tag)
   );
   
-  CREATE TABLE tags_vagas (
+  CREATE TABLE tag_vaga (
   id_vagas INT NOT NULL,
   id_tag INT NOT NULL,
   FOREIGN KEY (id_vagas) REFERENCES [dbo].[vagas](id_vagas),
