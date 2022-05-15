@@ -1,5 +1,7 @@
 package Dev4me.javaloginjpa.entity;
 
+import com.mysql.cj.x.protobuf.MysqlxDatatypes;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import javax.validation.constraints.NotBlank;
@@ -58,7 +60,7 @@ public class Vaga {
 
     @NotNull
     @Column (name = "fk_empresa")
-    private Integer fkEmpresa;
+    private String fkEmpresa;
 
     public Integer getId() {
         return id;
@@ -116,14 +118,6 @@ public class Vaga {
         this.descricao = descricao;
     }
 
-    public String getAtivadades() {
-        return atividades;
-    }
-
-    public void setAtivadades(String atividades) {
-        this.atividades = atividades;
-    }
-
     public String getRequisitos() {
         return requisitos;
     }
@@ -140,11 +134,19 @@ public class Vaga {
         this.disponivel = disponivel;
     }
 
-    public Integer getFkEmpresa() {
+    public String getAtividades() {
+        return atividades;
+    }
+
+    public void setAtividades(String atividades) {
+        this.atividades = atividades;
+    }
+
+    public String getFkEmpresa() {
         return fkEmpresa;
     }
 
-    public void setFkEmpresa(Integer fkEmpresa) {
+    public void setFkEmpresa(String fkEmpresa) {
         this.fkEmpresa = fkEmpresa;
     }
 }
