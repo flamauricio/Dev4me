@@ -45,9 +45,9 @@ public class VagaController {
 
     @GetMapping
     @CrossOrigin
-    public ResponseEntity getVagas() {
+    public ResponseEntity<List<Vaga>> getVagas() {
 
-        return status(200).body(repository.findAll());
+        return status(200).body(repository.findAllByOrderByIdVagaDesc());
     }
 
     @GetMapping("/{localizacao}")
