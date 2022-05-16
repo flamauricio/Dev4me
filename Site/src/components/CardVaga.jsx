@@ -54,7 +54,7 @@ function CardVaga(props) {
                         <div className="divDescriptionFormatter">
                             <div className="divDescription">
                                 <p className="contentText">
-                                    Empresa🏢: {props.nome} <br /> <br />
+                                    Empresa🏢: {props.empresa} <br /> <br />
                                     Localização📍: {localizationTextDefault}. <br /> <br />
                                     Contrato📑: {props.contrato}. <br /> <br />
                                     {props.descricao}

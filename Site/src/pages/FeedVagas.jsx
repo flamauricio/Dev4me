@@ -170,7 +170,7 @@ return (
                   descricao={item.descricao}
                   atividades={item.atividades}
                   requisitos={item.requisitos}
-                  empresa={item.fk_empresa}
+                  empresa={item.fkEmpresa.nome}
                 />
               );
             })
