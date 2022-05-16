@@ -1,7 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import imgCompanyDefault from "../img/company-profile.png";
+import Tag from "./Tag";
+import api from "../api";
 
 function CardVaga(props) {
+
+    const [tags, setTags] = useState(new Array());
+
+    useEffect(() => {
+        trazerTags();
+      }, []);
+
+    function trazerTags() {
+
+      api
+      .get("/tags")
+      .then((tagsBuscadas) => {
+
+        console.log("Dados da resposta: ");
+        console.log(tagsBuscadas.data);
+
+        setTags(tagsBuscadas.data);
+
+      })
+      .catch(function (erroOcorrido) {
+        console.log(erroOcorrido);
+      });
+
+    }
 
     let salaryTextDefault = "Salário não informado";
 
@@ -64,14 +90,19 @@ function CardVaga(props) {
 
                         <div className="divTagsFormatter">
                             <div className="divTags">
-                                <button className="tagArea">Desenvolvedor</button>
-                                <button className="tagDev">JavaScript</button>
-                                <button className="tagDev">React</button>
-                                <button className="tagDev">NodeJS</button>
-                                <button className="tagPlatform">AWS</button>
-                                <button className="tagPlatform">Azure</button>
-                                <button className="tagBusyness">Agile</button>
-                                <button className="tagBusyness">Scrum</button>
+                            {
+                            tags.map((item) => {
+
+                                return(
+                                <Tag 
+                                key={item.idTag}
+                                nome={item.nome}
+                                tipo={item.tipo}
+                                url={item.url}
+                                />
+                                );
+                                })
+                            }
                             </div>
                         </div>
 
