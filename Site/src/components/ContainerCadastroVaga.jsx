@@ -178,7 +178,7 @@ function ContainerCadastoVaga() {
                         'vaga': resposta.data
                     }
 
-                    api.post("/post-tag-vaga", tagVaga)
+                    api.post("/tags-vagas", tagVaga)
 
                         .then((resposta) => {
                             if (resposta.status === 201) {

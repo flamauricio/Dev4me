@@ -29,6 +29,14 @@ function FeedVagas() {
 
     }
 
+    let arrayIdVagas = [];
+
+    vagas.map((item) => {
+        arrayIdVagas.push(item.idVaga);
+    })
+
+    console.log(arrayIdVagas);
+
     const divMobileOrganizer = {
         marginLeft: "5%"
     }

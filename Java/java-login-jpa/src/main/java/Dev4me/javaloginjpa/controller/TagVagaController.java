@@ -7,16 +7,18 @@ import Dev4me.javaloginjpa.repository.TagRepository;
 import Dev4me.javaloginjpa.repository.TagVagaRepository;
 import Dev4me.javaloginjpa.repository.VagaRepository;
 import Dev4me.javaloginjpa.response.TagVagaResponse;
+import Dev4me.javaloginjpa.response.VagaIdResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.springframework.http.ResponseEntity.status;
 
 @RestController
-@RequestMapping("/post-tag-vaga")
+@RequestMapping("/tags-vagas")
 public class TagVagaController
 {
     @Autowired
@@ -40,5 +42,28 @@ public class TagVagaController
         }
 
         return status(201).build();
+    }
+
+//    @GetMapping("/{idVaga}")
+//    @CrossOrigin
+//    public ResponseEntity<List<TagVaga>> getTagsVaga(@PathVariable Integer idVaga){
+//        return status(200).body(tagVagaRepository.findByFkVagaIdVaga(idVaga));
+//    }
+
+    @GetMapping
+    @CrossOrigin
+    public ResponseEntity getTagsVaga(@RequestBody VagaIdResponse id){
+
+        List<Integer> lista = id.getId();
+        List<TagVagaResponse> listaRetornada = new ArrayList<TagVagaResponse>();
+
+        for (int i = 0; i < lista.size(); i++) {
+
+            List<TagVaga> listaTagVaga = tagVagaRepository.findByFkVagaIdVaga(lista.get(i));
+            TagVaga tagVaga = new TagVaga(listaTagVaga.get(i).getFkVaga(),
+                    listaTagVaga.get(i).getFkTag());
+
+        }
+        return status(200).build();
     }
 }
