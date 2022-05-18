@@ -17,8 +17,8 @@ function CardVaga(props) {
       .get("/tags")
       .then((tagsBuscadas) => {
 
-        console.log("Dados da resposta: ");
-        console.log(tagsBuscadas.data);
+        // console.log("Dados da resposta: ");
+        // console.log(tagsBuscadas.data);
 
         setTags(tagsBuscadas.data);
 

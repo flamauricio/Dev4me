@@ -8,6 +8,7 @@ import Dev4me.javaloginjpa.repository.TagVagaRepository;
 import Dev4me.javaloginjpa.repository.VagaRepository;
 import Dev4me.javaloginjpa.response.TagVagaResponse;
 import Dev4me.javaloginjpa.response.VagaIdResponse;
+import Dev4me.javaloginjpa.response.VagaVetorTagResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

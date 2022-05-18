@@ -11,4 +11,7 @@ public interface TagVagaRepository extends JpaRepository<TagVaga, Integer> {
 
     List<TagVaga> findByFkVagaIdVaga(Integer idVaga);
 
+//    List<TagVaga> findByFkTagIdTag(Integer idTag);
+
+    List<TagVaga> findByFkTagNome(String nome);
 }
