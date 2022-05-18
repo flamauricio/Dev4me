@@ -14,7 +14,7 @@ import java.util.List;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     // Métodos
-    @Query("select new Dev4me.javaloginjpa.response.UsuarioSimplesResponse(u.nome, u.email, u.dataNasc, u.descUsuario) from Usuario u")
+    @Query("select new Dev4me.javaloginjpa.response.UsuarioSimplesResponse(u.nome, u.email, u.dataNasc, u.descUsuario, u.cep) from Usuario u")
     List<UsuarioSimplesResponse> getUsuariosSimples();
 
     @Query("select new Dev4me.javaloginjpa.response.UsuarioAutenticacaoResponse(u.id, u.email, u.senha) from Usuario u")

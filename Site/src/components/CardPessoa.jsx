@@ -1,15 +1,46 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import imgUserDefault from "../img/user-default.png";
+import apiCEP from "../apiCEP";
 
-function CardPessoa() {
+function CardPessoa(props) {
+
+    const [localizacao, setLocalizacao] = useState(new Array());
+
+    useEffect(() => {
+        pegaLocalizacaoPorCEP();
+      }, []);
+
+      const [cidade, setCidade] = useState("");
+      const [uf, setUf] = useState("");
+
+    function pegaLocalizacaoPorCEP() {
+
+        if(props.cep != null) {
+
+        apiCEP
+        .get(`/${props.cep}/json/`)
+        .then((cepBuscado) => {
+
+            setCidade(cepBuscado.data.localidade);
+            setUf(cepBuscado.data.uf);
+
+            setLocalizacao(cepBuscado.data);
+        })
+        .catch(function (erroOcorrido) {
+            console.log(erroOcorrido);
+        });
+        }
+
+        }
+
     return (
         <>
         <div className="cardBody">
                     <div className="divAlignLeft2">
                         <img className="imagePerson" src={imgUserDefault}/>
                         <div className="divTextOrganizer">
-                            <p className="namePerson">Guilherme de Carvalho</p>
-                            <p className="textInfo">Santo André, SP</p>
+                            <p className="namePerson">{props.nome}</p>
+                            <p className="textInfo">{cidade}, {uf}</p>
                             <p className="textInfo">Desenvolvedor</p>
                         </div>
                     </div>
@@ -30,11 +61,7 @@ function CardPessoa() {
                     <div className="divDescriptionFormatterAlt">
                         <div className="divDescription">
                             <p className="contentText">
-                                “ Trabalhei 2 anos com back-end em JavaScript na Accenture,
-                                tenho conhecimento de arquitetura Cloud (iniciante),
-                                utilizei React Native por 6 meses,
-                                desenvolvi projetos na metodologia Agile na maior parte do tempo.
-                                Me interesso por programação Web e Mobile.”
+                                {props.descricao}
                             </p>
                         </div>
                     </div>
