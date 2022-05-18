@@ -1,12 +1,37 @@
-import React from "react";
-import Header from "../components/Header";
+import React, { useState, useEffect } from "react";
+import HeaderLogadoDois from "../components/HeaderLogadoDois";
 import CardPessoa from "../components/CardPessoa";
 import imgReload from "../img/reload.png";
+import api from "../api";
 
 function FeedEmpresa() {
+
+    const [candidatos, setCandidatos] = useState(new Array());
+
+    useEffect(() => {
+        trazerCandidatos();
+      }, []);
+
+    function trazerCandidatos() {
+
+      api
+      .get("/usuarios")
+      .then((candidatosBuscados) => {
+
+        console.log("Dados da resposta: ");
+        console.log(candidatosBuscados.data);
+
+        setCandidatos(candidatosBuscados.data);
+      })
+      .catch(function (erroOcorrido) {
+        console.log(erroOcorrido);
+      });
+
+    }
+
     return (
         <>
-        <Header nomeBotao = "Cadastrar" encaminharTo="http://localhost:3000/cadastro"/>
+        <HeaderLogadoDois />
 
             <div className="divMobile">
                 <div className="divMobileOrganizer2" >
@@ -72,16 +97,22 @@ function FeedEmpresa() {
             </div>
         <div className="divFeedMargin"></div>
         <div className="divCardsFormatter">
-                
-                <CardPessoa />
-                <CardPessoa />
-                <CardPessoa />
-                <CardPessoa />
-                <CardPessoa />
-                <CardPessoa />
-                <CardPessoa />
-                <CardPessoa />
-            </div></>
+
+        {
+        candidatos.map((item) => {
+
+              return (
+                <CardPessoa
+                  cep={item.cep}
+                  descricao={item.descUsuario}
+                  email={item.email}
+                  nome={item.nome}
+                />
+              );
+            })
+        }
+            </div>
+            </>
     )
 }
 

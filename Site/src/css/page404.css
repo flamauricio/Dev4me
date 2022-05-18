@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url(./fonts/Poppins-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins-Medium';
+    src: url(./fonts/Poppins-Medium.ttf);
+}
+
+body {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+.pageTitle {
+    margin: 0;
+    font-family: var(--bold);
+    font-size: 4vw;
+    background: linear-gradient(102.57deg, #9300FF 13.75%, #00C2FF 93.53%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12vh;
+}
+
+.button404 {
+    margin: 0;
+    position: absolute;
+    width: 15%;
+    height: 8vh;
+    font-family: var(--bold);
+    font-size: 3.2vh;
+    border-radius: 30px 0px;
+    background-color: var(--white);
+    border: none;
+    color: #9300FF;
+    margin-top: 30vh;
+    transition: 0.5s;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.button404:hover {
+    background-color: #9300FF;
+    color: var(--white);
+    cursor: pointer;
+}

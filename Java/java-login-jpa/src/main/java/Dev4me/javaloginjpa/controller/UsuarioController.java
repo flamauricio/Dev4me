@@ -182,17 +182,28 @@ public class UsuarioController {
     @PostMapping
     @CrossOrigin
     public ResponseEntity postUsuario(@RequestBody @Valid Usuario novoUsuario) {
-        repository.save(novoUsuario);
-        String email = novoUsuario.getEmail();
-        String uri = "http://localhost:8080/usuarios/sending-email/" + email;
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.postForObject(uri, novoUsuario, String.class);
+        List<UsuarioAutenticacaoResponse> usuarios = repository.getUsuariosAutenticacao();
+        boolean validador = false;
+        for(UsuarioAutenticacaoResponse u : usuarios){
+            if(u.getEmail().equals(novoUsuario.getEmail())){
+                validador = true;
+            }
+        }if(validador){
+            return ResponseEntity.status(203).build();
+        }else{
+            repository.save(novoUsuario);
+            String email = novoUsuario.getEmail();
+            String uri = "http://localhost:8080/usuarios/sending-email/" + email;
+            RestTemplate restTemplate = new RestTemplate();
+            restTemplate.postForObject(uri, novoUsuario, String.class);
+        }
         return ResponseEntity.status(201).build();
     }
 
     // Enviar email
     @ApiResponses({@ApiResponse(responseCode = "200", content = @Content(mediaType = "application/json"))})
     @PostMapping("/sending-email/{email}")
+    @CrossOrigin
     public ResponseEntity<Email> sendingEmail(@RequestBody @Valid Email emailDto, @PathVariable String email) {
         Email emailModel = new Email();
         emailModel.setSendDateEmail(LocalDateTime.now());
@@ -217,6 +228,7 @@ public class UsuarioController {
     //GET chamada do .csv
     @ApiResponses({@ApiResponse(responseCode = "200", content = @Content(mediaType = "text/csv"))})
     @GetMapping("/relatorio")
+    @CrossOrigin
     public ResponseEntity getRelatorio() {
         List<Usuario> lista = repository.findAll();
 
@@ -259,7 +271,7 @@ public class UsuarioController {
         }
         for (UsuarioAutenticacaoResponse u : usuarios) {
             if (u.getEmail().equals(usuario.getEmail()) && u.getSenha().equals(usuario.getSenha())) {
-                return ResponseEntity.status(200).build();
+                return ResponseEntity.status(200).body(u.getId());
             }
         }
         return ResponseEntity.status(404).build();

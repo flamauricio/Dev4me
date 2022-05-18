@@ -12,8 +12,7 @@ public class Empresa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "id_empresa")
-    private Integer id;
+    private Integer idEmpresa;
 
     @NotBlank
     @Size(max = 45)
@@ -26,19 +25,14 @@ public class Empresa {
     private String email;
 
     @NotBlank
-    @Size(max = 45)
-    @Column (name = "login", length = 45)
-    private String login;
-
-    @NotBlank
     @Size(max = 16)
     @Column (name = "senha", length = 45)
     private String senha;
 
-    @NotBlank
     @Size(max = 16)
     @Column (name = "cnpj", length = 16)
     private String cnpj;
+
 
     public String getSenha() {
         return senha;
@@ -52,12 +46,12 @@ public class Empresa {
         this.cnpj = cnpj;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getIdEmpresa() {
+        return idEmpresa;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdEmpresa(Integer idEmpresa) {
+        this.idEmpresa = idEmpresa;
     }
 
     public String getNome() {
@@ -74,14 +68,6 @@ public class Empresa {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
     }
 
     //public String getSenha() {return senha;}

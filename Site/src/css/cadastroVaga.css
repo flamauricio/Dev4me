@@ -49,12 +49,12 @@ body
     /* font-family: var(--bold); */
 }
 
-#container
+#container-vg
 {
     width: 100%;
 }
 
-#mainBox
+#mainBox-vg
 {
     height: auto;
     max-width: 70%;
@@ -63,7 +63,7 @@ body
     padding: 20px 0;
 }
 
-#content
+#content-vg
 {
     margin: 0 auto;
     max-width: 90%;
@@ -71,7 +71,7 @@ body
     /* background-color: white; */
 }
 
-.title
+.title-vg
 {
     color: var(--lightBlue);
     font-weight: bold;
@@ -79,13 +79,13 @@ body
     font-family: var(--bold);
 }
 
-.subContent
+.subContent-vg
 {
     max-width: 60%;
     margin: 0 auto;
 }
 
-.smallTitle
+.smallTitle-vg
 {
     font-size: var(--subtitle);
     color: white;
@@ -94,7 +94,7 @@ body
 
 }
 
-input, select, textarea
+#content-vg input, select, textarea
 {
     background-color: var(--lightGrey);
     border: none;
@@ -108,7 +108,7 @@ input, select, textarea
     font-family: var(--regular);
 }
 
-.grayButton
+.grayButton-vg
 {
     border: none;
     font-family: var(--bold);
@@ -123,7 +123,7 @@ input, select, textarea
     margin-top: 30px;
 }
 
-#text
+#text-vg
 {
     float: right;
     color: var(--white);
@@ -131,132 +131,148 @@ input, select, textarea
     font-size: var(--extraSmallText);
 }
 
-.inputPequeno
+.inputPequeno-vg
 {
     width: 45%;
+}
+
+.divButtonsTag-cv
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.buttonTag-vg
+{
+    border: none;
+    font-family: var(--bold);
+    color: var(--white);
+    background-color: #696666;
+    /* border-radius: 40px 0 40px 0; */
+    width: 100px;
+    height: 25px;
+    /* filter: drop-shadow(15px 15px 4px rgba(0, 0, 0, 0.25)); */
+    font-size: var(--smallText);
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+#tags-vg
+{
+    margin: 15px 0;
+    padding: 20px 0 0 6%;
+    min-height: 150px;
+    background-color: var(--mediumGrey);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 1px groove white;
 }
 
 /* Responsive */
 @media screen and (max-width: 835px)
 {
-    #text
-    {
+    #text-vg {
         font-size: 0.5rem;
     }
 }
 
 @media screen and (max-width: 635px)
 {
-    textarea
-    {
+    textarea {
         font-size: 0.8rem;
 
     }
 }
 
-@media screen and (max-width: 550px) 
+@media screen and (max-width: 550px)
 {
-    #inputSalario
-    {
+    #inputSalario-vg {
         display: flex;
         flex-direction: column;
     }
 
-    .inputPequeno
-    {
+    .inputPequeno-vg {
         width: 100%;
     }
 
-    textarea
-    {
+    textarea {
         font-size: 0.73rem;
     }
 }
 
-@media screen and (max-width: 530px) 
+@media screen and (max-width: 530px)
 {
-    .grayButton
-    {
+    .grayButton-vg {
         width: 150px;
     }
 }
 
 @media screen and (max-width: 465px)
 {
-    textarea
-    {
+    textarea {
         font-size: 0.68rem;
     }
 }
 
 @media screen and (max-width: 435px)
 {
-    .title
-    {
+    .title-vg {
         font-size: 1.8rem;
     }
 
-    select 
-    {
+    select {
         font-size: 0.65rem;
         height: 38px;
     }
 
-    input
-    {
+    input {
         height: 38px;
     }
 
-    textarea
-    {
+    textarea {
         font-size: 0.6rem;
     }
 }
 
 @media screen and (max-width: 412px)
 {
-    .title
-    {
+    .title-vg {
         font-size: 1.5rem;
     }
 
-    .grayButton
-    {
+    .grayButton-vg {
         width: 120px;
         font-size: medium;
     }
 
-    .smallTitle
-    {
+    .smallTitle-vg {
         font-size: var(--smallSubtitle);
     }
 }
 
 @media screen and (max-width: 360px)
 {
-    select
-    {
+    select-vg {
         font-size: 0.52rem;       
     }
 }
 
 @media screen and (max-width: 340px)
 {
-    .smallTitle
-    {
+    .smallTitle-vg {
         font-size: var(--smallText);
     }
 }
 
 @media screen and (max-width: 310px)
 {
-    .title
-    {
+    .title-vg {
         font-size: 1.35rem;       
     }
 
-    select
-    {
+    select {
         width: 105%;
     }
 }

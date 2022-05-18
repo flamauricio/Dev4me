@@ -1,19 +1,24 @@
 package Dev4me.javaloginjpa.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name = "vagas")
 public class Vaga {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_vagas")
-    private Integer id;
+    private Integer idVaga;
 
     @NotBlank
     @Size(max = 45)
@@ -56,16 +61,15 @@ public class Vaga {
     @Column (name = "is_disponivel")
     private Boolean disponivel;
 
-    @NotNull
-    @Column (name = "fk_empresa")
-    private Integer fkEmpresa;
+    @ManyToOne
+    private Empresa fkEmpresa;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdVaga() {
+        return idVaga;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdVaga(Integer idVaga) {
+        this.idVaga = idVaga;
     }
 
     public String getTitulo() {
@@ -116,14 +120,6 @@ public class Vaga {
         this.descricao = descricao;
     }
 
-    public String getAtivadades() {
-        return atividades;
-    }
-
-    public void setAtivadades(String atividades) {
-        this.atividades = atividades;
-    }
-
     public String getRequisitos() {
         return requisitos;
     }
@@ -140,11 +136,20 @@ public class Vaga {
         this.disponivel = disponivel;
     }
 
-    public Integer getFkEmpresa() {
+    public String getAtividades() {
+        return atividades;
+    }
+
+    public void setAtividades(String atividades) {
+        this.atividades = atividades;
+    }
+
+    public Empresa getFkEmpresa() {
         return fkEmpresa;
     }
 
-    public void setFkEmpresa(Integer fkEmpresa) {
+    public void setFkEmpresa(Empresa fkEmpresa) {
         this.fkEmpresa = fkEmpresa;
     }
+
 }

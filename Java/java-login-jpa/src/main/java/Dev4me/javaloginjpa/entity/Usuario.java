@@ -20,7 +20,7 @@ public class Usuario {
     private Integer id;
 
     @NotBlank
-    @Size(max = 45)
+    @Size(min = 3, max = 45)
     @Column (name = "nome", length = 45)
     private String nome;
 
