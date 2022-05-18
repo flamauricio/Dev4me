@@ -59,6 +59,21 @@ public class Usuario {
     @Column (name = "endereco", length = 45)
     private String endereco;
 
+    public Usuario(Integer id, String nome, String email, String senha, String cep, String descUsuario, String cpf, String telefone,  String endereco) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.descUsuario = descUsuario;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.cep = cep;
+        this.endereco = endereco;
+    }
+
+    public Usuario() {
+    }
+
     public String getCpf() {
         return cpf;
     }

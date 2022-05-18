@@ -51,28 +51,24 @@ public class UsuarioController {
         try {
             saida = new BufferedWriter(new FileWriter(nomeArq, true));
         } catch (IOException erro) {
-            System.out.println("Erronaaberturadoarquivo:" + erro);
+            System.out.println("Erro na abertura do arquivo:" + erro);
         }
 
         try {
             saida.append(registro + "\n");
             saida.close();
         } catch (IOException erro) {
-            System.out.println("Erronagravaçãodoarquivo:" + erro);
+            System.out.println("Erro na gravação do arquivo:" + erro);
         }
     }
 
-    public static void gravaArquivoTxt(List<Usuario> lista, String nomeArq) {
+    public void gravaArquivoTxt(String nomeArq) {
+        List<Usuario> lista = repository.findAll();
         int contaRegistroCorpo = 0;
-
-//Montaoregistrodeheader
         String header = "00USUARIO";
         header += LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyyHH:mm:ss"));
         header += "01";
-//Gravaoregistrodeheader
         gravaRegistro(header, nomeArq);
-
-//Montaegravaosregistrosdecorpo(oudedetalhe)
         String corpo;
         for (Usuario u : lista) {
             corpo = "02";
@@ -89,14 +85,12 @@ public class UsuarioController {
             gravaRegistro(corpo, nomeArq);
             contaRegistroCorpo++;
         }
-
-//Montaegravaoregistrodetrailer
         String trailer = "01";
         trailer += String.format("%013d", contaRegistroCorpo);
         gravaRegistro(trailer, nomeArq);
     }
 
-    public static void leArquivoTxt(String nomeArq) {
+    public void leArquivoTxt(String nomeArq) {
         BufferedReader entrada = null;
         String registro, tipoRegistro;
         String nome, email, senha, descUsuario, cpf, telefone, cep, endereco;
@@ -112,89 +106,76 @@ public class UsuarioController {
 
         List<Usuario> listaLida = new ArrayList<>();
 
-//Abreoarquivoparaleitura
         try {
             entrada = new BufferedReader(new FileReader(nomeArq));
         } catch (IOException erro) {
-            System.out.println("Erronaaberturadoarquivo:" + erro);
+            System.out.println("Erro na abertura do arquivo:" + erro);
         }
-
-//Leituradoarquivo
         try {
-//Leoprimeiroregistrodoarquivo
             registro = entrada.readLine();
 
-            while (registro != null) {//enquantonãoforofinaldoarquivo
-//obtemos2primeiroscaracteresdoregistro
-//012
-//00NOTA20221
-//Métodosubstringrecebeoíndiceondecomeçaocampoeoíndicefinal+1
-//Começaacontardozero
+            while (registro != null) {
                 tipoRegistro = registro.substring(0, 2);
-//Verificaseéumregistrodeheader("00")
-//ouseéumregistrodetrailer("01")
-//ouseéumregistrodecorpo("02")
                 if (tipoRegistro.equals("00")) {
-                    System.out.println("Éumregistrodeheader");
-//Exibeasinformaçõesdoregistrodeheader
-                    System.out.println("Tipodoarquivo:" +
+                    System.out.println("É um registro de header");
+                    System.out.println("Tipo do arquivo:" +
                             registro.substring(2, 11));
-                    System.out.println("Dataehoradegravação:" +
-                            registro.substring(11, 30));
-                    System.out.println("Versãododocumentodelayout:" +
-                            registro.substring(30, 32));
+                    System.out.println("Data e hora de gravação:" +
+                            registro.substring(11, 28));
+                    System.out.println("Versão do documento de layout:" +
+                            registro.substring(28, 29));
                 } else if (tipoRegistro.equals("01")) {
-                    System.out.println("Éumregistrodetrailer");
+                    System.out.println("É um registro de trailer");
                     qtdRegDadoGravado = Integer.parseInt(registro.substring(2, 15));
                     if (contaRegDadoLido == qtdRegDadoGravado) {
-                        System.out.println("Quantidadederegistroslidoscompatível" +
-                                "comaquantidadederegistrosgravados");
+                        System.out.println("Quantidade de registros lidos compatível" +
+                                "com a quantidade de registros gravados");
                     } else {
-                        System.out.println("Quantidadederegistroslidosincompatível" +
-                                "comaquantidadederegistrosgravados");
+                        System.out.println("Quantidade de registros lidos incompatível" +
+                                "com a quantidade de registros gravados");
                     }
 
                 } else if (tipoRegistro.equals("02")) {
-                    System.out.println("Éumregistrodecorpo");
-//trim()eliminaosbrancosàdireitadaString
-                    id = Integer.valueOf(registro.substring(2, 8).trim());
-                    nome = registro.substring(8, 53).trim();
-                    telefone = registro.substring(53, 67).trim();
-                    cpf = registro.substring(67, 81).trim();
-                    cep = registro.substring(81, 89).trim();
-                    endereco = registro.substring(89, 134);
-                    email = registro.substring(134, 179).trim();
-                    senha = registro.substring(179, 195).trim();
-                    dataFormatada = registro.substring(195, 214).trim();
-                    descUsuario = registro.substring(214, 414).trim();
-                    contaRegDadoLido++;
+                    System.out.println("É um registro de corpo");
 
-//seforimportaressasinformaçõesnoBcodeDados
-//pode-secriarumobjUsuariocomessesdados
-//efazerrepository.save(obj)
+                    List<Usuario> lista = repository.findAll();
 
-//Nonossocaso,vamoscriarumobjetoAluno
-//eadicionaresseobjparaalistaLida
-                    //repository.save();
+                        id = Integer.valueOf(registro.substring(2, 8).trim());
+                        nome = registro.substring(8, 53).trim();
+                        telefone = registro.substring(53, 67).trim();
+                        cpf = registro.substring(67, 81).trim();
+                        cep = registro.substring(81, 89).trim();
+                        endereco = registro.substring(89, 134);
+                        email = registro.substring(134, 179).trim();
+                        senha = registro.substring(179, 195).trim();
+                        //dataFormatada = registro.substring(195, 214).trim();
+                        descUsuario = registro.substring(214, 414).trim();
+                        contaRegDadoLido++;
+
+                        repository.save(new Usuario(id, nome, telefone, cpf, cep, endereco, email, senha, descUsuario));
+
                 } else {
-                    System.out.println("Tipoderegistroinválido");
+                    System.out.println("Tipo de registro inválido");
                 }
-//Leoproximoregistro
                 registro = entrada.readLine();
             }
             entrada.close();
         } catch (IOException erro) {
-            System.out.println("Erroaolerarquivo:" + erro);
+            System.out.println("Erro ao ler arquivo:" + erro);
         }
 
 //Aquitbseriapossívelfazerrepository.saveAll(listaLida);
 //parasalvaroconteúdodalistanobanco
-        System.out.println("\nListalidadoarquivo:");
+        System.out.println("\nLista lida do arquivo:");
         for (Usuario u : listaLida) {
-            System.out.println(u);
+            repository.saveAll(listaLida);
         }
     }
 
+    @GetMapping("/relatorio-txt")
+    public void getRelatorioTxt() {
+        gravaArquivoTxt("Usuario.txt");
+    }
 
     //Método pra cadastro do Usuário;
     @ApiResponses({@ApiResponse(responseCode = "200", content = @Content(mediaType = "application/json"))})
