@@ -23,7 +23,7 @@ public interface EmpresaRepository extends JpaRepository<Empresa, Integer> {
     @Query("update Empresa e set e.senha = ?2 where e.idEmpresa = ?1")
     void patchEmpresaSenha(Integer id, String novaSenha);
 
-//    Empresa findByNome(String nome);
+    Empresa findByNome(String nome);
 
 
 //    @Query("select new Dev4me.javaloginjpa.entity.Empresa(e.idEmpresa) from Empresa e where e.nome = ?1")

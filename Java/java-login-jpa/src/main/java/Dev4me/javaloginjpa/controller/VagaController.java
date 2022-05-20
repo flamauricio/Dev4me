@@ -5,6 +5,7 @@ import Dev4me.javaloginjpa.repository.EmpresaRepository;
 import Dev4me.javaloginjpa.repository.TagRepository;
 import Dev4me.javaloginjpa.repository.TagVagaRepository;
 import Dev4me.javaloginjpa.repository.VagaRepository;
+import Dev4me.javaloginjpa.response.UsuarioAutenticacaoResponse;
 import Dev4me.javaloginjpa.response.VagaFiltroResponse;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -183,90 +184,91 @@ public class VagaController {
         gravaRegistro(trailer, nomeArq);
     }
 
-//    public void leArquivoTxt(String nomeArq) {
-//        BufferedReader entrada = null;
-//        String registro, tipoRegistro;
-//        String  localizacao, titulo, contrato, faixaSalarialMin, faixaSalarialMax, disponivel, fkEmpresa, nome, email;
-//
-////        LocalDate dataNasc = LocalDate.now();
-////        java.sql.Date date = Date.valueOf(dataNasc);
-////        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-////        String dataFormatada = format.format(date);
-//
-//
-//        Integer id;
-//        int contaRegDadoLido = 0;
-//        int qtdRegDadoGravado;
-//
-//        List<Vaga> listaLida = new ArrayList<>();
-//
-//        try {
-//            entrada = new BufferedReader(new FileReader(nomeArq));
-//        } catch (IOException erro) {
-//            System.out.println("Erro na abertura do arquivo:" + erro);
-//        }
-//        try {
-//            registro = entrada.readLine();
-//
-//            while (registro != null) {
-//                tipoRegistro = registro.substring(0, 2);
-//                if (tipoRegistro.equals("00")) {
-//                    System.out.println("É um registro de header");
-//                    System.out.println("Tipo do arquivo:" +
-//                            registro.substring(2, 11));
-//                    System.out.println("Data e hora de gravação:" +
-//                            registro.substring(11, 22));
-//                    System.out.println("Versão do documento de layout:" +
-//                            registro.substring(22, 26));
-//                } else if (tipoRegistro.equals("01")) {
-//                    System.out.println("É um registro de trailer");
-//                    qtdRegDadoGravado = Integer.parseInt(registro.substring(2, 15));
-//                    if (contaRegDadoLido == qtdRegDadoGravado) {
-//                        System.out.println("Quantidade de registros lidos compatível" +
-//                                "com a quantidade de registros gravados");
-//                    } else {
-//                        System.out.println("Quantidade de registros lidos incompatível" +
-//                                "com a quantidade de registros gravados");
-//                    }
-//
-//                } else if (tipoRegistro.equals("02")) {
-//                    System.out.println("É um registro de corpo");
-//
-//                    List<Vaga> lista = repository.findAll();
-//
-//                    id = Integer.valueOf(registro.substring(2, 8).trim());
-//                    titulo = registro.substring(8, 36).trim();
-//                    contrato = registro.substring(36, 47).trim();
-//                    localizacao = registro.substring(47, 57).trim();
-//                    faixaSalarialMin = registro.substring(57, 63).trim();
-//                    faixaSalarialMax = registro.substring(63, 69);
-//                    disponivel = registro.substring(69, 74).trim();
-//                    nome = registro.substring(74, 101).trim();
-//                    email= registro.substring(101, 111).trim();
-//                    contaRegDadoLido++;
-//
-//                    Empresa e = empresaRepository.findByNome(nome);
-//                    Integer idEmpresa = e.getIdEmpresa();
-//
-//
-//
-//                    repository.save(new Vaga(id, titulo, contrato, localizacao, faixaSalarialMin, faixaSalarialMax, disponivel, fkEmpresa));
-//
-//                } else {
-//                    System.out.println("Tipo de registro inválido");
-//                }
-//                registro = entrada.readLine();
-//            }
-//            entrada.close();
-//        } catch (IOException erro) {
-//            System.out.println("Erro ao ler arquivo:" + erro);
-//        }
-//
-//        System.out.println("\nLista lida do arquivo:");
-//        for (Vaga u : listaLida) {
-//            repository.saveAll(listaLida);
-//        }
-//    }
+    public void leArquivoTxt(String nomeArq) {
+        BufferedReader entrada = null;
+        String registro, tipoRegistro;
+        Double faixaSalarialMin, faixaSalarialMax;
+        Boolean disponivel;
+        String  localizacao, titulo, contrato, fkEmpresa = null, nome, email;
+
+//        LocalDate dataNasc = LocalDate.now();
+//        java.sql.Date date = Date.valueOf(dataNasc);
+//        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+//        String dataFormatada = format.format(date);
+
+
+        Integer idVaga;
+        int contaRegDadoLido = 0;
+        int qtdRegDadoGravado;
+
+        List<Vaga> listaLida = new ArrayList<>();
+
+
+        try {
+            entrada = new BufferedReader(new FileReader(nomeArq));
+        } catch (IOException erro) {
+            System.out.println("Erro na abertura do arquivo:" + erro);
+        }
+        try {
+            registro = entrada.readLine();
+
+            while (registro != null) {
+                tipoRegistro = registro.substring(0, 2);
+                if (tipoRegistro.equals("00")) {
+                    System.out.println("É um registro de header");
+                    System.out.println("Tipo do arquivo:" +
+                            registro.substring(2, 11));
+                    System.out.println("Data e hora de gravação:" +
+                            registro.substring(11, 22));
+                    System.out.println("Versão do documento de layout:" +
+                            registro.substring(22, 26));
+                } else if (tipoRegistro.equals("01")) {
+                    System.out.println("É um registro de trailer");
+                    qtdRegDadoGravado = Integer.parseInt(registro.substring(2, 15));
+                    if (contaRegDadoLido == qtdRegDadoGravado) {
+                        System.out.println("Quantidade de registros lidos compatível" +
+                                "com a quantidade de registros gravados");
+                    } else {
+                        System.out.println("Quantidade de registros lidos incompatível" +
+                                "com a quantidade de registros gravados");
+                    }
+
+                } else if (tipoRegistro.equals("02")) {
+                    System.out.println("É um registro de corpo");
+
+                    idVaga = Integer.valueOf(registro.substring(2, 8).trim());
+                    titulo = registro.substring(8, 36).trim();
+                    contrato = registro.substring(36, 47).trim();
+                    localizacao = registro.substring(47, 67).trim();
+                    faixaSalarialMin = Double.valueOf(registro.substring(67, 75).replace(',', '.'));
+                    faixaSalarialMax = Double.valueOf(registro.substring(75, 83).replace(',', '.'));
+                    disponivel = Boolean.valueOf(registro.substring(83, 94).trim());
+                    nome = registro.substring(94, 112).trim();
+//                    email= registro.substring(112, 114).trim();
+                    contaRegDadoLido++;
+
+                    Empresa e = empresaRepository.findByNome(nome);
+
+                    Vaga vagaMomento = new Vaga(idVaga, titulo, contrato, localizacao, faixaSalarialMin, faixaSalarialMax, disponivel, e);
+
+                    repository.save(vagaMomento);
+
+                } else {
+                    System.out.println("Tipo de registro inválido");
+                }
+                registro = entrada.readLine();
+            }
+            entrada.close();
+        } catch (IOException erro) {
+            System.out.println("Erro ao ler arquivo:" + erro);
+        }
+
+        System.out.println("\nLista lida do arquivo:");
+        for (Vaga u : listaLida) {
+            repository.saveAll(listaLida);
+        }
+
+    }
 
     @GetMapping("/gravacao/relatorio-txt")
     public void getRelatorioTxt() {
@@ -275,9 +277,9 @@ public class VagaController {
 
     }
 
-//    @GetMapping("/leitura/relatorio-txt")
-//    public void readRelatorioTxt() {
-//
-//        leArquivoTxt("Vaga.txt");
-//    }
+    @GetMapping("/leitura/relatorio-txt")
+    public void readRelatorioTxt() {
+
+        leArquivoTxt("Vaga.txt");
+    }
 }

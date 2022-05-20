@@ -60,6 +60,20 @@ public class Vaga {
     @ManyToOne
     private Empresa fkEmpresa;
 
+    public Vaga(Integer idVaga, String titulo, String contrato, String localizacao, Double faixaSalarialMin, Double faixaSalarialMax, Boolean disponivel, Empresa fkEmpresa) {
+        this.idVaga = idVaga;
+        this.titulo = titulo;
+        this.contrato = contrato;
+        this.localizacao = localizacao;
+        this.faixaSalarialMin = faixaSalarialMin;
+        this.faixaSalarialMax = faixaSalarialMax;
+        this.disponivel = disponivel;
+        this.fkEmpresa = fkEmpresa;
+    }
+
+    public Vaga() {
+    }
+
     public Integer getIdVaga() {
         return idVaga;
     }
