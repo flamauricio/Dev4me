@@ -15,11 +15,17 @@ public interface EmpresaRepository extends JpaRepository<Empresa, Integer> {
     @Query("select new Dev4me.javaloginjpa.response.EmpresaSimplesResponse(e.nome, e.email) from Empresa e")
     List<EmpresaSimplesResponse> getEmpresasSimples();
 
-    @Query("select new Dev4me.javaloginjpa.response.EmpresaAutenticacaoResponse(e.id, e.email, e.senha) from Empresa e")
+    @Query("select new Dev4me.javaloginjpa.response.EmpresaAutenticacaoResponse(e.idEmpresa, e.email, e.senha) from Empresa e")
     List<EmpresaAutenticacaoResponse> getEmpresasAutenticacao();
 
     @Transactional
     @Modifying
-    @Query("update Empresa e set e.senha = ?2 where e.id = ?1")
+    @Query("update Empresa e set e.senha = ?2 where e.idEmpresa = ?1")
     void patchEmpresaSenha(Integer id, String novaSenha);
+
+//    Empresa findByNome(String nome);
+
+
+//    @Query("select new Dev4me.javaloginjpa.entity.Empresa(e.idEmpresa) from Empresa e where e.nome = ?1")
+//    List<Empresa> getNomeIdEmpresa(String nome);
 }

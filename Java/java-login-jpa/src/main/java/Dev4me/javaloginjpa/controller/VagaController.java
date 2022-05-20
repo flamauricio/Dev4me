@@ -1,6 +1,7 @@
 package Dev4me.javaloginjpa.controller;
 
 import Dev4me.javaloginjpa.entity.*;
+import Dev4me.javaloginjpa.repository.EmpresaRepository;
 import Dev4me.javaloginjpa.repository.TagRepository;
 import Dev4me.javaloginjpa.repository.TagVagaRepository;
 import Dev4me.javaloginjpa.repository.VagaRepository;
@@ -11,6 +12,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import javax.validation.Valid;
 import java.io.*;
 import java.sql.Date;
@@ -35,6 +37,9 @@ public class VagaController {
     @Autowired
     private TagVagaRepository tagVagaRepository;
 
+    @Autowired
+    private EmpresaRepository empresaRepository;
+
     private List<Vaga> vagasFiltradas = new ArrayList<Vaga>();
 
     //Método pra cadastro do Usuário;
@@ -58,14 +63,13 @@ public class VagaController {
 
     @GetMapping("/tipo-de-contrato/{contrato}")
     @CrossOrigin
-    public ResponseEntity<List<Vaga>> getVagaContrato(@PathVariable String contrato){
+    public ResponseEntity<List<Vaga>> getVagaContrato(@PathVariable String contrato) {
         return status(200).body(repository.findByContrato(contrato));
     }
 
     @PostMapping("/filtros")
     @CrossOrigin
-    public ResponseEntity getVagasFiltradas(@RequestBody VagaFiltroResponse filtroObj)
-    {
+    public ResponseEntity getVagasFiltradas(@RequestBody VagaFiltroResponse filtroObj) {
         vagasFiltradas.clear();
 
         List<String> tags = filtroObj.getTags();
@@ -86,9 +90,7 @@ public class VagaController {
                         vagasFiltradas.add(vaga);
                     }
                 }
-            }
-
-            else if (filtro.equals("contratos")) {
+            } else if (filtro.equals("contratos")) {
                 for (String contrato : contratos) {
                     List<Vaga> listaProvisoria = repository.findByContrato(contrato);
                     if (!listaProvisoria.isEmpty()) {
@@ -100,9 +102,7 @@ public class VagaController {
                     }
 
                 }
-            }
-
-            else if (filtro.equals("tags")) {
+            } else if (filtro.equals("tags")) {
                 for (String tag : tags) {
                     List<TagVaga> listaProvisoria = tagVagaRepository.findByFkTagNome(tag);
                     if (!listaProvisoria.isEmpty()) {
@@ -126,13 +126,13 @@ public class VagaController {
 
     @GetMapping("/tags")
     @CrossOrigin
-    public ResponseEntity<List<Tag>> getVagaTag(){
+    public ResponseEntity<List<Tag>> getVagaTag() {
         return status(200).body(tagRepository.findAll());
     }
 
     @GetMapping("/tags/selecao")
     @CrossOrigin
-    public ResponseEntity<List<TagVaga>> getTagVaga(){
+    public ResponseEntity<List<TagVaga>> getTagVaga() {
         return status(200).body(tagVagaRepository.findAll());
     }
 
@@ -186,19 +186,19 @@ public class VagaController {
 //    public void leArquivoTxt(String nomeArq) {
 //        BufferedReader entrada = null;
 //        String registro, tipoRegistro;
-//        String nome, email, senha, descUsuario, cpf, telefone, cep, endereco;
+//        String  localizacao, titulo, contrato, faixaSalarialMin, faixaSalarialMax, disponivel, fkEmpresa, nome, email;
 //
-//        LocalDate dataNasc = LocalDate.now();
-//        java.sql.Date date = Date.valueOf(dataNasc);
-//        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-//        String dataFormatada = format.format(date);
+////        LocalDate dataNasc = LocalDate.now();
+////        java.sql.Date date = Date.valueOf(dataNasc);
+////        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+////        String dataFormatada = format.format(date);
 //
 //
 //        Integer id;
 //        int contaRegDadoLido = 0;
 //        int qtdRegDadoGravado;
 //
-//        List<Usuario> listaLida = new ArrayList<>();
+//        List<Vaga> listaLida = new ArrayList<>();
 //
 //        try {
 //            entrada = new BufferedReader(new FileReader(nomeArq));
@@ -215,9 +215,9 @@ public class VagaController {
 //                    System.out.println("Tipo do arquivo:" +
 //                            registro.substring(2, 11));
 //                    System.out.println("Data e hora de gravação:" +
-//                            registro.substring(11, 28));
+//                            registro.substring(11, 22));
 //                    System.out.println("Versão do documento de layout:" +
-//                            registro.substring(28, 29));
+//                            registro.substring(22, 26));
 //                } else if (tipoRegistro.equals("01")) {
 //                    System.out.println("É um registro de trailer");
 //                    qtdRegDadoGravado = Integer.parseInt(registro.substring(2, 15));
@@ -235,18 +235,22 @@ public class VagaController {
 //                    List<Vaga> lista = repository.findAll();
 //
 //                    id = Integer.valueOf(registro.substring(2, 8).trim());
-//                    nome = registro.substring(8, 53).trim();
-//                    telefone = registro.substring(53, 67).trim();
-//                    cpf = registro.substring(67, 81).trim();
-//                    cep = registro.substring(81, 89).trim();
-//                    endereco = registro.substring(89, 134);
-//                    email = registro.substring(134, 179).trim();
-//                    senha = registro.substring(179, 195).trim();
-//                    dataFormatada = registro.substring(195, 214).trim();
-//                    descUsuario = registro.substring(214, 414).trim();
+//                    titulo = registro.substring(8, 36).trim();
+//                    contrato = registro.substring(36, 47).trim();
+//                    localizacao = registro.substring(47, 57).trim();
+//                    faixaSalarialMin = registro.substring(57, 63).trim();
+//                    faixaSalarialMax = registro.substring(63, 69);
+//                    disponivel = registro.substring(69, 74).trim();
+//                    nome = registro.substring(74, 101).trim();
+//                    email= registro.substring(101, 111).trim();
 //                    contaRegDadoLido++;
 //
-////                        repository.save(new Usuario(id, nome, telefone, cpf, dataFormatada, cep, endereco, email, senha, descUsuario));
+//                    Empresa e = empresaRepository.findByNome(nome);
+//                    Integer idEmpresa = e.getIdEmpresa();
+//
+//
+//
+//                    repository.save(new Vaga(id, titulo, contrato, localizacao, faixaSalarialMin, faixaSalarialMax, disponivel, fkEmpresa));
 //
 //                } else {
 //                    System.out.println("Tipo de registro inválido");
@@ -258,17 +262,22 @@ public class VagaController {
 //            System.out.println("Erro ao ler arquivo:" + erro);
 //        }
 //
-////Aquitbseriapossívelfazerrepository.saveAll(listaLida);
-////parasalvaroconteúdodalistanobanco
 //        System.out.println("\nLista lida do arquivo:");
-//        for (Vaga u: listaLida) {
+//        for (Vaga u : listaLida) {
 //            repository.saveAll(listaLida);
 //        }
 //    }
 
-    @GetMapping("/relatorio-txt")
+    @GetMapping("/gravacao/relatorio-txt")
     public void getRelatorioTxt() {
 
         gravaArquivoTxt("Vaga.txt");
+
     }
+
+//    @GetMapping("/leitura/relatorio-txt")
+//    public void readRelatorioTxt() {
+//
+//        leArquivoTxt("Vaga.txt");
+//    }
 }
