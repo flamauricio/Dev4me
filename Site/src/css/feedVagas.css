@@ -62,6 +62,63 @@ body {
     --regular: 'Poppins-Medium';
 }
 
+/* User Profile */
+
+.sidebar-user {
+    width: 20%;
+    height: 100%;
+    position: fixed;
+    background-color: var(--mediumGrey);
+    z-index: 1;
+    padding-right: 5%;
+    display: flex;
+    align-items: flex-start;
+    overflow-y: auto;
+    margin: 0;
+}
+
+.sidebar-container-user {
+    margin-left: 25%;
+}
+
+.div-image-alert {
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+.image-alert {
+    height: 2rem;
+    margin: 0;
+    opacity: 0.62;
+}
+
+.image-alert:hover {
+    cursor: pointer;
+    transition: 0.5s;
+    opacity: 1;
+}
+
+.main-div-user {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-left: 25%;
+    width: 75%;
+    height: auto;
+    overflow-y: auto;
+}
+
+.div-input-user-small {
+    width: 40%;
+    height: auto;
+}
+
+.input-user-small {
+    width: auto;
+    height: 5%;
+    background-color: var(--mediumGrey);
+}
+
 /* Side Bar */
 
 .divSideBarMobile {
@@ -109,6 +166,13 @@ body {
     width: 100%;
 }
 
+.divSpaceBetween4 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 6.5%;
+}
+
 .divSpaceBetweenEmpresa {
     display: flex;
     align-items: center;
@@ -120,6 +184,19 @@ body {
     margin: 0;
     font-family: var(--bold);
     font-size: var(--regularTitle);
+    color: var(--white);
+}
+
+.title-user {
+    margin: 5% 0% 0% 0%;
+    font-family: var(--regular);
+    font-size: var(--smallSubtitle);
+    color: #b2b2b2;
+}
+
+.title-user:hover {
+    cursor: pointer;
+    transition: 0.5s;
     color: var(--white);
 }
 
@@ -569,10 +646,7 @@ body {
 
     /* Side Bar */
     .bigTitle {
-        margin: 0;
-        font-family: var(--bold);
         font-size: var(--bigText);
-        color: var(--white);
     }
 
     .bigTitleInvisible {
@@ -647,10 +721,11 @@ body {
 
     /* Side Bar */
     .bigTitle {
-        margin: 0;
-        font-family: var(--bold);
         font-size: var(--subtitle);
-        color: var(--white);
+    }
+
+    .title-user {
+        font-size: var(--smallText);
     }
 
     .bigTitleInvisible {
@@ -917,6 +992,10 @@ body {
 
     .bigTitle {
         font-size: var(--smallSubtitle);
+    }
+
+    .title-user {
+        font-size: var(--extraSmallText);
     }
 
     .bigTitleInvisible {
@@ -1224,6 +1303,10 @@ body {
     /* Side Bar */
     .bigTitle {
         font-size: var(--miniText);
+    }
+
+    .title-user {
+        font-size: var(--microText);
     }
 
     .bigTitleInvisible {
