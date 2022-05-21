@@ -231,11 +231,14 @@ function FeedVagas() {
     }
 
     const [filtrosEDados, setFiltrosEDados] = useState([]);
+
+    const [tagsPorVaga, setTagsPorVaga] = useState();
     
 
     function plotarVagas()
     {
-        return vagas.map((item) => {
+        console.log(tagsPorVaga);
+        return vagas.map((item, index) => {
 
             return (
                 <CardVaga
@@ -249,6 +252,7 @@ function FeedVagas() {
                     atividades={item.atividades}
                     requisitos={item.requisitos}
                     empresa={item.fkEmpresa.nome}
+                    vetor={tagsPorVaga[index]}
                 />
             );
         })
@@ -258,11 +262,11 @@ function FeedVagas() {
     {
         let vetorFiltros = [];
 
-        if (InputLocalizacao.length > 1) {
+        if (InputLocalizacao.length > 0) {
             vetorFiltros.push("localizacao");
         }
 
-        if (tags.length > 0) {
+        if (quantidadeElementos > 0) {
             vetorFiltros.push("tags");
         }
 
@@ -272,12 +276,10 @@ function FeedVagas() {
 
         setFiltrosEDados({
             "filtros": vetorFiltros.length === 0 ? [] : vetorFiltros,
-            "tags": tags.length === 0 ? [] : tags,
+            "tags": tags === [null] || quantidadeElementos === 0 ? [] : tags,
             "localizacao": InputLocalizacao === "" ? "" : InputLocalizacao,
             "contratos": tipoContrato.length === 0 ? [] : tipoContrato
         });
-
-        console.log(filtrosEDados);
 
         api.post("/vagas/filtros", filtrosEDados)
         .then((resposta) => {
@@ -285,16 +287,14 @@ function FeedVagas() {
             if (resposta.status === 204) {
                 alert("Lamento, não encontramos nenhuma vaga com esses filtros!")
             } else if (resposta.status === 200) {
-                setVagas(resposta.data);
-                plotarVagas();
+                setVagas(resposta.data.vaga);
+                setTagsPorVaga(resposta.data.tags);
             } else {
-                console.log("Erro não especificado.");
+                alert("Por favor, tente novamente! ", filtrosEDados, vagas.length, tagsPorVaga.length)
             }
         })
         .catch((error) => {
-            if (error.status === 400) {
-                console.log("mae");
-            }
+            console.log(error);
         })    
     }
 
@@ -307,7 +307,14 @@ function FeedVagas() {
             "contratos": []
         })
         .then((resposta) => {
-            setVagas(resposta.data);
+            // console.log('cu');
+            // console.log(resposta.data);
+            setVagas(resposta.data.vaga);
+            setTagsPorVaga(resposta.data.tags);
+            // setVagas(arrayVagas);
+            // setTagsPorVaga(arrayTags);
+            // console.log(vagas);
+            // console.log(tagsPorVaga);
             plotarVagas();
         })
         .catch((error) => {
@@ -316,12 +323,25 @@ function FeedVagas() {
     }
 
     useEffect(() => {
-        plotarPrimeirasVags()
+        plotarPrimeirasVags();
     }, []);
 
-    useEffect(() => {
-        plotarVagas();
-    }, [setVagas]);
+    // useEffect(() => {
+    //     plotarVagas();
+    // }, [setVagas]);
+
+    // useEffect(() => {
+        
+
+    //     api.post("/vagas/tags", vagas)
+    //     .then((resposta) => {
+    //         console.log('testando endpoint /vagas/tags');
+    //         console.log(resposta);
+    //     })
+    //     .catch((error) => {
+    //         console.log(error);
+    //     })
+    // }, [executarMetodoPegarTagsVagas]);
 
     return (
         <>
@@ -456,7 +476,26 @@ function FeedVagas() {
             <div className="divFeedFormatter">
                 <div className="divFeedMargin"></div>
 
-                {plotarVagas()}
+                {
+                    vagas.map((item, index) => {
+
+                        return (
+                            <CardVaga
+                                key={item.id}
+                                titulo={item.titulo}
+                                contrato={item.contrato}
+                                localizacao={item.localizacao}
+                                salarioMin={item.faixaSalarialMin}
+                                salarioMax={item.faixaSalarialMax}
+                                descricao={item.descricao}
+                                atividades={item.atividades}
+                                requisitos={item.requisitos}
+                                empresa={item.fkEmpresa.nome}
+                                vetor={tagsPorVaga[index]}
+                            />
+                        );
+                    })
+                }
 
                 <div className="divFeedMargin"></div>
 

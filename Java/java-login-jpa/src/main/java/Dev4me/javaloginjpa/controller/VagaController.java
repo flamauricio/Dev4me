@@ -6,10 +6,14 @@ import Dev4me.javaloginjpa.entity.Vaga;
 import Dev4me.javaloginjpa.repository.TagRepository;
 import Dev4me.javaloginjpa.repository.TagVagaRepository;
 import Dev4me.javaloginjpa.repository.VagaRepository;
+import Dev4me.javaloginjpa.response.UsuarioTagsResponse;
 import Dev4me.javaloginjpa.response.VagaFiltroResponse;
+import Dev4me.javaloginjpa.response.VagaListResponse;
+import Dev4me.javaloginjpa.response.VagaTagsResponse;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tags;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -68,9 +72,31 @@ public class VagaController {
         List<String> contratos = filtroObj.getContratos();
         List<String> filtros = filtroObj.getFiltros();
         String localizacao = filtroObj.getLocalizacao();
+        VagaTagsResponse vtr = null;
+
+        List<List<Tag>> listaTags = new ArrayList<List<Tag>>();
+        List<Integer> idVagas = new ArrayList<Integer>();
 
         if (filtros.size() == 0) {
-            return status(200).body(repository.findAllByOrderByIdVagaDesc());
+            vagasFiltradas = repository.findAllByOrderByIdVagaDesc();
+
+            for (Vaga vaga : vagasFiltradas) {
+                idVagas.add(vaga.getIdVaga());
+            }
+
+            for (Integer idVaga : idVagas) {
+                List<TagVaga> listaTagVaga = tagVagaRepository.findByFkVagaIdVaga(idVaga);
+                List<Tag> listaTagsPorIdVaga = new ArrayList<Tag>();
+                for (TagVaga tagVaga : listaTagVaga) {
+                    listaTagsPorIdVaga.add(tagVaga.getFkTag());
+                }
+
+                listaTags.add(listaTagsPorIdVaga);
+            }
+
+            vtr = new VagaTagsResponse(vagasFiltradas, listaTags);
+
+            return status(200).body(vtr);
         }
 
         for (String filtro : filtros) {
@@ -117,18 +143,36 @@ public class VagaController {
             return status(204).build();
         }
 
-        return status(200).body(vagasFiltradas);
+        for (Vaga vaga : vagasFiltradas) {
+            idVagas.add(vaga.getIdVaga());
+        }
+
+        for (Integer idVaga : idVagas) {
+            List<TagVaga> listaTagVaga = tagVagaRepository.findByFkVagaIdVaga(idVaga);
+            List<Tag> listaTagsPorIdVaga = new ArrayList<Tag>();
+            for (TagVaga tagVaga : listaTagVaga) {
+                listaTagsPorIdVaga.add(tagVaga.getFkTag());
+            }
+
+            listaTags.add(listaTagsPorIdVaga);
+        }
+
+        vtr = new VagaTagsResponse(vagasFiltradas, listaTags);
+
+        return status(200).body(vtr);
     }
 
-    @GetMapping("/tags")
-    @CrossOrigin
-    public ResponseEntity<List<Tag>> getVagaTag(){
-        return status(200).body(tagRepository.findAll());
-    }
+//,
 
-    @GetMapping("/tags/selecao")
-    @CrossOrigin
-    public ResponseEntity<List<TagVaga>> getTagVaga(){
-        return status(200).body(tagVagaRepository.findAll());
-    }
+//    @GetMapping("/tags")
+//    @CrossOrigin
+//    public ResponseEntity<List<Tag>> getVagaTag(){
+//        return status(200).body(tagRepository.findAll());
+//    }
+
+//    @GetMapping("/tags/selecao")
+//    @CrossOrigin
+//    public ResponseEntity<List<TagVaga>> getTagVaga(){
+//        return status(200).body(tagVagaRepository.findAll());
+//    }
 }

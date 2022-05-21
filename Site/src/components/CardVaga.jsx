@@ -7,31 +7,13 @@ function CardVaga(props) {
 
     const [tags, setTags] = useState(new Array());
 
-    useEffect(() => {
-        trazerTags();
-      }, []);
-
-    function trazerTags() {
-
-      api
-      .get("/tags")
-      .then((tagsBuscadas) => {
-
-        // console.log("Dados da resposta: ");
-        // console.log(tagsBuscadas.data);
-
-        setTags(tagsBuscadas.data);
-
-      })
-      .catch(function (erroOcorrido) {
-        console.log(erroOcorrido);
-      });
-
-    }
-
     let salaryTextDefault = "Salário não informado";
 
     let localizationTextDefault = "remota";
+
+    useEffect(() => {
+        setTags(props.vetor);
+    }, [])
 
     fraseSalario();
 
@@ -91,20 +73,41 @@ function CardVaga(props) {
                         <div className="divTagsFormatter">
                             <div className="divTags">
                             {
-                            tags.map((item) => {
-
-                                return(
-                                <Tag 
-                                key={item.idTag}
-                                nome={item.nome}
-                                tipo={item.tipo}
-                                url={item.url}
-                                />
-                                );
-                                })
+                                tags.map((item) => {
+                                    return(
+                                        <Tag 
+                                            key={item.idTag}
+                                            nome={item.nome}
+                                            tipo={item.tipo}
+                                            url={item.url}
+                                        />
+                                    ); 
+                                })    
                             }
                             </div>
                         </div>
+{/* 
+                        let arrayTags = [];
+
+                                for (let index = 0; index < item.length; index++) {
+                                    arrayTags.push(
+                                        {
+                                            "idTag": item[index].idTag,
+                                            "nome": item[index].nome,
+                                            "tipo": item[index].tipo,
+                                            "url": item[index].url
+                                        }
+                                    )
+                                }
+
+                                return(
+                                    <Tag 
+                                        key={item.idTag}
+                                        nome={item.nome}
+                                        tipo={item.tipo}
+                                        url={item.url}
+                                    />
+                                );     */}
 
                         <div className="divSpaceBetween3">
                             <div className="divPayment" type="search">

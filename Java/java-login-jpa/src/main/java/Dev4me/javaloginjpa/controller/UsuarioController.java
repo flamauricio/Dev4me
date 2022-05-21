@@ -2,6 +2,7 @@ package Dev4me.javaloginjpa.controller;
 
 import Dev4me.javaloginjpa.csv.ListaObj;
 import Dev4me.javaloginjpa.entity.Email;
+import Dev4me.javaloginjpa.entity.Tag;
 import Dev4me.javaloginjpa.entity.Usuario;
 import Dev4me.javaloginjpa.enums.StatusEmail;
 import Dev4me.javaloginjpa.repository.EmailRepository;
@@ -9,6 +10,7 @@ import Dev4me.javaloginjpa.repository.UsuarioRepository;
 import Dev4me.javaloginjpa.request.UsuarioSenhaRequest;
 import Dev4me.javaloginjpa.response.UsuarioAutenticacaoResponse;
 import Dev4me.javaloginjpa.response.UsuarioSimplesResponse;
+import Dev4me.javaloginjpa.response.VagaVetorTagResponse;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -44,6 +46,21 @@ public class UsuarioController {
 
     @Autowired
     private JavaMailSender emailSender;
+
+//    @GetMapping("/filtros/{filtro}")
+//    @CrossOrigin
+//    public ResponseEntity getUsuariosFiltrados(
+//            @RequestBody VagaVetorTagResponse tags
+//    )
+//    {
+//        List<String> listaTags = tags.getTags();
+//
+//        if (listaTags.isEmpty()) {
+//            return null;
+//        }
+//
+//
+//    }
 
     public static void gravaRegistro(String registro, String nomeArq) {
         BufferedWriter saida = null;

@@ -2,13 +2,11 @@ package Dev4me.javaloginjpa.controller;
 
 import Dev4me.javaloginjpa.entity.Tag;
 import Dev4me.javaloginjpa.entity.TagVaga;
-import Dev4me.javaloginjpa.entity.Vaga;
 import Dev4me.javaloginjpa.repository.TagRepository;
 import Dev4me.javaloginjpa.repository.TagVagaRepository;
 import Dev4me.javaloginjpa.repository.VagaRepository;
 import Dev4me.javaloginjpa.response.TagVagaResponse;
-import Dev4me.javaloginjpa.response.VagaIdResponse;
-import Dev4me.javaloginjpa.response.VagaVetorTagResponse;
+import Dev4me.javaloginjpa.response.VagaListResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -51,20 +49,20 @@ public class TagVagaController
 //        return status(200).body(tagVagaRepository.findByFkVagaIdVaga(idVaga));
 //    }
 
-    @GetMapping
-    @CrossOrigin
-    public ResponseEntity getTagsVaga(@RequestBody VagaIdResponse id){
-
-        List<Integer> lista = id.getId();
-        List<TagVagaResponse> listaRetornada = new ArrayList<TagVagaResponse>();
-
-        for (int i = 0; i < lista.size(); i++) {
-
-            List<TagVaga> listaTagVaga = tagVagaRepository.findByFkVagaIdVaga(lista.get(i));
-            TagVaga tagVaga = new TagVaga(listaTagVaga.get(i).getFkVaga(),
-                    listaTagVaga.get(i).getFkTag());
-
-        }
-        return status(200).build();
-    }
+//    @GetMapping
+//    @CrossOrigin
+//    public ResponseEntity getTagsVaga(@RequestBody VagaListResponse id){
+//
+//        List<Integer> lista = id.getId();
+//        List<TagVagaResponse> listaRetornada = new ArrayList<TagVagaResponse>();
+//
+//        for (int i = 0; i < lista.size(); i++) {
+//
+//            List<TagVaga> listaTagVaga = tagVagaRepository.findByFkVagaIdVaga(lista.get(i));
+//            TagVaga tagVaga = new TagVaga(listaTagVaga.get(i).getFkVaga(),
+//                    listaTagVaga.get(i).getFkTag());
+//
+//        }
+//        return status(200).build();
+//    }
 }
