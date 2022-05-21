@@ -11,8 +11,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class Vaga {
 
@@ -20,12 +18,12 @@ public class Vaga {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idVaga;
 
-    @NotBlank
+
     @Size(max = 45)
     @Column (name = "titulo", length = 45)
     private String titulo;
 
-    @NotBlank
+
     @Size(max = 10)
     @Column (name = "contrato", length = 10)
     private String contrato;
@@ -42,27 +40,39 @@ public class Vaga {
     @Column (name = "faixa_salarial_max")
     private Double faixaSalarialMax;
 
-    @NotBlank
+
     @Size(max = 100)
     @Column (name = "descricao", length = 100)
     private String descricao;
 
-    @NotBlank
     @Size(max = 200)
     @Column (name = "atividades", length = 200)
     private String atividades;
 
-    @NotBlank
     @Size(max = 200)
     @Column (name = "requisitos", length = 200)
     private String requisitos;
 
-    @NotNull
+
     @Column (name = "is_disponivel")
     private Boolean disponivel;
 
     @ManyToOne
     private Empresa fkEmpresa;
+
+    public Vaga(Integer idVaga, String titulo, String contrato, String localizacao, Double faixaSalarialMin, Double faixaSalarialMax, Boolean disponivel, Empresa fkEmpresa) {
+        this.idVaga = idVaga;
+        this.titulo = titulo;
+        this.contrato = contrato;
+        this.localizacao = localizacao;
+        this.faixaSalarialMin = faixaSalarialMin;
+        this.faixaSalarialMax = faixaSalarialMax;
+        this.disponivel = disponivel;
+        this.fkEmpresa = fkEmpresa;
+    }
+
+    public Vaga() {
+    }
 
     public Integer getIdVaga() {
         return idVaga;

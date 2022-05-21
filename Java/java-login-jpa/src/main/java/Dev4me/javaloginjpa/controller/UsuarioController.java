@@ -117,6 +117,7 @@ public class UsuarioController {
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         String dataFormatada = format.format(date);
 
+
         Integer id;
         int contaRegDadoLido = 0;
         int qtdRegDadoGravado;
@@ -165,11 +166,11 @@ public class UsuarioController {
                         endereco = registro.substring(89, 134);
                         email = registro.substring(134, 179).trim();
                         senha = registro.substring(179, 195).trim();
-                        //dataFormatada = registro.substring(195, 214).trim();
+                        dataFormatada = registro.substring(195, 214).trim();
                         descUsuario = registro.substring(214, 414).trim();
                         contaRegDadoLido++;
 
-                        repository.save(new Usuario(id, nome, telefone, cpf, cep, endereco, email, senha, descUsuario));
+//                        repository.save(new Usuario(id, nome, telefone, cpf, dataFormatada, cep, endereco, email, senha, descUsuario));
 
                 } else {
                     System.out.println("Tipo de registro inválido");
@@ -191,6 +192,7 @@ public class UsuarioController {
 
     @GetMapping("/relatorio-txt")
     public void getRelatorioTxt() {
+
         gravaArquivoTxt("Usuario.txt");
     }
 

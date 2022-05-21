@@ -8,11 +8,14 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-
+import java.time.format.DateTimeFormatter;
 @Entity
 @Table(name = "usuario")
 public class Usuario {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -59,11 +62,15 @@ public class Usuario {
     @Column (name = "endereco", length = 45)
     private String endereco;
 
-    public Usuario(Integer id, String nome, String email, String senha, String cep, String descUsuario, String cpf, String telefone,  String endereco) {
+
+
+
+    public Usuario(Integer id, String nome, String email, String senha, LocalDate dataNasc, String descUsuario, String cpf, String telefone, String cep, String endereco) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
+        this.dataNasc = dataNasc;
         this.descUsuario = descUsuario;
         this.cpf = cpf;
         this.telefone = telefone;
@@ -73,6 +80,11 @@ public class Usuario {
 
     public Usuario() {
     }
+
+//    public Usuario(Integer id, String nome, String telefone, String cpf, String dataFormatada, String cep, String endereco, String email, String senha, String descUsuario) {
+//    }
+
+
 
     public String getCpf() {
         return cpf;

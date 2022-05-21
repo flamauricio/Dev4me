@@ -62,6 +62,98 @@ body {
     --regular: 'Poppins-Medium';
 }
 
+/* User Profile */
+
+.sidebar-user {
+    width: 20%;
+    height: 100%;
+    position: fixed;
+    background-color: var(--mediumGrey);
+    z-index: 1;
+    padding-right: 5%;
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+    margin: 0;
+}
+
+.sidebar-container-user {
+    margin-left: 25%;
+}
+
+.div-image-alert {
+    margin-top: 5rem;
+    margin-bottom: 0.5rem;
+}
+
+.image-alert-invisible {
+    height: 2rem;
+    margin: 0;
+    opacity: 0;
+}
+
+.image-alert {
+    height: 2rem;
+    margin: 0;
+    opacity: 0.62;
+}
+
+.image-alert:hover {
+    cursor: pointer;
+    transition: 0.5s;
+    opacity: 1;
+}
+
+.main-div-user {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-left: 25%;
+    width: 75%;
+    height: auto;
+    overflow-y: auto;
+}
+
+.div-input-user-small {
+    width: 50%;
+    height: auto;
+    margin-left: 5.25%;
+    padding-bottom: 2.5%;
+}
+
+.div-input-user-long {
+    width: 92.7%;
+    height: auto;
+    margin-left: 5.25%;
+    padding-bottom: 2.5%;
+}
+
+.input-user-small {
+    width: 85%;
+    height: 2rem;
+    background-color: var(--mediumGrey);
+    border: none;
+    border-radius: 0.2rem;
+    padding: 0.4rem;
+    color: var(--white);
+    outline-color: var(--lightBlue);
+    font-family: var(--regular);
+    font-size: var(--smallSubtitle);
+}
+
+.input-user-long {
+    width: 95%;
+    height: 8rem;
+    background-color: var(--mediumGrey);
+    border: none;
+    border-radius: 0.2rem;
+    padding: 0.4rem;
+    color: var(--white);
+    outline-color: var(--lightBlue);
+    font-family: var(--regular);
+    font-size: var(--smallSubtitle);
+}
+
 /* Side Bar */
 
 .divSideBarMobile {
@@ -116,10 +208,30 @@ body {
     margin-top: 18%;
 }
 
+.bigTitleUserProfile {
+    margin: 0;
+    font-family: var(--bold);
+    font-size: var(--regularTitle);
+    color: var(--white);
+}
+
 .bigTitle {
     margin: 0;
     font-family: var(--bold);
     font-size: var(--regularTitle);
+    color: var(--white);
+}
+
+.title-user {
+    margin: 5% 0% 0% 0%;
+    font-family: var(--regular);
+    font-size: var(--smallSubtitle);
+    color: #b2b2b2;
+}
+
+.title-user:hover {
+    cursor: pointer;
+    transition: 0.5s;
     color: var(--white);
 }
 
@@ -568,11 +680,12 @@ body {
 @media screen and (max-width: 1400px) {
 
     /* Side Bar */
-    .bigTitle {
-        margin: 0;
-        font-family: var(--bold);
+    .bigTitleUserProfile {
         font-size: var(--bigText);
-        color: var(--white);
+    }
+
+    .bigTitle {
+        font-size: var(--bigText);
     }
 
     .bigTitleInvisible {
@@ -645,12 +758,36 @@ body {
 
 @media screen and (max-width: 1025px) {
 
+    /* User Profile */
+    .input-user-small {
+        height: 1.5rem;
+        font-size: var(--extraSmallText);
+    }
+
+    .input-user-long {
+        height: 6rem;
+        font-size: var(--extraSmallText);
+    }
+
+    .div-input-user-small {
+        padding-bottom: 5%;
+    }
+    
+    .div-input-user-long {
+        padding-bottom: 5%;
+    }
+
     /* Side Bar */
-    .bigTitle {
-        margin: 0;
-        font-family: var(--bold);
+    .bigTitleUserProfile {
         font-size: var(--subtitle);
-        color: var(--white);
+    }
+
+    .bigTitle {
+        font-size: var(--subtitle);
+    }
+
+    .title-user {
+        font-size: var(--smallText);
     }
 
     .bigTitleInvisible {
@@ -806,6 +943,10 @@ body {
 @media screen and (max-width: 832px) {
 
     /* Side Bar */
+    .bigTitleUserProfile {
+        font-size: var(--smallSubtitle);
+    }
+
     .bigTitle {
         font-size: var(--subtitle);
     }
@@ -859,6 +1000,14 @@ body {
 /* ----------------------------------------------- */
 
 @media screen and (max-width: 770px) {
+
+    .input-user-small {
+        font-size: var(--miniText);
+    }
+
+    .input-user-long {
+        font-size: var(--miniText);
+    }
 
     .divVaga {
         width: 100%;
@@ -917,6 +1066,10 @@ body {
 
     .bigTitle {
         font-size: var(--smallSubtitle);
+    }
+
+    .title-user {
+        font-size: var(--extraSmallText);
     }
 
     .bigTitleInvisible {
@@ -998,6 +1151,26 @@ body {
     .divFeedFormatter {
         margin-left: 5%;
         width: 90%;
+    }
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 700px) {
+
+    /* Side Bar */
+    .bigTitleUserProfile {
+        font-size: var(--extraSmallText);
+    }
+
+    .input-user-small {
+        height: 1.2rem;
+    }
+
+    .input-user-long {
+        height: 4.8rem;
     }
 }
 
@@ -1222,8 +1395,16 @@ body {
     @media screen and (max-width: 370px) {
 
     /* Side Bar */
+    .bigTitleUserProfile {
+        font-size: var(--miniText);
+    }
+
     .bigTitle {
         font-size: var(--miniText);
+    }
+
+    .title-user {
+        font-size: var(--microText);
     }
 
     .bigTitleInvisible {
