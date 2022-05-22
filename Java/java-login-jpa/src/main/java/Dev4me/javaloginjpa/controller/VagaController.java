@@ -232,8 +232,8 @@ public class VagaController {
 //            corpo += String.format("%-16.16s", u.getAtividades());
 //            corpo += String.format("%-19.19s", u.getRequisitos());
             corpo += String.format("%5.5b", u.getDisponivel());
-            corpo += String.format("%25.25s", u.getFkEmpresa().getNome());
-            corpo += String.format("%25.25s", u.getFkEmpresa().getEmail());
+            corpo += String.format("%20.20s", u.getFkEmpresa().getNome());
+            corpo += String.format("%30.30s", u.getFkEmpresa().getEmail());
             gravaRegistro(corpo, nomeArq);
             contaRegistroCorpo++;
         }
@@ -296,8 +296,8 @@ public class VagaController {
 
                     idVaga = Integer.valueOf(registro.substring(2, 8).trim());
                     titulo = registro.substring(8, 36).trim();
-                    contrato = registro.substring(36, 47).trim();
-                    localizacao = registro.substring(47, 67).trim();
+                    contrato = registro.substring(36, 48).trim();
+                    localizacao = registro.substring(48, 67).trim();
                     faixaSalarialMin = Double.valueOf(registro.substring(67, 75).replace(',', '.'));
                     faixaSalarialMax = Double.valueOf(registro.substring(75, 83).replace(',', '.'));
                     disponivel = Boolean.valueOf(registro.substring(83, 94).trim());
