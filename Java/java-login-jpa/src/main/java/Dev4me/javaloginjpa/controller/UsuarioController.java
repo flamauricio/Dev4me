@@ -10,6 +10,7 @@ import Dev4me.javaloginjpa.repository.UsuarioRepository;
 import Dev4me.javaloginjpa.request.UsuarioSenhaRequest;
 import Dev4me.javaloginjpa.response.UsuarioAutenticacaoResponse;
 import Dev4me.javaloginjpa.response.UsuarioSimplesResponse;
+import Dev4me.javaloginjpa.response.UsuarioWithoutPasswordResponse;
 import Dev4me.javaloginjpa.response.VagaVetorTagResponse;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -277,6 +278,13 @@ public class UsuarioController {
     @CrossOrigin
     public ResponseEntity<List<Usuario>> getUsuario(@PathVariable String id) {
         return ResponseEntity.status(200).build();
+    }
+
+    // GET de um usuário específico
+    @GetMapping("/perfil/{id}")
+    @CrossOrigin
+    public ResponseEntity<Optional<Usuario>> getUsuarioPerfil(@PathVariable Integer id) {
+        return ResponseEntity.status(200).body(repository.findById(id));
     }
 
     //POST de autenticar usuario
