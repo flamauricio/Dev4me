@@ -22,6 +22,7 @@ function Rotas()
                     <Route path="/vaga" element={<FeedVagasVaga/>}/>
                     <Route path="/post-vaga" element={<CadastroVaga/>}/>
                     <Route path="/perfil-usuario" element={<PerfilUsuario/>}/>
+                    <Route path="/vaga" element={<FeedVagasVaga/>}></Route>
                     <Route path="*" element={<Page404/>}/>
                 </Routes>
             </BrowserRouter>

@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import HeaderLogado from "../components/HeaderLogado";
 import feedVagasVagscss from "../css/feedVagasVaga.css";
 import imgLocal from "../img/local.png";
 import imgContract from "../img/contract.png";
 import imgPayment from "../img/payment.png";
+import api from "../api";
+import Tag from "../components/Tag";
 
 function FeedVagasVaga() {
+    const [vaga, setVaga] = useState("");
+    const [tags, setTags] = useState("");
+    const idVaga = sessionStorage.getItem("idVaga");
+
+    React.useEffect(() => {
+        api.get(`/vagas/${idVaga}`)
+        .then((resposta) => {
+                setVaga(resposta.data.vaga);
+                setTags(resposta.data.tags);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+    }, [])
+
+
     return (
         <>
                 <HeaderLogado />
@@ -14,7 +32,7 @@ function FeedVagasVaga() {
                         <div className="divVagaContent">
 
                             <div className="divPageTitle">
-                                <p className="pageTitle">Desenvolvedor Front-end Júnior</p>
+                                <p className="pageTitle">{vaga.titulo}</p>
                             </div>
 
                             <div className="divSpaceBetween">
@@ -25,7 +43,7 @@ function FeedVagasVaga() {
                                     </div>
                                     <div className="divInputFormatter">
                                         <div className="divInput">
-                                            <p className="smallText">São Paulo, SP</p>
+                                            <p className="smallText">{vaga.localizacao}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -37,7 +55,7 @@ function FeedVagasVaga() {
                                     </div>
                                     <div className="divInputFormatter">
                                         <div className="divInput">
-                                            <p className="smallText">Híbrido</p>
+                                            <p className="smallText">{vaga.contrato}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -49,7 +67,7 @@ function FeedVagasVaga() {
                                     </div>
                                     <div className="divInputFormatter">
                                         <div className="divInput">
-                                            <p className="smallText">R$ 3500,00 até 4500,00</p>
+                                            <p className="smallText">{vaga.faixaSalarialMin} até {vaga.faixaSalarialMax}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -61,14 +79,7 @@ function FeedVagasVaga() {
                                 </div>
                                 <div className="divInputFormatter">
                                     <div className="divBigInput">
-                                        <p className="smallText">Desenvolvimento de aplicações front-end com React;
-                                            <br /> <br />
-                                            Participar ativamente em soluções para os aplicativos desenvolvidos;
-                                            <br /> <br />
-                                            Utilizará boas práticas e código limpo;
-                                            <br /> <br />
-                                            Conhecimento em Design Patterns.
-                                        </p>
+                                        <p className="smallText">{vaga.descricao}</p>
                                     </div>
                                 </div>
                             </div>
@@ -79,14 +90,7 @@ function FeedVagasVaga() {
                                 </div>
                                 <div className="divInputFormatter">
                                     <div className="divBigInputWrap">
-                                        <button className="tagArea">Desenvolvedor</button>
-                                        <button className="tagDev">JavaScript</button>
-                                        <button className="tagDev">React</button>
-                                        <button className="tagDev">NodeJS</button>
-                                        <button className="tagPlatform">AWS</button>
-                                        <button className="tagPlatform">Azure</button>
-                                        <button className="tagBusyness">Agile</button>
-                                        <button className="tagBusyness">Scrum</button>
+                                        {/* {plotarTags()} */}
                                     </div>
                                 </div>
                             </div>
@@ -97,15 +101,7 @@ function FeedVagasVaga() {
                                 </div>
                                 <div className="divInputFormatter">
                                     <div className="divBigInput">
-                                        <p className="smallText">Participar ativamente em soluções para os aplicativos
-                                            desenvolvidos;
-                                            <br /> <br />
-                                            Utilizará boas práticas e código limpo;
-                                            <br /> <br />
-                                            Conhecimento em Design Patterns;
-                                            <br /> <br />
-                                            Conhecimento básico de JavaScript e Cloud.
-                                        </p>
+                                        <p className="smallText">{vaga.requisitos}</p>
                                     </div>
                                 </div>
                             </div>
@@ -116,12 +112,7 @@ function FeedVagasVaga() {
                                 </div>
                                 <div className="divInputFormatter">
                                     <div className="divBigInput">
-                                        <p className="smallText">Criar telas e ajudar em sua ideação;
-                                            <br /> <br />
-                                            Fazer diagramas para documentar códigos;
-                                            <br /> <br />
-                                            Utilizar ferramentas no Azure na AWS.
-                                        </p>
+                                        <p className="smallText">{vaga.atividades}</p>
                                     </div>
                                 </div>
                             </div>
