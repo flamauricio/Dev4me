@@ -153,9 +153,6 @@ function FeedVagas() {
         "marginBottom": "30px"
     }
 
-    const [arrayIdVagas, setArrayIdVagas] = useState("");
-
-
     const divMobileOrganizer = {
         marginLeft: "5%"
     }
@@ -187,49 +184,6 @@ function FeedVagas() {
         setTipoContrato(contratos);
     }
 
-    const [vagasLocalizacao, setVagasLocalizacao] = useState([]);
-    const [vagasContrato, setVagasContrato] = useState([]);
-    const [vagasTags, setVagasTags] = useState([]);
-
-    function pegaVagasLocalizacao()
-    {
-        api.get(`/filtro/localizacao/${InputLocalizacao}`)
-        .then((resposta) => {
-            setVagasLocalizacao(resposta.data);
-            console.log(resposta);
-        })
-        .catch((error) => {
-            console.log("Erro ao requisitar vagas com localização personalidada.");
-            console.log(error);
-        })
-    }
-
-    function pegaVagasTags()
-    {
-        api.post(`/filtro/tags`, tags)
-        .then((resposta) => {
-            setVagasTags(resposta.data);
-            console.log(resposta);
-        })
-        .catch((error) => {
-            console.log("Erro ao requisitar vagas com tags personalizadas.")
-            alert(error);
-        })
-    }
-
-    function pegaVagasContrato()
-    {
-        api.post(`filtro/tipo-contrato/`, tipoContrato)
-        .then((resposta) => {
-            setVagasContrato(resposta.data);
-            alert(resposta);
-        })
-        .catch((error) => {
-            console.log("Erro ao requisitar vagas com tags personalizadas.");
-            alert(error);
-        })
-    }
-
     const [filtrosEDados, setFiltrosEDados] = useState([]);
 
     const [tagsPorVaga, setTagsPorVaga] = useState();
@@ -239,10 +193,11 @@ function FeedVagas() {
     {
         console.log(tagsPorVaga);
         return vagas.map((item, index) => {
+            console.log(item.idVaga);
 
             return (
                 <CardVaga
-                    key={item.id}
+                    id={item.idVaga}
                     titulo={item.titulo}
                     contrato={item.contrato}
                     localizacao={item.localizacao}
@@ -289,6 +244,7 @@ function FeedVagas() {
             } else if (resposta.status === 200) {
                 setVagas(resposta.data.vaga);
                 setTagsPorVaga(resposta.data.tags);
+                plotarVagas();
             } else {
                 alert("Por favor, tente novamente! ", filtrosEDados, vagas.length, tagsPorVaga.length)
             }
@@ -455,7 +411,7 @@ function FeedVagas() {
                     <div className="divAlignLeft">
                         <p className="subtitle"></p>
                         <a className="li-comum">
-                            <button style={alternativeButtonStyle} onClick={() => {buscarVagasPorFiltro()}} className="alternativeButton">Buscar</button>
+                            <button style={alternativeButtonStyle} onClick={buscarVagasPorFiltro} className="alternativeButton">Buscar</button>
                         </a>
                     </div>
 
@@ -477,24 +433,7 @@ function FeedVagas() {
                 <div className="divFeedMargin"></div>
 
                 {
-                    vagas.map((item, index) => {
-
-                        return (
-                            <CardVaga
-                                key={item.id}
-                                titulo={item.titulo}
-                                contrato={item.contrato}
-                                localizacao={item.localizacao}
-                                salarioMin={item.faixaSalarialMin}
-                                salarioMax={item.faixaSalarialMax}
-                                descricao={item.descricao}
-                                atividades={item.atividades}
-                                requisitos={item.requisitos}
-                                empresa={item.fkEmpresa.nome}
-                                vetor={tagsPorVaga[index]}
-                            />
-                        );
-                    })
+                    plotarVagas()
                 }
 
                 <div className="divFeedMargin"></div>

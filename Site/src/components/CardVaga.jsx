@@ -48,6 +48,13 @@ function CardVaga(props) {
         marginLeft: "3%"
     }
 
+    function verMais()
+    {
+        sessionStorage.setItem("idVaga", props.id);
+        sessionStorage.setItem("tags", props.vetor);
+        window.location = "http://localhost:3000/vaga";
+    }
+
     return (
         <>
             <div className="divFeedMargin2"></div>
@@ -112,8 +119,8 @@ function CardVaga(props) {
                         <div className="divSpaceBetween3">
                             <div className="divPayment" type="search">
                                 <span style={textSalary}>{salaryTextDefault}</span></div>
-                            <a className="li-comum" href="./feedVagasVaga.html" target="_blank"><button
-                                    className="alternativeButton">Ver mais</button></a>
+                            <a className="li-comum" target="_blank"><button
+                                    className="alternativeButton" onClick={() => {verMais()}}>Ver mais</button></a>
                         </div>
                     </div>
                 </div>
