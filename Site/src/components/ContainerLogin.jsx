@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import BotaoCadastroLogin from "./BotaoCadastroLogin";
 import DivCheckboxes from "./DivCheckboxes";
 import InputTexto from "./InputTexto";
@@ -12,6 +12,20 @@ function ContainerLogin(props) {
 
     const [inputEmail, setEmail] = useState("");
     const [inputSenha, setSenha] = useState("");
+
+    const loadingDiv = {
+        display: 'none'
+    }
+
+    const botaoDisplay = {}
+
+    // loadingDiv = {
+    //     display: 'block'
+    // }
+
+    // botaoDisplay = {
+    //     display: 'none'
+    // }
 
     function setarEmail(e) {
         setEmail(e.target.value);
@@ -35,6 +49,15 @@ function ContainerLogin(props) {
     //                     })
     // }
 
+    function infoMessage() {
+        const MySwal = withReactContent(Swal)
+
+                        MySwal.fire({
+                            title: <strong>Favor selecionar uma opção</strong>,
+                            icon: 'info'
+                        })
+    }
+
     function errorMessage() {
         const MySwal = withReactContent(Swal)
 
@@ -54,6 +77,15 @@ function ContainerLogin(props) {
     }
 
     function entrar(e) {
+
+        // loadingDiv = {
+        //     display: 'block'
+        // }
+
+        // botaoDisplay = {
+        //     display: 'none'
+        // }
+
         e.preventDefault();
 
         // setEmail(sessionStorage.getItem("email"));
@@ -118,7 +150,7 @@ function ContainerLogin(props) {
                 })
         } 
         else {
-            alert("Favor selecionar uma opção.");
+            infoMessage();
         }
 
     }
@@ -141,7 +173,9 @@ function ContainerLogin(props) {
 
                             <DivCheckboxes></DivCheckboxes>
 
-                            <BotaoCadastroLogin conteudo="Entrar"></BotaoCadastroLogin>
+                            <BotaoCadastroLogin conteudo="Entrar" style={botaoDisplay}></BotaoCadastroLogin>
+
+                            <div className="c-loader" style={loadingDiv}></div>
                         </form>
                         <SmallText conteudo="Esqueci minha senha."></SmallText>
                     </div>

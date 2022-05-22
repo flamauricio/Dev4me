@@ -139,7 +139,7 @@ function ContainerCadastro() {
 
                             <InputTexto setter={setarEmail} type="text" name="email" placeholder="email"></InputTexto>
 
-                            <InputTexto setter={setarSenha} type="text" name="senha" placeholder="senha"></InputTexto>
+                            <InputTexto setter={setarSenha} type="password" name="senha" placeholder="senha"></InputTexto>
 
                             <DivCheckboxes></DivCheckboxes>
 

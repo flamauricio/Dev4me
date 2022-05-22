@@ -82,6 +82,21 @@ body
     background-color: var(--darkGrey);
 }
 
+.c-loader {
+    animation: is-rotating 1s infinite;
+    border: 6px solid var(--lightGrey);
+    border-radius: 50%;
+    border-top-color: var(--lightBlue);
+    height: 50px;
+    width: 50px;
+  }
+  
+  @keyframes is-rotating {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
 #container
 {
     width: 100%;
@@ -162,6 +177,13 @@ body
     margin: 20px 0;
     /* text-align: center; */
     box-shadow: 8px 8px 10px -2px #1E9CD7;
+    transition: 0.5s;
+}
+
+#container button:hover {
+    color: var(--white);
+    background-color: var(--lightBlue);
+    box-shadow: 8px 8px 10px -2px #99dfff;
 }
 
 #text
