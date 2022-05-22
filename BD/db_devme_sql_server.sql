@@ -7,9 +7,9 @@ CREATE TABLE usuario(
   telefone VARCHAR(14) NULL,
   cpf VARCHAR(14) NULL,
   cep VARCHAR(8) NULL,
-  endereco  VARCHAR(45) NULL,
+  endereco  VARCHAR(100) NULL,
   data_nasc DATE,
-  desc_user VARCHAR(200) NULL
+  desc_user VARCHAR(700) NULL
   );
 
   CREATE TABLE empresa(
