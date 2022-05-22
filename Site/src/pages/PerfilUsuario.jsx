@@ -62,7 +62,7 @@ function PerfilUsuario() {
             <div className="divSpaceBetween2">
                 <div className="div-input-user-long">
                     <p className="bigTitleUserProfile">Descrição</p>
-                    <input defaultValue={user} className="input-user-long" type="text" />
+                    <textarea defaultValue={user} className="input-user-long" type="text" cols="40" rows="5"/>
                 </div>
             </div>
 

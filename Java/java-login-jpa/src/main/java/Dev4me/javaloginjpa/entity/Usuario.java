@@ -41,8 +41,8 @@ public class Usuario {
     @Column (name = "data_nasc")
     private LocalDate dataNasc;
 
-    @Size(max = 200)
-    @Column (name = "desc_user", length = 200)
+    @Size(max = 700)
+    @Column (name = "desc_user", length = 700)
     private String descUsuario;
 
     @CPF
@@ -58,8 +58,8 @@ public class Usuario {
     @Column (name = "cep", length = 8)
     private String cep;
 
-    @Size(max = 45)
-    @Column (name = "endereco", length = 45)
+    @Size(max = 100)
+    @Column (name = "endereco", length = 100)
     private String endereco;
 
 
