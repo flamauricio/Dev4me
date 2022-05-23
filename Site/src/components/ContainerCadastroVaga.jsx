@@ -4,6 +4,8 @@ import feedVagasCss from "../css/feedVagas.css"
 import api from "../api"
 
 function ContainerCadastoVaga() {
+    const [bodyStyleCursor, setBodyStyleCursor] = useState();
+
     const [tagsRequisicao, setTagsRequisicao] = useState([]);
 
     useEffect(() => {
@@ -152,6 +154,8 @@ function ContainerCadastoVaga() {
             alert("Favor completar todos os dados.");
             return;
         }
+        setBodyStyleCursor({"cursor": "wait"})
+
         const vaga = {
             "titulo": titulo,
             "contrato": tipo,
@@ -182,23 +186,22 @@ function ContainerCadastoVaga() {
 
                         .then((resposta) => {
                             if (resposta.status === 201) {
+                                setBodyStyleCursor({"cursor": "default"});
                                 alert("Vaga cadastrada com sucesso!");
                                 window.location = "http://localhost:3000/feed-empresa";
                             }
                         })
                         .catch((error) => {
                             console.log(error);
+                            setBodyStyleCursor({"cursor": "default"});
                             alert("Erro ao cadastrar as tags");
                         })
 
                 
-                } else {
-                    alert("Erro ao criar vaga.");
-                    console.log(resposta);
-                }
-
+                } 
             }).catch((error) => {
                 console.log(error);
+                setBodyStyleCursor({"cursor": "default"});
                 alert("Erro ao criar vaga");
             })
 
@@ -286,7 +289,7 @@ function ContainerCadastoVaga() {
 
     return (
         <>
-            <div id="container-vg">
+            <div style={bodyStyleCursor} id="container-vg">
                 <div id="mainBox-vg">
                     <div id="content-vg">
                         <span className="title-vg">Cadastrar uma nova vaga</span>

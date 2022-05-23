@@ -50,6 +50,9 @@ function FeedVagas() {
 
         retiraNoVetor(tags);
         console.log(quantidadeElementos);
+        if (quantidadeElementos === 0 || tags === [null]) {
+            setTags([]);
+        }
         console.log(tags);
     }
 

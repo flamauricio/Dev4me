@@ -159,8 +159,12 @@ function FeedEmpresa() {
 
         api.post("usuarios/filtros", filtro)
         .then((resposta) => {
-            setCandidatos(resposta.data.usuarios);
-            setTagsUsuarios(resposta.data.tags);
+            if (resposta.status === 200) {
+                setCandidatos(resposta.data.usuarios);
+                setTagsUsuarios(resposta.data.tags);
+            } else if (resposta.status === 204) {
+                alert("Não encontramos usuários com esse filtro!");
+            }
         })
         .catch((error) => {
             console.log(error);
