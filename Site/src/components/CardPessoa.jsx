@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import imgUserDefault from "../img/user-default.png";
 import apiCEP from "../apiCEP";
+import Tag from "../components/Tag";
 
 function CardPessoa(props) {
 
@@ -47,14 +48,18 @@ function CardPessoa(props) {
 
                     <div className="divTagsFormatter">
                         <div className="divTags">
-                            <button className="tagArea">Desenvolvedor</button>
-                            <button className="tagDev">JavaScript</button>
-                            <button className="tagDev">React</button>
-                            <button className="tagDev">NodeJS</button>
-                            <button className="tagPlatform">AWS</button>
-                            <button className="tagPlatform">Azure</button>
-                            <button className="tagBusyness">Agile</button>
-                            <button className="tagBusyness">Scrum</button>
+                            {
+                                props.vetorTags.map((item) => {
+                                    return(
+                                        <Tag 
+                                            key={item.idTag}
+                                            nome={item.nome}
+                                            tipo={item.tipo}
+                                            url={item.url}
+                                        />
+                                    ); 
+                                }) 
+                            } 
                         </div>
                     </div>
 

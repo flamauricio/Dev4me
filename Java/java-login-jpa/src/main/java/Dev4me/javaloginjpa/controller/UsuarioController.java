@@ -3,11 +3,14 @@ package Dev4me.javaloginjpa.controller;
 import Dev4me.javaloginjpa.csv.ListaObj;
 import Dev4me.javaloginjpa.entity.Email;
 import Dev4me.javaloginjpa.entity.Tag;
+import Dev4me.javaloginjpa.entity.TagUsuario;
 import Dev4me.javaloginjpa.entity.Usuario;
 import Dev4me.javaloginjpa.enums.StatusEmail;
 import Dev4me.javaloginjpa.repository.EmailRepository;
+import Dev4me.javaloginjpa.repository.TagUsuarioRepository;
 import Dev4me.javaloginjpa.repository.UsuarioRepository;
 import Dev4me.javaloginjpa.request.UsuarioSenhaRequest;
+import Dev4me.javaloginjpa.response.TagListListUsuarioListResponse;
 import Dev4me.javaloginjpa.response.UsuarioAutenticacaoResponse;
 import Dev4me.javaloginjpa.response.UsuarioSimplesResponse;
 import Dev4me.javaloginjpa.response.VagaVetorTagResponse;
@@ -34,6 +37,8 @@ import java.sql.Date;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
+import static org.springframework.http.ResponseEntity.*;
+
 @RestController
 @RequestMapping("/usuarios")
 public class UsuarioController {
@@ -47,20 +52,71 @@ public class UsuarioController {
     @Autowired
     private JavaMailSender emailSender;
 
-//    @GetMapping("/filtros/{filtro}")
-//    @CrossOrigin
-//    public ResponseEntity getUsuariosFiltrados(
-//            @RequestBody VagaVetorTagResponse tags
-//    )
-//    {
-//        List<String> listaTags = tags.getTags();
-//
-//        if (listaTags.isEmpty()) {
-//            return null;
-//        }
-//
-//
-//    }
+    @Autowired
+    TagUsuarioRepository tagUsuarioRepository;
+
+    @PostMapping("/filtros")
+    @CrossOrigin
+    public ResponseEntity getUsuariosFiltrados(
+            @RequestBody VagaVetorTagResponse tags
+    )
+    {
+        List<String> listaTagsFiltragem = tags.getTags();
+        List<Usuario> listaUsuarios = new ArrayList<Usuario>();
+        List<List<Tag>> listaListaTags = new ArrayList<List<Tag>>();
+
+        if (repository.findAllByOrderByIdDesc().equals(null)) {
+            return status(204).build();
+        }
+
+        if (listaTagsFiltragem.isEmpty()) {
+            listaUsuarios = repository.findAllByOrderByIdDesc();
+            for (Usuario usuario : listaUsuarios) {
+                List<Tag> listaTag = new ArrayList<Tag>();
+                List<TagUsuario> listaProvisoria = tagUsuarioRepository.findByFkUsuarioEmail(usuario.getEmail());
+                for (TagUsuario tagUsuario : listaProvisoria) {
+                    listaTag.add(tagUsuario.getFkTag());
+                }
+
+                listaListaTags.add(listaTag);
+            }
+
+            TagListListUsuarioListResponse tllur = new TagListListUsuarioListResponse(listaUsuarios, listaListaTags);
+
+            return status(200).body(tllur);
+        }
+
+        for (String nomeTag : listaTagsFiltragem) {
+            List<TagUsuario> listaProvisoria = tagUsuarioRepository.findByFkTagNome(nomeTag);
+
+            if (!listaProvisoria.isEmpty()) {
+                for (TagUsuario tagUsuario : listaProvisoria) {
+                    listaUsuarios.add(tagUsuario.getFkUsuario());
+                }
+            }
+
+        }
+
+        if (listaUsuarios.isEmpty()) {
+            return status(204).build();
+        }
+
+        for (Usuario usuario : listaUsuarios) {
+            List<TagUsuario> listaTagsUsuarios = tagUsuarioRepository.findByFkUsuarioEmail(usuario.getEmail());
+            List<Tag> listaTag = new ArrayList<Tag>();
+            for (TagUsuario tagUsuario : listaTagsUsuarios) {
+                listaTag.add(tagUsuario.getFkTag());
+            }
+            listaListaTags.add(listaTag);
+        }
+
+
+
+
+
+        TagListListUsuarioListResponse tllulr = new TagListListUsuarioListResponse(listaUsuarios, listaListaTags);
+        return status(200).body(tllulr);
+    }
 
     public static void gravaRegistro(String registro, String nomeArq) {
         BufferedWriter saida = null;
@@ -208,7 +264,7 @@ public class UsuarioController {
                 validador = true;
             }
         }if(validador){
-            return ResponseEntity.status(203).build();
+            return status(203).build();
         }else{
             repository.save(novoUsuario);
             String email = novoUsuario.getEmail();
@@ -216,7 +272,7 @@ public class UsuarioController {
             RestTemplate restTemplate = new RestTemplate();
             restTemplate.postForObject(uri, novoUsuario, String.class);
         }
-        return ResponseEntity.status(201).build();
+        return status(201).build();
     }
 
     // Enviar email
@@ -259,7 +315,7 @@ public class UsuarioController {
                     + usuario.getTelefone() + ";" + usuario.getCep() + ";"
                     + usuario.getEndereco() + ";" + usuario.getDescUsuario() + "\n";
         }
-        return ResponseEntity.status(200)
+        return status(200)
                 .header("content-type", "text/csv")
                 .header("content-disposition", "filename=\"relatorioUsuario.csv\"")
                 .body(relatorio);
@@ -269,14 +325,14 @@ public class UsuarioController {
     @GetMapping
     @CrossOrigin
     public ResponseEntity<List<UsuarioSimplesResponse>> getUsuariosSimples() {
-        return ResponseEntity.status(200).body(repository.getUsuariosSimples());
+        return status(200).body(repository.getUsuariosSimples());
     }
 
     // GET de usuarios com senha
     @GetMapping("/{id}")
     @CrossOrigin
     public ResponseEntity<List<Usuario>> getUsuario(@PathVariable String id) {
-        return ResponseEntity.status(200).build();
+        return status(200).build();
     }
 
     //POST de autenticar usuario
@@ -286,14 +342,14 @@ public class UsuarioController {
     public ResponseEntity autenticar(@RequestBody UsuarioAutenticacaoResponse usuario) {
         List<UsuarioAutenticacaoResponse> usuarios = repository.getUsuariosAutenticacao();
         if (usuarios.isEmpty()) {
-            return ResponseEntity.status(204).build();
+            return status(204).build();
         }
         for (UsuarioAutenticacaoResponse u : usuarios) {
             if (u.getEmail().equals(usuario.getEmail()) && u.getSenha().equals(usuario.getSenha())) {
-                return ResponseEntity.status(200).body(u.getId());
+                return status(200).body(u.getId());
             }
         }
-        return ResponseEntity.status(404).build();
+        return status(404).build();
     }
 
     //DELETE desloga usuario
@@ -307,12 +363,12 @@ public class UsuarioController {
             for (UsuarioAutenticacaoResponse u : usuarios) {
                 if (u.getId().equals(id) && u.getSenha().equals(usuario.getSenha())) {
                     repository.deleteById(id);
-                    return ResponseEntity.status(200).build();
+                    return status(200).build();
                 }
             }
         }
 
-        return ResponseEntity.status(404).build();
+        return status(404).build();
     }
 
     // PATCH trocar senha
@@ -327,11 +383,11 @@ public class UsuarioController {
             for (UsuarioAutenticacaoResponse u : usuarios) {
                 if (u.getId().equals(id) && u.getSenha().equals(usuario.getSenha())) {
                     repository.patchUsuarioSenha(id, usuario.getNovaSenha());
-                    return ResponseEntity.status(200).build();
+                    return status(200).build();
                 }
             }
         }
 
-        return ResponseEntity.status(404).build();
+        return status(404).build();
     }
 }

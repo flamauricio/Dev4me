@@ -5,25 +5,19 @@ import Dev4me.javaloginjpa.repository.EmpresaRepository;
 import Dev4me.javaloginjpa.repository.TagRepository;
 import Dev4me.javaloginjpa.repository.TagVagaRepository;
 import Dev4me.javaloginjpa.repository.VagaRepository;
-import Dev4me.javaloginjpa.response.UsuarioTagsResponse;
 
-import Dev4me.javaloginjpa.response.UsuarioAutenticacaoResponse;
 import Dev4me.javaloginjpa.response.VagaFiltroResponse;
-import Dev4me.javaloginjpa.response.VagaListResponse;
+import Dev4me.javaloginjpa.response.VagaTagsCompletasResponse;
 import Dev4me.javaloginjpa.response.VagaTagsResponse;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.tags.Tags;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.io.*;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -339,5 +333,32 @@ public class VagaController {
     public void readRelatorioTxt() {
 
         leArquivoTxt("Vaga.txt");
+    }
+
+    @GetMapping("/{id}")
+    @CrossOrigin
+    public ResponseEntity getVagaById(@PathVariable Integer id)
+    {
+        Optional<Vaga> vaga = repository.findById(id);
+
+        if (vaga.isEmpty()) {
+            return status(404).build();
+        }
+
+        List<TagVaga> listTagVaga = tagVagaRepository.findByFkVagaIdVaga(id);
+
+        if (listTagVaga.isEmpty()) {
+            return status(404).build();
+        }
+
+        List<Tag> tags = new ArrayList<Tag>();
+
+        for (TagVaga tag : listTagVaga) {
+            tags.add(tag.getFkTag());
+        }
+
+        VagaTagsCompletasResponse vagaTags = new VagaTagsCompletasResponse(tags, vaga);
+
+        return status(200).body(vagaTags);
     }
 }

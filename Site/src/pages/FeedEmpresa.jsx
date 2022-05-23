@@ -148,32 +148,19 @@ function FeedEmpresa() {
     const [candidatos, setCandidatos] = useState(new Array());
 
     useEffect(() => {
-        trazerCandidatos();
+        buscar();
     }, []);
 
-    function trazerCandidatos() {
-
-        api
-            .get("/usuarios")
-            .then((candidatosBuscados) => {
-
-                console.log("Dados da resposta: ");
-                console.log(candidatosBuscados.data);
-
-                setCandidatos(candidatosBuscados.data);
-            })
-            .catch(function (erroOcorrido) {
-                console.log(erroOcorrido);
-            });
-
-    }
-
+    const [tagsUsuarios, setTagsUsuarios] = useState();
 
     function buscar()
     {
-        api.post("usuarios/filtros", tags)
+        const filtro = {"tags": quantidadeElementos === 0 ? [] : tags}
+
+        api.post("usuarios/filtros", filtro)
         .then((resposta) => {
-            console.log(resposta);
+            setCandidatos(resposta.data.usuarios);
+            setTagsUsuarios(resposta.data.tags);
         })
         .catch((error) => {
             console.log(error);
@@ -258,10 +245,11 @@ function FeedEmpresa() {
             <div className="divCardsFormatter">
 
                 {
-                    candidatos.map((item) => {
+                    candidatos.map((item, index) => {
 
                         return (
                             <CardPessoa
+                                vetorTags={tagsUsuarios[index]}
                                 cep={item.cep}
                                 descricao={item.descUsuario}
                                 email={item.email}
