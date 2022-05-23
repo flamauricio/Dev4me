@@ -17,10 +17,15 @@ function PerfilUsuario() {
     const [userEmail, setUserEmail] = useState();
     const [userTelefone, setUserTelefone] = useState();
     const [userEndereco, setUserEndereco] = useState();
+    const [auxiliar, setAuxiliar] = useState();
+
+    const [cidade, setCidade] = useState("");
+    const [uf, setUf] = useState("");
+    const [cidadeUF, setCidadeUF] = useState("");
 
     useEffect(() => {
         trazDadosUsuario();
-    });
+    }, [cidadeUF]);
 
     function trazDadosUsuario() {
 
@@ -35,22 +40,14 @@ function PerfilUsuario() {
             setUserEmail(resposta.data.email);
             setUserTelefone(resposta.data.telefone);
             setUserEndereco(resposta.data.endereco);
+            setAuxiliar('usado como métrica');
+            pegaLocalizacaoPorCEP();
         })
         .catch((error) => {
             console.log("Erro ao buscar usuário!");
             console.log(error);
         })
     }
-
-    const [localizacao, setLocalizacao] = useState(new Array());
-
-    useEffect(() => {
-        pegaLocalizacaoPorCEP();
-      }, []);
-
-      const [cidade, setCidade] = useState("");
-      const [uf, setUf] = useState("");
-      const [cidadeUF, setCidadeUF] = useState("");
 
     function pegaLocalizacaoPorCEP() {
 
@@ -63,11 +60,10 @@ function PerfilUsuario() {
             setCidade(cepBuscado.data.localidade);
             setUf(cepBuscado.data.uf);
 
-            setLocalizacao(cepBuscado.data);
         }).then(() => {
             setCidadeUF(`${cidade}, ${uf}`);
         })
-        .catch(function (erroOcorrido) {
+        .catch((erroOcorrido) => {
             console.log(erroOcorrido);
         });
         }
@@ -75,6 +71,41 @@ function PerfilUsuario() {
             setCidadeUF("Localização não informada");
         }
         }
+
+        const divCenter = {
+            width : '95%',
+            display : 'none',
+            justifyContent : 'left',
+            marginLeft : '5%',
+            paddingBottom : '5%',
+        }
+
+    const inputNames = ['inputNome', 'inputEmail', 'inputDataNascimento',
+    'inputCpf', 'inputTelefone', 'inputCep', 'inputEndereco', 'inputDescricao'];
+
+    function turnOnEditMode() {
+
+        document.getElementById('divButton').style.display = 'block';
+
+        for (let index = 0; index < inputNames.length; index++) {
+
+            document.getElementById(`${inputNames[index]}`).disabled = false;
+            document.getElementById(`${inputNames[index]}`).style.border = 'solid';
+            document.getElementById(`${inputNames[index]}`).style.cursor = 'pointer';
+        }
+    }
+
+    function saveInfo() {
+
+        document.getElementById('divButton').style.display = 'none';
+
+        for (let index = 0; index < inputNames.length; index++) {
+
+            document.getElementById(`${inputNames[index]}`).disabled = true;
+            document.getElementById(`${inputNames[index]}`).style.border = 'none';
+            document.getElementById(`${inputNames[index]}`).style.cursor = 'default';
+        }
+    }
 
     return(
         <>
@@ -85,7 +116,7 @@ function PerfilUsuario() {
                     <img alt="" className="image-alert" src={alertImage} />
                 </div>
                 <p className="bigTitleUserProfile">Configurações</p>
-                <p className="title-user">Editar informações</p>
+                <p onClick={turnOnEditMode} className="title-user">Editar informações</p>
                 <p className="title-user">Mudar senha</p>
                 <p className="title-user">Sair</p>
             </div>
@@ -100,64 +131,70 @@ function PerfilUsuario() {
             <div className="divSpaceBetween2">
                 <div className="div-input-user-small">
                     <p className="bigTitleUserProfile">Nome</p>
-                    <input defaultValue={userNome} className="input-user-small" type="text" />
+                    <input id="inputNome" disabled={true} defaultValue={userNome} className="input-user-small" type="text" />
                 </div>
 
                 <div className="div-input-user-small">
                     <p className="bigTitleUserProfile">Localização</p>
-                    <input defaultValue={cidadeUF} className="input-user-small" type="text" />
+                    <input disabled={true} defaultValue={cidadeUF} className="input-user-small" type="text" />
                 </div>
             </div>
 
             <div className="divSpaceBetween2">
                 <div className="div-input-user-long">
                     <p className="bigTitleUserProfile">Descrição</p>
-                    <textarea defaultValue={userDescricao} className="input-user-long" type="text" cols="40" rows="5"/>
+                    <textarea id="inputDescricao" disabled={true} defaultValue={userDescricao} className="input-user-long" type="text" cols="40" rows="5"/>
                 </div>
             </div>
 
             <div className="divSpaceBetween2">
                 <div className="div-input-user-long">
                     <p className="bigTitleUserProfile">Tags</p>
-                    <input defaultValue={user} className="input-user-long" type="text" />
+                    <input disabled={true} defaultValue={user} className="input-user-long" type="text" />
                 </div>
             </div>
 
             <div className="divSpaceBetween2">
                     <div className="div-input-user-small">
                         <p className="bigTitleUserProfile">Email</p>
-                        <input defaultValue={userEmail} className="input-user-small" type="text" />
+                        <input id="inputEmail" disabled={true} defaultValue={userEmail} className="input-user-small" type="text" />
                     </div>
 
                     <div className="div-input-user-small">
                         <p className="bigTitleUserProfile">Nascimento</p>
-                        <input defaultValue={userDataNascimento} className="input-user-small" type="date" />
+                        <input id="inputDataNascimento" disabled={true} defaultValue={userDataNascimento} className="input-user-small" type="date" />
                     </div>
             </div>
 
             <div className="divSpaceBetween2">
                     <div className="div-input-user-small">
                         <p className="bigTitleUserProfile">CPF</p>
-                        <input defaultValue={userCpf} className="input-user-small" type="text" />
+                        <input id="inputCpf" disabled={true} defaultValue={userCpf} className="input-user-small" type="text" />
                     </div>
 
                     <div className="div-input-user-small">
                         <p className="bigTitleUserProfile">Telefone</p>
-                        <input defaultValue={userTelefone} className="input-user-small" type="text" />
+                        <input id="inputTelefone" disabled={true} defaultValue={userTelefone} className="input-user-small" type="text" />
                     </div>
             </div>
 
             <div className="divSpaceBetween2">
                     <div className="div-input-user-small">
                         <p className="bigTitleUserProfile">CEP</p>
-                        <input defaultValue={userCep} className="input-user-small" type="text" />
+                        <input id="inputCep" disabled={true} defaultValue={userCep} className="input-user-small" type="text" />
                     </div>
 
                     <div className="div-input-user-small">
                         <p className="bigTitleUserProfile">Endereço</p>
-                        <input defaultValue={userEndereco} className="input-user-small" type="text" />
+                        <input id="inputEndereco" disabled={true} defaultValue={userEndereco} className="input-user-small" type="text" />
                     </div>
             </div>
+
+            <div id="divButton" style={divCenter}>
+                    <a className="li-comum">
+                            <button onClick={saveInfo} className="alternativeButton">Salvar</button>
+                        </a>
+                    </div>
         </div>
         </>
     )
