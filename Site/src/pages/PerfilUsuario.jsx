@@ -109,7 +109,10 @@ function PerfilUsuario() {
 
     return(
         <>
-        <HeaderLogadoDois />
+        <HeaderLogadoDois 
+        encaminharTo="http://localhost:3000/perfil-usuario"
+        encaminharToFeed="http://localhost:3000/feed-vagas"
+        />
         <div className="sidebar-user">
             <div className="sidebar-container-user">
                 <div className="div-image-alert">

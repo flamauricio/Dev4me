@@ -304,7 +304,10 @@ function FeedVagas() {
 
     return (
         <>
-            <HeaderLogadoDois nomeBotao="Cadastrar" encaminharTo="http://localhost:3000/cadastro" />
+            <HeaderLogadoDois nomeBotao="Cadastrar" 
+            encaminharTo="http://localhost:3000/perfil-usuario"
+            encaminharToFeed="http://localhost:3000/feed-vagas"
+            />
 
             <div className="divMobile">
                 <div className="divMobileOrganizer2" >

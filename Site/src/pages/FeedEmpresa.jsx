@@ -173,7 +173,10 @@ function FeedEmpresa() {
 
     return (
         <>
-            <HeaderLogadoDois />
+            <HeaderLogadoDois 
+            encaminharTo="http://localhost:3000/html/perfilEmpresa.html"
+            encaminharToFeed="http://localhost:3000/feed-empresa"
+            />
 
             <div className="divMobile">
                 <div className="divMobileOrganizer2" >
@@ -198,7 +201,7 @@ function FeedEmpresa() {
                     </div>
                     <div className="divAlignLeft">
                         <p className="subtitle">Criar nova vaga</p>
-                        <a className="li-comum" href="../html/cadastroVaga.html" target="_blank">
+                        <a className="li-comum" href="http://localhost:8080/post-vaga" target="_blank">
                             <button className="alternativeButton">Criar vaga</button>
                         </a>
                     </div>

@@ -7,7 +7,7 @@ function Header(props) {
         <>
             <div className="divHeaderFather">
                 <div className="divHeaderContainer">
-                    <a href="../html/homepageAlt.html">
+                    <a href="../html/homePage.html">
                         <img id="img" className="logo" src={logoNomeSimples} 
                         onMouseOver={() => {document.getElementById('img').src="../Logo-Dev4Me/logo-nome-degrade-dev4me.png"}} 
                         onMouseOut={() => {document.getElementById('img').src="../Logo-Dev4Me/logo-nome-simples-dev4me.png"}} alt="" />
