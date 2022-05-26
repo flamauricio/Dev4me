@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HeaderLogado from "../components/HeaderLogado";
 import feedVagasVagscss from "../css/feedVagasVaga.css";
 import imgLocal from "../img/local.png";
@@ -15,14 +15,33 @@ function FeedVagasVaga() {
     React.useEffect(() => {
         api.get(`/vagas/${idVaga}`)
         .then((resposta) => {
-                setVaga(resposta.data.vaga);
                 setTags(resposta.data.tags);
+                setVaga(resposta.data.vaga);
         })
         .catch((error) => {
             console.log(error);
         })
     }, [])
 
+    function plotarTags()
+    {
+        if (tags == "") {
+            setTimeout(() => {
+                plotarTags();
+            }, 2000);
+            return;
+        }
+        return (
+            tags.map((item) => {
+                return (
+                    <Tag
+                        nome={item.nome}
+                        tipo={item.tipo}
+                    />
+                )
+            })
+        )
+    }
 
     return (
         <>
@@ -90,7 +109,9 @@ function FeedVagasVaga() {
                                 </div>
                                 <div className="divInputFormatter">
                                     <div className="divBigInputWrap">
-                                        {/* {plotarTags()} */}
+                                        {
+                                            plotarTags()
+                                        }
                                     </div>
                                 </div>
                             </div>

@@ -34,7 +34,7 @@ function FeedVagas() {
 
     function retiraNoVetor(vetor) {
         let vetorTag = vetor;
-        vetor[quantidadeElementos - 1] = null;
+        vetor.splice(quantidadeElementos - 1);
         setQuantidadeElementos(quantidadeElementos - 1);
         setTags(vetorTag);
     }
@@ -49,11 +49,7 @@ function FeedVagas() {
         }
 
         retiraNoVetor(tags);
-        console.log(quantidadeElementos);
-        if (quantidadeElementos === 0 || tags === [null]) {
-            setTags([]);
-        }
-        console.log(tags);
+        console.log("consolando tags: ", tags);
     }
 
     function adicionarTag() {
@@ -64,8 +60,7 @@ function FeedVagas() {
             }
         }
         adicionaNoVetor(tags);
-        console.log(quantidadeElementos);
-        console.log(tags);
+        console.log("consolando tags:", tags);
     }
 
     // api.post("/tags")
@@ -190,7 +185,7 @@ function FeedVagas() {
     const [filtrosEDados, setFiltrosEDados] = useState([]);
 
     const [tagsPorVaga, setTagsPorVaga] = useState();
-    
+
 
     function plotarVagas()
     {
@@ -234,10 +229,12 @@ function FeedVagas() {
 
         setFiltrosEDados({
             "filtros": vetorFiltros.length === 0 ? [] : vetorFiltros,
-            "tags": tags === [null] || quantidadeElementos === 0 ? [] : tags,
+            "tags": quantidadeElementos === 0 ? [] : tags,
             "localizacao": InputLocalizacao === "" ? "" : InputLocalizacao,
             "contratos": tipoContrato.length === 0 ? [] : tipoContrato
         });
+
+        console.log("consolando filtros: ", filtrosEDados);
 
         api.post("/vagas/filtros", filtrosEDados)
         .then((resposta) => {
