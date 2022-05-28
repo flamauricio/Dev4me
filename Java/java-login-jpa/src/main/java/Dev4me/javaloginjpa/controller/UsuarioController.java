@@ -1,20 +1,13 @@
 package Dev4me.javaloginjpa.controller;
 
 import Dev4me.javaloginjpa.csv.ListaObj;
-import Dev4me.javaloginjpa.entity.Email;
-import Dev4me.javaloginjpa.entity.Tag;
-import Dev4me.javaloginjpa.entity.TagUsuario;
-import Dev4me.javaloginjpa.entity.Usuario;
+import Dev4me.javaloginjpa.entity.*;
 import Dev4me.javaloginjpa.enums.StatusEmail;
 import Dev4me.javaloginjpa.repository.EmailRepository;
 import Dev4me.javaloginjpa.repository.TagUsuarioRepository;
 import Dev4me.javaloginjpa.repository.UsuarioRepository;
 import Dev4me.javaloginjpa.request.UsuarioSenhaRequest;
-import Dev4me.javaloginjpa.response.TagListListUsuarioListResponse;
-import Dev4me.javaloginjpa.response.UsuarioAutenticacaoResponse;
-import Dev4me.javaloginjpa.response.UsuarioSimplesResponse;
-import Dev4me.javaloginjpa.response.UsuarioWithoutPasswordResponse;
-import Dev4me.javaloginjpa.response.VagaVetorTagResponse;
+import Dev4me.javaloginjpa.response.*;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -345,8 +338,29 @@ public class UsuarioController {
 
     @GetMapping("/tags-usuario/{id}")
     @CrossOrigin
-    public ResponseEntity<List<TagUsuario>> getTagsUsuario(@PathVariable Integer id) {
-        return ResponseEntity.status(200).body(tagUsuarioRepository.findAllByFkUsuario(id));
+    public ResponseEntity getVagaById(@PathVariable Integer id)
+    {
+        Optional<Usuario> usuario = repository.findById(id);
+
+        if (usuario.isEmpty()) {
+            return status(404).build();
+        }
+
+        List<TagUsuario> listTagUsuario = tagUsuarioRepository.findByFkUsuarioId(id);
+
+        if (listTagUsuario.isEmpty()) {
+            return status(404).build();
+        }
+
+        List<Tag> tags = new ArrayList<Tag>();
+
+        for (TagUsuario tag : listTagUsuario) {
+            tags.add(tag.getFkTag());
+        }
+
+        UsuarioTagsCompletasResponse usuarioTags = new UsuarioTagsCompletasResponse(tags, usuario);
+
+        return status(200).body(usuarioTags);
     }
 
     //POST de autenticar usuario

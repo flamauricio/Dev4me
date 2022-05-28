@@ -27,6 +27,7 @@ function PerfilUsuario() {
 
     useEffect(() => {
         trazDadosUsuario();
+        bringUserTags();
     }, [cidadeUF]);
 
     function trazDadosUsuario() {
@@ -118,6 +119,34 @@ function PerfilUsuario() {
                         })
     }
 
+    // ------------------------------
+    // Tags Requests
+    // ------------------------------
+    const [tagsUsuario, setTagsUsuario] = useState();
+
+    function bringUserTags() {
+
+        api.get(`/usuarios/tags-usuario/${idUser}`)
+        .then((resposta) => {
+
+            setTagsUsuario(resposta.data.tags);
+
+            teste();
+        })
+        .catch((error) => {
+            console.log("Erro ao buscar tags do usuário!");
+            console.log(error);
+        })
+    }
+
+    function teste() {
+
+        tagsUsuario.map((item, index) => {
+
+            console.log(item.nome);
+        })
+    }
+
     return(
         <>
         <HeaderLogadoDois 
@@ -164,7 +193,7 @@ function PerfilUsuario() {
             <div className="divSpaceBetween2">
                 <div className="div-input-user-long">
                     <p className="bigTitleUserProfile">Tags</p>
-                    <input disabled={true} defaultValue={user} className="input-user-long" type="text" />
+                    <input id="inputEmail" disabled={true} defaultValue={userEmail} className="input-user-small" type="text" />
                 </div>
             </div>
 
