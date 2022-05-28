@@ -41,16 +41,16 @@ public class Vaga {
     private Double faixaSalarialMax;
 
 
-    @Size(max = 100)
-    @Column (name = "descricao", length = 100)
+    @Size(max = 700)
+    @Column (name = "descricao", length = 700)
     private String descricao;
 
-    @Size(max = 200)
-    @Column (name = "atividades", length = 200)
+    @Size(max = 700)
+    @Column (name = "atividades", length = 700)
     private String atividades;
 
-    @Size(max = 200)
-    @Column (name = "requisitos", length = 200)
+    @Size(max = 700)
+    @Column (name = "requisitos", length = 700)
     private String requisitos;
 
 
