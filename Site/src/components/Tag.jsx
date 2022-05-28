@@ -13,8 +13,8 @@ function Tag(props) {
 
         if (props.tipo === 'cargo') {
             mudaCorTag = {
-                borderColor : '#E86969',
-                color: '#E86969'
+                borderColor : '#fa2abf',
+                color: '#fa2abf'
             }
         }
         else if (props.tipo === 'linguagens e frameworks') {

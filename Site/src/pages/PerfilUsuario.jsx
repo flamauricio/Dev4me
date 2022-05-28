@@ -5,6 +5,7 @@ import apiCEP from "../apiCEP";
 import alertImage from "../img/warning.png";
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import Tag from "../components/Tag";
 
 function PerfilUsuario() {
 
@@ -141,9 +142,34 @@ function PerfilUsuario() {
 
     function teste() {
 
-        tagsUsuario.map((item, index) => {
+        tagsUsuario.map((item) => {
 
-            console.log(item.nome);
+            console.log(item.nome + ' / ' + item.tipo);
+        })
+    }
+
+    function bringUserTagsToHTML() {
+
+        return tagsUsuario.map((item) => {
+
+            console.log(item.nome + ' / ' + item.tipo);
+
+            return(
+                <div className="divTags">
+                    {
+                        tagsUsuario.map((item) => {
+                            return(
+                                <Tag 
+                                    key={item.idTag}
+                                    nome={item.nome}
+                                    tipo={item.tipo}
+                                    url={item.url}
+                                />
+                            ); 
+                        })    
+                    }
+                </div>
+            )
         })
     }
 
@@ -193,7 +219,9 @@ function PerfilUsuario() {
             <div className="divSpaceBetween2">
                 <div className="div-input-user-long">
                     <p className="bigTitleUserProfile">Tags</p>
-                    <input id="inputEmail" disabled={true} defaultValue={userEmail} className="input-user-small" type="text" />
+                    <div className="divTagsFormatter">
+                        {bringUserTagsToHTML()}
+                    </div>
                 </div>
             </div>
 
