@@ -9,12 +9,14 @@ import Dev4me.javaloginjpa.repository.VagaRepository;
 import Dev4me.javaloginjpa.response.VagaFiltroResponse;
 import Dev4me.javaloginjpa.response.VagaTagsCompletasResponse;
 import Dev4me.javaloginjpa.response.VagaTagsResponse;
+import Dev4me.javaloginjpa.service.FileUploadService;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.io.*;
@@ -39,6 +41,9 @@ public class VagaController {
 
     @Autowired
     private EmpresaRepository empresaRepository;
+
+    @Autowired
+    FileUploadService fileUploadService;
 
     private List<Vaga> vagasFiltradas = new ArrayList<Vaga>();
 
@@ -360,5 +365,11 @@ public class VagaController {
         VagaTagsCompletasResponse vagaTags = new VagaTagsCompletasResponse(tags, vaga);
 
         return status(200).body(vagaTags);
+    }
+
+    @PostMapping("/upload")
+    public void upload(@RequestParam("file") MultipartFile file) throws IOException {
+        fileUploadService.uploadFile(file);
+        leArquivoTxt("Vaga.txt");
     }
 }
