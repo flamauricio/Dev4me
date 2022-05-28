@@ -134,7 +134,7 @@ function ContainerLogin(props) {
 
                         sessionStorage.setItem("idUsuario", response.data)
 
-                        window.location = "http://localhost:3000/html/feedVagas.html";
+                        window.location = "http://localhost:3000/feed-vagas";
                         
                     } else {
                         errorMessage();

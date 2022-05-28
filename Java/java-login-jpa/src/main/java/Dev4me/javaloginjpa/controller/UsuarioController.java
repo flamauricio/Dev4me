@@ -343,6 +343,12 @@ public class UsuarioController {
         return ResponseEntity.status(200).body(repository.findById(id));
     }
 
+    @GetMapping("/tags-usuario/{id}")
+    @CrossOrigin
+    public ResponseEntity<List<TagUsuario>> getTagsUsuario(@PathVariable Integer id) {
+        return ResponseEntity.status(200).body(tagUsuarioRepository.findAllByFkUsuario(id));
+    }
+
     //POST de autenticar usuario
     @ApiResponses({@ApiResponse(responseCode = "200", content = @Content(mediaType = "application/json"))})
     @PostMapping("/login")

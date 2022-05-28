@@ -174,7 +174,7 @@ function FeedEmpresa() {
     return (
         <>
             <HeaderLogadoDois 
-            encaminharTo="http://localhost:3000/html/perfilEmpresa.html"
+            encaminharTo="http://localhost:3000/perfil-empresa"
             encaminharToFeed="http://localhost:3000/feed-empresa"
             />
 

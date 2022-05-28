@@ -1319,6 +1319,11 @@ body {
         padding: 0.25rem 0rem 0.25rem 0rem;
     }
 
+
+    .sidebar-container-user {
+        margin-left: 15%;
+    }
+
 }
 
 /* ----------------------------------------------- */
@@ -1511,6 +1516,10 @@ body {
         .divDescriptionFormatter {
             height: 8rem;
             font-size: var(--microText);
+        }
+
+        .sidebar-container-user {
+            margin-left: 10%;
         }
 
     }

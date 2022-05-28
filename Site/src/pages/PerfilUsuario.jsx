@@ -91,7 +91,7 @@ function PerfilUsuario() {
 
             document.getElementById(`${inputNames[index]}`).disabled = false;
             document.getElementById(`${inputNames[index]}`).style.border = 'solid';
-            document.getElementById(`${inputNames[index]}`).style.cursor = 'pointer';
+            document.getElementById(`${inputNames[index]}`).style.cursor = 'text';
         }
     }
 
