@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import HeaderLogadoDois from "../components/HeaderLogadoDois";
 import api from "../api";
 import apiCEP from "../apiCEP";
-import alertImage from "../img/warning.png"
+import alertImage from "../img/warning.png";
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 function PerfilUsuario() {
 
@@ -107,6 +109,15 @@ function PerfilUsuario() {
         }
     }
 
+    function alertMessege() {
+        const MySwal = withReactContent(Swal)
+
+                        MySwal.fire({
+                            title: <strong>Você precisa completar seu perfil</strong>,
+                            icon: 'info'
+                        })
+    }
+
     return(
         <>
         <HeaderLogadoDois 
@@ -116,7 +127,7 @@ function PerfilUsuario() {
         <div className="sidebar-user">
             <div className="sidebar-container-user">
                 <div className="div-image-alert">
-                    <img alt="" className="image-alert" src={alertImage} />
+                    <img alt="" className="image-alert" src={alertImage} onClick={alertMessege} />
                 </div>
                 <p className="bigTitleUserProfile">Configurações</p>
                 <p onClick={turnOnEditMode} className="title-user">Editar informações</p>
