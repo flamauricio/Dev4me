@@ -315,7 +315,23 @@ function PerfilUsuario() {
                 endereco: enderecoUser
             }
 
-            console.log(usuario);
+            api.patch("/usuarios/alterar-dados", usuario)
+
+                .then((response) => {
+                    if (response.status === 200 || response.status === 201) {
+
+                        successMessage();
+                    } 
+                    else {
+                        errorMessage();
+                        console.log("Código do erro: ", response.status);
+                    }
+                })
+
+                .catch((error) => {
+                    console.log(error);
+                    errorMessage();
+                })
         }
         else {
             alertMessegeFieldsIncomplete();
@@ -389,6 +405,26 @@ function PerfilUsuario() {
                             title: <strong>Você precisa preencher todos<br />
                                            os campos antes de salvar</strong>,
                             icon: 'info'
+                        })
+    }
+
+    function successMessage() {
+        const MySwal = withReactContent(Swal)
+
+                        MySwal.fire({
+                            title: <strong>Dados atualizados com sucesso!</strong>,
+                            icon: 'success'
+                        }).then(() => {
+                        
+                        })
+    }
+
+    function errorMessage() {
+        const MySwal = withReactContent(Swal)
+
+                        MySwal.fire({
+                            title: <strong>Não foi possível atualizar os dados!</strong>,
+                            icon: 'error'
                         })
     }
 
