@@ -14,4 +14,6 @@ public interface TagUsuarioRepository extends JpaRepository<TagUsuario, Integer>
     List<TagUsuario> findByFkTagNome(String nome);
 
     List<TagUsuario> findByFkUsuarioId(Integer id);
+
+    void deleteByFkUsuarioId(Integer idUsuario);
 }

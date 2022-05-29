@@ -443,4 +443,24 @@ public class UsuarioController {
 
         return status(404).build();
     }
+
+    //DELETE desloga usuario
+    @DeleteMapping("/delete-tags-usuario/{id}")
+    @CrossOrigin
+    public ResponseEntity<Void> deleteUsuario(@PathVariable Integer id) {
+
+        List<TagUsuario> listTagUsuario = tagUsuarioRepository.findByFkUsuarioId(id);
+
+        for (TagUsuario usuario:
+             listTagUsuario) {
+
+            if (id == usuario.getFkUsuario().getId()) {
+
+                tagUsuarioRepository.deleteById(usuario.getIdTagUsuario());
+            }
+
+        }
+
+        return status(200).build();
+    }
 }
