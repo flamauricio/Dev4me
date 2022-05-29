@@ -62,7 +62,7 @@ function PerfilUsuario() {
 
     function retiraNoVetor(vetor) {
         let vetorTag = vetor;
-        vetor[quantidadeElementos - 1] = null;
+        vetor.shift();
         setQuantidadeElementos(quantidadeElementos - 1);
         setTags(vetorTag);
     }
@@ -77,8 +77,6 @@ function PerfilUsuario() {
         }
 
         retiraNoVetor(tags);
-        console.log(quantidadeElementos);
-        console.log(tags);
     }
 
     function adicionarTag() {
@@ -89,8 +87,6 @@ function PerfilUsuario() {
             }
         }
         adicionaNoVetor(tags);
-        console.log(quantidadeElementos);
-        console.log(tags);
     }
 
     function plotarTags() {
@@ -280,6 +276,9 @@ function PerfilUsuario() {
             document.getElementById(`${inputNames[index]}`).style.border = 'none';
             document.getElementById(`${inputNames[index]}`).style.cursor = 'default';
         }
+
+        document.getElementById('divEditTags').style.display = 'none';
+        document.getElementById('divDisplayTags').style.display = 'block';
     }
 
     function alertMessege() {
