@@ -30,4 +30,16 @@ public class EmpresaAutenticacaoResponse
     {
         return senha;
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 }
