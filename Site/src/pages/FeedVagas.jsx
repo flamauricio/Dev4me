@@ -63,11 +63,6 @@ function FeedVagas() {
         console.log("consolando tags:", tags);
     }
 
-    // api.post("/tags")
-    //     .then((resposta) => {
-
-    //     })
-
     function plotarTags() {
         return tags.map((item) => {
 

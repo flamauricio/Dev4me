@@ -12,7 +12,7 @@
     --blueTag: #69E3E8;
     --purpleTag: #7B69E8;
     --yellowTag: #FFC700;
-    --redTag: #E86969;
+    --redTag: #fa2abf;
 
     /* Margin */
     --xxsMargin: 1%;
@@ -171,6 +171,12 @@ body
     font-size: var(--smallText);
     cursor: pointer;
     margin-top: 5px;
+    transition: 0.5s;
+}
+
+.buttonTag-vg:hover {
+    color: var(--white);
+    background-color: var(--lightBlue);
 }
 
 #tags-vg
