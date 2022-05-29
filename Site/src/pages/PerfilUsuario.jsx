@@ -31,6 +31,149 @@ function PerfilUsuario() {
         bringUserTags();
     }, [cidadeUF]);
 
+    // ------------------------------
+    // Traz as opções de tags na div
+    // ------------------------------
+    const [tags, setTags] = useState([]);
+    const [quantidadeElementos, setQuantidadeElementos] = useState(0);
+    const [tagDaVez, setTagDaVez] = useState("");
+    const [tagsRequisicao, setTagsRequisicao] = useState([]);
+
+    useEffect(() => {
+        plotarTags();
+    }, [quantidadeElementos]);
+
+    function adicionaNoVetor(vetorTag) {
+        let vetor = vetorTag;
+
+        if (tagDaVez === "") {
+            return alert("Por favor, escolha uma tag!");
+        }
+
+        if (quantidadeElementos >= 8) {
+            return alert("Desculpe, permitimos apenas 8 tags por vaga!")
+        }
+
+        vetor[quantidadeElementos] = tagDaVez;
+        setQuantidadeElementos(quantidadeElementos + 1);
+        setTags(vetor);
+    }
+
+
+    function retiraNoVetor(vetor) {
+        let vetorTag = vetor;
+        vetor[quantidadeElementos - 1] = null;
+        setQuantidadeElementos(quantidadeElementos - 1);
+        setTags(vetorTag);
+    }
+
+    function plotarOptions() {
+        return tagsRequisicao.map((tag) => <option value={tag.nome}>{tag.nome}</option>);
+    }
+
+    function desfazer() {
+        if (quantidadeElementos === 0) {
+            return alert("Você precisa adicionar uma tag primeiro!");
+        }
+
+        retiraNoVetor(tags);
+        console.log(quantidadeElementos);
+        console.log(tags);
+    }
+
+    function adicionarTag() {
+        for (let index = 0; index < tags.length; index++) {
+            if (tags[index] === tagDaVez) {
+                alert("Tag já inserida!");
+                return;
+            }
+        }
+        adicionaNoVetor(tags);
+        console.log(quantidadeElementos);
+        console.log(tags);
+    }
+
+    function plotarTags() {
+        return tags.map((item) => {
+
+            if (item === "javascript" ||
+                item === "node.js" ||
+                item === "react" ||
+                item === "react native" ||
+                item === "angular" ||
+                item === "vue.js" ||
+                item === "java" ||
+                item === "spring boot" ||
+                item === "kotlin" ||
+                item === "html" ||
+                item === "css" ||
+                item === "python" ||
+                item === "typescript" ||
+                item === "c" ||
+                item === "c++" ||
+                item === "c#" ||
+                item === "php"
+            ) {
+                return <button className="tagDev">{item}</button>
+            }
+
+            else if (item === "azure" ||
+                item === "aws" ||
+                item === "google cloud" ||
+                item === "oracle" ||
+                item === "mysql" ||
+                item === "mongoDB"
+            ) {
+                return <button className="tagPlatform">{item}</button>
+            }
+
+            else if (item === "desenvolvedor" ||
+                item === "analista de sistemas" ||
+                item === "gestor" ||
+                item === "arquiteto de TI" ||
+                item === "arquiteto de cloud" ||
+                item === "dba" ||
+                item === "engenheiro de software" ||
+                item === "cientista de dados" ||
+                item === "analista de redes" ||
+                item === "front-end" ||
+                item === "back-end") {
+                return <button className="tagArea">{item}</button>
+            }
+
+            else if (item === "agile" ||
+                item === "scrum" ||
+                item === "cascata"
+            ) {
+                return <button className="tagBusyness">{item}</button>
+            }
+
+        })
+    }
+
+    useEffect(() => {
+        api.get("/tags")
+
+            .then((response) => {
+                if (response.status === 204) {
+                    alert("Tags não estão cadastradas no banco de dados!")
+                } else if (response.status === 200) {
+                    console.log(response.data);
+                    setTagsRequisicao(response.data);
+                } else {
+                    alert("Erro não especificado ao fazer requisição das tags.");
+                }
+            })
+
+            .catch((error) => {
+                console.log(error);
+            })
+    }, []);
+
+    // ------------------------------
+    // Traz dados do usuário
+    // ------------------------------
+
     function trazDadosUsuario() {
 
         api.get(`/usuarios/perfil/${idUser}`)
@@ -123,7 +266,8 @@ function PerfilUsuario() {
     // ------------------------------
     // Tags Requests
     // ------------------------------
-    const [tagsUsuario, setTagsUsuario] = useState();
+    const [tagsUsuario, setTagsUsuario] = useState("");
+
 
     function bringUserTags() {
 
@@ -132,7 +276,6 @@ function PerfilUsuario() {
 
             setTagsUsuario(resposta.data.tags);
 
-            teste();
         })
         .catch((error) => {
             console.log("Erro ao buscar tags do usuário!");
@@ -140,19 +283,14 @@ function PerfilUsuario() {
         })
     }
 
-    function teste() {
-
-        tagsUsuario.map((item) => {
-
-            console.log(item.nome + ' / ' + item.tipo);
-        })
-    }
-
     function bringUserTagsToHTML() {
 
-        return tagsUsuario.map((item) => {
-
-            console.log(item.nome + ' / ' + item.tipo);
+        if (tagsUsuario == "") {
+            setTimeout(() => {
+                bringUserTagsToHTML();
+            }, 2000);
+            return;
+        }
 
             return(
                 <div className="divTags">
@@ -170,8 +308,10 @@ function PerfilUsuario() {
                     }
                 </div>
             )
-        })
     }
+    // ------------------------------
+    // ------------------------------
+    // ------------------------------
 
     return(
         <>
@@ -217,15 +357,6 @@ function PerfilUsuario() {
             </div>
 
             <div className="divSpaceBetween2">
-                <div className="div-input-user-long">
-                    <p className="bigTitleUserProfile">Tags</p>
-                    <div className="divTagsFormatter">
-                        {bringUserTagsToHTML()}
-                    </div>
-                </div>
-            </div>
-
-            <div className="divSpaceBetween2">
                     <div className="div-input-user-small">
                         <p className="bigTitleUserProfile">Email</p>
                         <input id="inputEmail" disabled={true} defaultValue={userEmail} className="input-user-small" type="text" />
@@ -259,6 +390,33 @@ function PerfilUsuario() {
                         <p className="bigTitleUserProfile">Endereço</p>
                         <input id="inputEndereco" disabled={true} defaultValue={userEndereco} className="input-user-small" type="text" />
                     </div>
+            </div>
+
+            <div className="divSpaceBetween2">
+                <div className="div-input-user-long">
+                    <p className="bigTitleUserProfile">Tags</p>
+                    <div className="divTagsFormatter">
+                        {bringUserTagsToHTML()}
+                    </div>
+                </div>
+            </div>
+
+            <div className="divAlignLeft">
+                <p className="subtitle">Editar Tags</p>
+                <select onChange={(event) => { setTagDaVez(event.target.value) }} name="" id="combo-tags">
+                    <option value="">Procure por uma tag</option>
+                    {plotarOptions()}
+                </select>
+                <div />
+
+                <div className="divButtonsTag-cv">
+                    <button onClick={desfazer} className="buttonTag-vg">Desfazer</button>
+                    <button onClick={adicionarTag} className="buttonTag-vg">Adicionar</button>
+                </div>
+
+                <div id="tags-vg">
+                    {plotarTags()}
+                </div>
             </div>
 
             <div id="divButton" style={divCenter}>
