@@ -215,6 +215,9 @@ function PerfilUsuario() {
         }
     }
 
+    // ------------------------------
+    // Edit Mode & CSS Adjustments
+    // ------------------------------
     const divCenter = {
         width : '95%',
         display : 'none',
@@ -266,28 +269,36 @@ function PerfilUsuario() {
         document.getElementById('divDisplayTags').style.display = 'none';
     }
 
+    // ------------------------------
+    // Valida salva os dados
+    // ------------------------------
     function saveInfo() {
 
-        document.getElementById('divButton').style.display = 'none';
+        if(document.getElementById('inputNome').value && document.getElementById('inputEmail').value
+        && document.getElementById('inputDataNascimento').value && document.getElementById('inputCpf').value
+        && document.getElementById('inputTelefone').value && document.getElementById('inputCep').value
+        && document.getElementById('inputEndereco').value && document.getElementById('inputDescricao').value 
+        && quantidadeElementos > 0) {
 
-        for (let index = 0; index < inputNames.length; index++) {
+            // Parte visual
+            document.getElementById('divButton').style.display = 'none';
 
-            document.getElementById(`${inputNames[index]}`).disabled = true;
-            document.getElementById(`${inputNames[index]}`).style.border = 'none';
-            document.getElementById(`${inputNames[index]}`).style.cursor = 'default';
+            for (let index = 0; index < inputNames.length; index++) {
+    
+                document.getElementById(`${inputNames[index]}`).disabled = true;
+                document.getElementById(`${inputNames[index]}`).style.border = 'none';
+                document.getElementById(`${inputNames[index]}`).style.cursor = 'default';
+            }
+    
+            document.getElementById('divEditTags').style.display = 'none';
+            document.getElementById('divDisplayTags').style.display = 'block';
+
+            // Parte integração
+        }
+        else {
+            alertMessegeFieldsIncomplete();
         }
 
-        document.getElementById('divEditTags').style.display = 'none';
-        document.getElementById('divDisplayTags').style.display = 'block';
-    }
-
-    function alertMessege() {
-        const MySwal = withReactContent(Swal)
-
-                        MySwal.fire({
-                            title: <strong>Você precisa completar seu perfil</strong>,
-                            icon: 'info'
-                        })
     }
 
     // ------------------------------
@@ -336,6 +347,29 @@ function PerfilUsuario() {
                 </div>
             )
     }
+
+    // ------------------------------
+    // Pop-ups
+    // ------------------------------
+    function alertMessege() {
+        const MySwal = withReactContent(Swal)
+
+                        MySwal.fire({
+                            title: <strong>Você precisa completar seu perfil</strong>,
+                            icon: 'info'
+                        })
+    }
+
+    function alertMessegeFieldsIncomplete() {
+        const MySwal = withReactContent(Swal)
+
+                        MySwal.fire({
+                            title: <strong>Você precisa preencher todos<br />
+                                           os campos antes de salvar</strong>,
+                            icon: 'info'
+                        })
+    }
+
     // ------------------------------
     // ------------------------------
     // ------------------------------
