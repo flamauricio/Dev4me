@@ -25,8 +25,8 @@ public class TagController
     public ResponseEntity getTags()
     {
         List<Tag> lista = repository.findAll();
-        if (lista.equals(null)) {
-            return status(204).body("Sem tags cadastradas no banco.");
+        if (lista.isEmpty()) {
+            return status(204).build();
         }
 
         return status(200).body(lista);
