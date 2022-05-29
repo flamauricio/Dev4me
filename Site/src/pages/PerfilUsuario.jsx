@@ -217,15 +217,40 @@ function PerfilUsuario() {
         else{
             setCidadeUF("Localização não informada");
         }
-        }
+    }
 
-        const divCenter = {
-            width : '95%',
-            display : 'none',
-            justifyContent : 'left',
-            marginLeft : '5%',
-            paddingBottom : '5%',
-        }
+    const divCenter = {
+        width : '95%',
+        display : 'none',
+        justifyContent : 'left',
+        marginLeft : '5%',
+        paddingBottom : '5%',
+    }
+
+    const divEditMode = {
+        width : '96%',
+        padding : '0.4rem',
+        backgroundColor : '#383838',
+        borderRadius : '0.2rem',
+        border : 'solid',
+        borderColor : '#FFFFFF'
+    }
+
+    const divEditMode2 = {
+        width : '96%',
+        padding : '0rem',
+    }
+
+    const divEditMode3 = {
+        width : '96%',
+        padding : '0rem',
+        backgroundColor : '#383838',
+        borderRadius : '0.2rem'
+    }
+
+    const divEditTags = {
+        display : 'none'
+    }
 
     const inputNames = ['inputNome', 'inputEmail', 'inputDataNascimento',
     'inputCpf', 'inputTelefone', 'inputCep', 'inputEndereco', 'inputDescricao'];
@@ -240,6 +265,9 @@ function PerfilUsuario() {
             document.getElementById(`${inputNames[index]}`).style.border = 'solid';
             document.getElementById(`${inputNames[index]}`).style.cursor = 'text';
         }
+
+        document.getElementById('divEditTags').style.display = 'block';
+        document.getElementById('divDisplayTags').style.display = 'none';
     }
 
     function saveInfo() {
@@ -392,7 +420,7 @@ function PerfilUsuario() {
                     </div>
             </div>
 
-            <div className="divSpaceBetween2">
+            <div id='divDisplayTags' className="divSpaceBetween2">
                 <div className="div-input-user-long">
                     <p className="bigTitleUserProfile">Tags</p>
                     <div className="divTagsFormatter">
@@ -401,31 +429,33 @@ function PerfilUsuario() {
                 </div>
             </div>
 
-            <div className="divAlignLeft">
-                <p className="subtitle">Editar Tags</p>
-                <select onChange={(event) => { setTagDaVez(event.target.value) }} name="" id="combo-tags">
-                    <option value="">Procure por uma tag</option>
-                    {plotarOptions()}
-                </select>
-                <div />
+            <div id='divEditTags' style={divEditTags} className="div-input-user-long">
+                <div className="divAlignLeft">
+                    <p className="bigTitleUserProfile">Editar Tags</p>
+                    <select style={divEditMode} onChange={(event) => { setTagDaVez(event.target.value) }} 
+                    name="" id="combo-tags">
+                        <option value="">Procure por uma tag</option>
+                        {plotarOptions()}
+                    </select>
+                </ div>
 
-                <div className="divButtonsTag-cv">
+                <div style={divEditMode2} className="divButtonsTag-cv">
                     <button onClick={desfazer} className="buttonTag-vg">Desfazer</button>
                     <button onClick={adicionarTag} className="buttonTag-vg">Adicionar</button>
                 </div>
 
-                <div id="tags-vg">
-                    {plotarTags()}
-                </div>
+                    <div style={divEditMode3} id="tags-vg">
+                        {plotarTags()}
+                    </div>
             </div>
 
             <div id="divButton" style={divCenter}>
-                    <a className="li-comum">
-                            <button onClick={saveInfo} className="alternativeButton">Salvar</button>
-                        </a>
-                    </div>
+                        <a className="li-comum">
+                                <button onClick={saveInfo} className="alternativeButton">Salvar</button>
+                            </a>
+            </div>
         </div>
-        </>
+    </>
     )
 }
 

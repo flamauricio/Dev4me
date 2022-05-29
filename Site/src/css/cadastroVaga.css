@@ -171,6 +171,12 @@ body
     font-size: var(--smallText);
     cursor: pointer;
     margin-top: 5px;
+    transition: 0.5s;
+}
+
+.buttonTag-vg:hover {
+    color: var(--white);
+    background-color: var(--lightBlue);
 }
 
 #tags-vg
