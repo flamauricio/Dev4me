@@ -294,6 +294,28 @@ function PerfilUsuario() {
             document.getElementById('divDisplayTags').style.display = 'block';
 
             // Parte integração
+            const nomeUser = document.getElementById('inputNome').value;
+            const emailUser = document.getElementById('inputEmail').value;
+            const dataNascimentoUser =document.getElementById('inputDataNascimento').value ;
+            const cpfUser = document.getElementById('inputCpf').value;
+            const telefoneUser = document.getElementById('inputTelefone').value;
+            const cepUser = document.getElementById('inputCep').value;
+            const enderecoUser = document.getElementById('inputEndereco').value;
+            const descricaoUser = document.getElementById('inputDescricao').value;
+
+            let usuario = {
+                id: idUser,
+                nome: nomeUser,
+                email: emailUser,
+                dataNasc: dataNascimentoUser,
+                descUsuario: descricaoUser,
+                cpf: cpfUser,
+                telefone: telefoneUser,
+                cep: cepUser,
+                endereco: enderecoUser
+            }
+
+            console.log(usuario);
         }
         else {
             alertMessegeFieldsIncomplete();

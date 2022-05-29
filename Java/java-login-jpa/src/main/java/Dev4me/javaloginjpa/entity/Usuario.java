@@ -48,7 +48,7 @@ public class Usuario {
     @CPF
     @Size(max = 14)
     @Column (name = "cpf", length = 14)
-    private  String cpf;
+    private String cpf;
 
    // @Pattern(regexp = "(\\(?\\d{2}\\)?\\s)?(\\d{4,5}\\-\\d{4})" , message = "Informe um telefone válido com ou sem DDD")
     @Column (name = "telefone", length = 14)

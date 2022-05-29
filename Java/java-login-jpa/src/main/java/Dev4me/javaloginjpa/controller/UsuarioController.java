@@ -418,4 +418,29 @@ public class UsuarioController {
 
         return status(404).build();
     }
+
+    // PATCH alterar dados usuário
+    @PatchMapping("/alterar-dados")
+    @CrossOrigin
+    public ResponseEntity<Usuario> patchUsuarioSenha(@RequestBody Usuario usuario) {
+
+        Integer id = usuario.getId();
+        String nome = usuario.getNome();
+        String email = usuario.getEmail();
+        LocalDate dataNasc = usuario.getDataNasc();
+        String descUsuario = usuario.getDescUsuario();
+        String cpf = usuario.getCpf();
+        String telefone = usuario.getTelefone();
+        String cep = usuario.getCep();
+        String endereco = usuario.getEndereco();
+
+        if (repository.existsById(id)) {
+
+            repository.patchUsuario(id, nome, email, dataNasc, descUsuario, cpf, telefone, cep, endereco);
+
+            return status(200).build();
+        }
+
+        return status(404).build();
+    }
 }
