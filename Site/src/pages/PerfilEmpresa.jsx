@@ -193,7 +193,7 @@ function PerfilEmpresa() {
             <div id="divButton" style={divCenter}>
                         <a className="li-comum">
                                 <button onClick={saveInfo} className="alternativeButton">Salvar</button>
-                            </a>
+                        </a>
             </div>
         </div>
         </>

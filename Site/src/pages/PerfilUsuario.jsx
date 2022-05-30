@@ -29,7 +29,25 @@ function PerfilUsuario() {
     useEffect(() => {
         trazDadosUsuario();
         bringUserTags();
+        turnOffWarningSign();
     }, [cidadeUF]);
+
+    function turnOffWarningSign() {
+
+        if(userNome != "" && userNome != null
+        && userDescricao != "" && userDescricao != null
+        && userCep != "" && userCep != null
+        && userCpf != "" && userCpf != null
+        && userDataNascimento != "" && userDataNascimento != null
+        && userEmail != "" && userEmail != null
+        && userTelefone != "" && userTelefone != null
+        && userEndereco != "" && userEndereco != null
+        && tagsUsuario != "" && tagsUsuario != null) {
+
+            document.getElementById('warningSign').style.opacity = '0';
+            document.getElementById('warningSign').style.cursor = 'default';
+        }
+    }
 
     // ------------------------------
     // Traz as opções de tags na div
@@ -445,7 +463,6 @@ function PerfilUsuario() {
                             title: <strong>Dados atualizados com sucesso!</strong>,
                             icon: 'success'
                         }).then(() => {
-                        
                         })
     }
 
@@ -457,7 +474,6 @@ function PerfilUsuario() {
                             icon: 'error'
                         })
     }
-
     // ------------------------------
     // ------------------------------
     // ------------------------------
@@ -471,7 +487,7 @@ function PerfilUsuario() {
         <div className="sidebar-user">
             <div className="sidebar-container-user">
                 <div className="div-image-alert">
-                    <img alt="" className="image-alert" src={alertImage} onClick={alertMessege} />
+                    <img id="warningSign" alt="" className="image-alert" src={alertImage} onClick={alertMessege} />
                 </div>
                 <p className="bigTitleUserProfile">Configurações</p>
                 <p onClick={turnOnEditMode} className="title-user">Editar informações</p>
