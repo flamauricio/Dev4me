@@ -43,6 +43,24 @@ function FeedVagasVaga() {
         )
     }
 
+    function candidatar()
+    {
+        let idUsuario = sessionStorage.getItem("idUsuario");
+        let idVaga = sessionStorage.getItem("idVaga");
+        api.post(`/candidatos/${idVaga}/${idUsuario}`)
+        .then((resposta) => {
+            if (resposta.status === 201) {
+                alert("Você se candidatou para esta vaga, boa sorte!");
+                window.location = "http://localhost:8080/feed-vagas";
+            } else if (resposta.status === 200) {
+                alert("Você já se candidatou para essa vaga.");
+            }
+        })
+        .catch((error) => {
+            alert("Erro ao candidatar-se.");
+        })
+    }
+
     return (
         <>
                 <HeaderLogado />
@@ -139,7 +157,7 @@ function FeedVagasVaga() {
                             </div>
 
                             <div className="divPageButton">
-                                <button className="bigButton">Candidatar-se</button>
+                                <button onClick={() => {candidatar()}} className="bigButton">Candidatar-se</button>
                             </div>
                         </div>
                     </div>
