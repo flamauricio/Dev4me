@@ -27,7 +27,7 @@ public class Email implements Serializable {
     private String ownerRef = "Grupo Dev4me";
 
     @Column(name = "email_from")
-    private String emailFrom = "devfourme@gmail.com";
+    private String emailFrom =  "devfourme@gmail.com";
 
     @Column(name = "email_to")
     private String emailTo;
