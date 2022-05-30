@@ -117,4 +117,41 @@ class EmpresaControllerTest {
     }
 
 
+    @Test
+    @DisplayName("Deve retornar 200, pois o id do usuario existe.")
+    void patchEmpresaSenhaComIdExistente() {
+
+        EmpresaAutenticacaoResponse e1 =
+                new EmpresaAutenticacaoResponse(1, "accenture@accenture", "123");
+        EmpresaAutenticacaoResponse e2 =
+                new EmpresaAutenticacaoResponse(2, "accenture@accenture", "1234");
+
+        Empresa empresa = new Empresa();
+        empresa.getIdEmpresa();
+
+        when(repository.getEmpresasAutenticacao()).thenReturn(List.of(e1));
+        when(repository.existsById(1)).thenReturn(true);
+
+        ResponseEntity<Void> resposta = controller.deleteEmpresa(e1.getId(), e1);
+
+        assertEquals(200, resposta.getStatusCodeValue());
+
+
+
+
+    }
+
+    @Test
+    @DisplayName("Deve retornar 404, pois o id do usuario não existe.")
+    void patchEmpresaSenhaComIdInexistente() {
+        EmpresaAutenticacaoResponse e1 =
+                new EmpresaAutenticacaoResponse(1, "accenture@accenture", "123");
+        EmpresaAutenticacaoResponse e2 =
+                new EmpresaAutenticacaoResponse(2, "accenture@accenture", "1234");
+
+        ResponseEntity<Void> resposta = controller.deleteEmpresa(e1.getId(), e2);
+
+                assertEquals(404, resposta.getStatusCodeValue());
+
+    }
 }

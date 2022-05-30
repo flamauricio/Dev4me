@@ -2,32 +2,20 @@ package Dev4me.javaloginjpa.controller;
 
 import Dev4me.javaloginjpa.entity.Email;
 import Dev4me.javaloginjpa.entity.Empresa;
-import Dev4me.javaloginjpa.entity.Usuario;
 import Dev4me.javaloginjpa.enums.StatusEmail;
 import Dev4me.javaloginjpa.repository.EmailRepository;
 import Dev4me.javaloginjpa.repository.EmpresaRepository;
-import Dev4me.javaloginjpa.repository.UsuarioRepository;
 import Dev4me.javaloginjpa.request.EmpresaSenhaRequest;
-import Dev4me.javaloginjpa.request.UsuarioSenhaRequest;
 import Dev4me.javaloginjpa.response.EmpresaAutenticacaoResponse;
 import Dev4me.javaloginjpa.response.EmpresaSimplesResponse;
-import Dev4me.javaloginjpa.response.UsuarioAutenticacaoResponse;
-import Dev4me.javaloginjpa.response.UsuarioSimplesResponse;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.mail.MailException;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 import javax.validation.Valid;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,24 +24,14 @@ import java.util.Optional;
 public class EmpresaController {
 
     @Autowired
-    private EmpresaRepository repository;
-
-    @Autowired
-    EmailRepository emailRepository;
-
-    @Autowired
-    private JavaMailSender emailSender;
+    EmpresaRepository repository;
 
     //Método pra cadastro de Empresa;
-    @ApiResponses({@ApiResponse(responseCode = "200", content = @Content(mediaType = "application/json"))})
+   @ApiResponses({@ApiResponse(responseCode = "200", content = @Content(mediaType = "application/json"))})
     @PostMapping
     @CrossOrigin
     public ResponseEntity postEmpresa(@RequestBody @Valid Empresa novaEmpresa) {
         repository.save(novaEmpresa);
-        String email = novaEmpresa.getEmail();
-        String uri = "http://localhost:8080/usuarios/sending-email/" + email;
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.postForObject(uri, novaEmpresa, String.class);
         return ResponseEntity.status(201).build();
     }
 

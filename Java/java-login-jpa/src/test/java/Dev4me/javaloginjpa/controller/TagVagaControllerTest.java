@@ -46,7 +46,6 @@ class TagVagaControllerTest {
                 = controller.postTagVaga(t1);
 
         assertEquals(201, resposta.getStatusCodeValue());
-
     }
 
 
