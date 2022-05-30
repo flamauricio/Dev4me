@@ -20,6 +20,9 @@ public class TagUsuario
         this.fkTag = fkTag;
     }
 
+    public TagUsuario() {
+    }
+
     public Integer getIdTagUsuario() {
         return idTagUsuario;
     }

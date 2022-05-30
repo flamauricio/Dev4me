@@ -477,6 +477,7 @@ public class UsuarioController {
             System.out.println(tag);
 
             Tag tagDaVez = tagRepository.findByNome(tag);
+
             tagUsuarioRepository.save(new TagUsuario(tagsEIdUsuario.getUsuario(), tagDaVez));
         }
 

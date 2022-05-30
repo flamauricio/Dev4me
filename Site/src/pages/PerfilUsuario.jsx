@@ -303,6 +303,7 @@ function PerfilUsuario() {
             const enderecoUser = document.getElementById('inputEndereco').value;
             const descricaoUser = document.getElementById('inputDescricao').value;
 
+            // Altera dados do usuário
             let usuario = {
                 id: idUser,
                 nome: nomeUser,
@@ -321,6 +322,31 @@ function PerfilUsuario() {
                     if (response.status === 200 || response.status === 201) {
 
                         successMessage();
+                    } 
+                    else {
+                        errorMessage();
+                        console.log("Código do erro: ", response.status);
+                    }
+                })
+
+                .catch((error) => {
+                    console.log(error);
+                    errorMessage();
+                })
+
+                // Altera tags do usuário
+                  let tagUsuarioEnviadas = {
+                    tags : tags,
+                      usuario : {
+                        id : idUser
+                      }
+                  }
+
+                  api.patch("/usuarios/post-tag-usuario", tagUsuarioEnviadas)
+
+                .then((response) => {
+                    if (response.status === 200 || response.status === 201) {
+
                     } 
                     else {
                         errorMessage();

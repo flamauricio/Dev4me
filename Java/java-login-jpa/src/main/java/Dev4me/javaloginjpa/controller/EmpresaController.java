@@ -29,6 +29,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/empresas")
@@ -65,6 +66,12 @@ public class EmpresaController {
             return ResponseEntity.status(204).build();
         }
         return ResponseEntity.status(200).body(empresas);
+    }
+
+    @GetMapping("/perfil/{id}")
+    @CrossOrigin
+    public ResponseEntity<Optional<Empresa>> getEmpresaPerfil(@PathVariable Integer id) {
+        return ResponseEntity.status(200).body(repository.findById(id));
     }
 
     // POST de autenticar usuario da empresa

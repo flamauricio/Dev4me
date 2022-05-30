@@ -121,21 +121,13 @@ body
     font-size: var(--subtitle);
     cursor: pointer;
     margin-top: 30px;
+    transition: 0.5s;
 }
 
-.grayButton-vg
-{
-    border: none;
-    font-family: var(--bold);
+.grayButton-vg:hover {
     color: var(--white);
-    background-color: #696666;
-    border-radius: 40px 0 40px 0;
-    width: 200px;
-    height: 50px;
+    background-color: var(--lightBlue);
     filter: drop-shadow(15px 15px 4px rgba(0, 0, 0, 0.25));
-    font-size: var(--subtitle);
-    cursor: pointer;
-    margin-top: 30px;
 }
 
 #text-vg

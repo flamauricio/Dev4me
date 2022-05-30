@@ -45,11 +45,29 @@ function PerfilEmpresa() {
 
             <div className="divSpaceBetween2">
                 <div className="div-input-user-small">
-                    <p className="bigTitleUserProfile">Nome Empresa</p>
+                    <p className="bigTitleUserProfile">Nome</p>
+                    <input id="inputNome" disabled={true}  className="input-user-small" type="text" />
+                </div>
+
+                <div className="div-input-user-small">
+                    <p className="bigTitleUserProfile">Email</p>
                     <input id="inputNome" disabled={true}  className="input-user-small" type="text" />
                 </div>
             </div>
+
+            <div className="divSpaceBetween2">
+                <div className="div-input-user-small">
+                    <p className="bigTitleUserProfile">CNPJ</p>
+                    <input id="inputNome" disabled={true}  className="input-user-small" type="text" />
+                </div>
+
+                <div className="div-input-user-small">
+                    <p className="bigTitleUserProfile">Upload de Arquivo</p>
+                    <input id="inputNome" disabled={true}  className="input-user-small" type="text" />
+                </div>
             </div>
+
+        </div>
         </>
     )
 }
