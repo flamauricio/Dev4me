@@ -325,6 +325,10 @@ public class UsuarioController {
     {
         List<String> tags = tagsEIdUsuario.getTags();
 
+        Integer idUsuario = tagsEIdUsuario.getUsuario().getId();
+
+        deleteUsuario(idUsuario);
+
         for (String tag : tags) {
 
             System.out.println(tag);

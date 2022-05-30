@@ -169,7 +169,6 @@ function PerfilUsuario() {
     // ------------------------------
     // Traz dados do usuário
     // ------------------------------
-
     function trazDadosUsuario() {
 
         api.get(`/usuarios/perfil/${idUser}`)
@@ -270,7 +269,7 @@ function PerfilUsuario() {
     }
 
     // ------------------------------
-    // Valida salva os dados
+    // Valida e salva os dados
     // ------------------------------
     function saveInfo() {
 
@@ -327,31 +326,9 @@ function PerfilUsuario() {
                         errorMessage();
                         console.log("Código do erro: ", response.status);
                     }
-                })
+                }).then(() => {
 
-                .catch((error) => {
-                    console.log(error);
-                    errorMessage();
-                })
-
-                // Altera tags do usuário
-                  let tagUsuarioEnviadas = {
-                    tags : tags,
-                      usuario : {
-                        id : idUser
-                      }
-                  }
-
-                  api.patch("/usuarios/post-tag-usuario", tagUsuarioEnviadas)
-
-                .then((response) => {
-                    if (response.status === 200 || response.status === 201) {
-
-                    } 
-                    else {
-                        errorMessage();
-                        console.log("Código do erro: ", response.status);
-                    }
+                    setNewTags();
                 })
 
                 .catch((error) => {
@@ -363,6 +340,33 @@ function PerfilUsuario() {
             alertMessegeFieldsIncomplete();
         }
 
+    }
+
+    // Altera tags do usuário
+    function setNewTags() {
+
+        let tagUsuarioEnviadas = {
+            tags : tags,
+                usuario : {
+                id : idUser
+                }
+            }
+
+        api.post("/usuarios/post-tag-usuario", tagUsuarioEnviadas)
+
+        .then((response) => {
+            if (response.status === 200 || response.status === 201) {
+
+            } 
+            else {
+                errorMessage();
+                console.log("Código do erro: ", response.status);
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+            errorMessage();
+        })
     }
 
     // ------------------------------
@@ -471,7 +475,6 @@ function PerfilUsuario() {
                 </div>
                 <p className="bigTitleUserProfile">Configurações</p>
                 <p onClick={turnOnEditMode} className="title-user">Editar informações</p>
-                <p className="title-user">Mudar senha</p>
                 <p className="title-user">Sair</p>
             </div>
         </div>
