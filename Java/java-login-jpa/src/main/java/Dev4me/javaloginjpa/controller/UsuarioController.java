@@ -3,9 +3,7 @@ package Dev4me.javaloginjpa.controller;
 import Dev4me.javaloginjpa.csv.ListaObj;
 import Dev4me.javaloginjpa.entity.*;
 import Dev4me.javaloginjpa.enums.StatusEmail;
-import Dev4me.javaloginjpa.repository.EmailRepository;
-import Dev4me.javaloginjpa.repository.TagUsuarioRepository;
-import Dev4me.javaloginjpa.repository.UsuarioRepository;
+import Dev4me.javaloginjpa.repository.*;
 import Dev4me.javaloginjpa.request.UsuarioSenhaRequest;
 import Dev4me.javaloginjpa.response.*;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -48,6 +46,9 @@ public class UsuarioController {
 
     @Autowired
     TagUsuarioRepository tagUsuarioRepository;
+
+    @Autowired
+    TagRepository tagRepository;
 
     @PostMapping("/filtros")
     @CrossOrigin
@@ -444,7 +445,7 @@ public class UsuarioController {
         return status(404).build();
     }
 
-    //DELETE desloga usuario
+    //DELETE tira registros da tabela relacional tag_usuario
     @DeleteMapping("/delete-tags-usuario/{id}")
     @CrossOrigin
     public ResponseEntity<Void> deleteUsuario(@PathVariable Integer id) {
@@ -462,5 +463,23 @@ public class UsuarioController {
         }
 
         return status(200).build();
+    }
+
+    //POST adiciona registros da tabela relacional tag_usuario
+    @PostMapping("/post-tag-usuario")
+    @CrossOrigin
+    public ResponseEntity postTagUsuario(@RequestBody TagUsuarioResponse tagsEIdUsuario)
+    {
+        List<String> tags = tagsEIdUsuario.getTags();
+
+        for (String tag : tags) {
+
+            System.out.println(tag);
+
+            Tag tagDaVez = tagRepository.findByNome(tag);
+            tagUsuarioRepository.save(new TagUsuario(tagsEIdUsuario.getUsuario(), tagDaVez));
+        }
+
+        return status(201).build();
     }
 }

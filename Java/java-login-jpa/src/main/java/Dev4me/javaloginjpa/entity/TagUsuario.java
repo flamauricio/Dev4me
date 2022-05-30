@@ -15,6 +15,11 @@ public class TagUsuario
     @ManyToOne
     private Tag fkTag;
 
+    public TagUsuario(Usuario fkUsuario, Tag fkTag) {
+        this.fkUsuario = fkUsuario;
+        this.fkTag = fkTag;
+    }
+
     public Integer getIdTagUsuario() {
         return idTagUsuario;
     }
