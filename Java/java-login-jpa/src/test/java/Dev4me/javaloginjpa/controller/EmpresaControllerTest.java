@@ -136,9 +136,6 @@ class EmpresaControllerTest {
 
         assertEquals(200, resposta.getStatusCodeValue());
 
-
-
-
     }
 
     @Test
@@ -152,6 +149,6 @@ class EmpresaControllerTest {
         ResponseEntity<Void> resposta = controller.deleteEmpresa(e1.getId(), e2);
 
                 assertEquals(404, resposta.getStatusCodeValue());
-
     }
+
 }

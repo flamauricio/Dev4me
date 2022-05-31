@@ -20,8 +20,6 @@ import static org.springframework.http.ResponseEntity.status;
 @RequestMapping("/filtro")
 public class FiltroController
 {
-    @Autowired
-    private TagRepository tagRepository;
 
     @Autowired
     TagVagaRepository tagVagaRepository;
