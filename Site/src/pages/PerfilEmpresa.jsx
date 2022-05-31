@@ -283,7 +283,7 @@ function PerfilEmpresa() {
     return(
         <>
         <HeaderLogadoDois 
-        encaminharTo="http://localhost:3000/perfil-usuario"
+        encaminharTo="http://localhost:3000/perfil-empresa"
         encaminharToFeed="http://localhost:3000/feed-vagas"
         />
         <div className="sidebar-user">
