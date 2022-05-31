@@ -273,7 +273,7 @@ public class UsuarioController {
         return status(404).build();
     }
 
-    // PATCH alterar dados usuário
+    // PATCH alterar dados do usuário
     @PatchMapping("/alterar-dados")
     @CrossOrigin
     public ResponseEntity<Usuario> patchUsuarioSenha(@RequestBody Usuario usuario) {

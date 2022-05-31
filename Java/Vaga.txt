@@ -1,0 +1,4 @@
+00VAGA20-05-202212:39:3601
+02000291Software Enginer              hibrido       Alexandre Duma 2500,00 3500,00 true                Accentureaceentru@accenture.com.br
+02000292DEVOPS                        Presencia     Rio de Janeiro 3000,00 6000,00 true                Accentureaceentru@accenture.com.br
+010000000000007

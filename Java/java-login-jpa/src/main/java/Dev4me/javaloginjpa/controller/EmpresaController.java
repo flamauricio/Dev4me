@@ -2,6 +2,7 @@ package Dev4me.javaloginjpa.controller;
 
 import Dev4me.javaloginjpa.entity.Email;
 import Dev4me.javaloginjpa.entity.Empresa;
+import Dev4me.javaloginjpa.entity.Usuario;
 import Dev4me.javaloginjpa.enums.StatusEmail;
 import Dev4me.javaloginjpa.repository.EmailRepository;
 import Dev4me.javaloginjpa.repository.EmpresaRepository;
@@ -16,8 +17,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+
+import static org.springframework.http.ResponseEntity.status;
 
 @RestController
 @RequestMapping("/empresas")
@@ -105,5 +109,25 @@ public class EmpresaController {
             }
         }
         return ResponseEntity.status(404).build();
+    }
+
+    // PATCH alterar dados da empresa
+    @PatchMapping("/alterar-dados")
+    @CrossOrigin
+    public ResponseEntity<Empresa> patchEmpresa(@RequestBody Empresa empresa) {
+
+        Integer id = empresa.getIdEmpresa();
+        String nome = empresa.getNome();
+        String email = empresa.getEmail();
+        String cnpj = empresa.getCnpj();
+
+        if (repository.existsById(id)) {
+
+            repository.patchEmpresa(id, nome, email, cnpj);
+
+            return status(200).build();
+        }
+
+        return status(404).build();
     }
 }
