@@ -175,6 +175,7 @@ function FeedEmpresa() {
         let empresa = sessionStorage.getItem("idEmpresa") ? sessionStorage.getItem("idEmpresa") : null;
 
         if (empresa == null) {
+            sessionStorage.removeItem("idEmpresa");
             window.location = "http://localhost:3000/login";
         }
     }, [])
