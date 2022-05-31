@@ -171,6 +171,14 @@ function FeedEmpresa() {
         })
     }
 
+    useEffect(() => {
+        let empresa = sessionStorage.getItem("idEmpresa") ? sessionStorage.getItem("idEmpresa") : null;
+
+        if (empresa == null) {
+            window.location = "http://localhost:3000/login";
+        }
+    }, [])
+
     return (
         <>
             <HeaderLogadoDois 

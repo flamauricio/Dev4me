@@ -477,6 +477,19 @@ function PerfilUsuario() {
     // ------------------------------
     // ------------------------------
     // ------------------------------
+    useEffect(() => {
+        let usuario = sessionStorage.getItem("idUsuario") ? sessionStorage.getItem("idUsuario") : null;
+
+        if (usuario == null) {
+            window.location = "http://localhost:3000/login";
+        }
+    }, [])
+
+    function sair()
+    {
+        sessionStorage.removeItem("idUsuario");
+        window.location = "http://localhost:3000/login";
+    }
 
     return(
         <>
@@ -491,7 +504,7 @@ function PerfilUsuario() {
                 </div>
                 <p className="bigTitleUserProfile">Configurações</p>
                 <p onClick={turnOnEditMode} className="title-user">Editar informações</p>
-                <p className="title-user">Sair</p>
+                <p onClick={() => {sair()}} className="title-user">Sair</p>
             </div>
         </div>
 

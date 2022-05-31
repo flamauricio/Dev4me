@@ -227,6 +227,20 @@ function PerfilEmpresa() {
     // ------------------------------
     // ------------------------------
 
+    useEffect(() => {
+        let empresa = sessionStorage.getItem("idEmpresa") ? sessionStorage.getItem("idEmpresa") : null;
+
+        if (empresa == null) {
+            window.location = "http://localhost:3000/login";
+        }
+    }, [])
+
+    function sair()
+    {
+        sessionStorage.removeItem("idEmpresa");
+        window.location = "http://localhost://localhost:3000/login";
+    }
+
     return(
         <>
         <HeaderLogadoDois 
@@ -241,6 +255,7 @@ function PerfilEmpresa() {
                 <p className="bigTitleUserProfile">Configurações</p>
                 <p onClick={turnOnEditMode} className="title-user">Editar informações</p>
                 <p onClick={turnOnFileUpload} className="title-user">Upload de Arquivo</p>
+                <p onClick={sair} className="title-user">Sair</p>
 
                     <a className="li-comum">
                             <button onClick={direcionarParaCadastroVaga} style={buttonCriarVaga} className="alternativeButton">Criar vaga</button>

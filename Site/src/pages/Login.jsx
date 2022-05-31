@@ -5,6 +5,8 @@ import Footer from "../components/Footer";
 
 function Login()
 {
+    sessionStorage.clear();
+
     return(
         <>
             <Header nomeBotao = "Cadastrar" encaminharTo="http://localhost:3000/cadastro"/>

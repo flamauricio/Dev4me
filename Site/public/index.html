@@ -16,7 +16,21 @@
 </html>
 <script>
     // Rotas
+    let usuario;
+    let empresa;
+
+    usuario = sessionStorage.getItem("idUsuario") ? sessionStorage.getItem("idUsuario") : null;
+
+    empresa = sessionStorage.getItem("idEmpresa") ? sessionStorage.getItem("idEmpresa") : null;
+
     if (window.location == "http://localhost:3000/") {
+        if (usuario.length > 0) {
+            window.location = "http://localhost:3000/feed-vagas";
+        }
+        else if (empresa.length > 0) {
+            window.location = "http://localhost:3000/feed-empresa"
+        } else {
         window.location = "http://localhost:3000/html/homePage.html"
+        }
     }
 </script>

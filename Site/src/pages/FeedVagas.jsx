@@ -294,9 +294,17 @@ function FeedVagas() {
     //     })
     // }, [executarMetodoPegarTagsVagas]);
 
+    useEffect(() => {
+        let usuario = sessionStorage.getItem("idUsuario") ? sessionStorage.getItem("idUsuario") : null;
+
+        if (usuario == null) {
+            window.location = "http://localhost:3000/login";
+        }
+    }, [])
+
     return (
         <>
-            <HeaderLogadoDois nomeBotao="Cadastrar" 
+            <HeaderLogadoDois nomeBotao="Cadastrar"
             encaminharTo="http://localhost:3000/perfil-usuario"
             encaminharToFeed="http://localhost:3000/feed-vagas"
             />
