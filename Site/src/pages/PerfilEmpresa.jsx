@@ -31,7 +31,6 @@ function PerfilEmpresa() {
             setEmpresaEmail(resposta.data.email);
             setEmpresaCnpj(resposta.data.cnpj);
 
-            console.log(empresa);
         })
         .catch((error) => {
             console.log("Erro ao buscar usuário!");
@@ -53,7 +52,7 @@ function PerfilEmpresa() {
         display : 'none',
         justifyContent : 'left',
         marginLeft : '5%',
-        paddingBottom : '5%',
+        paddingBottom : '5%'
     }
 
     function direcionarParaCadastroVaga() {
@@ -90,6 +89,26 @@ function PerfilEmpresa() {
     // ------------------------------
     // Valida salva os dados
     // ------------------------------
+    function downloadFile() {
+
+        api.get("/vagas/gravacao/relatorio-txt")
+ 
+                 .then((response) => {
+                     if (response.status === 200 || response.status === 201) {
+ 
+                         successMessage2();
+                     } 
+                     else {
+                         errorMessage2();
+                         console.log("Código do erro: ", response.status);
+                     }
+                 })
+                 .catch((error) => {
+                     console.log(error);
+                     errorMessage2();
+                 })
+    }
+
     function saveInfo() {
 
         if(document.getElementById('inputNome').value && document.getElementById('inputEmail').value
@@ -157,7 +176,7 @@ function PerfilEmpresa() {
             var input = document.querySelector('input[type="file"]');
 
             var file = new FormData();
-            file.append("txt", input.files[0]);
+            file.append(".txt", input.files[0]);
 
             api.post("/vagas/upload", file)
  
@@ -214,11 +233,31 @@ function PerfilEmpresa() {
                         })
     }
 
+    function successMessage2() {
+        const MySwal = withReactContent(Swal)
+
+                        MySwal.fire({
+                            title: <strong>Arquivo baixado com sucesso!</strong>,
+                            icon: 'success'
+                        }).then(() => {
+                        
+                        })
+    }
+
     function errorMessage() {
         const MySwal = withReactContent(Swal)
 
                         MySwal.fire({
                             title: <strong>Não foi possível atualizar os dados!</strong>,
+                            icon: 'error'
+                        })
+    }
+
+    function errorMessage2() {
+        const MySwal = withReactContent(Swal)
+
+                        MySwal.fire({
+                            title: <strong>Não foi possível baixar o arquivo!!</strong>,
                             icon: 'error'
                         })
     }
@@ -255,6 +294,7 @@ function PerfilEmpresa() {
                 <p className="bigTitleUserProfile">Configurações</p>
                 <p onClick={turnOnEditMode} className="title-user">Editar informações</p>
                 <p onClick={turnOnFileUpload} className="title-user">Upload de Arquivo</p>
+                <p onClick={downloadFile} className="title-user">Download Arquivo</p>
                 <p onClick={sair} className="title-user">Sair</p>
 
                     <a className="li-comum">

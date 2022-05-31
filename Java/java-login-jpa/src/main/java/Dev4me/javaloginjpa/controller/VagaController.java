@@ -328,6 +328,7 @@ public class VagaController {
     }
 
     @GetMapping("/gravacao/relatorio-txt")
+    @CrossOrigin
     public void getRelatorioTxt() {
 
         gravaArquivoTxt("Vaga.txt");
@@ -335,6 +336,7 @@ public class VagaController {
     }
 
     @GetMapping("/leitura/relatorio-txt")
+    @CrossOrigin
     public void readRelatorioTxt() {
 
         leArquivoTxt("Vaga.txt");
@@ -368,7 +370,8 @@ public class VagaController {
     }
 
     @PostMapping("/upload")
-    public void upload(@RequestParam("file") MultipartFile file) throws IOException {
+    @CrossOrigin
+    public void upload(@RequestBody MultipartFile file) throws IOException {
         fileUploadService.uploadFile(file);
         leArquivoTxt("Vaga.txt");
     }
