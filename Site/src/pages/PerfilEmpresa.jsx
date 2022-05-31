@@ -277,7 +277,7 @@ function PerfilEmpresa() {
     function sair()
     {
         sessionStorage.removeItem("idEmpresa");
-        window.location = "http://localhost://localhost:3000/login";
+        window.location = "http://localhost:3000/login";
     }
 
     return(
