@@ -298,15 +298,15 @@ function FeedVagas() {
         let usuario = sessionStorage.getItem("idUsuario") ? sessionStorage.getItem("idUsuario") : null;
 
         if (usuario == null) {
-            window.location = "http://localhost:3000/login";
+            window.location = "http://52.45.218.11:3000/login";
         }
     }, [])
 
     return (
         <>
             <HeaderLogadoDois nomeBotao="Cadastrar"
-            encaminharTo="http://localhost:3000/perfil-usuario"
-            encaminharToFeed="http://localhost:3000/feed-vagas"
+            encaminharTo="http://52.45.218.11:3000/perfil-usuario"
+            encaminharToFeed="http://52.45.218.11:3000/feed-vagas"
             />
 
             <div className="divMobile">

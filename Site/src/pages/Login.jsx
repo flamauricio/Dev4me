@@ -9,7 +9,7 @@ function Login()
 
     return(
         <>
-            <Header nomeBotao = "Cadastrar" encaminharTo="http://localhost:3000/cadastro"/>
+            <Header nomeBotao = "Cadastrar" encaminharTo="http://52.45.218.11:3000/cadastro"/>
             <ContainerLogin/>
             <Footer/>
         </>

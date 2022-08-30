@@ -56,7 +56,7 @@ function PerfilEmpresa() {
     }
 
     function direcionarParaCadastroVaga() {
-        window.location = "http://localhost:3000/post-vaga";
+        window.location = "http://52.45.218.11:3000/post-vaga";
     }
 
     const inputNames = ['inputNome', 'inputEmail', 'inputCnpj'];
@@ -270,21 +270,21 @@ function PerfilEmpresa() {
         let empresa = sessionStorage.getItem("idEmpresa") ? sessionStorage.getItem("idEmpresa") : null;
 
         if (empresa == null) {
-            window.location = "http://localhost:3000/login";
+            window.location = "http://52.45.218.11:3000/login";
         }
     }, [])
 
     function sair()
     {
         sessionStorage.removeItem("idEmpresa");
-        window.location = "http://localhost:3000/login";
+        window.location = "http://52.45.218.11:3000/login";
     }
 
     return(
         <>
         <HeaderLogadoDois 
-        encaminharTo="http://localhost:3000/perfil-empresa"
-        encaminharToFeed="http://localhost:3000/feed-empresa"
+        encaminharTo="http://52.45.218.11:3000/perfil-empresa"
+        encaminharToFeed="http://52.45.218.11:3000/feed-empresa"
         />
         <div className="sidebar-user">
             <div className="sidebar-container-user">

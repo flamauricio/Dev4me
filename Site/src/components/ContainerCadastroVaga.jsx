@@ -188,7 +188,7 @@ function ContainerCadastoVaga() {
                             if (resposta.status === 201) {
                                 setBodyStyleCursor({"cursor": "default"});
                                 alert("Vaga cadastrada com sucesso!");
-                                window.location = "http://localhost:3000/feed-empresa";
+                                window.location = "http://52.45.218.11:3000/feed-empresa";
                             }
                         })
                         .catch((error) => {

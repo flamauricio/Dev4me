@@ -51,7 +51,7 @@ function FeedVagasVaga() {
         .then((resposta) => {
             if (resposta.status === 201) {
                 alert("Você se candidatou para esta vaga, boa sorte!");
-                window.location = "http://localhost:8080/feed-vagas";
+                window.location = "http://52.45.218.11:8080/feed-vagas";
             } else if (resposta.status === 200) {
                 alert("Você já se candidatou para essa vaga.");
             }

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:8080'
+    baseURL: 'http://44.209.230.38:8080'
 });
 
 export default api;
@@ -10,7 +10,7 @@ export default api;
 /* Rotas para usar no react com then e catch fundional
 function getUsuario() {
   axios
-    .get("http://localhost:8080/usuarios")
+    .get("http://52.45.218.11:8080/usuarios")
     .then((response) => {
       console.log(response.data);
     })
@@ -22,7 +22,7 @@ function getUsuario() {
 
 function postUsuario() {
     axios
-      .post("http://localhost:8080/usuarios")
+      .post("http://52.45.218.11:8080/usuarios")
       .then((response) => {
         console.log(response.status);
       })

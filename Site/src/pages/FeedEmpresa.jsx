@@ -176,15 +176,15 @@ function FeedEmpresa() {
 
         if (empresa == null) {
             sessionStorage.removeItem("idEmpresa");
-            window.location = "http://localhost:3000/login";
+            window.location = "http://52.45.218.11:3000/login";
         }
     }, [])
 
     return (
         <>
             <HeaderLogadoDois 
-            encaminharTo="http://localhost:3000/perfil-empresa"
-            encaminharToFeed="http://localhost:3000/feed-empresa"
+            encaminharTo="http://52.45.218.11:3000/perfil-empresa"
+            encaminharToFeed="http://52.45.218.11:3000/feed-empresa"
             />
 
             <div className="divMobile">
@@ -210,7 +210,7 @@ function FeedEmpresa() {
                     </div>
                     <div className="divAlignLeft">
                         <p className="subtitle">Criar nova vaga</p>
-                        <a className="li-comum" href="http://localhost:8080/post-vaga" target="_blank">
+                        <a className="li-comum" href="http://52.45.218.11:8080/post-vaga" target="_blank">
                             <button className="alternativeButton">Criar vaga</button>
                         </a>
                     </div>

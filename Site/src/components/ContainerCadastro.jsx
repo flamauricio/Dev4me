@@ -35,7 +35,7 @@ function ContainerCadastro() {
                             icon: 'success'
                         }).then(() => {
 
-                            window.location = "http://localhost:3000/login";
+                            window.location = "http://52.45.218.11:3000/login";
                         
                         })
     }
@@ -121,7 +121,7 @@ function ContainerCadastro() {
     }
 
     function levarParaLogin() {
-        window.location = "http://localhost:3000/login";
+        window.location = "http://52.45.218.11:3000/login";
     }
 
     function startLoadingGif() {

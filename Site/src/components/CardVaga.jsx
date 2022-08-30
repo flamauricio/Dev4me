@@ -52,7 +52,7 @@ function CardVaga(props) {
     {
         sessionStorage.setItem("idVaga", props.id);
         sessionStorage.setItem("tags", props.vetor);
-        window.location = "http://localhost:3000/vaga";
+        window.location = "http://52.45.218.11:3000/vaga";
     }
 
     return (
