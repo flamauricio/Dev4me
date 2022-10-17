@@ -35,7 +35,7 @@ public class EmpresaController {
     @PostMapping
     @CrossOrigin
     public ResponseEntity postEmpresa(@RequestBody @Valid Empresa novaEmpresa) {
-        List<Empresa> empresa = repository.findByEmail(novaEmpresa.getEmail);
+        List<Empresa> empresa = repository.findByEmail(novaEmpresa.getEmail());
         
         if (empresa.size() == 0) {
             repository.save(novaEmpresa);
