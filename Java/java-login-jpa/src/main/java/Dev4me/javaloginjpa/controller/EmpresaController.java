@@ -35,8 +35,14 @@ public class EmpresaController {
     @PostMapping
     @CrossOrigin
     public ResponseEntity postEmpresa(@RequestBody @Valid Empresa novaEmpresa) {
-        repository.save(novaEmpresa);
-        return ResponseEntity.status(201).build();
+        List<Empresa> empresa = repository.findByEmail(novaEmpresa.getEmail);
+        
+        if (empresa.size() == 0) {
+            repository.save(novaEmpresa);
+            return ResponseEntity.status(201).build();
+        }
+
+        return ResponseEntity.status(409).build();
     }
 
     // GET da empresa sem senha
