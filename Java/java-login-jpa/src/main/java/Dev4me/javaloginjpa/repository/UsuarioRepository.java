@@ -26,6 +26,9 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     List<Usuario> findByNome(String nome);
 
     @Transactional
+    List<Usuario> deleteUsuarioById(Integer id);
+
+    @Transactional
     @Modifying
     @Query("update Usuario u set u.senha = ?2 where u.id = ?1")
     void patchUsuarioSenha(Integer id, String novaSenha);

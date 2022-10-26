@@ -177,6 +177,13 @@ public class UsuarioController {
         return status(200).body(repository.getUsuariosSimples());
     }
 
+    // Delete de Excluir conta
+    @DeleteMapping("delete-user/{id}")
+    @CrossOrigin
+    public ResponseEntity<List<Usuario>> deleteUsuarioById(@PathVariable String id) {
+        return status(200).body(repository.deleteUsuarioById(Integer.valueOf(id)));
+    }
+
     // GET de usuarios com senha
     @GetMapping("/{id}")
     @CrossOrigin

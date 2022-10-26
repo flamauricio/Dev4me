@@ -18,11 +18,9 @@ public class Vaga {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idVaga;
 
-
     @Size(max = 45)
     @Column (name = "titulo", length = 45)
     private String titulo;
-
 
     @Size(max = 10)
     @Column (name = "contrato", length = 10)
@@ -40,7 +38,6 @@ public class Vaga {
     @Column (name = "faixa_salarial_max")
     private Double faixaSalarialMax;
 
-
     @Size(max = 700)
     @Column (name = "descricao", length = 700)
     private String descricao;
@@ -53,6 +50,9 @@ public class Vaga {
     @Column (name = "requisitos", length = 700)
     private String requisitos;
 
+    @Size(max = 700)
+    @Column (name = "level", length = 700)
+    private String level;
 
     @Column (name = "is_disponivel")
     private Boolean disponivel;
@@ -60,7 +60,7 @@ public class Vaga {
     @ManyToOne
     private Empresa fkEmpresa;
 
-    public Vaga(Integer idVaga, String titulo, String contrato, String localizacao, Double faixaSalarialMin, Double faixaSalarialMax, Boolean disponivel, Empresa fkEmpresa) {
+    public Vaga(Integer idVaga, String titulo, String contrato, String localizacao, Double faixaSalarialMin, Double faixaSalarialMax, Boolean disponivel, String level, Empresa fkEmpresa) {
         this.idVaga = idVaga;
         this.titulo = titulo;
         this.contrato = contrato;
@@ -68,11 +68,14 @@ public class Vaga {
         this.faixaSalarialMin = faixaSalarialMin;
         this.faixaSalarialMax = faixaSalarialMax;
         this.disponivel = disponivel;
+        this.level = level;
         this.fkEmpresa = fkEmpresa;
     }
 
     public Vaga() {
     }
+
+
 
     public Integer getIdVaga() {
         return idVaga;

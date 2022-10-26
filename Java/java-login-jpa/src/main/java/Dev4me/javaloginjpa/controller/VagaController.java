@@ -211,7 +211,7 @@ public class VagaController {
         }
     }
 
-    public void gravaArquivoTxt(String nomeArq) {
+    /* public void gravaArquivoTxt(String nomeArq) {
         List<Vaga> lista = repository.findAll();
         int contaRegistroCorpo = 0;
         String header = "00VAGA";
@@ -241,7 +241,7 @@ public class VagaController {
         gravaRegistro(trailer, nomeArq);
     }
 
-    public void leArquivoTxt(String nomeArq) {
+   public void leArquivoTxt(String nomeArq) {
         BufferedReader entrada = null;
         String registro, tipoRegistro;
         Double faixaSalarialMin, faixaSalarialMax;
@@ -325,13 +325,13 @@ public class VagaController {
             repository.saveAll(listaLida);
         }
 
-    }
+    }*/
 
     @GetMapping("/gravacao/relatorio-txt")
     @CrossOrigin
     public void getRelatorioTxt() {
 
-        gravaArquivoTxt("Vaga.txt");
+       // gravaArquivoTxt("Vaga.txt");
 
     }
 
@@ -339,7 +339,7 @@ public class VagaController {
     @CrossOrigin
     public void readRelatorioTxt() {
 
-        leArquivoTxt("Vaga.txt");
+       // leArquivoTxt("Vaga.txt");
     }
 
     @GetMapping("/{id}")
@@ -373,6 +373,6 @@ public class VagaController {
     @CrossOrigin
     public void upload(@RequestBody MultipartFile file) throws IOException {
         fileUploadService.uploadFile(file);
-        leArquivoTxt("Vaga.txt");
+        //leArquivoTxt("Vaga.txt");
     }
 }
