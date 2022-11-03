@@ -43,7 +43,7 @@ function ContainerLogin(props) {
     //                         icon: 'success'
     //                     }).then(() => {
                             
-    //                         window.location = "http://dev4me.ddns.net:3000/feed-empresa";
+    //                         window.location = "https://dev4me.ddns.net:3000/feed-empresa";
                         
     //                         startLoadingGif();
     //                     })
@@ -107,7 +107,7 @@ function ContainerLogin(props) {
                         
                         sessionStorage.setItem("idEmpresa", response.data)
 
-                        window.location = "http://dev4me.ddns.net:3000/feed-empresa";
+                        window.location = "https://dev4me.ddns.net:3000/feed-empresa";
                         
                     } else {
                         errorMessage();
@@ -134,7 +134,7 @@ function ContainerLogin(props) {
 
                         sessionStorage.setItem("idUsuario", response.data)
 
-                        window.location = "http://dev4me.ddns.net:3000/feed-vagas";
+                        window.location = "https://dev4me.ddns.net:3000/feed-vagas";
                         
                     } else {
                         errorMessage();

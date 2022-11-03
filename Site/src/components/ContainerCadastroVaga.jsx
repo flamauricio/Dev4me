@@ -188,7 +188,7 @@ function ContainerCadastoVaga() {
                             if (resposta.status === 201) {
                                 setBodyStyleCursor({"cursor": "default"});
                                 alert("Vaga cadastrada com sucesso!");
-                                window.location = "http://dev4me.ddns.net:3000/feed-empresa";
+                                window.location = "https://dev4me.ddns.net:3000/feed-empresa";
                             }
                         })
                         .catch((error) => {

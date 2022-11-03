@@ -35,7 +35,7 @@ function ContainerCadastro() {
                             icon: 'success'
                         }).then(() => {
 
-                            window.location = "http://dev4me.ddns.net:3000/login";
+                            window.location = "https://dev4me.ddns.net:3000/login";
                         
                         })
     }
@@ -121,7 +121,7 @@ function ContainerCadastro() {
     }
 
     function levarParaLogin() {
-        window.location = "http://dev4me.ddns.net:3000/login";
+        window.location = "https://dev4me.ddns.net:3000/login";
     }
 
     function startLoadingGif() {

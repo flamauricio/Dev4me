@@ -298,15 +298,15 @@ function FeedVagas() {
         let usuario = sessionStorage.getItem("idUsuario") ? sessionStorage.getItem("idUsuario") : null;
 
         if (usuario == null) {
-            window.location = "http://dev4me.ddns.net:3000/login";
+            window.location = "https://dev4me.ddns.net:3000/login";
         }
     }, [])
 
     return (
         <>
             <HeaderLogadoDois nomeBotao="Cadastrar"
-            encaminharTo="http://dev4me.ddns.net:3000/perfil-usuario"
-            encaminharToFeed="http://dev4me.ddns.net:3000/feed-vagas"
+            encaminharTo="https://dev4me.ddns.net:3000/perfil-usuario"
+            encaminharToFeed="https://dev4me.ddns.net:3000/feed-vagas"
             />
 
             <div className="divMobile">
