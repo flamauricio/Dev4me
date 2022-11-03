@@ -183,8 +183,8 @@ function FeedEmpresa() {
     return (
         <>
             <HeaderLogadoDois 
-            encaminharTo="http://52.45.218.11:3000/perfil-empresa"
-            encaminharToFeed="http://52.45.218.11:3000/feed-empresa"
+            to="/perfil-empresa"
+            encaminharToFeed="/feed-empresa"
             />
 
             <div className="divMobile">

@@ -26,18 +26,18 @@
     function checkLogin()
     {
         if (usuario != null) {
-            window.location = "http://52.45.218.11:3000/feed-vagas";
+            window.location = "http://dev4me.ddns.net:3000/feed-vagas";
             return;
         }
         if (empresa != null) {
-            window.location = "http://52.45.218.11:3000/feed-empresa"
+            window.location = "http://dev4me.ddns.net:3000/feed-empresa"
             return;
         }
 
-        window.location = "http://52.45.218.11:3000/html/homePage.html"
+        window.location = "http://dev4me.ddns.net:3000/html/homePage.html"
     }
 
-    if (window.location == "http://52.45.218.11:3000/") {
+    if (window.location == "http://dev4me.ddns.net:3000/") {
         checkLogin();
     }
 </script>
