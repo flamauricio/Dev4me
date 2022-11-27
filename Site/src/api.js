@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://44.209.230.38:8080'
+    baseURL: 'https://dev4me.ddns.net'
 });
 
 export default api;
