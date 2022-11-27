@@ -116,9 +116,6 @@ public class UsuarioController {
         } else {
             repository.save(novoUsuario);
             String email = novoUsuario.getEmail();
-            String uri = "http://localhost:8080/usuarios/sending-email/" + email;
-            RestTemplate restTemplate = new RestTemplate();
-            restTemplate.postForObject(uri, novoUsuario, String.class);
         }
         return status(201).build();
     }
