@@ -52,7 +52,7 @@ function CardVaga(props) {
     {
         sessionStorage.setItem("idVaga", props.id);
         sessionStorage.setItem("tags", props.vetor);
-        window.location = "https://dev4me.ddns.net:3000/vaga";
+        window.location = "https://dev4me.ddns.net/vaga";
     }
 
     return (

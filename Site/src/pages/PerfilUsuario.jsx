@@ -481,21 +481,21 @@ function PerfilUsuario() {
         let usuario = sessionStorage.getItem("idUsuario") ? sessionStorage.getItem("idUsuario") : null;
 
         if (usuario == null) {
-            window.location = "https://dev4me.ddns.net:3000/login";
+            window.location = "https://dev4me.ddns.net/login";
         }
     }, [])
 
     function sair()
     {
         sessionStorage.removeItem("idUsuario");
-        window.location = "https://dev4me.ddns.net:3000/login";
+        window.location = "https://dev4me.ddns.net/login";
     }
 
     return(
         <>
         <HeaderLogadoDois 
-        encaminharTo="https://dev4me.ddns.net:3000/perfil-usuario"
-        encaminharToFeed="https://dev4me.ddns.net:3000/feed-vagas"
+        encaminharTo="https://dev4me.ddns.net/perfil-usuario"
+        encaminharToFeed="https://dev4me.ddns.net/feed-vagas"
         />
         <div className="sidebar-user">
             <div className="sidebar-container-user">

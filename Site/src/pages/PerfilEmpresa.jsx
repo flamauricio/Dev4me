@@ -56,7 +56,7 @@ function PerfilEmpresa() {
     }
 
     function direcionarParaCadastroVaga() {
-        window.location = "https://dev4me.ddns.net:3000/post-vaga";
+        window.location = "https://dev4me.ddns.net/post-vaga";
     }
 
     const inputNames = ['inputNome', 'inputEmail', 'inputCnpj'];
@@ -270,21 +270,21 @@ function PerfilEmpresa() {
         let empresa = sessionStorage.getItem("idEmpresa") ? sessionStorage.getItem("idEmpresa") : null;
 
         if (empresa == null) {
-            window.location = "https://dev4me.ddns.net:3000/login";
+            window.location = "https://dev4me.ddns.net/login";
         }
     }, [])
 
     function sair()
     {
         sessionStorage.removeItem("idEmpresa");
-        window.location = "https://dev4me.ddns.net:3000/login";
+        window.location = "https://dev4me.ddns.net/login";
     }
 
     return(
         <>
         <HeaderLogadoDois 
-        encaminharTo="https://dev4me.ddns.net:3000/perfil-empresa"
-        encaminharToFeed="https://dev4me.ddns.net:3000/feed-empresa"
+        encaminharTo="https://dev4me.ddns.net/perfil-empresa"
+        encaminharToFeed="https://dev4me.ddns.net/feed-empresa"
         />
         <div className="sidebar-user">
             <div className="sidebar-container-user">
