@@ -206,10 +206,10 @@ public class VagaController {
         try {
             saida.append(registro + "\n");
             saida.close();
-         catch (IOException erro) {
+        } catch (IOException erro) {
             System.out.println("Erro na gravação do arquivo:" + erro);
-  
-
+        }
+    }
     /* public void gravaArquivoTxt(String nomeArq) {
         List<Vaga> lista = repository.findAll();
         int contaRegistroCorpo = 0;
