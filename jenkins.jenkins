@@ -1,1 +1,1 @@
-echo "Ola Jenkins, Pipeline executado com sucesso!"
+echo "Ola Jenkins com o pipeline do github modificado"
