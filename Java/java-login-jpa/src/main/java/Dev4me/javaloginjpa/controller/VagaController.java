@@ -27,7 +27,7 @@ import java.util.*;
 import static org.springframework.http.ResponseEntity.*;
 
 @RestController
-@RequestMapping("/vagas")
+
 public class VagaController {
 
     @Autowired
