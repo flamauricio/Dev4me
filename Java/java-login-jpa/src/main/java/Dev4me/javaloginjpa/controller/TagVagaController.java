@@ -1,6 +1,7 @@
 package Dev4me.javaloginjpa.controller;
 
 import Dev4me.javaloginjpa.entity.Tag;
+import Dev4me.javaloginjpa.entity.Vaga;
 import Dev4me.javaloginjpa.request.TagVagaAndroidRequest;
 import Dev4me.javaloginjpa.entity.TagVaga;
 import Dev4me.javaloginjpa.repository.TagRepository;
@@ -44,14 +45,18 @@ public class TagVagaController
         return status(201).build();
     }
 
-    @PostMapping("/android")
+    @PostMapping("/{idVaga}")
     @CrossOrigin
-    public ResponseEntity postTagVagaAndroid(@RequestBody TagVagaAndroidRequest tagVaga)
+    public ResponseEntity postTagVagaAndroid(@RequestBody TagVagaAndroidRequest tags, @PathVariable Integer idVaga)
     {
-        List<Tag> tags = tagVaga.getTags()
+        List<Tag> tagsList = tags.getTags();
 
-        for (String tag : tags) {
-            tagVagaRepository.save(new TagVaga(tagVaga.getVaga(), tag));
+        Vaga vaga = new Vaga(
+                idVaga
+        );
+
+        for (Tag tag : tagsList) {
+            tagVagaRepository.save(new TagVaga(vaga, tag));
         }
 
         return status(201).build();

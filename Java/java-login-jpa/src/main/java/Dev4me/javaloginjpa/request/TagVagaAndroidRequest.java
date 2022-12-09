@@ -18,14 +18,9 @@ import java.util.List;
 
 
 public class TagVagaAndroidRequest {
-    private List<Tag> tags,
-    private Vaga vaga
+    private List<Tag> tags;
 
     public List<Tag> getTags() {
         return tags;
-    }
-
-    public Vaga getVaga() {
-        return vaga;
     }
 }

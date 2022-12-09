@@ -75,6 +75,10 @@ public class Vaga {
     public Vaga() {
     }
 
+    public Vaga(Integer idVaga) {
+        this.idVaga = idVaga;
+    }
+
 
 
     public Integer getIdVaga() {
