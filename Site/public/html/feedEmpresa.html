@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../Logo-Dev4Me/logo-207x207.png">
+    <link rel="stylesheet" href="../css/feedEmpresa.css">
+    <link rel="stylesheet" href="../css/feedVagas.css">
+    <link rel="stylesheet" href="../css/headerInstitucional.css">
+    <title>Dev4me</title>
+</head>
+
+<body>
+
+    <!--Header-->
+    <!--Header caso o usuário esteja vendo sem estar logado-->
+    <div class="divHeaderFather">
+        <div class="divHeaderContainer">
+            <a href="https://dev4me.ddns.net/html/homepageAlt.html"><img class="logo" src="../Logo-Dev4Me/logo-nome-simples-dev4me.png"
+                    onmouseover="src='../Logo-Dev4Me/logo-nome-degrade-dev4me.png';"
+                    onmouseout="src='../Logo-Dev4Me/logo-nome-simples-dev4me.png';"></a>
+
+            <div class="divButtons">
+                <button class="buttonHeader" style="margin-right: 3%"><a class="li-comum"
+                        href="https://dev4me.ddns.net/login">Entrar</a></button>
+                <button class="buttonHeader" style="margin-right: 7%"><a class="li-comum"
+                        href="https://dev4me.ddns.net/cadastro">Cadastre-se</a></button>
+                <a href="https://dev4me.ddns.net/html/perfilEmpresa.html" style="margin-right: 7%;"><img class="imgProfile"
+                        src="../img/user-profile-white.png" onmouseover="src='../img/user-profile-blue.png';"
+                        onmouseout="src='../img/user-profile-white.png';"></a>
+                <a href="https://dev4me.ddns.net/html/feedEmpresa.html"><img class="imgIcon" src="../img/home-button-white.png"
+                        onmouseover="src='../img/home-button-blue.png';"
+                        onmouseout="src='../img/home-button-white.png';"></a>
+
+            </div>
+        </div>
+
+ <!--Search bar mobile-->
+ <div class="divMobile">
+    <div class="divMobileOrganizer" style="margin-left: 5%;">
+        <div class="divSpaceBetween">
+            <p class="bigTitle">Filtrar Busca</p>
+            <img class="imgIcon2" src="../img/reload.png">
+        </div>
+
+        <div class="divAlignLeft">
+            <p class="subtitle">Buscar por Localização</p>
+            <input class="searchBarMobile" type="search" placeholder="Digite uma localização">
+        </div>
+        <div class="divAlignLeft">
+            <p class="subtitle">Buscar por Tags</p>
+            <input class="searchBarMobile" type="search" placeholder="Digite uma tag">
+        </div>
+    </div>
+
+    <div class="divMobileOrganizer" style="margin-right: 5%;">
+        <div class="divSpaceBetween">
+            <p class="bigTitle" style="color: #383838;">Filtrar Busca</p>
+        </div>
+        <div class="divAlignLeft">
+            <p class="subtitle">Criar nova vaga</p>
+            <a class="li-comum" href="../html/cadastroVaga.html" target="_blank">
+                <button class="alternativeButton">Criar vaga</button>
+            </a>
+        </div>
+    </div>
+</div>
+
+               <!--Sidebar-->
+               <div class="divSideBar" id="divSideBar">
+                <div class="divSideBarContainer">
+                    <div class="divSpaceBetween">
+                        <p class="bigTitle">Filtrar Busca</p>
+                        <img class="imgIcon2" src="../img/reload.png">
+                    </div>
+    
+                    <div class="divAlignLeft">
+                        <p class="subtitle">Buscar por Tags</p>
+                        <input class="searchBar" type="search" placeholder="Digite uma tag">
+                    </div>
+    
+                    <div class="marginBox">
+    
+                    </div>
+    
+                    <div class="divAlignLeft">
+                        <p class="subtitle">Buscar por Localização</p>
+                        <input class="searchBar" type="search" placeholder="Digite uma localização">
+                    </div>
+
+                    <div class="divAlignLeft">
+                        <p class="subtitle"></p>
+                        <a class="li-comum" href="../html/cadastroVaga.html" target="_blank">
+                            <button class="alternativeButton">Criar vaga</button>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    <div class="divFeedMargin"></div>
+
+    <div class="divCardsFormatter">
+        <div class="cardBody">
+            <div class="divAlignLeft2">
+                <img class="imagePerson" src="../img/eu.jpg"/>
+                <div class="divTextOrganizer">
+                    <p class="namePerson">Guilherme de Carvalho</p>
+                    <p class="textInfo">Santo André, SP</p>
+                    <p class="textInfo">Desenvolvedor</p>
+                </div>
+            </div>
+
+            <div class="divTagsFormatter">
+                <div class="divTags">
+                    <button class="tagArea">Desenvolvedor</button>
+                    <button class="tagDev">JavaScript</button>
+                    <button class="tagDev">React</button>
+                    <button class="tagDev">NodeJS</button>
+                    <button class="tagPlatform">AWS</button>
+                    <button class="tagPlatform">Azure</button>
+                    <button class="tagBusyness">Agile</button>
+                    <button class="tagBusyness">Scrum</button>
+                </div>
+            </div>
+
+            <div class="divDescriptionFormatterAlt">
+                <div class="divDescription">
+                    <p class="contentText">
+                        “ Trabalhei 2 anos com back-end em JavaScript na Accenture, 
+                        tenho conhecimento de arquitetura Cloud (iniciante), 
+                        utilizei React Native por 6 meses, 
+                        desenvolvi projetos na metodologia Agile na maior parte do tempo.
+                        Me interesso por programação Web e Mobile.”
+                    </p>
+                </div>
+            </div>
+
+            <a class="li-comum" href="./feedVagasVaga.html" target="_blank">
+                <button class="alternativeButton" style="float: right;">Ver mais</button></a>
+        </div>
+
+        <div class="cardBody">
+            <div class="divAlignLeft2">
+                <img class="imagePerson" src="../img/eu.jpg"/>
+                <div class="divTextOrganizer">
+                    <p class="namePerson">Guilherme de Carvalho</p>
+                    <p class="textInfo">Santo André, SP</p>
+                    <p class="textInfo">Desenvolvedor</p>
+                </div>
+            </div>
+
+            <div class="divTagsFormatter">
+                <div class="divTags">
+                    <button class="tagArea">Desenvolvedor</button>
+                    <button class="tagDev">JavaScript</button>
+                    <button class="tagDev">React</button>
+                    <button class="tagDev">NodeJS</button>
+                    <button class="tagPlatform">AWS</button>
+                    <button class="tagPlatform">Azure</button>
+                    <button class="tagBusyness">Agile</button>
+                    <button class="tagBusyness">Scrum</button>
+                </div>
+            </div>
+
+            <div class="divDescriptionFormatterAlt">
+                <div class="divDescription">
+                    <p class="contentText">
+                        “ Trabalhei 2 anos com back-end em JavaScript na Accenture, 
+                        tenho conhecimento de arquitetura Cloud (iniciante), 
+                        utilizei React Native por 6 meses, 
+                        desenvolvi projetos na metodologia Agile na maior parte do tempo.
+                        Me interesso por programação Web e Mobile.”
+                    </p>
+                </div>
+            </div>
+
+            <a class="li-comum" href="./feedVagasVaga.html" target="_blank">
+                <button class="alternativeButton" style="float: right;">Ver mais</button></a>
+        </div>
+
+        <div class="cardBody">
+            <div class="divAlignLeft2">
+                <img class="imagePerson" src="../img/eu.jpg"/>
+                <div class="divTextOrganizer">
+                    <p class="namePerson">Guilherme de Carvalho</p>
+                    <p class="textInfo">Santo André, SP</p>
+                    <p class="textInfo">Desenvolvedor</p>
+                </div>
+            </div>
+
+            <div class="divTagsFormatter">
+                <div class="divTags">
+                    <button class="tagArea">Desenvolvedor</button>
+                    <button class="tagDev">JavaScript</button>
+                    <button class="tagDev">React</button>
+                    <button class="tagDev">NodeJS</button>
+                    <button class="tagPlatform">AWS</button>
+                    <button class="tagPlatform">Azure</button>
+                    <button class="tagBusyness">Agile</button>
+                    <button class="tagBusyness">Scrum</button>
+                </div>
+            </div>
+
+            <div class="divDescriptionFormatterAlt">
+                <div class="divDescription">
+                    <p class="contentText">
+                        “ Trabalhei 2 anos com back-end em JavaScript na Accenture, 
+                        tenho conhecimento de arquitetura Cloud (iniciante), 
+                        utilizei React Native por 6 meses, 
+                        desenvolvi projetos na metodologia Agile na maior parte do tempo.
+                        Me interesso por programação Web e Mobile.”
+                    </p>
+                </div>
+            </div>
+
+            <a class="li-comum" href="./feedVagasVaga.html" target="_blank">
+                <button class="alternativeButton" style="float: right;">Ver mais</button></a>
+        </div>
+
+        <div class="cardBody">
+            <div class="divAlignLeft2">
+                <img class="imagePerson" src="../img/eu.jpg"/>
+                <div class="divTextOrganizer">
+                    <p class="namePerson">Guilherme de Carvalho</p>
+                    <p class="textInfo">Santo André, SP</p>
+                    <p class="textInfo">Desenvolvedor</p>
+                </div>
+            </div>
+
+            <div class="divTagsFormatter">
+                <div class="divTags">
+                    <button class="tagArea">Desenvolvedor</button>
+                    <button class="tagDev">JavaScript</button>
+                    <button class="tagDev">React</button>
+                    <button class="tagDev">NodeJS</button>
+                    <button class="tagPlatform">AWS</button>
+                    <button class="tagPlatform">Azure</button>
+                    <button class="tagBusyness">Agile</button>
+                    <button class="tagBusyness">Scrum</button>
+                </div>
+            </div>
+
+            <div class="divDescriptionFormatterAlt">
+                <div class="divDescription">
+                    <p class="contentText">
+                        “ Trabalhei 2 anos com back-end em JavaScript na Accenture, 
+                        tenho conhecimento de arquitetura Cloud (iniciante), 
+                        utilizei React Native por 6 meses, 
+                        desenvolvi projetos na metodologia Agile na maior parte do tempo.
+                        Me interesso por programação Web e Mobile.”
+                    </p>
+                </div>
+            </div>
+
+            <a class="li-comum" href="./feedVagasVaga.html" target="_blank">
+                <button class="alternativeButton" style="float: right;">Ver mais</button></a>
+        </div>
+    </div>
+
+</body>
+
+</html>

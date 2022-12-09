@@ -1,0 +1,291 @@
+/* Variables */
+:root {
+    /* Colors */
+    --backGroundGrey: #272727;
+    --darkGrey: #171717;
+    --mediumGrey: #383838;
+    --lightGrey: #4E4E4E;
+    --lightBlue: #1E9CD7;
+    --lightPurple: #861ED7;
+    --white: #ffffff;
+
+    --blueTag: #69E3E8;
+    --purpleTag: #7B69E8;
+    --yellowTag: #FFC700;
+    --redTag: #fa2abf;
+
+    /* Margin */
+    --xxsMargin: 1%;
+    --xsMargin: 2%;
+    --sMargin: 5%;
+    --mMargin: 10%;
+    --lMargin: 20%;
+    --xlMargin: 30%;
+    --xxlMargin: 50%;
+
+    /* Font Size */
+    --bigTitle: 2.5rem;
+    /* Use with font-family: var(--bold) */
+    --regularTitle: 2rem;
+    /* Use with font-family: var(--bold) */
+    --subtitle: 1.2rem;
+    /* Use with font-family: var(--bold) */
+    --smallSubtitle: 1rem;
+    /* Use with font-family: var(--bold) */
+    --bigText: 1.5rem;
+    /* Use with font-family: var(--regular) */
+    --smallText: 0.8rem;
+    /* Use with font-family: var(--regular) */
+    --extraSmallText: 0.7rem;
+    /* Use with font-family: var(--regular) */
+
+    /* Font Family */
+    --bold: 'Poppins-Bold';
+    --regular: 'Poppins-Medium';
+}
+
+body
+{
+    /* font-family: var(--bold); */
+}
+
+#container-vg
+{
+    width: 100%;
+}
+
+#mainBox-vg
+{
+    height: auto;
+    max-width: 70%;
+    background-color: var(--mediumGrey);
+    margin: 25px auto;
+    padding: 20px 0;
+}
+
+#content-vg
+{
+    margin: 0 auto;
+    max-width: 90%;
+    /* height: 200px; */
+    /* background-color: white; */
+}
+
+.title-vg
+{
+    color: var(--lightBlue);
+    font-weight: bold;
+    font-size: var(--regularTitle);
+    font-family: var(--bold);
+}
+
+.subContent-vg
+{
+    max-width: 60%;
+    margin: 0 auto;
+}
+
+.smallTitle-vg
+{
+    font-size: var(--subtitle);
+    color: white;
+    font-family: var(--regular);
+    margin: 10px 0;
+
+}
+
+#content-vg input, select, textarea
+{
+    background-color: var(--lightGrey);
+    border: none;
+    color: var(--white);
+    border-radius: 5px;
+    height: 45px;
+    width: 100%;
+    padding-left: 5px;
+    outline: 0;
+    margin-bottom: 10px;
+    font-family: var(--regular);
+}
+
+.grayButton-vg
+{
+    border: none;
+    font-family: var(--bold);
+    color: var(--white);
+    background-color: #696666;
+    border-radius: 40px 0 40px 0;
+    width: 200px;
+    height: 50px;
+    filter: drop-shadow(15px 15px 4px rgba(0, 0, 0, 0.25));
+    font-size: var(--subtitle);
+    cursor: pointer;
+    margin-top: 30px;
+    transition: 0.5s;
+}
+
+.grayButton-vg:hover {
+    color: var(--white);
+    background-color: var(--lightBlue);
+    filter: drop-shadow(15px 15px 4px rgba(0, 0, 0, 0.25));
+}
+
+#text-vg
+{
+    float: right;
+    color: var(--white);
+    font-family: var(--regular);
+    font-size: var(--extraSmallText);
+}
+
+.inputPequeno-vg
+{
+    width: 45%;
+}
+
+.divButtonsTag-cv
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.buttonTag-vg
+{
+    border: none;
+    font-family: var(--bold);
+    color: var(--white);
+    background-color: #696666;
+    /* border-radius: 40px 0 40px 0; */
+    width: 100px;
+    height: 25px;
+    /* filter: drop-shadow(15px 15px 4px rgba(0, 0, 0, 0.25)); */
+    font-size: var(--smallText);
+    cursor: pointer;
+    margin-top: 5px;
+    transition: 0.5s;
+}
+
+.buttonTag-vg:hover {
+    color: var(--white);
+    background-color: var(--lightBlue);
+}
+
+#tags-vg
+{
+    margin: 15px 0;
+    padding: 20px 0 0 6%;
+    min-height: 150px;
+    background-color: var(--mediumGrey);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 1px groove white;
+}
+
+/* Responsive */
+@media screen and (max-width: 835px)
+{
+    #text-vg {
+        font-size: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 635px)
+{
+    textarea {
+        font-size: 0.8rem;
+
+    }
+}
+
+@media screen and (max-width: 550px)
+{
+    #inputSalario-vg {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .inputPequeno-vg {
+        width: 100%;
+    }
+
+    textarea {
+        font-size: 0.73rem;
+    }
+}
+
+@media screen and (max-width: 530px)
+{
+    .grayButton-vg {
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 465px)
+{
+    textarea {
+        font-size: 0.68rem;
+    }
+}
+
+@media screen and (max-width: 435px)
+{
+    .title-vg {
+        font-size: 1.8rem;
+    }
+
+    select {
+        font-size: 0.65rem;
+        height: 38px;
+    }
+
+    input {
+        height: 38px;
+    }
+
+    textarea {
+        font-size: 0.6rem;
+    }
+}
+
+@media screen and (max-width: 412px)
+{
+    .title-vg {
+        font-size: 1.5rem;
+    }
+
+    .grayButton-vg {
+        width: 120px;
+        font-size: medium;
+    }
+
+    .smallTitle-vg {
+        font-size: var(--smallSubtitle);
+    }
+}
+
+@media screen and (max-width: 360px)
+{
+    select-vg {
+        font-size: 0.52rem;       
+    }
+}
+
+@media screen and (max-width: 340px)
+{
+    .smallTitle-vg {
+        font-size: var(--smallText);
+    }
+}
+
+@media screen and (max-width: 310px)
+{
+    .title-vg {
+        font-size: 1.35rem;       
+    }
+
+    select {
+        width: 105%;
+    }
+}

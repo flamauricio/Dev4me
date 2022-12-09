@@ -1,0 +1,266 @@
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url(./fonts/Poppins-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins-Medium';
+    src: url(./fonts/Poppins-Medium.ttf);
+}
+
+/* Variables */
+:root {
+    /* Colors */
+    --backGroundGrey: #272727;
+    --darkGrey: #171717;
+    --mediumGrey: #383838;
+    --lightGrey: #4E4E4E;
+    --lightBlue: #1E9CD7;
+    --lightPurple: #861ED7;
+    --white: #ffffff;
+
+    --blueTag: #69E3E8;
+    --purpleTag: #7B69E8;
+    --yellowTag: #FFC700;
+    --redTag: #fa2abf;
+
+    /* Margin */
+    --xxsMargin: 1%;
+    --xsMargin: 2%;
+    --sMargin: 5%;
+    --mMargin: 10%;
+    --lMargin: 20%;
+    --xlMargin: 30%;
+    --xxlMargin: 50%;
+
+    /* Font Size */
+    --bigTitle: 2.5rem;
+    /* Use with font-family: var(--bold) */
+    --regularTitle: 2rem;
+    /* Use with font-family: var(--bold) */
+    --subtitle: 1.2rem;
+    /* Use with font-family: var(--bold) */
+    --smallSubtitle: 1rem;
+    /* Use with font-family: var(--bold) */
+    --bigText: 1.5rem;
+    /* Use with font-family: var(--regular) */
+    --smallText: 0.8rem;
+    /* Use with font-family: var(--regular) */
+    --extraSmallText: 0.7rem;
+    /* Use with font-family: var(--regular) */
+
+    /* Font Family */
+    --bold: 'Poppins-Bold';
+    --regular: 'Poppins-Medium';
+}
+
+/* Scrollbar Configuration */
+::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 1.25rem;
+    background-color: #ffffff05;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ffffffaf;
+    border-radius: 10px;
+}
+
+/* Body */
+body {
+    margin: 0;
+    background-color: var(--backGroundGrey);
+}
+
+/* Header */
+.divHeaderFather {
+    width: 100%;
+    height: 4rem;
+    position: unset;
+    background-color: var(--darkGrey);
+    align-items: center;
+    text-align: center;
+    z-index: 2;
+}
+
+.divHeaderContainer {
+    max-width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buttonHeader {
+    height: 2rem;
+    width: 10rem;
+    background-color: var(--lightBlue);
+    border-radius: 10px;
+    border-style: none;
+    font-size: var(--subtitle);
+    font-family: var(--bold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    margin-right: 3%;
+}
+
+.buttonHeader:hover {
+    background-color: var(--lightPurple);
+    cursor: pointer;
+}
+
+.divButtons {
+    width: 48.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.imgIcon {
+    height: 2rem;
+    margin: 0;
+}
+
+.imgProfile {
+    height: 2.2rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 2.2rem;
+    margin: 0px;
+}
+
+
+.li-comum {
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.divHeaderIconsOrganizer {
+    width: 48.75rem;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+@media screen and (max-width: 1000px) {
+
+    .divHeaderFather {
+        height: calc(4rem * 0.695);
+    }
+    
+    .buttonHeader {
+        height: calc(2rem * 0.695);
+        width: calc(10rem * 0.695);
+        border-radius: calc(10px * 0.695);
+    }
+    
+    .divButtons {
+        width: calc(48.75rem * 0.695);
+    }
+    
+    .imgIcon {
+        height: calc(2rem * 0.695);
+    }
+    
+    .imgProfile {
+        height: calc(2.2rem * 0.695);
+    }
+    
+    .logo {
+        height: calc(2.2rem * 0.695);
+    }
+    
+    
+    .li-comum {
+        font-size: calc( 1rem * 0.695);
+    }
+    
+    .divHeaderIconsOrganizer {
+        width: calc(48.75rem * 0.695);
+    }
+}
+
+@media screen and (max-width: 750px) {
+
+    .divHeaderFather {
+        height: calc(4rem * 0.5125);
+    }
+    
+    .buttonHeader {
+        height: calc(2rem * 0.5125);
+        width: calc(10rem * 0.5125);
+        border-radius: calc(10px * 0.5125);
+    }
+    
+    .divButtons {
+        width: calc(48.75rem * 0.5125);
+    }
+    
+    .imgIcon {
+        height: calc(2rem * 0.5125);
+    }
+    
+    .imgProfile {
+        height: calc(2.2rem * 0.5125);
+    }
+    
+    .logo {
+        height: calc(2.2rem * 0.5125);
+    }
+    
+    
+    .li-comum {
+        font-size: calc( 1rem * 0.5125);
+    }
+    
+    .divHeaderIconsOrganizer {
+        width: calc(48.75rem * 0.5125);
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .divHeaderFather {
+        height: calc(4rem * 0.4);
+    }
+    
+    .buttonHeader {
+        height: calc(2rem * 0.4);
+        width: calc(10rem * 0.4);
+        border-radius: calc(10px * 0.4);
+    }
+    
+    .divButtons {
+        width: calc(48.75rem * 0.4);
+    }
+    
+    .imgIcon {
+        height: calc(2rem * 0.4);
+    }
+    
+    .imgProfile {
+        height: calc(2.2rem * 0.4);
+    }
+    
+    .logo {
+        height: calc(2.2rem * 0.4);
+    }
+    
+    
+    .li-comum {
+        font-size: calc( 1rem * 0.4);
+    }
+    
+    .divHeaderIconsOrganizer {
+        width: calc(48.75rem * 0.4);
+    }
+}

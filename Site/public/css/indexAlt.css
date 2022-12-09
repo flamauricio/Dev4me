@@ -1,0 +1,308 @@
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url(../fonts/Poppins-Bold.ttf);
+    font-family: 'Poppins-Medium';
+    src: url(../fonts/Poppins-Medium.ttf);
+}
+
+body{
+    font-family: 'Poppins-Regular';
+    margin: 0;
+    padding: 0;
+    background-color: #272727;
+}
+
+:root {
+    /* Colors */
+    --backGroundGrey: #272727;
+    --darkGrey: #171717;
+    --mediumGrey: #383838;
+    --lightGrey: #4E4E4E;
+    --lightBlue: #1E9CD7;
+    --lightPurple: #861ED7;
+    --white: #ffffff;
+
+    --blueTag: #69E3E8;
+    --purpleTag: #4c2dfa;
+    --yellowTag: #FFC700;
+    --redTag: #fa2abf;
+
+    /* Margin */
+    --xxsMargin: 16px;
+    --xsMargin: 24px;
+    --sMargin: 32px;
+    --mMargin: 40px;
+    --lMargin: 48px;
+    --xlMargin: 56px;
+    --xxlMargin: 64px;
+
+    /* Font Size */
+    --bigTitle: 2.5rem;
+    /* Use with font-family: var(--bold) */
+    --regularTitle: 2rem;
+    /* Use with font-family: var(--bold) */
+    --bigText: 1.5rem;
+    /* Use with font-family: var(--regular) */
+    --subtitle: 1.2rem;
+    /* Use with font-family: var(--bold) */
+    --smallSubtitle: 1rem;
+    /* Use with font-family: var(--bold) */
+    --smallText: 0.8rem;
+    /* Use with font-family: var(--regular) */
+    --extraSmallText: 0.6rem;
+    /* Use with font-family: var(--regular) */
+    --miniText: 0.5rem;
+    /* Use with font-family: var(--regular) */
+    --microText: 0.42rem;
+    /* Use with font-family: var(--regular) */
+
+    /* Font Family */
+    --bold: 'Poppins-Bold';
+    --regular: 'Poppins-Medium';
+}
+
+/* banner */
+.divBannerFather{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.divBanner{
+    width: 100%;
+    height: 30%;
+    margin-bottom: 4rem;
+    margin-top: 2rem;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 6.25rem;
+    background-image: linear-gradient(to left,#9000FF 60%, #466CFF 80%, #00D1FF 100%);
+}
+
+.bannerContent{
+    font-family: var(--bold);
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-left: 55%;
+    margin-top: -27%;
+}
+.titulo1{
+    font-family: var(--bold);
+    font-size: x-large;
+}
+.imgBanner{
+     float: left;
+     margin-right: 50%;
+     filter: drop-shadow(50px 4px 10px rgba(0, 0, 0, 0.25));
+     
+
+}
+.titulo2{
+    font-family: var(--bold);
+    color: var(--white);
+    padding-top: 3%;
+    font-size: medium;
+}
+.criarConta{
+     color: var(--white);
+     font-family: var(--bold);
+     font-size: var(--subtitle);
+     width: 14rem;
+     height: 3.125rem;
+     background-color: var(--white);
+     color: var(--lightPurple);
+     border-radius: 25px 0px;
+     border: none;
+     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.45));
+     float: right;
+     cursor: pointer;
+     margin-top: 4%;
+}
+
+.criarConta:hover{
+     color:var(--white);
+     background-color: var(--darkGrey);
+     transition: 1s;
+}
+
+.titulo3{
+     color: var(--white);
+     padding-top: 5%;
+     font-size: smaller;
+}
+
+.cliqueAqui:hover{
+     cursor: pointer;
+     color: #272727;
+     transition: 1s;
+}
+
+/* beneficios */
+.divBeneficiosFather{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.beneficiosContent{
+    font-family: 'Poppins-Regular';
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+
+}
+.degrade{
+     background-image: linear-gradient(to left,#9000FF 60%, #466CFF 80%, #00D1FF 100%);
+     background-clip: text;
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+     color: black;
+}
+
+.beneficio{
+    color: var(--white);
+    font-family: var(--bold);
+    font-size: var(--regularTitle);
+
+}
+.contentBeneficio{
+    color: var(--white);
+    font-family: var(--bold);
+    font-size: var(--smallSubtitle);
+}
+
+.imgBeneficios{
+    margin-top: -30%;
+    height: 120%;
+    width: 120%;
+    margin-right: 10%;
+}
+
+.beneficiosContent2{
+    font-family: 'Poppins-Regular';
+    width: 42%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50%;
+    float: right;
+    margin-top: -30%;
+
+}
+
+/* empresas */
+.tituloEmpresa{
+    color: var(--white);
+    font-family: var(--bold);
+    margin-top: 10%;
+    text-align: right;
+    font-size: var(--regularTitle);
+    margin-right: 5%;
+}
+.divEmpresas{
+    width: 100%;
+    /* height: 20%; */
+    flex-direction: row;
+    margin-bottom: 4rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to right,#9204fe 30%, #3e62f4 80%, #0eb5db 100%);
+}
+.imgEmpresa{
+    filter: grayscale(100%);
+    width: 20%;
+   padding-left: 8.3%;
+   height: 10%;
+   padding:2%;
+   
+}
+.imgEmpresa:hover{
+    filter: none;
+    cursor: pointer;
+    transition: 1s;
+}
+
+/* estatiscas */
+
+.divCards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    margin: 8%;
+}
+
+.card{
+    text-align: center;
+    color: var(--white);
+    font-family: var(--bold);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    background-image: linear-gradient(to left,#9204fe 30%, #3e62f4 80%, #0eb5db 100%);
+    margin: 0.313rem;
+    padding: 0.5rem;
+    filter: drop-shadow(30px 8px 15px rgba(0, 0, 0, 0.25));
+    height: 14.375rem;
+    width: 18.75rem;
+    border-radius: 10px;
+    font-size: var(--bigText);
+    padding-top: 4%;
+}
+.tituloEmpresa2{
+    color: var(--white);
+    font-family: var(--bold);
+    margin-top: 10%;
+    text-align: center;
+    font-size: var(--regularTitle);
+}
+/* footer */
+.responsiveFooter {
+    display: flex;
+    flex-direction: column;
+}
+
+.responsiveFooter h3 {
+    text-align: center;
+}
+
+.company {
+    text-align: center;
+}
+
+.footer {
+    background: black;
+    color: white;
+    width: 100%;
+}
+
+.responsiveFooter {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.company img {
+    height: 30px;
+    margin-top: 15px;
+}
+
+.copyright {
+    font-size: small;
+}

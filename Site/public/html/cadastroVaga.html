@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../Logo-Dev4Me/logo-207x207.png">
+    <link rel="stylesheet" href="../css/headerInstitucional.css">
+    <link rel="stylesheet" href="../css/feedVagas.css">
+    <link rel="stylesheet" href="../css/cadastroVaga.css">
+    <title>Cadastrar Vaga</title>
+</head>
+
+<body>
+
+    <!--Header-->
+    <!--Header caso o usuário esteja vendo logado-->
+    <div class="divHeaderFather" style="position: unset;">
+        <div class="divHeaderContainer">
+            <a href="https://dev4me.ddns.net/html/homepageAlt.html"><img class="logo" src="../Logo-Dev4Me/logo-nome-simples-dev4me.png"
+                    onmouseover="src='../Logo-Dev4Me/logo-nome-degrade-dev4me.png';"
+                    onmouseout="src='../Logo-Dev4Me/logo-nome-simples-dev4me.png';"></a>
+
+            <div class="divButtons">
+                <a href="https://dev4me.ddns.net/html/perfilEmpresa.html" style="margin-right: 7%;"><img class="imgProfile"
+                        src="../img/user-profile-white.png" onmouseover="src='../img/user-profile-blue.png';"
+                        onmouseout="src='../img/user-profile-white.png';"></a>
+                <a href="https://dev4me.ddns.net/html/feedVagas.html"><img class="imgIcon" src="../img/home-button-white.png"
+                        onmouseover="src='../img/home-button-blue.png';"
+                        onmouseout="src='../img/home-button-white.png';"></a>
+            </div>
+        </div>
+    
+    </div>
+    <div id="container">
+        <div id="mainBox">
+            <div id="content">
+                <span class="title">Cadastrar uma nova vaga</span>
+
+                <!-- FASE 1 -->
+                <div id="phaseOne" class="subContent" style="display: block;">
+                    <div>
+                        <div class="smallTitle">Título da vaga</div>
+                        <input type="text" placeholder="Digite um título para a vaga">                                               
+                    </div>
+                    <div>
+                        <div class="smallTitle">Tipo de Contrato</div>
+                        <select name="" id="">
+                            <option value="">Selecione o tipo de contrato</option>
+                            <option value="">Remoto</option>
+                            <option value="">Híbrido</option>
+                            <option value="">Presencial</option>
+                        </select>
+                    </div>
+                    <div>
+                        <div class="smallTitle">Localização</div>
+                        <input type="text" placeholder="Digite um título para a vaga">                                               
+                    </div>
+                    <div id="text">caso seja uma vaga remota, a localização ficará como “remota”</div>
+                    <br>
+                    <div style="text-align: center;">
+                        <button class="grayButton" onclick="avancar1()">Avançar</button>
+                    </div>
+                </div>
+
+                <!-- FASE 2 -->
+                <div id="phaseTwo" style="display: none;" class="subContent">
+                    <div>
+                        <div class="smallTitle">Tags da vaga</div>
+                        <select name="" id="">
+                            <option value="">Procure por uma tag</option>
+                            <option value="">Java</option>
+                            <option value="">Html</option>
+                            <option value="">CSS</option>
+                            <option value="">React</option>
+                        </select>
+                    </div>
+                    <div id="inputSalario">
+                        <div class="smallTitle">Faixa salarial</div>
+                        <input type="text" class="inputPequeno" placeholder="Valor mínimo">   
+                        <input type="text" style="float: right;" class="inputPequeno" placeholder="Valor máximo">   
+                    </div>
+                    <div id="text">caso não deseje informar, não insira valores (opcional)</div>
+                
+                    <div>
+                        <div style="margin-top: 30px;" class="smallTitle">Breve descrição</div>
+                        <textarea style="height: 70px;" name="" id="" cols="30" rows="10" placeholder="Descreva a vaga de forma resumida."></textarea>
+                    </div>
+                    <div style="text-align: center;">
+                        <button style="margin-top: 10px;" onclick="avancar2()" class="grayButton">Avançar</button>
+                    </div>
+                </div>
+
+                <!-- FASE 3 -->
+                <div id="phaseThree" style="display: none;" class="subContent">
+                    <div>
+                        <div class="smallTitle">Atividades</div>
+                        <textarea style="height: 70px;" name="" id="" cols="30" rows="10" placeholder="Descreva as principais atividades que serão exercídas na vaga, exemplo: “criar páginas web”"></textarea>
+                    </div>
+                    <div>
+                        <div class="smallTitle">Requisitos</div>
+                        <textarea style="height: 70px;" name="" id="" cols="30" rows="10" placeholder="Descreva os requisitos para a vaga"></textarea>
+                    </div>
+                    <div style="text-align: center;">
+                        <button style="margin-top: 20px; background-color: #1E9CD7;" onclick="publicar()" class="grayButton" style="">Publicar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
+
+<script>
+    function publicar()
+    {
+        window.location = "https://dev4me.ddns.net/html/feedVagas.html";
+    }
+
+    function avancar1()
+    {
+        phaseOne.style.display = 'none';
+        phaseTwo.style.display = 'block';
+    }
+
+    function avancar2()
+    {
+        phaseTwo.style.display = 'none';
+        phaseThree.style.display = 'block';
+    }
+</script>

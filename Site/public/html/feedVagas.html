@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../Logo-Dev4Me/logo-207x207.png">
+    <link rel="stylesheet" href="../css/feedVagas.css">
+    <link rel="stylesheet" href="../css/headerInstitucional.css">
+    <title>Dev4me</title>
+</head>
+
+<body>
+
+    <!--Header-->
+    <!--Header caso o usuário esteja vendo sem estar logado-->
+    <div class="divHeaderFather">
+        <div class="divHeaderContainer">
+            <a href="https://dev4me.ddns.net/html/homepageAlt.html"><img class="logo" src="../Logo-Dev4Me/logo-nome-simples-dev4me.png"
+                    onmouseover="src='../Logo-Dev4Me/logo-nome-degrade-dev4me.png';"
+                    onmouseout="src='../Logo-Dev4Me/logo-nome-simples-dev4me.png';"></a>
+
+            <div class="divButtons">
+                <button class="buttonHeader" style="margin-right: 3%"><a class="li-comum"
+                        href="https://dev4me.ddns.net/login">Entrar</a></button>
+                <button class="buttonHeader" style="margin-right: 7%"><a class="li-comum"
+                        href="https://dev4me.ddns.net/cadastro">Cadastre-se</a></button>
+                <a href="https://dev4me.ddns.net/html/perfilCandidato.html" style="margin-right: 7%;"><img class="imgProfile"
+                        src="../img/user-profile-white.png" onmouseover="src='../img/user-profile-blue.png';"
+                        onmouseout="src='../img/user-profile-white.png';"></a>
+                <a href="https://dev4me.ddns.net/html/feedVagas.html"><img class="imgIcon" src="../img/home-button-white.png"
+                        onmouseover="src='../img/home-button-blue.png';"
+                        onmouseout="src='../img/home-button-white.png';"></a>
+
+            </div>
+        </div>
+
+                <!--Search bar mobile-->
+                <div class="divMobile">
+                    <div class="divMobileOrganizer" style="margin-left: 5%;">
+                        <div class="divSpaceBetween">
+                            <p class="bigTitle">Filtrar Busca</p>
+                            <img class="imgIcon2" src="../img/reload.png">
+                        </div>
+        
+                        <div class="divAlignLeft">
+                            <p class="subtitle">Buscar por Localização</p>
+                            <input class="searchBarMobile" type="search" placeholder="Digite uma localização">
+                        </div>
+        
+                        <div class="boxInline">
+                            <div class="boxCheckbox">
+                                <p class="smallText">remoto</p>
+                                <input class="checkbox" type="checkbox" checked>
+                            </div>
+        
+                            <div class="boxCheckbox">
+                                <p class="smallText">híbrido</p>
+                                <input class="checkbox" type="checkbox" checked>
+                            </div>
+        
+                            <div class="boxCheckbox">
+                                <p class="smallText">presencial</p>
+                                <input class="checkbox" type="checkbox" checked>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="divMobileOrganizer" style="margin-right: 5%;">
+                        <div class="divSpaceBetween">
+                            <p class="bigTitle" style="color: #383838;">Filtrar Busca</p>
+                        </div>
+                        <div class="divAlignLeft">
+                            <p class="subtitle">Buscar por Tags</p>
+                            <input class="searchBarMobile" type="search" placeholder="Digite uma tag">
+                        </div>
+        
+                        <!-- <div class="divAlignLeft">
+                            <p class="subtitle">Buscar por Faixa Salarial</p>
+                            <div class="divSpaceBetween2">
+                                <p class="subtitle">de:</p>
+                                <input class="searchBarSmall" type="search" placeholder="R$ 4000,00">
+                            </div>
+                            <div class="divSpaceBetween2">
+                                <p class="subtitle">até:</p>
+                                <input class="searchBarSmall" type="search" placeholder="R$ 6500,00">
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                
+        <!--Sidebar-->
+        <div class="divSideBar" id="divSideBar">
+            <div class="divSideBarContainer">
+                <div class="divSpaceBetween">
+                    <p class="bigTitle">Filtrar Busca</p>
+                    <img class="imgIcon2" src="../img/reload.png">
+                </div>
+
+                <div class="divAlignLeft">
+                    <p class="subtitle">Buscar por Tags</p>
+                    <input class="searchBar" type="search" placeholder="Digite uma tag">
+                </div>
+
+                <div class="marginBox">
+
+                </div>
+
+                <div class="divAlignLeft">
+                    <p class="subtitle">Buscar por Localização</p>
+                    <input class="searchBar" type="search" placeholder="Digite uma localização">
+                </div>
+
+                <div class="boxInline">
+                    <div class="boxCheckbox">
+                        <p class="smallText">remoto</p>
+                        <input class="checkbox" type="checkbox" checked>
+                    </div>
+
+                    <div class="boxCheckbox">
+                        <p class="smallText">híbrido</p>
+                        <input class="checkbox" type="checkbox" checked>
+                    </div>
+
+                    <div class="boxCheckbox">
+                        <p class="smallText">presencial</p>
+                        <input class="checkbox" type="checkbox" checked>
+                    </div>
+                </div>
+
+                <!-- <div class="divAlignLeft">
+                    <p class="subtitle">Buscar por Faixa Salarial</p>
+                    <div class="divSpaceBetween2">
+                        <p class="subtitle">de:</p>
+                        <input class="searchBarSmall" type="search" placeholder="R$ 4000,00">
+                    </div>
+                    <div class="divSpaceBetween2">
+                        <p class="subtitle">até:</p>
+                        <input class="searchBarSmall" type="search" placeholder="R$ 6500,00">
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="divFeedMargin"></div>
+
+    <div class="divFeedFormatter">
+        <div class="divFeedMargin2"></div>
+        <div class="divVaga">
+            <p class="bigTitle2">Desenvolvedor Front-end Júnior</p>
+            <div class="divRow">
+                <div class="divVagaCompany">
+                    <img class="profilePicture"
+                        src="https://7waves.me/wp-content/uploads/2021/08/Accenture-Logo-768x768-1.jpg">
+                </div>
+                <div class="divVagaContent">
+                    <div class="divDescriptionFormatter">
+                        <div class="divDescription">
+                            <p class="contentText">
+                                Empresa🏢: Accenture. <br> <br>
+                                Localização📍: São Paulo, SP. <br> <br>
+                                Contrato📑: Híbrido. <br> <br>
+                                Desenvolvimento de aplicações front-end com React; <br>
+                                Participar ativamente em soluções para os aplicativos desenvolvidos; <br>
+                                Utilizará boas práticas e código limpo;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="divTagsFormatter">
+                        <div class="divTags">
+                            <button class="tagArea">Desenvolvedor</button>
+                            <button class="tagDev">JavaScript</button>
+                            <button class="tagDev">React</button>
+                            <button class="tagDev">NodeJS</button>
+                            <button class="tagPlatform">AWS</button>
+                            <button class="tagPlatform">Azure</button>
+                            <button class="tagBusyness">Agile</button>
+                            <button class="tagBusyness">Scrum</button>
+                        </div>
+                    </div>
+
+                    <div class="divSpaceBetween3">
+                        <div class="divPayment" type="search">&nbsp&nbspSalário: R$ 4000,00 até R$ 6500,00</div>
+                        <a class="li-comum" href="./feedVagasVaga.html" target="_blank"><button
+                                class="alternativeButton">Ver mais</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="divFeedFormatter">
+        <div class="divFeedMargin2"></div>
+        <div class="divVaga">
+            <p class="bigTitle2">Desenvolvedor Front-end Júnior</p>
+            <div class="divRow">
+                <div class="divVagaCompany">
+                    <img class="profilePicture"
+                        src="https://7waves.me/wp-content/uploads/2021/08/Accenture-Logo-768x768-1.jpg">
+                </div>
+                <div class="divVagaContent">
+                    <div class="divDescriptionFormatter">
+                        <div class="divDescription">
+                            <p class="contentText">
+                                Empresa🏢: Accenture. <br> <br>
+                                Localização📍: São Paulo, SP. <br> <br>
+                                Contrato📑: Híbrido. <br> <br>
+                                Desenvolvimento de aplicações front-end com React; <br>
+                                Participar ativamente em soluções para os aplicativos desenvolvidos; <br>
+                                Utilizará boas práticas e código limpo;
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="divTagsFormatter">
+                        <div class="divTags">
+                            <button class="tagArea">Desenvolvedor</button>
+                            <button class="tagDev">JavaScript</button>
+                            <button class="tagDev">React</button>
+                            <button class="tagDev">NodeJS</button>
+                            <button class="tagPlatform">AWS</button>
+                            <button class="tagPlatform">Azure</button>
+                            <button class="tagBusyness">Agile</button>
+                            <button class="tagBusyness">Scrum</button>
+                        </div>
+                    </div>
+
+                    <div class="divSpaceBetween3">
+                        <div class="divPayment" type="search">&nbsp&nbspSalário: R$ 4000,00 até R$ 6500,00</div>
+                        <a class="li-comum" href="./feedVagasVaga.html" target="_blank"><button
+                                class="alternativeButton">Ver mais</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

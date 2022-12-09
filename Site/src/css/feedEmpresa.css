@@ -1,0 +1,268 @@
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url(./fonts/Poppins-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins-Medium';
+    src: url(./fonts/Poppins-Medium.ttf);
+}
+
+/* Variables */
+:root {
+    /* Colors */
+    --backGroundGrey: #272727;
+    --darkGrey: #171717;
+    --mediumGrey: #383838;
+    --lightGrey: #4E4E4E;
+    --lightBlue: #1E9CD7;
+    --lightPurple: #861ED7;
+    --white: #ffffff;
+
+    --blueTag: #69E3E8;
+    --purpleTag: #4c2dfa;
+    --yellowTag: #FFC700;
+    --redTag: #fa2abf;
+
+    /* Margin */
+    --xxsMargin: 16px;
+    --xsMargin: 24px;
+    --sMargin: 32px;
+    --mMargin: 40px;
+    --lMargin: 48px;
+    --xlMargin: 56px;
+    --xxlMargin: 64px;
+
+    /* Font Size */
+    --bigTitle: 2.5rem;
+    /* Use with font-family: var(--bold) */
+    --regularTitle: 2rem;
+    /* Use with font-family: var(--bold) */
+    --bigText: 1.5rem;
+    /* Use with font-family: var(--regular) */
+    --subtitle: 1.2rem;
+    /* Use with font-family: var(--bold) */
+    --smallSubtitle: 1rem;
+    /* Use with font-family: var(--bold) */
+    --smallText: 0.8rem;
+    /* Use with font-family: var(--regular) */
+    --extraSmallText: 0.6rem;
+    /* Use with font-family: var(--regular) */
+    --miniText: 0.5rem;
+    /* Use with font-family: var(--regular) */
+    --microText: 0.42rem;
+    /* Use with font-family: var(--regular) */
+
+    /* Font Family */
+    --bold: 'Poppins-Bold';
+    --regular: 'Poppins-Medium';
+}
+
+body {
+    margin: 0;
+    background-color: var(--backGroundGrey);
+}
+
+/* Feed */
+.divCardsFormatter {
+    margin-top: 3rem;
+    margin-left: 35%;
+    width: 60%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.cardBody {
+    width: 30rem;
+    height: 30rem;
+    padding: 1rem;
+    background-color: var(--mediumGrey);
+    margin: 1rem 1rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.divAlignLeft2 {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.imagePerson {
+    width: 6rem;
+    margin-right: 1rem;
+}
+
+.divTextOrganizer{
+    height: 6rem;
+    width: auto;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.namePerson {
+    font-family: var(--bold);
+    font-size: var(--subtitle);
+    color: var(--white);
+    margin: 0;
+}
+
+.textInfo {
+    font-family: var(--regular);
+    font-size: var(--subtitle);
+    color: var(--white);
+    margin: 0;
+}
+
+.divDescriptionFormatterAlt {
+    width: 100%;
+    height: 10rem;
+    font-family: var(--regular);
+    font-size: var(--smallText);
+    color: var(--white);
+    background-color: var(--lightGrey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 1025px) {
+
+    .cardBody {
+        width: 30rem;
+        height: 25rem;
+    }
+
+    .imagePerson {
+        width: 5rem;
+    }
+    
+    .divTextOrganizer{
+        height: 5rem;
+    }
+
+    .namePerson {
+        font-size: var(--smallSubtitle);
+    }
+    
+    .textInfo {
+        font-size: var(--smallSubtitle);
+    }
+
+    .divDescriptionFormatterAlt {
+        height: 10rem;
+        font-size: var(--smallText);
+    }
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 770px) {
+
+    .cardBody {
+        width: 30rem;
+        height: 25rem;
+    }
+
+    .imagePerson {
+        width: 4rem;
+    }
+    
+    .divTextOrganizer{
+        height: 4rem;
+    }
+
+    .namePerson {
+        font-size: var(--smallText);
+    }
+    
+    .textInfo {
+        font-size: var(--smallText);
+    }
+
+    .divDescriptionFormatterAlt {
+        height: 8rem;
+        font-size: var(--smallText);
+    }
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 752px) {
+
+    .divCardsFormatter {
+        margin-left: 10%;
+        width: 80%;
+    }
+
+    .cardBody {
+        width: 100%;
+        height: 25rem;
+    }
+
+    .divDescriptionFormatterAlt {
+        height: 8rem;
+        font-size: var(--miniText);
+    }
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 432px) {
+
+    .divCardsFormatter {
+        margin-left: 5%;
+        width: 90%;
+    }
+
+    .imagePerson {
+        width: 3rem;
+    }
+    
+    .divTextOrganizer{
+        height: 3rem;
+    }
+
+    .namePerson {
+        font-size: var(--miniText);
+    }
+    
+    .textInfo {
+        font-size: var(--miniText);
+    }
+    
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 380px) {
+
+    .cardBody {
+        height: 20rem;
+    }
+
+    .divDescriptionFormatterAlt {
+        height: 6rem;
+        font-size: var(--miniText);
+    }
+}

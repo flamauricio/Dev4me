@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./Logo-Dev4Me/logo-207x207.png">
+    <title>Dev4me</title>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+</html>
+<script>
+    // Rotas
+    let usuario;
+    let empresa;
+
+    usuario = sessionStorage.getItem("idUsuario") ? sessionStorage.getItem("idUsuario") : null;
+
+    empresa = sessionStorage.getItem("idEmpresa") ? sessionStorage.getItem("idEmpresa") : null;
+
+    function checkLogin()
+    {
+        if (usuario != null) {
+            window.location = "https://dev4me.ddns.net/feed-vagas";
+            return;
+        }
+        if (empresa != null) {
+            window.location = "https://dev4me.ddns.net/feed-empresa"
+            return;
+        }
+
+        window.location = "https://dev4me.ddns.net/html/homePage.html"
+    }
+
+    if (window.location == "https://dev4me.ddns.net/") {
+        checkLogin();
+    }
+</script>

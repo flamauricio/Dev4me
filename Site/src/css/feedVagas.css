@@ -1,0 +1,1526 @@
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url(./fonts/Poppins-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins-Medium';
+    src: url(./fonts/Poppins-Medium.ttf);
+}
+
+body {
+    margin: 0;
+}
+
+/* Variables */
+:root {
+    /* Colors */
+    --backGroundGrey: #272727;
+    --darkGrey: #171717;
+    --mediumGrey: #383838;
+    --lightGrey: #4E4E4E;
+    --lightBlue: #1E9CD7;
+    --lightPurple: #861ED7;
+    --white: #ffffff;
+
+    --blueTag: #69E3E8;
+    --purpleTag: #4c2dfa;
+    --yellowTag: #FFC700;
+    --redTag: #fa2abf;
+
+    /* Margin */
+    --xxsMargin: 16px;
+    --xsMargin: 24px;
+    --sMargin: 32px;
+    --mMargin: 40px;
+    --lMargin: 48px;
+    --xlMargin: 56px;
+    --xxlMargin: 64px;
+
+    /* Font Size */
+    --bigTitle: 2.5rem;
+    /* Use with font-family: var(--bold) */
+    --regularTitle: 2rem;
+    /* Use with font-family: var(--bold) */
+    --bigText: 1.5rem;
+    /* Use with font-family: var(--regular) */
+    --subtitle: 1.2rem;
+    /* Use with font-family: var(--bold) */
+    --smallSubtitle: 1rem;
+    /* Use with font-family: var(--bold) */
+    --smallText: 0.8rem;
+    /* Use with font-family: var(--regular) */
+    --extraSmallText: 0.6rem;
+    /* Use with font-family: var(--regular) */
+    --miniText: 0.5rem;
+    /* Use with font-family: var(--regular) */
+    --microText: 0.42rem;
+    /* Use with font-family: var(--regular) */
+
+    /* Font Family */
+    --bold: 'Poppins-Bold';
+    --regular: 'Poppins-Medium';
+}
+
+/* User Profile */
+
+.sidebar-user {
+    width: 20%;
+    height: 100%;
+    position: fixed;
+    background-color: var(--mediumGrey);
+    z-index: 1;
+    padding-right: 5%;
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+    margin: 0;
+}
+
+.sidebar-container-user {
+    margin-left: 25%;
+}
+
+.div-image-alert {
+    margin-top: 5rem;
+    margin-bottom: 0.5rem;
+}
+
+.image-alert-invisible {
+    height: 2rem;
+    margin: 0;
+    opacity: 0;
+}
+
+.image-alert {
+    height: 2rem;
+    margin: 0;
+    opacity: 0.62;
+}
+
+.image-alert:hover {
+    cursor: pointer;
+    transition: 0.5s;
+    opacity: 1;
+}
+
+.main-div-user {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-left: 25%;
+    width: 75%;
+    height: auto;
+    overflow-y: auto;
+}
+
+.div-input-user-small {
+    width: 50%;
+    height: auto;
+    margin-left: 5.25%;
+    padding-bottom: 2.5%;
+}
+
+.div-input-user-long {
+    width: 92.7%;
+    height: auto;
+    margin-left: 5.25%;
+    padding-bottom: 2.5%;
+}
+
+.input-user-small {
+    width: 85%;
+    height: 2rem;
+    background-color: var(--mediumGrey);
+    border: none;
+    border-radius: 0.2rem;
+    padding: 0.4rem;
+    color: var(--white);
+    outline-color: var(--lightBlue);
+    font-family: var(--regular);
+    font-size: var(--smallSubtitle);
+}
+
+.input-user-long {
+    width: 95%;
+    height: 8rem;
+    background-color: var(--mediumGrey);
+    border: none;
+    border-radius: 0.2rem;
+    padding: 0.4rem;
+    color: var(--white);
+    outline-color: var(--lightBlue);
+    font-family: var(--regular);
+    font-size: var(--smallSubtitle);
+    
+}
+
+/* Side Bar */
+
+.divSideBarMobile {
+    display: none;
+}
+
+.divSideBar {
+    width: 25%;
+    height: 100%;
+    position: fixed;
+    background-color: var(--mediumGrey);
+    z-index: 1;
+    padding-right: 5%;
+    display: flex;
+    align-items: flex-start;
+    overflow-y: auto;
+}
+
+.divSideBarContainer {
+    width: 80%;
+    height: 70%;
+    margin-left: 20%;
+    margin-top: 20%;
+}
+
+.divSpaceBetween {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10%;
+}
+
+.divSpaceBetween2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.divSpaceBetween3 {
+    margin-top: 0.2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.divSpaceBetweenEmpresa {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 18%;
+}
+
+.bigTitleUserProfile {
+    margin: 0;
+    font-family: var(--bold);
+    font-size: var(--regularTitle);
+    color: var(--white);
+}
+
+.bigTitle {
+    margin: 0;
+    font-family: var(--bold);
+    font-size: var(--regularTitle);
+    color: var(--white);
+}
+
+.title-user {
+    margin: 5% 0% 0% 0%;
+    font-family: var(--regular);
+    font-size: var(--smallSubtitle);
+    color: #b2b2b2;
+}
+
+.title-user:hover {
+    cursor: pointer;
+    transition: 0.5s;
+    color: var(--white);
+}
+
+.bigTitle2 {
+    font-family: var(--bold);
+    font-size: var(--regularTitle);
+    color: var(--white);
+    margin: 0;
+    padding-bottom: 1%;
+}
+
+.subtitle {
+    font-family: var(--bold);
+    font-size: var(--subtitle);
+    color: var(--white);
+    margin: 0.55rem 0rem 0.55rem 0rem;
+}
+
+.imgIcon2 {
+    height: 2rem;
+    margin: 0;
+    transition: 0.5s;
+}
+
+.imgIcon2:hover {
+    transform: rotate(90deg);
+    cursor: pointer;
+}
+
+.divAlignLeft {
+    display: contents;
+    align-items: center;
+    text-align: left;
+    justify-content: space-between;
+    margin-top: -10%;
+}
+
+.marginBox {
+    height: var(--xsMargin);
+}
+
+.boxInline {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    justify-content: space-between;
+}
+
+.boxCheckbox {
+    display: contents;
+}
+
+.smallText {
+    font-family: var(--bold);
+    font-size: var(--smallSubtitle);
+    color: var(--white);
+}
+
+.checkbox {
+    background-color: var(--white);
+    border: none;
+}
+
+.searchBarButton {
+    height: 2.5rem;
+    width: 100%;
+    background-color: var(--lightBlue);
+    border-radius: 5px;
+    border-style: none;
+    font-size: var(--smallSubtitle);
+    font-family: var(--bold);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    padding: 0;
+}
+
+.searchBarButton:hover {
+    background-color: var(--lightPurple);
+    cursor: pointer;
+}
+
+/* Search Bar Mobile*/
+.divMobile {
+    width: 100%;
+    height: 14rem;
+    display: none;
+    justify-content: space-between;
+    background-color: var(--mediumGrey);
+    position: static;
+}
+
+.divMobileOrganizer {
+    width: 40%;
+}
+
+.divMobileOrganizer2 {
+    width: 40%;
+    margin-left: 5%;
+}
+
+.searchBarMobile {
+    height: 2.5rem;
+    width: 80%;
+    margin-right: 20%;
+    background-color: var(--lightGrey);
+    border-radius: 5px;
+    font-family: var(--bold);
+    font-size: var(--smallSubtitle);
+    color: var(--white);
+    border: none;
+}
+
+/* Search Bar */
+.searchBar {
+    height: 2.5rem;
+    width: 100%;
+    background-color: var(--lightGrey);
+    border-radius: 5px;
+    font-family: var(--bold);
+    font-size: var(--smallSubtitle);
+    color: var(--white);
+    border: none;
+}
+
+.searchBarSmall {
+    height: 2.5rem;
+    width: 60%;
+    background-color: var(--lightGrey);
+    border-radius: 5px;
+    font-family: var(--bold);
+    font-size: var(--smallSubtitle);
+    color: var(--white);
+    border: none;
+    margin-right: var(--lMargin);
+}
+
+.divSideBarIcon {
+    display: none;
+}
+
+.imgIcon3 {
+    height: 2rem;
+    margin: 0;
+    display: none;
+    transition: 0.5s;
+    margin-top: -20%;
+    margin-right: -20%;
+}
+
+.imgIcon3:hover {
+    cursor: pointer;
+}
+
+/* Feed */
+.divFeedFormatter {
+    margin-left: 35%;
+    width: 60%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.divFeedMargin {
+    width: 100%;
+    height: 3.8rem;
+}
+
+.divFeedMargin2 {
+    width: 20rem;
+    height: 3.8rem;
+}
+
+.divVaga {
+    width: 100%;
+    height: auto;
+    padding: 1.5% 2% 2% 2%;
+    border-radius: 5px;
+    background-color: var(--mediumGrey);
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+}
+
+.divRow {
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+}
+
+.divVagaCompany {
+    width: 10%;
+    height: 28.125rem;
+}
+
+.divVagaContent {
+    width: 89%;
+    height: auto;
+    margin-left: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profilePicture {
+    width: 100%;
+}
+
+.divDescriptionFormatter {
+    width: 100%;
+    height: 18.75rem;
+    font-family: var(--regular);
+    font-size: var(--smallText);
+    color: var(--white);
+    background-color: var(--lightGrey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+}
+
+.divDescription {
+    width: 97%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.divTagsFormatter {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.divTags {
+    width: 97%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0.5rem 0.15rem 0.5rem 0rem;
+}
+
+.tagDev {
+    height: 2.1875rem;
+    width: 6rem;
+    background-color: #ffffff00;
+    border-radius: 2px;
+    border-color: var(--blueTag);
+    border-style: solid;
+    border-width: 0.14rem;
+    font-size: var(--extraSmallText);
+    font-family: var(--regular);
+    color: var(--blueTag);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.tagDev:hover {
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+.tagPlatform {
+    height: 2.1875rem;
+    width: 6rem;
+    background-color: #ffffff00;
+    border-radius: 2px;
+    border-color: var(--purpleTag);
+    border-style: solid;
+    border-width: 0.14rem;
+    font-size: var(--extraSmallText);
+    font-family: var(--regular);
+    color: var(--purpleTag);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.tagPlatform:hover {
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+.tagBusyness {
+    height: 2.1875rem;
+    width: 6rem;
+    background-color: #ffffff00;
+    border-radius: 2px;
+    border-color: var(--yellowTag);
+    border-style: solid;
+    border-width: 0.14rem;
+    font-size: var(--extraSmallText);
+    font-family: var(--regular);
+    color: var(--yellowTag);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.tagBusyness:hover {
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+.tagArea {
+    height: 2.1875rem;
+    width: 6rem;
+    background-color: #ffffff00;
+    border-radius: 2px;
+    border-color: var(--redTag);
+    border-style: solid;
+    border-width: 0.14rem;
+    font-size: var(--extraSmallText);
+    font-family: var(--regular);
+    color: var(--redTag);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.tagArea:hover {
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+.bigTitleInvisible {
+    margin: 0;
+    font-family: var(--bold);
+    font-size: var(--regularTitle);
+    color: #383838;
+}
+
+.alternativeButton {
+    height: 3rem;
+    width: 10rem;
+    background-color: var(--lightBlue);
+    border-radius: 2px;
+    border-style: none;
+    font-size: var(--subtitle);
+    font-family: var(--bold);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    padding: 0;
+}
+
+.alternativeButtonRight {
+    height: 3rem;
+    width: 10rem;
+    background-color: var(--lightBlue);
+    border-radius: 2px;
+    border-style: none;
+    font-size: var(--subtitle);
+    font-family: var(--bold);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    padding: 0;
+    float: right;
+}
+
+.alternativeButton:hover {
+    background-color: var(--lightPurple);
+    cursor: pointer;
+}
+
+.alternativeButtonRight:hover {
+    background-color: var(--lightPurple);
+    cursor: pointer;
+}
+
+.divPayment {
+    height: 3rem;
+    width: 21.5rem;
+    background-color: var(--lightGrey);
+    font-family: var(--regular);
+    font-size: var(--smallText);
+    color: var(--white);
+    border-radius: 2px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+/* Vaga "ver mais" */
+
+.divVagaFather {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.divVagaBody {
+    padding: 1.5rem;
+    width: 70rem;
+    height: 100rem;
+    margin-top: 8rem;
+    margin-bottom: 4rem;
+    border-radius: 5px;
+    background-color: var(--mediumGrey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 1700px) {
+
+    /* Side Bar */
+    .subtitle {
+        margin: 0.5rem 0rem 0.5rem 0rem;
+    }
+
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 1400px) {
+
+    /* Side Bar */
+    .bigTitleUserProfile {
+        font-size: var(--bigText);
+    }
+
+    .bigTitle {
+        font-size: var(--bigText);
+    }
+
+    .bigTitleInvisible {
+        margin: 0;
+        font-family: var(--bold);
+        font-size: var(--bigText);
+        color: #383838;
+    }
+
+    .bigTitle2 {
+        font-family: var(--bold);
+        font-size: var(--bigText);
+        color: var(--white);
+        margin: 0;
+        padding-bottom: 1%;
+    }
+
+    .subtitle {
+        font-family: var(--bold);
+        font-size: var(--smallSubtitle);
+        color: var(--white);
+        margin-top: 1rem;
+    }
+
+    .searchBarButton {
+        height: 2.5rem;
+        font-size: var(--smallText);
+    }
+
+    .imgIcon2 {
+        height: 1.5rem;
+        margin: 0;
+        transition: 0.5s;
+    }
+
+    .marginBox {
+        height: var(--xsMargin);
+    }
+
+    .boxInline {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .boxCheckbox {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 0rem 0.5rem 0rem;
+    }
+
+    .smallText {
+        font-family: var(--bold);
+        font-size: var(--smallText);
+        color: var(--white);
+    }
+
+    .searchBar {
+        font-size: var(--smallText);
+    }
+
+    .searchBarSmall {
+        font-size: var(--smallText);
+    }
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 1025px) {
+
+    /* User Profile */
+    .input-user-small {
+        height: 1.5rem;
+        font-size: var(--extraSmallText);
+    }
+
+    .input-user-long {
+        height: 6rem;
+        font-size: var(--extraSmallText);
+    }
+
+    .div-input-user-small {
+        padding-bottom: 5%;
+    }
+    
+    .div-input-user-long {
+        padding-bottom: 5%;
+    }
+
+    /* Side Bar */
+    .bigTitleUserProfile {
+        font-size: var(--subtitle);
+    }
+
+    .bigTitle {
+        font-size: var(--subtitle);
+    }
+
+    .title-user {
+        font-size: var(--smallText);
+    }
+
+    .bigTitleInvisible {
+        margin: 0;
+        font-family: var(--bold);
+        font-size: var(--subtitle);
+        color: #383838;
+    }
+
+    .bigTitle2 {
+        font-family: var(--bold);
+        font-size: var(--subtitle);
+        color: var(--white);
+        margin: 0;
+        padding-bottom: 1%;
+    }
+
+    .subtitle {
+        font-family: var(--bold);
+        font-size: var(--smallText);
+        color: var(--white);
+        margin-top: 1rem;
+    }
+
+    .searchBarButton {
+        height: 2rem;
+        font-size: var(--extraSmallText);
+    }
+
+    .imgIcon2 {
+        height: 1.2rem;
+        margin: 0;
+        transition: 0.5s;
+    }
+
+    .searchBar {
+        height: 2rem;
+        width: 100%;
+        font-size: var(--smallText);
+    }
+
+    .searchBarSmall {
+        height: 2rem;
+        width: 60%;
+        font-size: var(--smallText);
+    }
+
+    /* Feed */
+    .divFeedMargin2 {
+        height: 2.2rem;
+    }
+
+    .divVaga {
+        width: 100%;
+        height: 25rem;
+        padding: 1.5% 2% 2% 2%;
+        margin: 0;
+    }
+
+    .divVagaContent {
+        width: 88%;
+        margin-left: 2%;
+        justify-content: flex-start;
+    }
+
+    .divDescriptionFormatter {
+        width: 100%;
+        height: 14rem;
+        font-family: var(--regular);
+        font-size: var(--extraSmallText);
+        color: var(--white);
+        background-color: var(--lightGrey);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        float: right;
+    }
+
+    .divDescription {
+        width: 97%;
+        height: 100%;
+        overflow-y: auto;
+    }
+
+    .divTagsFormatter {
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        margin: 0;
+    }
+
+    .divTags {
+        width: 97%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 0.5rem 0.15rem 0.5rem 0rem;
+    }
+
+    .tagDev {
+        height: 1.5rem;
+        width: 5rem;
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+        font-size: var(--miniText);
+    }
+
+    .tagPlatform {
+        height: 1.5rem;
+        width: 5rem;
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+        font-size: var(--miniText);
+    }
+
+    .tagBusyness {
+        height: 1.5rem;
+        width: 5rem;
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+        font-size: var(--miniText);
+    }
+
+    .tagArea {
+        height: 1.5rem;
+        width: 5rem;
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+        font-size: var(--miniText);
+    }
+
+    .alternativeButton {
+        height: 2rem;
+        width: 7.2rem;
+        font-size: var(--smallSubtitle);
+    }
+
+    .alternativeButtonRight {
+        height: 2rem;
+        width: 7.2rem;
+        font-size: var(--smallSubtitle);
+    }
+
+    .divPayment {
+        height: 2rem;
+        width: 15rem;
+        font-size: var(--extraSmallText);
+    }
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 832px) {
+
+    /* Side Bar */
+    .bigTitleUserProfile {
+        font-size: var(--smallSubtitle);
+    }
+
+    .bigTitle {
+        font-size: var(--subtitle);
+    }
+
+    .bigTitleInvisible {
+        font-size: var(--subtitle);
+        color: #383838;
+    }
+
+    .subtitle {
+        font-family: var(--bold);
+        font-size: var(--extraSmallText);
+        color: var(--white);
+        margin-top: 1rem;
+    }
+
+    .searchBarButton {
+        height: 1.8rem;
+        font-size: var(--extraSmallText);
+    }
+
+    .imgIcon2 {
+        height: 1.2rem;
+    }
+
+    .marginBox {
+        height: var(--xxxsMargin);
+    }
+
+    .smallText {
+        font-size: var(--extraSmallText);
+    }
+
+    .searchBar {
+        height: 1.8rem;
+        font-size: var(--extraSmallText);
+    }
+
+    .searchBarSmall {
+        height: 1.8rem;
+        font-size: var(--extraSmallText);
+    }
+
+    .divFeedMargin2 {
+        height: 1.2rem;
+    }
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 770px) {
+
+    .input-user-small {
+        font-size: var(--miniText);
+    }
+
+    .input-user-long {
+        font-size: var(--miniText);
+    }
+
+    .divVaga {
+        width: 100%;
+        padding: 1.5% 2% 2% 2%;
+    }
+
+    .bigTitle2 {
+        font-size: var(--smallSubtitle);
+    }
+
+    .alternativeButton {
+        height: 2rem;
+        width: 6rem;
+        font-size: var(--smallText);
+    }
+
+    .alternativeButtonRight {
+        height: 2rem;
+        width: 6rem;
+        font-size: var(--smallText);
+    }
+
+    .divPayment {
+        height: 2rem;
+        width: 15rem;
+        font-size: var(--extraSmallText);
+    }
+
+    .divSideBarIcon {
+        display: none;
+    }
+
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 752px) {
+
+    /* Side Bar Mobile*/
+    .divSpaceBetween {
+        margin-top: 0;
+    }
+
+    .divMobile {
+        display: flex;
+    }
+
+    /* Side Bar */
+    .divSideBar {
+        width: 40%;
+        height: 100%;
+        display: none;
+    }
+
+    .bigTitle {
+        font-size: var(--smallSubtitle);
+    }
+
+    .title-user {
+        font-size: var(--extraSmallText);
+    }
+
+    .bigTitleInvisible {
+        font-size: var(--smallSubtitle);
+    }
+
+    .subtitle {
+        font-family: var(--bold);
+        font-size: var(--extraSmallText);
+        color: var(--white);
+        margin-top: 1rem;
+    }
+
+    .imgIcon2 {
+        height: 1.2rem;
+        margin-right: 20%;
+    }
+
+    .marginBox {
+        height: var(--xxxsMargin);
+    }
+
+    .smallText {
+        font-size: var(--extraSmallText);
+    }
+
+    .searchBar {
+        height: 1.8rem;
+        font-size: var(--extraSmallText);
+    }
+
+    .searchBarMobile {
+        height: 1.8rem;
+        font-size: var(--extraSmallText);
+    }
+
+    .searchBarSmall {
+        height: 1.8rem;
+        font-size: var(--extraSmallText);
+    }
+
+    .divFeedMargin2 {
+        height: 1.2rem;
+    }
+
+    .divFeedMargin2 {
+        height: 2.5rem;
+    }
+
+    .divSideBarIcon {
+        display: block;
+        margin-left: 5%;
+        width: 87.34px;
+        height: 1.5rem;
+        background-color: var(--lightGrey);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0px 0px 5px 5px;
+    }
+
+    .divSideBarIcon:hover {
+        margin-left: 5%;
+        width: 87.34px;
+        height: 1.5rem;
+        border-radius: 0px 0px 5px 5px;
+        padding: 0px 0px 10px 10px;
+    }
+
+    .divVaga {
+        height: 24rem;
+    }
+
+    .divFeedMargin {
+        width: 100%;
+        height: 1.6rem;
+    }
+
+    .divFeedFormatter {
+        margin-left: 5%;
+        width: 90%;
+    }
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 700px) {
+
+    /* Side Bar */
+    .bigTitleUserProfile {
+        font-size: var(--extraSmallText);
+    }
+
+    .input-user-small {
+        height: 1.2rem;
+    }
+
+    .input-user-long {
+        height: 4.8rem;
+    }
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 520px) {
+
+    /* Side Bar */
+    .bigTitle {
+        font-size: var(--smallText);
+    }
+
+    .bigTitleInvisible {
+        font-size: var(--smallText);
+    }
+
+    .imgIcon2 {
+        height: 0.8rem;
+    }
+
+    .subtitle {
+        font-family: var(--bold);
+        font-size: var(--miniText);
+        color: var(--white);
+        margin-top: 1rem;
+    }
+
+    .smallText {
+        font-size: var(--miniText);
+    }
+
+    .searchBarMobile {
+        height: 1.5rem;
+        font-size: var(--miniText);
+    }
+
+    .searchBarSmall {
+        height: 1.5rem;
+        font-size: var(--miniText);
+    }
+
+    .divMobile {
+        height: 12rem;
+    }
+
+    .divFeedMargin {
+        height: 1.4rem;
+    }
+
+    .boxCheckbox {
+        padding: 0.3rem 0rem 0.3rem 0rem;
+    }
+
+    /* Feed */
+    .divFeedMargin2 {
+        height: 1.2rem;
+    }
+
+    .divFeedMargin2 {
+        height: 2.5rem;
+    }
+
+    .divSideBarIcon {
+        display: block;
+        margin-left: 5%;
+        width: 87.34px;
+        height: 1.5rem;
+        background-color: var(--lightGrey);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0px 0px 5px 5px;
+    }
+
+    .divVaga {
+        height: 19.8rem;
+    }
+
+    .divDescriptionFormatter {
+        width: 100%;
+        height: 10rem;
+        font-size: var(--miniText);
+        color: var(--white);
+    }
+
+    .tagDev {
+        height: 1.5rem;
+        width: 4rem;
+        margin: 0.35rem 0.35rem 0.35rem 0.35rem;
+        font-size: var(--microText);
+        border-width: 0.10rem;
+    }
+
+    .tagPlatform {
+        height: 1.5rem;
+        width: 4rem;
+        margin: 0.35rem 0.35rem 0.35rem 0.35rem;
+        font-size: var(--microText);
+        border-width: 0.10rem;
+    }
+
+    .tagBusyness {
+        height: 1.5rem;
+        width: 4rem;
+        margin: 0.35rem 0.35rem 0.35rem 0.35rem;
+        font-size: var(--microText);
+        border-width: 0.10rem;
+    }
+
+    .tagArea {
+        height: 1.5rem;
+        width: 4rem;
+        margin: 0.35rem 0.35rem 0.35rem 0.35rem;
+        font-size: var(--microText);
+        border-width: 0.10rem;
+    }
+
+    .alternativeButton {
+        height: 2rem;
+        width: 6rem;
+    }
+
+    .alternativeButtonRight {
+        height: 2rem;
+        width: 6rem;
+    }
+
+    .divPayment {
+        height: 2rem;
+        width: 12rem;
+        font-size: var(--miniText);
+    }
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 434px) {
+
+    .boxCheckbox {
+        height: 1.3rem;
+        padding: 0.25rem 0rem 0.25rem 0rem;
+    }
+
+
+    .sidebar-container-user {
+        margin-left: 15%;
+    }
+
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (max-width: 400px) {
+
+    .divSpaceBetweenEmpresa {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 22%;
+    }
+
+    .divVaga {
+        height: 19rem;
+    }
+
+    .tagDev {
+        height: 1.5rem;
+        width: 4rem;
+        margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+        font-size: var(--microText);
+        font-family: var(--regular);
+    }
+
+    .tagPlatform {
+        height: 1.5rem;
+        width: 4rem;
+        margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+        font-size: var(--microText);
+        font-family: var(--regular);
+    }
+
+    .tagBusyness {
+        height: 1.5rem;
+        width: 4rem;
+        margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+        font-size: var(--microText);
+        font-family: var(--regular);
+    }
+
+    .tagArea {
+        height: 1.5rem;
+        width: 4rem;
+        margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+        font-size: var(--microText);
+        font-family: var(--regular);
+    }
+
+    .alternativeButton {
+        height: 1.8rem;
+        width: 5rem;
+        font-size: var(--extraSmallText);
+    }
+
+    .alternativeButtonRight {
+        height: 1.8rem;
+        width: 5rem;
+        font-size: var(--extraSmallText);
+    }
+
+
+    .divPayment {
+        height: 1.8rem;
+        width: 10rem;
+        font-size: var(--miniText);
+    }
+
+    /* ----------------------------------------------- */
+    /* ----------------------------------------------- */
+    /* ----------------------------------------------- */
+
+    @media screen and (max-width: 370px) {
+
+    /* Side Bar */
+    .bigTitleUserProfile {
+        font-size: var(--miniText);
+    }
+
+    .bigTitle {
+        font-size: var(--miniText);
+    }
+
+    .title-user {
+        font-size: var(--microText);
+    }
+
+    .bigTitleInvisible {
+        font-size: var(--miniText);
+    }
+
+    .imgIcon2 {
+        height: 0.6rem;
+    }
+
+    .subtitle {
+        font-family: var(--bold);
+        font-size: var(--microText);
+        color: var(--white);
+        margin-top: 1rem;
+    }
+
+    .smallText {
+        font-size: var(--microText);
+    }
+
+    .searchBarMobile {
+        height: 1.2rem;
+        font-size: var(--microText);
+    }
+
+    .searchBarSmall {
+        height: 1.2rem;
+        font-size: var(--microText);
+    }
+
+    .divMobile {
+        height: 10.5rem;
+    }
+
+    .divFeedMargin {
+        height: 1.2rem;
+    }
+
+        .divVaga {
+            height: 17.2rem;
+        }
+
+        .bigTitle2 {
+            font-size: var(--smallText);
+        }
+
+        .divDescriptionFormatter {
+            height: 10rem;
+            font-size: var(--microText);
+        }
+
+        .tagDev {
+            height: 1.2rem;
+            width: 4rem;
+            margin: 0.15rem 0.15rem 0.15rem 0.15rem;
+        }
+
+        .tagPlatform {
+            height: 1.2rem;
+            width: 4rem;
+            margin: 0.15rem 0.15rem 0.15rem 0.15rem;
+        }
+
+        .tagBusyness {
+            height: 1.2rem;
+            width: 4rem;
+            margin: 0.15rem 0.15rem 0.15rem 0.15rem;
+        }
+
+        .tagArea {
+            height: 1.2rem;
+            width: 4rem;
+            margin: 0.15rem 0.15rem 0.15rem 0.15rem;
+        }
+
+        .alternativeButton {
+            height: 1.5rem;
+            width: 4rem;
+            font-size: var(--miniText);
+        }
+
+        .alternativeButtonRight {
+            height: 1.5rem;
+            width: 4rem;
+            font-size: var(--miniText);
+        }
+
+        .divPayment {
+            height: 1.5rem;
+            width: 10rem;
+            font-size: var(--miniText);
+            font-family: var(--regular);
+        }
+    }
+
+    /* ----------------------------------------------- */
+    /* ----------------------------------------------- */
+    /* ----------------------------------------------- */
+
+    @media screen and (max-width: 360px) {
+
+        .divDescriptionFormatter {
+            height: 8rem;
+            font-size: var(--microText);
+        }
+
+        .sidebar-container-user {
+            margin-left: 10%;
+        }
+
+    }
+}
