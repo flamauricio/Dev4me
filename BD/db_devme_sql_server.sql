@@ -21,16 +21,6 @@ CREATE TABLE usuario(
   email VARCHAR(45) NULL
   );
   
-  CREATE TABLE email(
-  email_id INT NOT NULL PRIMARY KEY IDENTITY(100, 1),
-  owner_ref VARCHAR(45) NOT NULL,
-  email_from VARCHAR(45) NULL,
-  email_to VARCHAR(45) NOT NULL,
-  subject VARCHAR(45) NOT NULL,
-  text varchar(255) NOT NULL,
-  send_date_email TIMESTAMP NOT NULL,
-  status_email CHAR(1) NOT NULL
-  );
 
   CREATE TABLE vaga(
   id_vaga INT NOT NULL PRIMARY KEY IDENTITY(200, 1),
