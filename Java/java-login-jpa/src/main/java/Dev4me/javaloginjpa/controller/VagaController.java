@@ -13,6 +13,7 @@ import Dev4me.javaloginjpa.service.FileUploadService;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -57,6 +58,12 @@ public class VagaController {
                 novaVaga.getFkEmpresa().getIdEmpresa(),
                 novaVaga.getTitulo());
         return status(201).body(vaga);
+    }
+
+    @GetMapping("/all/{id}")
+    @CrossOrigin
+    public ResponseEntity<List<Vaga>> getAllById(@PathVariable Integer id) {
+        return status(200).body(repository.findAllByFkEmpresaIdEmpresa(id));
     }
 
     @GetMapping

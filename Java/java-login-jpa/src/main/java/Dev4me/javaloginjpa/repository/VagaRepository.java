@@ -20,4 +20,6 @@ public interface VagaRepository extends JpaRepository<Vaga, Integer> {
 //    @Query("select new Dev4me.javaloginjpa.entity.Tag(u.id, u.email, u.senha) from Usuario u")
 
     List<Vaga> findAllByOrderByIdVagaDesc();
+
+    List<Vaga> findAllByFkEmpresaIdEmpresa(Integer id);
 }
