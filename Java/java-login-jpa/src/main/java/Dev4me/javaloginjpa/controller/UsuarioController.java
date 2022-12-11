@@ -99,6 +99,13 @@ public class UsuarioController {
         return status(200).body(tllulr);
     }
 
+    // GET de usuarios completos
+    @GetMapping("/completos")
+    @CrossOrigin
+    public ResponseEntity<List<Usuario>> getUsuariosCompletos() {
+        return status(200).body(repository.findAll());
+    }
+
     //Método pra cadastro do Usuário;
     @ApiResponses({@ApiResponse(responseCode = "200", content = @Content(mediaType = "application/json"))})
     @PostMapping
