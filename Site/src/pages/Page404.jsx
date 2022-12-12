@@ -42,7 +42,10 @@ function Page404() {
 
     return (
         <>
-        <HeaderLogadoDois />
+        <HeaderLogadoDois
+            encaminharToFeed="https://dev4me.ddns.net/html/homePage.html"
+            encaminharTo="https://dev4me.ddns.net/login"
+            />
         <div style={bodyBackgroundColor}>
             <div style={containerDiv}>
                 <div style={halfDiv}>

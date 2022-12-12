@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 function Cadastro() {
     return (
         <>
-            <Header nomeBotao = "Entrar" to="/login"/>
+            <Header nomeBotao = "Entrar" encaminharTo='https://dev4me.ddns.net/login'/>
             <ContainerCadastro/>
             <Footer/>
         </>
