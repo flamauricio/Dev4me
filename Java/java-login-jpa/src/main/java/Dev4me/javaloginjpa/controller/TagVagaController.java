@@ -45,6 +45,21 @@ public class TagVagaController
         return status(201).build();
     }
 
+    @GetMapping("/filtros/mobile")
+    @CrossOrigin
+    public ResponseEntity getVagasFiltradas(@RequestBody List<Tag> lista) {
+        List<Vaga> vagas = new ArrayList<Vaga>();
+
+        for (Tag tag: lista) {
+            List<TagVaga> tagVagaList = tagVagaRepository.findByFkTagNome(tag.getNome());
+            for (TagVaga tagVaga: tagVagaList) {
+                vagas.add(tagVaga.getFkVaga());
+            }
+        }
+
+        return status(200).body(vagas);
+    }
+
     @PostMapping("/{idVaga}")
     @CrossOrigin
     public ResponseEntity postTagVagaAndroid(@RequestBody TagVagaAndroidRequest tags, @PathVariable Integer idVaga)
