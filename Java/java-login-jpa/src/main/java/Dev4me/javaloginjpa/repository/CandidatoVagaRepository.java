@@ -12,6 +12,8 @@ public interface CandidatoVagaRepository extends JpaRepository<CandidatoVaga, In
 {
     List<CandidatoVaga> findByFkUsuarioIdAndFkVagaIdVaga(int u, int v);
 
-    @Query("select new Dev4me.javaloginjpa.entity.CandidatoVaga(u.fkUsuario, u.fkVaga) from CandidatoVaga u inner join Vaga v on v.idVaga = u.fkVaga where v.fkEmpresa=?1")
-    List<CandidatoVaga> getVagasCandidatosById(Integer idEmpresa);
+    List<CandidatoVaga> findByFkVagaFkEmpresaIdEmpresa(Integer idEmpresa);
+
+//    @Query("select new Dev4me.javaloginjpa.entity.CandidatoVaga(u.fkUsuario, u.fkVaga) from CandidatoVaga u inner join Vaga v on v.idVaga = u.fkVaga where v.fkEmpresa=?1")
+//    List<CandidatoVaga> getVagasCandidatosById(Integer idEmpresa);
 }
