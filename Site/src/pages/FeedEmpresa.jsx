@@ -183,7 +183,7 @@ function FeedEmpresa() {
     return (
         <>
             <HeaderLogadoDois 
-            to="/perfil-empresa"
+            encaminharTo="/perfil-empresa"
             encaminharToFeed="/feed-empresa"
             />
 
@@ -210,7 +210,7 @@ function FeedEmpresa() {
                     </div>
                     <div className="divAlignLeft">
                         <p className="subtitle">Criar nova vaga</p>
-                        <a className="li-comum" href="http://52.45.218.11:8080/post-vaga" target="_blank">
+                        <a className="li-comum" href="/post-vaga" target="_blank">
                             <button className="alternativeButton">Criar vaga</button>
                         </a>
                     </div>

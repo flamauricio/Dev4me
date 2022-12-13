@@ -5,7 +5,10 @@ import ContainerCadastoVaga from "../components/ContainerCadastroVaga";
 function CadastroVaga() {
     return (
         <>
-            <HeaderLogado />
+            <HeaderLogado
+             encaminharToFeed="/feed-empresa"
+             encaminharTo="/perfil-empresa"
+             />
             <ContainerCadastoVaga/>
         </>
     );

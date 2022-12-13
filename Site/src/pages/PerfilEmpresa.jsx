@@ -56,7 +56,7 @@ function PerfilEmpresa() {
     }
 
     function direcionarParaCadastroVaga() {
-        window.location = "https://dev4me.ddns.net/post-vaga";
+        window.location = "/post-vaga";
     }
 
     const inputNames = ['inputNome', 'inputEmail', 'inputCnpj'];
@@ -293,8 +293,8 @@ function PerfilEmpresa() {
                 </div>
                 <p className="bigTitleUserProfile">Configurações</p>
                 <p onClick={turnOnEditMode} className="title-user">Editar informações</p>
-                <p onClick={turnOnFileUpload} className="title-user">Upload de Arquivo</p>
-                <p onClick={downloadFile} className="title-user">Download Arquivo</p>
+                {/* <p onClick={turnOnFileUpload} className="title-user">Upload de Arquivo</p>
+                <p onClick={downloadFile} className="title-user">Download Arquivo</p> */}
                 <p onClick={sair} className="title-user">Sair</p>
 
                     <a className="li-comum">
