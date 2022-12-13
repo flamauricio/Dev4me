@@ -375,6 +375,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/filter/android")
+    @CrossOrigin
     public ResponseEntity getFilteredUsers(@RequestBody List<Tag> tags) {
         List<Usuario> userList = new ArrayList<Usuario>();
         List<TagUsuario> tagsUsuarios = null;
