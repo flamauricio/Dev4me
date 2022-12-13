@@ -351,4 +351,26 @@ public class UsuarioController {
 
         return status(201).build();
     }
+
+    @PostMapping("/post-tag-usuario/{idUsuario}")
+    @CrossOrigin
+    public ResponseEntity postTagUsuarioMobile(@PathVariable Integer idUsuario, @RequestBody List<Tag> tags)
+    {
+        deleteUsuario(idUsuario);
+
+        List<String> list = new ArrayList<String>();
+
+        for (Tag tag : tags) {
+            list.add(tag.getNome());
+        }
+
+        for (String tag : list) {
+
+            Tag tagDaVez = tagRepository.findByNome(tag);
+
+            tagUsuarioRepository.save(new TagUsuario(repository.getById(idUsuario), tagDaVez));
+        }
+
+        return status(201).build();
+    }
 }
