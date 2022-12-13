@@ -374,7 +374,7 @@ public class UsuarioController {
         return status(201).build();
     }
 
-    @GetMapping("/filter/android")
+    @PostMapping("/filter/android")
     @CrossOrigin
     public ResponseEntity getFilteredUsers(@RequestBody List<Tag> tags) {
         List<Usuario> userList = new ArrayList<Usuario>();

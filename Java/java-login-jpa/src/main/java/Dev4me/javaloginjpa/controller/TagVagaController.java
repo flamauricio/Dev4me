@@ -45,7 +45,7 @@ public class TagVagaController
         return status(201).build();
     }
 
-    @GetMapping("/filtros/mobile")
+    @PostMapping("/filtros/mobile")
     @CrossOrigin
     public ResponseEntity getVagasFiltradas(@RequestBody List<Tag> lista) {
         List<Vaga> vagas = new ArrayList<Vaga>();
@@ -53,7 +53,9 @@ public class TagVagaController
         for (Tag tag: lista) {
             List<TagVaga> tagVagaList = tagVagaRepository.findByFkTagNome(tag.getNome());
             for (TagVaga tagVaga: tagVagaList) {
-                vagas.add(tagVaga.getFkVaga());
+                if (!vagas.contains(tagVaga.getFkVaga())) {
+                    vagas.add(tagVaga.getFkVaga());
+                }
             }
         }
 
