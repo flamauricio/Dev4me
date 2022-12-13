@@ -373,4 +373,22 @@ public class UsuarioController {
 
         return status(201).build();
     }
+
+    @GetMapping("/filter/android")
+    @CrossOrigin
+    public ResponseEntity getFilteredUsers(@RequestBody List<Tag> tags) {
+        List<Usuario> userList = new ArrayList<Usuario>();
+        List<TagUsuario> tagsUsuarios = null;
+
+        for (Tag tag : tags) {
+            tagsUsuarios = tagUsuarioRepository.findByFkTagNome(tag.getNome());
+            for (TagUsuario tu : tagsUsuarios) {
+                if (!userList.contains(tu.getFkUsuario())) {
+                    userList.add(tu.getFkUsuario());
+                }
+            }
+        }
+
+        return status(200).body(userList);
+    }
 }
