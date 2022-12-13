@@ -109,55 +109,56 @@ function PerfilUsuario() {
 
     function plotarTags() {
         return tags.map((item) => {
+        
 
-            if (item === "javascript" ||
-                item === "node.js" ||
-                item === "react" ||
-                item === "react native" ||
-                item === "angular" ||
-                item === "vue.js" ||
-                item === "java" ||
-                item === "spring boot" ||
-                item === "kotlin" ||
-                item === "html" ||
-                item === "css" ||
-                item === "python" ||
-                item === "typescript" ||
-                item === "c" ||
-                item === "c++" ||
-                item === "c#" ||
+            if (item === "JavaScript" ||
+                item === "Node.js" ||
+                item === "React" ||
+                item === "React Native" ||
+                item === "Angular" ||
+                item === "Vue.Js" ||
+                item === "Java" ||
+                item === "Spring Boot" ||
+                item === "Kotlin" ||
+                item === "HTML" ||
+                item === "Python" ||
+                item === "C#" ||
                 item === "php"
             ) {
                 return <button className="tagDev">{item}</button>
             }
 
-            else if (item === "azure" ||
-                item === "aws" ||
-                item === "google cloud" ||
-                item === "oracle" ||
-                item === "mysql" ||
-                item === "mongoDB"
+            else if (item === "Azure" ||
+                item === "AWS" ||
+                item === "Google Cloud" ||
+                item === "Mysql" ||
+                item === "DyanamoDB" ||
+                item === "MongoDB"
             ) {
                 return <button className="tagPlatform">{item}</button>
             }
 
-            else if (item === "desenvolvedor" ||
-                item === "analista de sistemas" ||
-                item === "gestor" ||
-                item === "arquiteto de TI" ||
-                item === "arquiteto de cloud" ||
-                item === "dba" ||
-                item === "engenheiro de software" ||
-                item === "cientista de dados" ||
-                item === "analista de redes" ||
-                item === "front-end" ||
-                item === "back-end") {
+            else if (item === "Desenvolvedor" ||
+                item === "Analista de Sistemas" ||
+                item === "Gestor" ||
+                item === "Arquiteto de TI" ||
+                item === "Arquiteto Cloud" ||
+                item === "DBA" ||
+                item === "Engenheiro de Software" ||
+                item === "Cientista de Dados" ||
+                item === "Analista de dados" ||
+                item === "Fullstack" ||
+                item === "Front-end" ||
+                item === "Product Owner" ||
+                item === "Back-end") {
                 return <button className="tagArea">{item}</button>
             }
 
             else if (item === "agile" ||
-                item === "scrum" ||
-                item === "cascata"
+                item === "Scrum Master" ||
+                item === "Jira" ||
+                item === "Azure Devops" ||
+                item === "Scrum Master" 
             ) {
                 return <button className="tagBusyness">{item}</button>
             }
