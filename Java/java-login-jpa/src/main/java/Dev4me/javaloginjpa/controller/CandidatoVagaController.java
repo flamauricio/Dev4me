@@ -66,6 +66,6 @@ public class CandidatoVagaController
     @GetMapping("/{idEmpresa}")
     @CrossOrigin
     public ResponseEntity<List<CandidatoVaga>> getVagasCandidatosById(@PathVariable Integer idEmpresa) {
-        return status(200).body(candidatoVagaRepository.getVagasCandidatosById(Integer.valueOf(idEmpresa)));
+        return status(200).body(candidatoVagaRepository.getVagasCandidatosById((idEmpresa)));
     }
 }
