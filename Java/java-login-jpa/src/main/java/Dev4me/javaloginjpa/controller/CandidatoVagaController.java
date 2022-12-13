@@ -6,6 +6,7 @@ import Dev4me.javaloginjpa.entity.Vaga;
 import Dev4me.javaloginjpa.repository.CandidatoVagaRepository;
 import Dev4me.javaloginjpa.repository.UsuarioRepository;
 import Dev4me.javaloginjpa.repository.VagaRepository;
+import Dev4me.javaloginjpa.response.UsuarioSimplesResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -60,5 +61,11 @@ public class CandidatoVagaController
         candidatoVagaRepository.save(cv);
 
         return status(201).build();
+    }
+
+    @GetMapping("/{idEmpresa}")
+    @CrossOrigin
+    public ResponseEntity<List<CandidatoVaga>> getVagasCandidatosById(@PathVariable Integer idEmpresa) {
+        return status(200).body(candidatoVagaRepository.getVagasCandidatosById(Integer.valueOf(idEmpresa)));
     }
 }
