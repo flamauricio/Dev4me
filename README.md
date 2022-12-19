@@ -17,5 +17,5 @@ Grupo 2 ADS B
 - Guilherme de Carvalho
 - Flavio Mauricio
 - Breno de Freitas
-- Pedro de Souza
+- Pedro Santos
 - Karoll Araujo
