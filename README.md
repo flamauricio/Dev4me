@@ -1,7 +1,7 @@
 ![Alt text](Site/public/Logo-Dev4Me/logo-completo-degrade-dev4me.png "Logo")
 
 # Sobre 
-Projeto referente ao 3º semestre do curso de Analise e Desenvolvimento de Sistemas
+Projeto referente ao 3º e 4º semestre do curso de Analise e Desenvolvimento de Sistemas
 
 # Faculdade :school:
 SP Tech 
